@@ -1,9 +1,4 @@
 /* === global structure === */
-.container {
-  padding-right: 0;
-  padding-left: 0;
-}
-
 .footer {
   height: 30px;
   font-size: 0.8em;
@@ -37,7 +32,23 @@
   font-size: 1.5em;
 }
 
-/* items not to be displayed depending on user's login status */
+/* items not to be displayed depending on user's login status or screen size */
 .not-displayed {
   display: none;
+}
+
+@media screen AND (min-width: 992px) {
+  .nav-item {
+    font-size: 1.3em;
+    text-align: center;
+  }
+
+  .nav__greeting-user {
+    margin-right: 1em;
+    text-align: center;
+  }
+
+  .play-button {
+    width: 100%;
+  }
 }
