@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\RandomEventRepository")
@@ -24,26 +25,31 @@ class RandomEvent
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("chapter")
      */
     private $rollFrom;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("chapter")
      */
     private $rollTo;
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * @Groups("chapter")
      */
     private $mainText;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups("chapter")
      */
     private $image;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("chapter")
      */
     private $type;
 

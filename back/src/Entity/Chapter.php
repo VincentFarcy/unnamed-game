@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -20,26 +21,31 @@ class Chapter
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("chapter")
      */
     private $title;
 
     /**
      * @ORM\Column(type="text")
+     * @Groups("chapter")
      */
     private $mainText;
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * @Groups("chapter")
      */
     private $endText;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups("chapter")
      */
     private $image;
 
     /**
      * @ORM\Column(type="integer", unique=true)
+     * @Groups("chapter")
      */
     private $orderBy;
 
@@ -55,16 +61,19 @@ class Chapter
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Sequence", mappedBy="chapter", orphanRemoval=true)
+     * @Groups("chapter")
      */
     private $sequences;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\RandomEvent", mappedBy="chapter", orphanRemoval=true)
+     * @Groups("chapter")
      */
     private $randomEvents;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\RandomFightContest", mappedBy="chapter", orphanRemoval=true)
+     * @Groups("chapter")
      */
     private $randomFightContests;
 

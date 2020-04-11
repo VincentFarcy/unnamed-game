@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\GameParameterRepository")
@@ -18,11 +19,13 @@ class GameParameter
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("game-parameter")
      */
     private $label;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("game-parameter")
      */
     private $value;
 

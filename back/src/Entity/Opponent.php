@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\OpponentRepository")
@@ -15,36 +16,43 @@ class Opponent
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups({"chapter", "opponent"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("opponent")
      */
     private $name;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("opponent")
      */
     private $speed = 0;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("opponent")
      */
     private $touch = 0;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("opponent")
      */
     private $dodge = 0;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("opponent")
      */
     private $armor = 0;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("opponent")
      */
     private $health;
 
@@ -55,26 +63,31 @@ class Opponent
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("opponent")
      */
     private $damageMin;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("opponent")
      */
     private $damageMax;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("opponent")
      */
     private $xpGain = 0;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("opponent")
      */
     private $moneyGain = 0;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups("opponent")
      */
     private $image;
 
