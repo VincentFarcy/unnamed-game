@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\BackupRepository")
@@ -19,62 +20,74 @@ class Backup
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Sequence", inversedBy="backups")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups("backup")
      */
     private $sequence;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Hero", inversedBy="backups")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups("backup")
      */
     private $hero;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("backup")
      */
     private $name;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     * @Groups("backup")
      */
     private $score;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("backup")
      */
     private $strength;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("backup")
      */
     private $agility;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("backup")
      */
     private $constitution;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("backup")
      */
     private $will;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("backup")
      */
     private $intelligence;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("backup")
      */
     private $health;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("backup")
      */
     private $xp;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("backup")
      */
     private $money;
 

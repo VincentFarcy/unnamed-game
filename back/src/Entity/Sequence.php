@@ -16,6 +16,7 @@ class Sequence
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups({"chapter", "backup"})
      */
     private $id;
 
