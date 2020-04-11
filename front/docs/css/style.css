@@ -9,9 +9,13 @@
   justify-content: center;
 }
 
-.main {
-  background-color: burlywood;
-  height: calc(100vh - 56px - 30px);
+/* .main {
+  height: calc(100vh);
+} */
+
+/* items not to be displayed depending on user's login status or screen size */
+.not-displayed {
+  display: none;
 }
 
 /* === Header === */
@@ -37,7 +41,51 @@
   display: none;
 }
 
+/* === Main === */
+.start-game {
+  height: 300px;
+  background: url('https://cdn.pixabay.com/photo/2016/09/16/17/10/science-fiction-1674554_960_720.jpg') top;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.start-game__btn {
+  color: #FFF;
+  font-size: 4em;
+}
+
+.introduction,
+.public-warning {
+  margin: 2em;
+  padding: 1em;
+  border: 1px solid #000;
+  text-align: justify;
+  background: #EAEAEA;
+}
+
+.introduction__title {
+  margin-bottom: 0.5em;
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.public-warning__title {
+  margin-bottom: 0.5em;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.introduction__content,
+.public-warning__content {
+  line-height: 1.4em;
+}
+
+/* === large screen === */
 @media screen AND (min-width: 992px) {
+  /* == Header == */
   .nav-item {
     font-size: 1.3em;
     text-align: center;
