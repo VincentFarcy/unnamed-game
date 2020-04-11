@@ -1,12 +1,7 @@
-/* global structure */
+/* === global structure === */
 .container {
   padding-right: 0;
   padding-left: 0;
-}
-
-.header {
-  background-color: blanchedalmond;
-  height: 50px;
 }
 
 .footer {
@@ -21,11 +16,28 @@
 
 .main {
   background-color: burlywood;
-  height: calc(100vh - 50px - 30px);
+  height: calc(100vh - 56px - 30px);
 }
 
-/* to prevent scrollbar display */
-.main::-webkit-scrollbar {
-  width: 0;
-  height: 0;
+/* === Header === */
+.play-button {
+  font-size: 1.3em;
+  text-transform: uppercase;
+  padding: 0.1em;
+  width: 50%;
+}
+
+.nav__connected-user {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__greeting-user {
+  font-size: 1.5em;
+}
+
+/* items not to be displayed depending on user's login status */
+.not-displayed {
+  display: none;
 }
