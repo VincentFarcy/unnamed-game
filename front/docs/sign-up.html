@@ -49,17 +49,23 @@
 	    </header>
 	  
       <main class="main">
-        <form class="form">
-		    	<h2 class="form__title">Connectez-vous</h2>
-          <div class="field field--has-content">
-            <input id="field-email" class="field__input" type="email" placeholder="Votre e-mail" name="email" value="mymail@gmail.com">
-            <label for="field-email" class="field__label">Votre e-mail</label>
+        <div class="main__form">
+          <h2 class="form__title">Connectez-vous</h2>
+          <form class="form">
+            <div class="field field--has-content">
+              <input id="field-email" class="field__input" type="email" placeholder="Votre e-mail" name="email" value="mymail@gmail.com">
+              <label for="field-email" class="field__label">Votre e-mail</label>
+            </div>
+            <div class="field">
+              <input id="field-password" class="field__input" type="password" placeholder="Votre password" name="password">
+              <label for="field-password" class="field__label">Votre mot de passe</label>
+            </div>
+            <button class="form__button" type="submit">Connexion</button>
+          </form>
+          <div class="forgotten-password">
+            <a href="#">Mot de passe oublié</a>
           </div>
-          <div class="field">
-			      <input id="field-password" class="field__input" type="password" placeholder="Votre password" name="password">
-			      <label for="field-password" class="field__label">Votre mot de passe</label>
-          </div>
-        </form>
+        </div>
       </main>
 	  
       <footer class="footer">
