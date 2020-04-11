@@ -27,19 +27,25 @@ class ApiController extends AbstractController
         BackupRepository $backupRepository,
         SerializerInterface $serializer)
     {
-
-        // Extract all the datas needed for starting the game from scratch 
-        // or from a backup of the connected user
-
+        // Extract all the datas needed for starting the game from scratch :
         $chapters = $chapterRepository->findBy([], ['orderBy' => 'ASC']);
         $opponents = $opponentRepository->findAll();
         $contentParameters = $contentParameterRepository->findAll();
         $gameParameters = $gameParameterRepository->findAll();
-        $backups = $backupRepository->findAll();
 
-        // Send to the front at json format after use of doctrine serializer groups
+        // or from a backup of the connected user :
+        $user = $this->GetUser();
+        if ($user) {
+            $backups = $backupRepository->findByUser($user->getId());
+        }
 
+        // Send to the front at json format after use of doctrine serializer groups :
         return $this->json([
+            'user' => 
+                $serializer->normalize(
+                    $user,
+                    null, ['groups' => ['user']]
+                    ), 
             'chapters' => 
                 $serializer->normalize(
                     $chapters,
