@@ -99,4 +99,11 @@
   .play-button {
     width: 100%;
   }
+
+  /* == Main == */
+  .introduction,
+  .public-warning {
+    width: 70%;
+    margin: 2em auto;
+  }
 }
