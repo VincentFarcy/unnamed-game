@@ -31,7 +31,7 @@ class ApiController extends AbstractController
         // Extract all the datas needed for starting the game from scratch 
         // or from a backup of the connected user
 
-        $chapters = $chapterRepository->findAll();
+        $chapters = $chapterRepository->findBy([], ['orderBy' => 'ASC']);
         $opponents = $opponentRepository->findAll();
         $contentParameters = $contentParameterRepository->findAll();
         $gameParameters = $gameParameterRepository->findAll();

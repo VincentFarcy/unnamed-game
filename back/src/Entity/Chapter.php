@@ -61,18 +61,21 @@ class Chapter
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Sequence", mappedBy="chapter", orphanRemoval=true)
+     * @ORM\OrderBy({"orderBy" = "ASC"})
      * @Groups("chapter")
      */
     private $sequences;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\RandomEvent", mappedBy="chapter", orphanRemoval=true)
+     * @ORM\OrderBy({"rollFrom" = "ASC"})
      * @Groups("chapter")
      */
     private $randomEvents;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\RandomFightContest", mappedBy="chapter", orphanRemoval=true)
+     * @ORM\OrderBy({"rollFrom" = "ASC"})
      * @Groups("chapter")
      */
     private $randomFightContests;
