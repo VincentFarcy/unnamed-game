@@ -17,8 +17,8 @@
       <header class="header">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <a class="navbar-brand" href="#">
-          <img class="not-displayed" src="https://via.placeholder.com/30" alt="logo">
-          <img src="https://via.placeholder.com/70" alt="logo">
+          <img src="https://via.placeholder.com/30" alt="logo">
+          <img class="not-displayed" src="https://via.placeholder.com/70" alt="logo">
           </a>
 		      <a class="btn btn-outline-dark play-button d-lg-none" href="#">Jouer</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,7 +34,7 @@
             <div class="auth">
               <div class="nav__anonymous-user">
                 <div class="btn-group d-flex" role="group" aria-label="Basic example">
-                  <a class="btn btn-outline-dark" href="./sign-up.html" role="button">S'inscrire</a>
+                  <a class="btn btn-outline-dark" href="#" role="button">S'inscrire</a>
                   <a class="btn btn-outline-dark flex-grow-1" href="#" role="button">Se connecter</a>
                 </div>
               </div>
@@ -49,17 +49,17 @@
 	    </header>
 	  
       <main class="main">
-        <section class="start-game">
-          <a class="start-game__btn" href="#">Jouer</a>
-        </section>
-        <section class="introduction">
-          <h1 class="introduction__title">Unnamed Game</h1>
-          <p class="introduction__content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo dignissimos, voluptatibus distinctio recusandae incidunt eligendi quas itaque maxime modi ut quia vitae omnis eum perferendis provident magni id aliquid consequuntur deleniti? Soluta vel quis facere suscipit mollitia ea quam consequuntur itaque. Voluptate, ducimus ratione dolores quae deleniti aut pariatur commodi expedita officia nemo eveniet, debitis, corporis asperiores. Dignissimos eligendi nemo nulla? Quasi quibusdam dignissimos optio laboriosam, iste consequuntur quisquam laborum, ullam sunt rem minus autem nostrum doloribus dolores atque voluptas. At corporis illo reiciendis ut odit, totam natus suscipit nobis, veniam itaque iste sed voluptatum tempore dolor, quo fuga consequuntur harum ipsam.</p>
-        </section>
-        <section class="public-warning">
-          <h2 class="public-warning__title">Avertissement au public</h2>
-          <p class="public-warning__content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo dignissimos, voluptatibus distinctio recusandae incidunt eligendi quas itaque maxime modi ut quia vitae omnis eum perferendis provident magni id aliquid consequuntur deleniti.</p>
-        </section>
+        <form class="form">
+		    	<h2 class="form__title">Connectez-vous</h2>
+          <div class="field field--has-content">
+            <input id="field-email" class="field__input" type="email" placeholder="Votre e-mail" name="email" value="mymail@gmail.com">
+            <label for="field-email" class="field__label">Votre e-mail</label>
+          </div>
+          <div class="field">
+			      <input id="field-password" class="field__input" type="password" placeholder="Votre password" name="password">
+			      <label for="field-password" class="field__label">Votre mot de passe</label>
+          </div>
+        </form>
       </main>
 	  
       <footer class="footer">
