@@ -8,8 +8,17 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Serializer\Annotation\Groups;
 
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+
+
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ * @UniqueEntity(
+ *     fields={"email", "pseudo"},
+ *     errorPath="email",
+ *     message="Cet email est déjà utilisé."
+ * )
  */
 class User implements UserInterface
 {
@@ -23,8 +32,24 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=180, unique=true)
      * @Groups("user")
+     * @Assert\Email(
+     *     message = "L'email '{{ value }}' est invalide."
+     * )
      */
     private $email;
+
+    /**
+     * @ORM\Column(type="string", length=255, unique=true)
+     * @Groups("user")
+     * @Assert\Length(
+     *      min = 3,
+     *      max = 20,
+     *      minMessage = "Le pseudo doit faire au moins {{ limit }} caractères",
+     *      maxMessage = "Le pseudo doit faire au plus {{ limit }} caractères",
+     *      allowEmptyString = false
+     * )
+     */
+    private $pseudo;
 
     /**
      * @ORM\Column(type="json")
@@ -51,6 +76,7 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="boolean")
      * @Groups("user")
+     * @Assert\IsTrue(message="La validation d'âge n'est pas effectuée.")
      */
     private $ageChecked;
 
@@ -58,12 +84,6 @@ class User implements UserInterface
      * @ORM\OneToMany(targetEntity="App\Entity\Hero", mappedBy="user", orphanRemoval=true)
      */
     private $heroes;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     * @Groups("user")
-     */
-    private $pseudo;
 
     public function __construct()
     {

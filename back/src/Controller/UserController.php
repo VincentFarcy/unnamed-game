@@ -11,6 +11,8 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Serializer\SerializerInterface;
 
+use Symfony\Component\Validator\Validator\ValidatorInterface;
+
 /**
  * @Route("/api/user/", name="api_user_")
  */
@@ -58,12 +60,24 @@ class UserController extends AbstractController
             return $this->json(
                 [
                    "message" => "Edit user error : no data received",
-               ],
-               JsonResponse::HTTP_BAD_REQUEST
+                ],
+                JsonResponse::HTTP_BAD_REQUEST
            );
         }
 
-        // Update user data in DB for sent data
+        // check user pseudo format
+        if (strlen($pseudo) < 3 || strlen($pseudo) > 20) {
+            
+            // error 400
+            return $this->json(
+                [
+                    "message" => "pseudo invalide",
+                ],
+                JsonResponse::HTTP_BAD_REQUEST
+            );
+        }
+
+        // Update user data in DB
         if (isset($pseudo)) {
             $user->setPseudo($pseudo);
         }
@@ -87,7 +101,8 @@ class UserController extends AbstractController
         Request $request,
         EntityManagerInterface $em,
         SerializerInterface $serializer,
-        UserPasswordEncoderInterface $passwordEncoder)
+        UserPasswordEncoderInterface $passwordEncoder,
+        ValidatorInterface $validator)
     {
         // Get data from client request
         $content = $request->getContent();
@@ -96,7 +111,7 @@ class UserController extends AbstractController
         // extract array into distinct variables
         extract($data);
 
-        // check of required data
+        // check required data
         if (    !isset($email)
             ||  !isset($pseudo)
             ||  !isset($password)
@@ -112,29 +127,48 @@ class UserController extends AbstractController
             );
         }
 
-        // check age confirmation
-        if (!$ageChecked) {
-            // error 400
-            return $this->json(
-                 [
-                    "message" => "add user error : age confirmation missing",
-                    "data" => $data
-                ],
-                JsonResponse::HTTP_BAD_REQUEST
-            );
-        }
-
         // Create a new user ()
         $user = new User();
 
-        // Add user data in DB with encoded password
-        $encodedPassword = $passwordEncoder->encodePassword($user, $password);
+        // Prepare user data for validation in DB with encoded password
         $user
             ->setEmail($email)
             ->setPseudo($pseudo)
-            ->setRoles(["ROLE_USER"])
-            ->setPassword($encodedPassword)
             ->setAgeChecked($ageChecked);
+
+        // Catch constraints validation error in array $errorMessages
+        $errors = $validator->validate($user);
+        $errorMessages = [];
+        if (count($errors) > 0) {
+            foreach ($errors as $error){
+                $errorMessages[] = $error->getMessage();
+            }
+        }
+
+        // check not encoded password
+        if (!preg_match("/^(?=.{8,}$)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).*$/", $password)) {
+            $passwordErrorMessage = "Le mot de passe doit contenir au moins une majuscule, une minuscule, un chiffre, ";
+            $passwordErrorMessage.= "un caractère spécial, et faire au moins 8 caractères."; 
+            $errorMessages[] = $passwordErrorMessage;
+        }
+
+        // Error encountered
+        if (count($errorMessages) > 0) {
+            // error 400
+            return $this->json(
+                [
+                   "errorMessages" => $errorMessages,
+                   "data" => $data
+               ],
+               JsonResponse::HTTP_BAD_REQUEST
+           );
+        }
+        // Add user data in DB with encoded password
+        $encodedPassword = $passwordEncoder->encodePassword($user, $password);
+        $user
+            ->setRoles(["ROLE_USER"])
+            ->setPassword($encodedPassword);
+
         $em->persist($user);
         $em->flush();
 
