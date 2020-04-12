@@ -25,7 +25,7 @@ security:
                 failure_handler:          lexik_jwt_authentication.handler.authentication_failure
 
         open:
-            pattern:   ^/api/(game/load|user/register)
+            pattern:   ^/api/(game/load|user/add)
             anonymous: lazy
 
         api:
