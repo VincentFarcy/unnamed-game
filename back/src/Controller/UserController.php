@@ -51,7 +51,7 @@ class UserController extends AbstractController
         $user = $this->GetUser();
 
         // Check sended data
-        if (!isset($username)) {
+        if (!isset($pseudo)) {
             // error 400
             return $this->json(
                 [
@@ -62,8 +62,8 @@ class UserController extends AbstractController
         }
 
         // Update user data in DB for sent data
-        if (isset($username)) {
-            $user->setUsername($username);
+        if (isset($pseudo)) {
+            $user->setPseudo($pseudo);
         }
         $user->setUpdatedAt(new \DateTime());
         $em->persist($user);

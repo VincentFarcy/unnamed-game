@@ -41,10 +41,7 @@ class GameController extends AbstractController
 
         // or from a backup of the connected user :
         $user = $this->GetUser();
-<<<<<<< HEAD
         $backups = [];
-=======
->>>>>>> 53c6f56492b898ce292c659cbf25fc6fe627f8d2
         if ($user) {
             $backups = $backupRepository->findByUser($user->getId());
         }
@@ -55,65 +52,37 @@ class GameController extends AbstractController
                 $serializer->normalize(
                     $user,
                     null, ['groups' => ['user']]
-<<<<<<< HEAD
                 ), 
-=======
-                    ), 
->>>>>>> 53c6f56492b898ce292c659cbf25fc6fe627f8d2
             'chapters' => 
                 $serializer->normalize(
                     $chapters,
                     null, ['groups' => ['chapter']]
-<<<<<<< HEAD
                 ), 
-=======
-                    ), 
->>>>>>> 53c6f56492b898ce292c659cbf25fc6fe627f8d2
             'opponents' => 
                 $serializer->normalize(
                     $opponents,
                     null, ['groups' => ['opponent']]
-<<<<<<< HEAD
                 ), 
-=======
-                    ), 
->>>>>>> 53c6f56492b898ce292c659cbf25fc6fe627f8d2
             'content-parameters' => 
                 $serializer->normalize(
                     $contentParameters,
                     null, ['groups' => ['content-parameter']]
-<<<<<<< HEAD
                 ), 
-=======
-                    ), 
->>>>>>> 53c6f56492b898ce292c659cbf25fc6fe627f8d2
             'game-parameters' => 
                 $serializer->normalize(
                     $gameParameters,
                     null, ['groups' => ['game-parameter']]
-<<<<<<< HEAD
                 ), 
-=======
-                    ), 
->>>>>>> 53c6f56492b898ce292c659cbf25fc6fe627f8d2
             'backups' => 
                 $serializer->normalize(
                     $backups,
                     null, ['groups' => ['backup']]
-<<<<<<< HEAD
                 ), 
-=======
-                    ), 
->>>>>>> 53c6f56492b898ce292c659cbf25fc6fe627f8d2
         ]);
     }
 
     /**
-<<<<<<< HEAD
      * @Route("backup", name="backup", methods={"POST"})
-=======
-     * @Route("backup", name="backup", methods={"PUT"})
->>>>>>> 53c6f56492b898ce292c659cbf25fc6fe627f8d2
      */
     public function backup(
         Request $request,
@@ -201,9 +170,5 @@ class GameController extends AbstractController
         return $this->json(
             ["message" => "backup ok"]
         );
-<<<<<<< HEAD
-=======
-
->>>>>>> 53c6f56492b898ce292c659cbf25fc6fe627f8d2
     }
 }
