@@ -93,6 +93,7 @@ class Backup
 
     /**
      * @ORM\Column(type="datetime")
+     * @Groups("backup")
      */
     private $createdAt;
 

@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Backup;
+use App\Entity\Hero;
 use App\Repository\BackupRepository;
 use App\Repository\ChapterRepository;
 use App\Repository\ContentParameterRepository;
@@ -88,8 +89,15 @@ class GameController extends AbstractController
         Request $request,
         HeroRepository $heroRepository,
         SequenceRepository $sequenceRepository,
-        EntityManagerInterface $em)
+        EntityManagerInterface $em,
+        SerializerInterface $serializer)
     {
+        // Connected User
+        $user = $this->GetUser();
+
+        // Array of existing heroes for the connected user
+        $userHeroes = $user->getHeroes()->toArray();
+
         // Get data from client request
         $content = $request->getContent();
         // json to array
@@ -97,9 +105,14 @@ class GameController extends AbstractController
         // extract array into distinct variables
         extract($data);
 
+        //init error message
+        $requestErrorMessage = "";
+
         // check of required data
         if (    !isset($sequenceId)
-            ||  !isset($heroId)
+            ||  !isset($hero)
+            ||  !isset($hero["name"])
+            ||  !isset($hero["gender"])
             ||  !isset($name)
             ||  !isset($strength)
             ||  !isset($agility)
@@ -107,17 +120,14 @@ class GameController extends AbstractController
             ||  !isset($will)
             ||  !isset($intelligence)
             ||  !isset($health)
-            ||  !isset($xp)
             ||  !isset($money)
+            ||  !isset($xp)
         ) {
-
             // error 400
-            return $this->json(
-                 [
-                    "message" => "backup error : incomplete data",
-                    "data" => $data
-                ],
-                JsonResponse::HTTP_BAD_REQUEST
+            return $this->json([
+                   "message" => "backup error : missing data",
+                   "data" => $data],
+               JsonResponse::HTTP_BAD_REQUEST
             );
         }
 
@@ -126,27 +136,84 @@ class GameController extends AbstractController
         if (!isset($sequence)) {
 
             // error 400
-            return $this->json(
-                [
-                   "message" => "backup error : sequence " . $sequenceId . " unknown",
-                   "data" => $data
-               ],
-               JsonResponse::HTTP_BAD_REQUEST
+            return $this->json([
+                    "message" => "backup error : sequence " . $sequenceId . " unknown",
+                    "data" => $data],
+                JsonResponse::HTTP_BAD_REQUEST
             );
         }
 
-        // check hero object
-        $hero = $heroRepository->find($heroId);
-        if (!isset($hero)) {
+        // check backup name format
+        if (strlen($name) < 3 || strlen($name) > 100) {
 
             // error 400
-            return $this->json(
-                [
-                   "message" => "backup error : hero " . $heroId . " unknown",
-                   "data" => $data
-               ],
-               JsonResponse::HTTP_BAD_REQUEST
+            return $this->json([
+                    "message" => "backup error : nom de la sauvegarde invalide",
+                    "data" => $data],
+                JsonResponse::HTTP_BAD_REQUEST
             );
+        }
+
+        // If hero has an id : check with existing ones in DB
+        if (isset($hero["id"])) {
+
+            // Instance of sent hero
+            $hero = $heroRepository->find($hero["id"]);
+
+            // Hero not found
+            if (    count($userHeroes) == 0 
+                ||  !in_array($hero, $userHeroes)) {
+                // error 400
+                return $this->json([
+                        "message" => "backup error : hero non trouvé, sauvegarde impossible",
+                        "data" => $data],
+                    JsonResponse::HTTP_BAD_REQUEST
+                );     
+            }       
+
+        // If no hero has been sent : create new hero
+        } else {
+
+            // error : existing hero but not sent
+            if (count($userHeroes) > 0) {
+                // error 400
+                return $this->json([
+                        "message" => "backup error : héro non transmis, sauvegarde impossible",
+                        "data" => $data],
+                    JsonResponse::HTTP_BAD_REQUEST
+                );   
+            }  
+
+            // check hero data format
+            if (strlen($hero["name"]) < 3 || strlen($hero["name"]) > 20) {
+                
+                // error 400
+                return $this->json([
+                        "message" => "backup error : nom du héro invalide",
+                        "data" => $data],
+                    JsonResponse::HTTP_BAD_REQUEST
+                );
+            }
+            if (!in_array($hero["gender"], ["m", "f"]))  {
+
+                // error 400
+                return $this->json([
+                        "message" => "backup error : genre du héro invalide",
+                        "data" => $data],
+                    JsonResponse::HTTP_BAD_REQUEST
+                );
+            }
+
+            // add hero in DB
+            $newHero = new Hero();
+            $newHero
+                ->setUser($user)
+                ->setName($hero["name"])
+                ->setGender($hero["gender"]);
+            $em->persist($newHero);
+
+            // prepare hero for add backup in DB
+            $hero = $newHero;
         }
 
         // Create backup in DB
@@ -161,14 +228,31 @@ class GameController extends AbstractController
             ->setWill($will)
             ->setIntelligence($intelligence)
             ->setHealth($health)
-            ->setXp($xp)
-            ->setMoney($money);
+            ->setMoney($money)
+            ->setXp($xp);
+        // Not required data
+        if (isset($score)) {
+            $backup->setScore($score);
+        }
         $em->persist($backup);
         $em->flush();
 
-        // Success message
+        // Success message and send all the backups of the user
+        $em->refresh($hero);
         return $this->json(
-            ["message" => "backup ok"]
+            [
+                'message' => 'backup ok',
+                'hero' => 
+                    $serializer->normalize(
+                        $hero,
+                        null, ['groups' => ['backup']]
+                    ), 
+                'backups' => 
+                    $serializer->normalize(
+                        $hero->getBackups(),
+                        null, ['groups' => ['backup']]
+                    ), 
+            ]
         );
     }
 }
