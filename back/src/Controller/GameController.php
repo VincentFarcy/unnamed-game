@@ -52,37 +52,37 @@ class GameController extends AbstractController
                 $serializer->normalize(
                     $user,
                     null, ['groups' => ['user']]
-                    ), 
+                ), 
             'chapters' => 
                 $serializer->normalize(
                     $chapters,
                     null, ['groups' => ['chapter']]
-                    ), 
+                ), 
             'opponents' => 
                 $serializer->normalize(
                     $opponents,
                     null, ['groups' => ['opponent']]
-                    ), 
+                ), 
             'content-parameters' => 
                 $serializer->normalize(
                     $contentParameters,
                     null, ['groups' => ['content-parameter']]
-                    ), 
+                ), 
             'game-parameters' => 
                 $serializer->normalize(
                     $gameParameters,
                     null, ['groups' => ['game-parameter']]
-                    ), 
+                ), 
             'backups' => 
                 $serializer->normalize(
                     $backups,
                     null, ['groups' => ['backup']]
-                    ), 
+                ), 
         ]);
     }
 
     /**
-     * @Route("backup", name="backup", methods={"PUT"})
+     * @Route("backup", name="backup", methods={"POST"})
      */
     public function backup(
         Request $request,
