@@ -16,6 +16,7 @@ class Hero
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups("backup")
      */
     private $id;
 
