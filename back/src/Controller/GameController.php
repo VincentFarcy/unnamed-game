@@ -41,6 +41,7 @@ class GameController extends AbstractController
 
         // or from a backup of the connected user :
         $user = $this->GetUser();
+        $backups = [];
         if ($user) {
             $backups = $backupRepository->findByUser($user->getId());
         }
