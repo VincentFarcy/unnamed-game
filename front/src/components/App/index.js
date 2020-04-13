@@ -7,13 +7,17 @@ import reactLogo from './react-logo.svg';
 import './styles.scss';
 import TestButton from '../../containers/TestButton';
 
+// == test base API Uri constant in a config file
+import { BASE_API_URI } from '../../app.config';
+console.log(BASE_API_URI);
 
 // == code Vincent
 let token;
 // LOGIN ----------------
 axios({
   method: 'post',
-  url: 'https://localhost:8001/api/login_check',
+  url: `${BASE_API_URI}/api/login_check`,
+  // url: 'https://localhost:8001/api/login_check',
   withCredentials: true,
   data: {
     username: 'bob@o.o',
@@ -26,7 +30,8 @@ axios({
     // BROWSE --------------
     axios({
       method: 'get',
-      url: 'https://localhost:8001/api/browse',
+      url: `${baseApiUri}/api/browse`,
+      // url: 'https://localhost:8001/api/browse',
       withCredentials: true,
       headers: {
         Authorization: `Bearer ${token}`,
