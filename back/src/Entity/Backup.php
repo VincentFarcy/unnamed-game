@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\BackupRepository")
@@ -34,6 +35,13 @@ class Backup
     /**
      * @ORM\Column(type="string", length=255)
      * @Groups("backup")
+     * @Assert\Length(
+     *      min = 3,
+     *      max = 100,
+     *      minMessage = "Le nom de la sauvegarde doit faire au moins {{ limit }} caractères",
+     *      maxMessage = "Le nom de la sauvegarde doit faire au plus {{ limit }} caractères",
+     *      allowEmptyString = false
+     * )
      */
     private $name;
 

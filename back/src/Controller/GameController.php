@@ -17,6 +17,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\SerializerInterface;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 /**
  * @Route("/api/game/", name="api_game_")
@@ -90,7 +91,8 @@ class GameController extends AbstractController
         HeroRepository $heroRepository,
         SequenceRepository $sequenceRepository,
         EntityManagerInterface $em,
-        SerializerInterface $serializer)
+        SerializerInterface $serializer,
+        ValidatorInterface $validator)
     {
         // Connected User
         $user = $this->GetUser();
@@ -103,10 +105,8 @@ class GameController extends AbstractController
         // json to array
         $data = json_decode($content, true);
         // extract array into distinct variables
-        extract($data);
 
-        //init error message
-        $requestErrorMessage = "";
+        extract($data);
 
         // check of required data
         if (    !isset($sequenceId)
@@ -143,17 +143,6 @@ class GameController extends AbstractController
             );
         }
 
-        // check backup name format
-        if (strlen($name) < 3 || strlen($name) > 100) {
-
-            // error 400
-            return $this->json([
-                    "message" => "backup error : nom de la sauvegarde invalide",
-                    "data" => $data],
-                JsonResponse::HTTP_BAD_REQUEST
-            );
-        }
-
         // If hero has an id : check with existing ones in DB
         if (isset($hero["id"])) {
 
@@ -184,39 +173,41 @@ class GameController extends AbstractController
                 );   
             }  
 
-            // check hero data format
-            if (strlen($hero["name"]) < 3 || strlen($hero["name"]) > 20) {
-                
-                // error 400
-                return $this->json([
-                        "message" => "backup error : nom du héro invalide",
-                        "data" => $data],
-                    JsonResponse::HTTP_BAD_REQUEST
-                );
-            }
-            if (!in_array($hero["gender"], ["m", "f"]))  {
-
-                // error 400
-                return $this->json([
-                        "message" => "backup error : genre du héro invalide",
-                        "data" => $data],
-                    JsonResponse::HTTP_BAD_REQUEST
-                );
-            }
-
-            // add hero in DB
+            // prepare hero before add in DB
             $newHero = new Hero();
             $newHero
                 ->setUser($user)
                 ->setName($hero["name"])
                 ->setGender($hero["gender"]);
-            $em->persist($newHero);
 
-            // prepare hero for add backup in DB
+            // Catch constraints validation error in array $errorMessages
+            $errors = $validator->validate($newHero);
+            $errorMessages = [];
+            if (count($errors) > 0) {
+                foreach ($errors as $error){
+                    $errorMessages[] = $error->getMessage();
+                }
+            }
+
+            // Error encountered
+            if (count($errorMessages) > 0) {
+                // error 400
+                return $this->json(
+                    [
+                    "errorMessages" => $errorMessages,
+                    "data" => $data
+                    ],
+                    JsonResponse::HTTP_BAD_REQUEST
+                );
+            }
+
+            // Hero data ok
+            $em->persist($newHero);
             $hero = $newHero;
         }
 
-        // Create backup in DB
+
+        // Prepare backup before add in DB
         $backup = new Backup();
         $backup
             ->setSequence($sequence)
@@ -234,10 +225,33 @@ class GameController extends AbstractController
         if (isset($score)) {
             $backup->setScore($score);
         }
+
+        // Catch constraints validation error in array $errorMessages
+        $errors = $validator->validate($backup);
+        $errorMessages = [];
+        if (count($errors) > 0) {
+            foreach ($errors as $error){
+                $errorMessages[] = $error->getMessage();
+            }
+        }
+
+        // Error encountered
+        if (count($errorMessages) > 0) {
+            // error 400
+            return $this->json(
+                [
+                   "errorMessages" => $errorMessages,
+                   "data" => $data
+                ],
+                JsonResponse::HTTP_BAD_REQUEST
+           );
+        }
+
+        //Add in DB
         $em->persist($backup);
         $em->flush();
 
-        // Success message and send all the backups of the user
+        // Success message and send the hero and all the backups of the user
         $em->refresh($hero);
         return $this->json(
             [
@@ -252,7 +266,8 @@ class GameController extends AbstractController
                         $hero->getBackups(),
                         null, ['groups' => ['backup']]
                     ), 
-            ]
+            ],
+            JsonResponse::HTTP_CREATED
         );
     }
 }

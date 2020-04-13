@@ -10,7 +10,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Serializer\SerializerInterface;
-
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 /**
@@ -133,7 +132,7 @@ class UserController extends AbstractController
         // Prepare user data for validation in DB with encoded password
         $user
             ->setEmail($email)
-            ->setPseudo($pseudo)
+            ->setPseudo($data->pseudo)
             ->setAgeChecked($ageChecked);
 
         // Catch constraints validation error in array $errorMessages
@@ -159,8 +158,8 @@ class UserController extends AbstractController
                 [
                    "errorMessages" => $errorMessages,
                    "data" => $data
-               ],
-               JsonResponse::HTTP_BAD_REQUEST
+                ],
+                JsonResponse::HTTP_BAD_REQUEST
            );
         }
         // Add user data in DB with encoded password
@@ -173,13 +172,16 @@ class UserController extends AbstractController
         $em->flush();
 
         // Send new user data
-        return $this->json([
-            'user' => 
-                $serializer->normalize(
-                    $user,
-                    null, ['groups' => ['user']]
-                ), 
-        ]);
+        return $this->json(
+            [
+                'user' => 
+                    $serializer->normalize(
+                        $user,
+                        null, ['groups' => ['user']]
+                    ), 
+            ],
+            JsonResponse::HTTP_CREATED
+        );
     }
 
     /**
