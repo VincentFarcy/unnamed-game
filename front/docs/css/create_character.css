@@ -1,95 +1,168 @@
+/* === Logo === */
 .logo_min {
   width: 30px;
   height: 30px;
 }
 
-.main {
-justify-content: flex-start;
-background-color: rgba(0,0,0,0.6);
-border-radius: 15px;
-border: 2px solid rgba(0,0,250,0.3);
-width: 80%;
-max-width: 900px;
-margin: auto;
-box-shadow: inset 1em 4em rgba(0,0,250,0.15);
+.logo {
+  width: 70px;
+  height: 70px;
 }
 
-.ability_pool_container{
-  background-color: rgba(0,0,0,0.6);
-  margin: 2em 0;
+/* === Main === */
+.main {
+  justify-content: flex-start;
+  background: rgba(0,0,0,0.6);
+  border-radius: 15px;
+  border: 2px solid rgba(100,150,255,0.8);
+  width: 100%;
+  max-width: 900px;
+  min-width: 300px;
+  box-shadow: inset 1em 2em rgba(100,255,200,0.4);
+  color: white;
+}
+
+/* === Ability pool === */
+.ability_pool_container {
   align-self: center;
   width: 50%;
   max-width: 300px;
   min-width: 200px;
   font-size: 1.3em;
   font-weight: 700;
-  border: 0.5px solid  rgba(0,0,250,0.3);
   text-align: center;
   border-radius: 5px;
+  margin-top: 0.25em;
 }
 
+/* === Ability container === */
 .ability_container {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  width: 80%;
+  width: 100%;
   min-width: 300px;
   max-width: 450px;
-  margin-bottom: 2em;
-  align-self: center;
+  margin-top: 2em;
   font-size: 1.2em;
-}
-
-.ability, .ability_pool_text {
-  color: white;
+  align-items: center;
 }
 
 .ability_button{
   display: flex;
   margin: 0 1em;
   align-self: flex-start;
-  border-radius: 15px;
-  width: 25px;
+  width: 1.2em;
+  height: 1.2em;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  border: none;
 }
 
 .ability_value, .ability_pool_value {
   padding-left: 1em;
+  width: 5%;
+}
+
+.ability {
+  width: 40%;
+  padding-left: 1em;
 }
 
 .ability_image {
-  width: 1em;
-  height: 1em;
+  width: 1.2em;
+  height: 1.2em;
 }
 
+/* === Validate button === */
 .validate_button {
-width: 33%;
-max-width: 220px;
-min-width: 180px;
-align-self: center;
-margin-top: 2em;
-border-radius: 25px;
+  width: 25%;
+  max-width: 220px;
+  min-width: 140px;
+  align-self: center;
+  text-align: center;
+  margin-top: 2em;
+  border-radius: 25px;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  border: 2px solid  rgba(110,230,255,0.8);
 }
 
-/* === large screen === */
-@media screen AND (min-width: 992px) {
-  .ability_pool_container{
-    max-width: 750px;
-    font-size: 2.6em;
+/* === medium screen === */
+@media screen AND (min-width: 768px) {
+  .main {
+    box-shadow: inset 1em 3em rgba(100,255,200,0.4);
+    width: 80%;
+  }
+  .ability_pool_container {
+    font-size: 2em;
     border-radius: 5px;
   }
 
   .ability_container {
-    max-width: 750px;
+    min-width: 620px;
+    font-size: 2em;
+    margin: 1em auto 0 auto;
+  }
+
+  .ability_button {
+    width: 1.4em;
+    height: 1.4em;
+    border-radius: 50%;
+    align-self: center;
+  }
+  .ability_image {
+    width: 2em;
+    height: 2em;
+  }
+
+  .validate_button {
+    max-width: 500px;
+    font-size: 2em;
+    margin-top: 2em;
+  }
+}
+
+
+/* === large screen / desktop === */
+@media screen AND (min-width: 992px) {
+  .main {
+    box-shadow: inset 1em 4em rgba(100,255,200,0.4);
+  }
+
+  .ability_pool_container {
     font-size: 2.6em;
   }
 
-  .ability_button{
-  width: 50px;
-  border-radius: 50px;
-}
-.validate_button {
-  max-width: 500px;
-  font-size: 2.6em;
-  margin-top: 1em;
+  .ability_container {
+    min-width: 800px;
+    font-size: 2.6em;
+   }
+
+  .ability_button {
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    transition: all 0.5s;
+  }
+
+  .ability_button:hover{
+    background-color: grey;
+    color: white;
+    transform: scale(1.4);
+  }
+  
+  .validate_button {
+    font-size: 2.6em;
+    margin-bottom: 1em;
+    padding: 0.2em 0;
+    transition: all 1s;
+  }
+
+  .validate_button:hover {
+    transform: scale(1.4);
+    border: 2px solid  #f0f;
+    color: lightgrey;
   }
 }
