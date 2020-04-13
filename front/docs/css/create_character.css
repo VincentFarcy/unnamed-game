@@ -1,0 +1,95 @@
+.logo_min {
+  width: 30px;
+  height: 30px;
+}
+
+.main {
+justify-content: flex-start;
+background-color: rgba(0,0,0,0.6);
+border-radius: 15px;
+border: 2px solid rgba(0,0,250,0.3);
+width: 80%;
+max-width: 900px;
+margin: auto;
+box-shadow: inset 1em 4em rgba(0,0,250,0.15);
+}
+
+.ability_pool_container{
+  background-color: rgba(0,0,0,0.6);
+  margin: 2em 0;
+  align-self: center;
+  width: 50%;
+  max-width: 300px;
+  min-width: 200px;
+  font-size: 1.3em;
+  font-weight: 700;
+  border: 0.5px solid  rgba(0,0,250,0.3);
+  text-align: center;
+  border-radius: 5px;
+}
+
+.ability_container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 80%;
+  min-width: 300px;
+  max-width: 450px;
+  margin-bottom: 2em;
+  align-self: center;
+  font-size: 1.2em;
+}
+
+.ability, .ability_pool_text {
+  color: white;
+}
+
+.ability_button{
+  display: flex;
+  margin: 0 1em;
+  align-self: flex-start;
+  border-radius: 15px;
+  width: 25px;
+}
+
+.ability_value, .ability_pool_value {
+  padding-left: 1em;
+}
+
+.ability_image {
+  width: 1em;
+  height: 1em;
+}
+
+.validate_button {
+width: 33%;
+max-width: 220px;
+min-width: 180px;
+align-self: center;
+margin-top: 2em;
+border-radius: 25px;
+}
+
+/* === large screen === */
+@media screen AND (min-width: 992px) {
+  .ability_pool_container{
+    max-width: 750px;
+    font-size: 2.6em;
+    border-radius: 5px;
+  }
+
+  .ability_container {
+    max-width: 750px;
+    font-size: 2.6em;
+  }
+
+  .ability_button{
+  width: 50px;
+  border-radius: 50px;
+}
+.validate_button {
+  max-width: 500px;
+  font-size: 2.6em;
+  margin-top: 1em;
+  }
+}
