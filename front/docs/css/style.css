@@ -11,7 +11,8 @@
   height: 30px;
   font-size: 0.8em;
   text-align: center;
-  border-top: 1px solid #000;
+  border-top: 1px solid #FFF;
+  color: #FFF;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -95,9 +96,9 @@
   line-height: 1.4em;
 }
 
-/* == SIGN UP == */
+/* == SIGN IN == */
 .main__form {
-  padding: 2em .5em;
+  padding: 2em;
   border: 2px solid #FFF;
   margin: auto 2em;
   display: flex;
@@ -109,6 +110,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 80%
 }
 
 .form__title {
@@ -127,11 +129,13 @@
   background: none;
   padding: .6em 1em;
   color: #FFF;
+  width: 60%;
 }
 
 .field {
   margin: 1.5em;
   position: relative;
+  width: 100%;
 }
 
 .field__input {
@@ -173,6 +177,7 @@
 
 .forgotten-password {
   margin-top: 2em;
+  margin-right: 2em;
   font-size: 0.8em;
   align-self: flex-end;
 }
@@ -203,5 +208,11 @@
   .public-warning {
     width: 70%;
     margin: 2em auto;
+  }
+
+  /* == SIGN IN == */
+  .main__form {
+    width: 900px;
+    margin: auto;
   }
 }
