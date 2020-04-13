@@ -57,7 +57,6 @@
 /* === Main === */
 /* == Home == */
 .start-game {
-  height: 300px;
   /* background: url('https://cdn.pixabay.com/photo/2016/09/16/17/10/science-fiction-1674554_960_720.jpg') top; */
   display: flex;
   justify-content: center;
@@ -71,7 +70,6 @@
 
 .introduction,
 .public-warning {
-  margin: 2em;
   padding: 1em;
   border: 1px solid #000;
   text-align: justify;
@@ -203,6 +201,11 @@
 
 /* === large screen === */
 @media screen AND (min-width: 992px) {
+  .main {
+    min-height: calc(100vh - 30px - 108px);
+    max-height: calc(100vh - 30px - 108px);
+  }
+  
   /* == Header == */
   .nav-item {
     font-size: 1.3em;
