@@ -209,12 +209,11 @@ class UserController extends AbstractController
         $em->remove($user);
         $em->flush();
 
+        // Send Message
         return $this->json(
             [
                "message" => "User deleted",
             ]
         );
-
-        return $this->redirectToRoute('admin_person_index');
     }
 }
