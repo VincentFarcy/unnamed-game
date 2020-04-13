@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
+use Lexik\Bundle\JWTAuthenticationBundle\Services\JWTTokenManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -38,6 +39,7 @@ class UserController extends AbstractController
     /**
      * @Route("edit", name="edit", methods={"PUT"})
      */
+    /*
     public function edit(
         Request $request,
         EntityManagerInterface $em,
@@ -103,7 +105,7 @@ class UserController extends AbstractController
                     ), 
             ]
         );
-    }
+    }*/
 
     /**
      * @Route("add", name="add", methods={"POST"})
@@ -113,7 +115,9 @@ class UserController extends AbstractController
         EntityManagerInterface $em,
         SerializerInterface $serializer,
         UserPasswordEncoderInterface $passwordEncoder,
-        ValidatorInterface $validator)
+        ValidatorInterface $validator,
+        JWTTokenManagerInterface $JWTManager
+        )
     {
         // Get data from client request
         $content = $request->getContent();
@@ -183,6 +187,7 @@ class UserController extends AbstractController
         $em->persist($user);
         $em->flush();
 
+
         // Send new user data
         return $this->json(
             [
@@ -191,6 +196,7 @@ class UserController extends AbstractController
                         $user,
                         null, ['groups' => ['user']]
                     ), 
+                'token' => $JWTManager->create($user)
             ],
             JsonResponse::HTTP_CREATED
         );
