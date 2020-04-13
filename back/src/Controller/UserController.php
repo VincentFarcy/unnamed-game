@@ -41,7 +41,8 @@ class UserController extends AbstractController
     public function edit(
         Request $request,
         EntityManagerInterface $em,
-        SerializerInterface $serializer)
+        SerializerInterface $serializer,
+        ValidatorInterface $validator)
     {
         // Get data from client request
         $content = $request->getContent();
@@ -64,33 +65,44 @@ class UserController extends AbstractController
            );
         }
 
-        // check user pseudo format
-        if (strlen($pseudo) < 3 || strlen($pseudo) > 20) {
-            
+        // Prepare user before edit
+        $user->setPseudo($pseudo);
+        $user->setUpdatedAt(new \DateTime());
+
+        // Catch constraints validation error in array $errorMessages
+        $errors = $validator->validate($user);
+        $errorMessages = [];
+        if (count($errors) > 0) {
+            foreach ($errors as $error){
+                $errorMessages[] = $error->getMessage();
+            }
+        }
+
+        // Error encountered
+        if (count($errorMessages) > 0) {
             // error 400
             return $this->json(
                 [
-                    "message" => "pseudo invalide",
+                "errorMessages" => $errorMessages,
+                "data" => $data
                 ],
                 JsonResponse::HTTP_BAD_REQUEST
             );
         }
 
         // Update user data in DB
-        if (isset($pseudo)) {
-            $user->setPseudo($pseudo);
-        }
-        $user->setUpdatedAt(new \DateTime());
         $em->flush();
 
         // Send new user data
-        return $this->json([
-            'user' => 
-                $serializer->normalize(
-                    $user,
-                    null, ['groups' => ['user']]
-                ), 
-        ]);
+        return $this->json(
+            [
+                'user' => 
+                    $serializer->normalize(
+                        $user,
+                        null, ['groups' => ['user']]
+                    ), 
+            ]
+        );
     }
 
     /**
@@ -119,7 +131,7 @@ class UserController extends AbstractController
             // error 400
             return $this->json(
                  [
-                    "message" => "add user error : missing data",
+                    "message" => "Add user error : missing data",
                     "data" => $data
                 ],
                 JsonResponse::HTTP_BAD_REQUEST
@@ -132,7 +144,7 @@ class UserController extends AbstractController
         // Prepare user data for validation in DB with encoded password
         $user
             ->setEmail($email)
-            ->setPseudo($data->pseudo)
+            ->setPseudo($pseudo)
             ->setAgeChecked($ageChecked);
 
         // Catch constraints validation error in array $errorMessages
@@ -190,8 +202,10 @@ class UserController extends AbstractController
     public function delete(
         EntityManagerInterface $em)
     {
+        // Get connected user
         $user = $this->GetUser();
 
+        // Remove User
         $em->remove($user);
         $em->flush();
 
