@@ -46,6 +46,7 @@
 
 .nav__greeting-user {
   font-size: 1.5em;
+  color: #FFF;
 }
 
 /* items not to be displayed depending on user's login status or screen size */
@@ -228,5 +229,10 @@
   .main__form {
     width: 900px;
     margin: auto;
+  }
+
+  /* == Play == */
+  .game-launcher__btn {
+    width: 50%;
   }
 }
