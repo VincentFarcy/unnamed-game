@@ -22,7 +22,7 @@
   min-height: calc(100vh - 30px - 60px);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 /* items not to be displayed depending on user's login status or screen size */
@@ -184,6 +184,20 @@
 
 .forgotten-password__link {
   color: #FFF;
+}
+
+/* === Play === */
+.game-launcher {
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-launcher__btn {
+  margin: 2em;
+  padding: 1.2em;
 }
 
 /* === large screen === */
