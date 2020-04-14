@@ -1,9 +1,29 @@
 // import scss variables
 @import 'src/styles/vars';
+.navbar {
+  z-index: 1;
+}
 
 .play-button {
   font-size: 1.3em;
   text-transform: uppercase;
   padding: 0.1em;
   width: 50%;
+}
+
+.anonymous-user {
+  width: 100%;
+  margin: 1em 0;
+}
+
+.connected-user {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.greeting-user {
+  font-size: 1.5em;
+  color: #FFF;
+  margin-bottom: 0;
 }

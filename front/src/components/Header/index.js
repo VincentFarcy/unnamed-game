@@ -2,19 +2,20 @@
 import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import PropTypes from 'prop-types';
 
 // == Import local
 import './style.scss';
 import logo from '../../assets/images/Unnamed_Game_3_white.svg'
 import LinkButton from '../LinkButton';
+import AnonymousUserNav from './AnonymousUserNav';
+import ConnectedUserNav from './ConnectedUserNav';
 
 // == Component
-const Header = () => (
+const Header = ({ isLogged }) => (
   <header className="header">
     {/* https://react-bootstrap.github.io/components/navbar/#navbars-overview */}
-    <Navbar expand="lg" variant="dark">
+    <Navbar bg="dark" expand="lg" variant="dark">
       {/* Logo */}
       <Navbar.Brand href="/">
         <img src={logo} alt="unnamed game logo" />
@@ -32,14 +33,21 @@ const Header = () => (
           <Nav.Link href="#">Remerciements</Nav.Link>
         </Nav>
         {/* items to be displayed depending on user's login status */}
-        {/* https://react-bootstrap.github.io/components/buttons/ 
-        https://react-bootstrap.github.io/components/buttons/#button-props*/}
+        {
+          !isLogged && <AnonymousUserNav />
+        }
+        {
+          isLogged && <ConnectedUserNav />
+        }
       </Navbar.Collapse>
     </Navbar>
   </header>
 );
 
 // == Props validation
+Header.propTypes = {
+  isLogged: PropTypes.bool.isRequired,
+}
 
 // == Export
 export default Header;
