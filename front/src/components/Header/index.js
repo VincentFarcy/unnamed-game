@@ -2,11 +2,13 @@
 import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import Button from 'react-bootstrap/Button';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import PropTypes from 'prop-types';
 
 // == Import local
 import './style.scss';
 import logo from '../../assets/images/Unnamed_Game_3_white.svg'
+import LinkButton from '../LinkButton';
 
 // == Component
 const Header = () => (
@@ -17,6 +19,8 @@ const Header = () => (
       <Navbar.Brand href="/">
         <img src={logo} alt="unnamed game logo" />
       </Navbar.Brand>
+      {/* Play button */}
+      <LinkButton cssClassName="play-button" buttonName="Jouer" />
       {/* Burger menu */}
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
@@ -34,8 +38,6 @@ const Header = () => (
     </Navbar>
   </header>
 );
-
-
 
 // == Props validation
 
