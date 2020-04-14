@@ -8,17 +8,18 @@
 }
 
 .header {
-    height: 60px;
+  height: 96px;
 }
 
 .main {
-  
-  min-height: calc(100vh - 90px);
-  /* 90 = 30(footer) + 60 (header) */
+  // background-color: blue;
+  min-height: calc(100vh - 146px);
+  /* 90 = 50(footer) + 96 (header) */
 }
 
 .footer {
-    height: 30px;
+  background-color: green;
+  height: 50px;
   font-size: 0.8em;
   text-align: center;
   border-top: 1px solid #FFF;

@@ -1,0 +1,9 @@
+// import scss variables
+@import 'src/styles/vars';
+
+.play-button {
+  font-size: 1.3em;
+  text-transform: uppercase;
+  padding: 0.1em;
+  width: 50%;
+}
