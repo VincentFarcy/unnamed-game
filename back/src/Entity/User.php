@@ -86,6 +86,12 @@ class User implements UserInterface
      */
     private $heroes;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Groups("user")
+     */
+    private $username;
+
     public function __construct()
     {
         $this->heroes = new ArrayCollection();
@@ -245,7 +251,6 @@ class User implements UserInterface
     public function setPseudo(string $pseudo): self
     {
         $this->pseudo = $pseudo;
-
         return $this;
     }
 }
