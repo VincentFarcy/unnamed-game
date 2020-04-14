@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\SequenceRepository")
@@ -15,6 +16,7 @@ class Sequence
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups({"chapter", "backup"})
      */
     private $id;
 
@@ -31,11 +33,13 @@ class Sequence
 
     /**
      * @ORM\Column(type="integer", unique=true)
+     * @Groups("chapter")
      */
     private $orderBy;
 
     /**
      * @ORM\Column(type="text")
+     * @Groups("chapter")
      */
     private $mainText;
 

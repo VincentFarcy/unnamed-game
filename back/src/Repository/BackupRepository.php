@@ -19,6 +19,25 @@ class BackupRepository extends ServiceEntityRepository
         parent::__construct($registry, Backup::class);
     }
 
+
+    /**
+     * @return Backup[] Returns an array of Backup objects
+     * for the user id passed in parameter
+     * order by createdAt date
+     */    
+    public function findByUser($userId)
+    {
+        return $this->createQueryBuilder('b')
+            ->join('b.hero', 'h')
+            ->join('h.user', 'u')
+            ->setParameter('userId', $userId)
+            ->andWhere('u.id = :userId')
+            ->orderBy('b.createdAt', 'DESC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
     // /**
     //  * @return Backup[] Returns an array of Backup objects
     //  */

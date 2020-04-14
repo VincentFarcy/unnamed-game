@@ -5,6 +5,8 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\HeroRepository")
@@ -15,6 +17,7 @@ class Hero
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups("backup")
      */
     private $id;
 
@@ -26,16 +29,29 @@ class Hero
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("backup")
+     * @Assert\Length(
+     *      min = 3,
+     *      max = 20,
+     *      minMessage = "Le nom du héro doit faire au moins {{ limit }} caractères",
+     *      maxMessage = "Le nom du héro doit faire au plus {{ limit }} caractères",
+     *      allowEmptyString = false
+     * )
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=1)
+     * @Groups("backup")
+     * @Assert\Choice({"m", "f"},
+     *      message = "Valeur sélectionnée pour le genre invalide."
+     * )
      */
     private $gender;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups("backup")
      */
     private $image;
 

@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ContentParameterRepository")
@@ -18,16 +19,19 @@ class ContentParameter
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("content-parameter")
      */
     private $label;
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * @Groups("content-parameter")
      */
     private $longContent;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups("content-parameter")
      */
     private $shortContent;
 
