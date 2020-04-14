@@ -80,12 +80,18 @@ class Chapter
      */
     private $randomFightContests;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\RandomAttributeContest", mappedBy="chapter", orphanRemoval=true)
+     */
+    private $randomAttributeContests;
+
     public function __construct()
     {
         $this->sequences = new ArrayCollection();
         $this->randomEvents = new ArrayCollection();
         $this->randomFightContests = new ArrayCollection();
         $this->createdAt = new \DateTime();
+        $this->randomAttributeContests = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -264,6 +270,37 @@ class Chapter
             // set the owning side to null (unless already changed)
             if ($randomFightContest->getChapter() === $this) {
                 $randomFightContest->setChapter(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|RandomAttributeContest[]
+     */
+    public function getRandomAttributeContests(): Collection
+    {
+        return $this->randomAttributeContests;
+    }
+
+    public function addRandomAttributeContest(RandomAttributeContest $randomAttributeContest): self
+    {
+        if (!$this->randomAttributeContests->contains($randomAttributeContest)) {
+            $this->randomAttributeContests[] = $randomAttributeContest;
+            $randomAttributeContest->setChapter($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRandomAttributeContest(RandomAttributeContest $randomAttributeContest): self
+    {
+        if ($this->randomAttributeContests->contains($randomAttributeContest)) {
+            $this->randomAttributeContests->removeElement($randomAttributeContest);
+            // set the owning side to null (unless already changed)
+            if ($randomAttributeContest->getChapter() === $this) {
+                $randomAttributeContest->setChapter(null);
             }
         }
 
