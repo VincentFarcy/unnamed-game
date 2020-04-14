@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/dialog.css">
     <title>Unnamed game</title>
   </head>
   <body>
@@ -17,8 +18,8 @@
       <header class="header">
         <nav class="navbar navbar-expand-lg navbar-dark">
           <a class="navbar-brand" href="#">
-          <img src="./images/Unnamed Game 3.svg" alt="logo">
-          <img class="not-displayed" src="https://via.placeholder.com/70" alt="logo">
+          <img class="logo_min" src="./images/logo_test.png" alt="logo">
+          <img class="logo not-displayed" src="https://via.placeholder.com/70" alt="logo">
           </a>
 		      <a class="btn btn-outline-light play-button d-lg-none" href="./play.html">Jouer</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,20 +47,26 @@
             </div>
           </div>
         </nav>
-	    </header>
-	  
+	    </header>	  
       <main class="main">
-        <section class="start-game">
-          <a class="start-game__btn" href="#">Jouer</a>
-        </section>
-        <section class="introduction">
-          <h1 class="introduction__title">Unnamed Game</h1>
-          <p class="introduction__content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo dignissimos, voluptatibus distinctio recusandae incidunt eligendi quas itaque maxime modi ut quia vitae omnis eum perferendis provident magni id aliquid consequuntur deleniti? Soluta vel quis facere suscipit mollitia ea quam consequuntur itaque. Voluptate, ducimus ratione dolores quae deleniti aut pariatur commodi expedita officia nemo eveniet, debitis, corporis asperiores. Dignissimos eligendi nemo nulla? Quasi quibusdam dignissimos optio laboriosam, iste consequuntur quisquam laborum, ullam sunt rem minus autem nostrum doloribus dolores atque voluptas. At corporis illo reiciendis ut odit, totam natus suscipit nobis, veniam itaque iste sed voluptatum tempore dolor, quo fuga consequuntur harum ipsam.</p>
-        </section>
-        <section class="public-warning">
-          <h2 class="public-warning__title">Avertissement au public</h2>
-          <p class="public-warning__content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo dignissimos, voluptatibus distinctio recusandae incidunt eligendi quas itaque maxime modi ut quia vitae omnis eum perferendis provident magni id aliquid consequuntur deleniti.</p>
-        </section>
+        <div class="top_container">
+          <div class="player_avatar"> player_avatar</div>         
+          <div class="player_info">player_info</div>         
+        </div>
+        <div class="dialog_container">
+          <div class="player_text">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex suscipit, similique quibusdam, numquam repellat saepe hic enim quaerat harum quidem deleniti eius corporis pariatur aperiam natus mollitia modi, provident quod.</p>
+          </div>
+          <div class="npc_text">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex suscipit, similique quibusdam, numquam repellat saepe hic enim quaerat harum quidem deleniti eius corporis pariatur aperiam natus mollitia modi, provident quod.</p>
+          </div>
+        </div>
+        <button class="next_button" href="#">Suivant</button>
+        <div class="bottom_container">
+          <div class="npc_info">npc_info</div>
+          <div class="npc_avatar">npc_avatar</div>
+        </div>
+
       </main>
 	  
       <footer class="footer">
