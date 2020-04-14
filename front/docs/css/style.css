@@ -7,8 +7,12 @@
   background-position: center;
 }
 
+.header {
+  height: 96px;
+}
+
 .footer {
-  height: 30px;
+  height: 50px;
   font-size: 0.8em;
   text-align: center;
   border-top: 1px solid #FFF;
@@ -20,8 +24,8 @@
 
 .main {
   margin: 1em auto;
-  min-height: calc(100vh - 122px);
-  /* 122 = 16*2(margin main) + 30(footer) + 60 (header) */
+  min-height: calc(100vh - 146px);
+  /* 146 = 50(footer) + 96 (header) */
   display: flex;
   flex-direction: column;
   justify-content: space-around;
