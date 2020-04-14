@@ -2,16 +2,21 @@
 import React from 'react';
 
 // == Import local
-import reactLogo from './react-logo.svg';
 import './styles.scss';
-import TestButton from '../../containers/TestButton';
+import Header from '../Header';
+import MainPlay from '../MainPlay';
+import MainSite from '../MainSite';
+import Footer from '../Footer';
 
-// == Component
+// == Coponent
 const App = () => (
   <div className="app">
-    <img src={reactLogo} alt="react logo" />
-    <h1>Composant : App</h1>
-    <TestButton />
+    <Header />
+    <main className="main">
+      <MainPlay />
+      {/* <MainSite /> */}
+    </main>
+    <Footer />
   </div>
 );
 
