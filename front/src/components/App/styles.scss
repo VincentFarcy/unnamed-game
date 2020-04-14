@@ -7,6 +7,17 @@
   background-position: center;
 }
 
+.header {
+  background-color: red;
+  height: 60px;
+}
+
+.main {
+  background-color: blue;
+  min-height: calc(100vh - 90px);
+  /* 90 = 30(footer) + 60 (header) */
+}
+
 .footer {
   background-color: green;
   height: 30px;
@@ -19,13 +30,14 @@
   justify-content: center;
 }
 
-.main {
-  background-color: blue;
-  min-height: calc(100vh - 90px);
-  /* 122 = 16*2(margin main) + 30(footer) + 60 (header) */
-}
-
-.header {
-  background-color: red;
-  height: 60px;
+/* === large screen === */
+@media screen AND (min-width: 992px) {
+  .header {
+    height: 108px;
+  }
+  .main {
+    min-height: calc(100vh - 138px);
+    max-height: calc(100vh - 138px);
+    /*138 = 30(footer) & 108(header) */
+  }
 }
