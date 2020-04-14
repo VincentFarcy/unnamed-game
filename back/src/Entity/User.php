@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -47,6 +49,23 @@ class User implements UserInterface
      * @ORM\Column(type="boolean")
      */
     private $ageChecked;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Hero", mappedBy="user", orphanRemoval=true)
+     */
+    private $heroes;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Groups("user")
+     */
+    private $username;
+
+    public function __construct()
+    {
+        $this->heroes = new ArrayCollection();
+        $this->createdAt = new \DateTime();
+    }
 
     public function getId(): ?int
     {
@@ -158,6 +177,44 @@ class User implements UserInterface
     public function setAgeChecked(bool $ageChecked): self
     {
         $this->ageChecked = $ageChecked;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Hero[]
+     */
+    public function getHeroes(): Collection
+    {
+        return $this->heroes;
+    }
+
+    public function addHero(Hero $hero): self
+    {
+        if (!$this->heroes->contains($hero)) {
+            $this->heroes[] = $hero;
+            $hero->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeHero(Hero $hero): self
+    {
+        if ($this->heroes->contains($hero)) {
+            $this->heroes->removeElement($hero);
+            // set the owning side to null (unless already changed)
+            if ($hero->getUser() === $this) {
+                $hero->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function setUsername(string $username): self
+    {
+        $this->username = $username;
 
         return $this;
     }

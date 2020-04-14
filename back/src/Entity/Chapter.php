@@ -1,0 +1,260 @@
+<?php
+
+namespace App\Entity;
+
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity(repositoryClass="App\Repository\ChapterRepository")
+ */
+class Chapter
+{
+    /**
+     * @ORM\Id()
+     * @ORM\GeneratedValue()
+     * @ORM\Column(type="integer")
+     */
+    private $id;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $title;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $mainText;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $endText;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $image;
+
+    /**
+     * @ORM\Column(type="integer", unique=true)
+     */
+    private $orderBy;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $createdAt;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $updatedAt;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Sequence", mappedBy="chapter", orphanRemoval=true)
+     */
+    private $sequences;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\RandomEvent", mappedBy="chapter", orphanRemoval=true)
+     */
+    private $randomEvents;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\RandomFightContest", mappedBy="chapter", orphanRemoval=true)
+     */
+    private $randomFightContests;
+
+    public function __construct()
+    {
+        $this->sequences = new ArrayCollection();
+        $this->randomEvents = new ArrayCollection();
+        $this->randomFightContests = new ArrayCollection();
+        $this->createdAt = new \DateTime();
+    }
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getTitle(): ?string
+    {
+        return $this->title;
+    }
+
+    public function setTitle(string $title): self
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    public function getMainText(): ?string
+    {
+        return $this->mainText;
+    }
+
+    public function setMainText(string $mainText): self
+    {
+        $this->mainText = $mainText;
+
+        return $this;
+    }
+
+    public function getEndText(): ?string
+    {
+        return $this->endText;
+    }
+
+    public function setEndText(?string $endText): self
+    {
+        $this->endText = $endText;
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(?string $image): self
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    public function getOrderBy(): ?int
+    {
+        return $this->orderBy;
+    }
+
+    public function setOrderBy(int $orderBy): self
+    {
+        $this->orderBy = $orderBy;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Sequence[]
+     */
+    public function getSequences(): Collection
+    {
+        return $this->sequences;
+    }
+
+    public function addSequence(Sequence $sequence): self
+    {
+        if (!$this->sequences->contains($sequence)) {
+            $this->sequences[] = $sequence;
+            $sequence->setChapter($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSequence(Sequence $sequence): self
+    {
+        if ($this->sequences->contains($sequence)) {
+            $this->sequences->removeElement($sequence);
+            // set the owning side to null (unless already changed)
+            if ($sequence->getChapter() === $this) {
+                $sequence->setChapter(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|RandomEvent[]
+     */
+    public function getRandomEvents(): Collection
+    {
+        return $this->randomEvents;
+    }
+
+    public function addRandomEvent(RandomEvent $randomEvent): self
+    {
+        if (!$this->randomEvents->contains($randomEvent)) {
+            $this->randomEvents[] = $randomEvent;
+            $randomEvent->setChapter($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRandomEvent(RandomEvent $randomEvent): self
+    {
+        if ($this->randomEvents->contains($randomEvent)) {
+            $this->randomEvents->removeElement($randomEvent);
+            // set the owning side to null (unless already changed)
+            if ($randomEvent->getChapter() === $this) {
+                $randomEvent->setChapter(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|RandomFightContest[]
+     */
+    public function getRandomFightContests(): Collection
+    {
+        return $this->randomFightContests;
+    }
+
+    public function addRandomFightContest(RandomFightContest $randomFightContest): self
+    {
+        if (!$this->randomFightContests->contains($randomFightContest)) {
+            $this->randomFightContests[] = $randomFightContest;
+            $randomFightContest->setChapter($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRandomFightContest(RandomFightContest $randomFightContest): self
+    {
+        if ($this->randomFightContests->contains($randomFightContest)) {
+            $this->randomFightContests->removeElement($randomFightContest);
+            // set the owning side to null (unless already changed)
+            if ($randomFightContest->getChapter() === $this) {
+                $randomFightContest->setChapter(null);
+            }
+        }
+
+        return $this;
+    }
+}
