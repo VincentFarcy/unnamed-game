@@ -12,14 +12,14 @@ import warning from '../../assets/images/r_36.png';
 import intro from '../../assets/images/b_04.png';
 
 // == Component
-const MainSite = () => (
+const MainSite = ({ introTitle, introContent, warningContent }) => (
   <div>
     <main className="mainsite">
       <section className="start-game">
         <Nav.Link
           as={Button}
           variant="outline-light"
-          className="play-button"
+          className="play-button-main"
           href="#"
         >
           Jouer
@@ -29,9 +29,9 @@ const MainSite = () => (
         <Card style={{ width: '90%' }}>
           <Card.Img className="intro-image" variant="top" src={intro} />
           <Card.Body>
-            <Card.Title className="introduction__title">Unnamed Game</Card.Title>
+            <Card.Title className="introduction__title">{introTitle}</Card.Title>
             <Card.Text className="introduction__content">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo dignissimos, voluptatibus distinctio recusandae incidunt eligendi quas itaque maxime modi ut quia vitae omnis eum perferendis provident magni id aliquid consequuntur deleniti? Soluta vel quis facere suscipit mollitia ea quam consequuntur itaque. Voluptate, ducimus ratione dolores quae deleniti aut pariatur commodi expedita officia nemo eveniet, debitis, corporis asperiores. Dignissimos eligendi nemo nulla? Quasi quibusdam dignissimos optio laboriosam, iste consequuntur quisquam laborum, ullam sunt rem minus autem nostrum doloribus dolores atque voluptas. At corporis illo reiciendis ut odit, totam natus suscipit nobis, veniam itaque iste sed voluptatum tempore dolor, quo fuga consequuntur harum ipsam.
+              {introContent}
             </Card.Text>
           </Card.Body>
         </Card>
@@ -43,7 +43,7 @@ const MainSite = () => (
           <Card.Body>
             <Card.Title>Avertissement au public</Card.Title>
             <Card.Text>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo dignissimos, voluptatibus distinctio recusandae incidunt eligendi quas itaque maxime modi ut quia vitae omnis eum perferendis provident magni id aliquid consequuntur deleniti.
+              {warningContent}
             </Card.Text>
           </Card.Body>
         </Card>
@@ -55,6 +55,12 @@ const MainSite = () => (
 );
 
 // == Props validation
+MainSite.propTypes = {
+  introTitle: PropTypes.string.isRequired,
+  introContent: PropTypes.string.isRequired,
+  warningContent: PropTypes.string.isRequired,
+};
+
 
 // == Export
 export default MainSite;
