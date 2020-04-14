@@ -1,0 +1,157 @@
+/* === global structure === */
+.wrapper {
+  font-family: sans-serif;
+  background-image: url('https://cdn.pixabay.com/photo/2016/09/16/17/10/science-fiction-1674554_960_720.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.btn {
+  background: rgba(238, 236, 236, 0.4);
+  border-radius: 3px;
+  border-color: black;
+  color: rgb(248, 250, 250); 
+  box-shadow:  -4px 4px 16px #9c9fa1, 
+  4px -4px 16px #b4b7b9;
+}
+
+.btn:hover { 
+  background: rgba(238, 236, 236, 0.4);
+  border-radius: 3px;
+  border-color: black;
+  color: rgb(248, 250, 250); 
+  box-shadow:  -4px 4px 16px #86a3b1, 
+             4px -4px 16px #9abbcb;
+}
+
+
+.card {
+  margin: auto;
+  background: rgba(238, 236, 236, 0.23);
+  color: rgb(248, 250, 250);
+  border-radius: 3px;
+  box-shadow:  -4px 4px 16px #9c9fa1, 
+             4px -4px 16px #b4b7b9;
+  
+}
+
+.card:hover {
+  margin: auto;
+  background: rgba(238, 236, 236, 0.23);
+  color: rgb(248, 250, 250);
+  border-radius: 3px;
+  box-shadow:  -4px 4px 16px #86a3b1, 
+             4px -4px 16px #9abbcb;
+  
+}
+
+.card-img-top {
+
+  width: 105px;
+  height: 105px;
+  align-self: center;
+  margin-top: 5px;
+  padding: 5px;
+  border-radius: 59px;  
+  box-shadow:  -5px -5px 10px #99aab4, 
+              5px 5px 10px #ddf4ff;
+}
+
+.card-title {
+  margin-bottom: 0.5em;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.footer {
+  height: 30px;
+  font-size: 0.8em;
+  text-align: center;
+  border-top: 1px solid #FFF;
+  color: #FFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.main {
+  margin: 1em auto;
+  min-height: calc(100vh - 122px);
+  /* 122 = 16*2(margin main) + 30(footer) + 60 (header) */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+/* items not to be displayed depending on user's login status or screen size */
+.not-displayed {
+  display: none;
+}
+
+/* === Header === */
+.play-button {
+  font-size: 1.3em;
+  text-transform: uppercase;
+  padding: 0.1em;
+  width: 50%;
+}
+
+.nav__connected-user {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__greeting-user {
+  font-size: 1.5em;
+  color: #FFF;
+}
+
+/* items not to be displayed depending on user's login status or screen size */
+.not-displayed {
+  display: none;
+}
+
+/* === Main === */
+/* == Home == */
+.start-game {
+  /* background: url('https://cdn.pixabay.com/photo/2016/09/16/17/10/science-fiction-1674554_960_720.jpg') top; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.start-game__btn {
+  color: #FFF;
+  font-size: 4em;
+}
+
+.introduction,
+.public-warning {
+    
+  margin: 2em 0 2em 0;
+}
+
+.introduction__title {
+  margin-bottom: 0.5em;
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.public-warning__title {
+  margin-bottom: 0.5em;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.introduction__content,
+.public-warning__content {
+  line-height: 1.4em;
+}
+
+
+
