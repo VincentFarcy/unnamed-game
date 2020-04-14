@@ -1,5 +1,10 @@
 // import scss variables
 @import 'src/styles/vars';
+// items not to be displayed on small screen
+.desktop {
+  display: none;
+}
+
 .navbar {
   z-index: 1;
 }
@@ -26,4 +31,45 @@
   font-size: 1.5em;
   color: #FFF;
   margin-bottom: 0;
+}
+
+/* === large screen === */
+@media screen AND (min-width: 992px) {
+  // items not to be displayed on large screen
+  .mobile {
+    display: none;
+  }
+
+  .desktop {
+    display: block;
+  }
+
+  .navbar {
+    padding: 0 3em;
+  }
+
+  .navbar-nav {
+    width: 55%;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .nav-link {
+    font-size: 1.2em;
+    text-align: center;
+  }
+
+  .play-button {
+    width: 100%;
+    margin-top: 1em;
+  }
+
+  .auth {
+    padding: 0.5em 0;
+  }
+
+  .greeting-user {
+    margin-right: 1em;
+    text-align: center;
+  }
 }

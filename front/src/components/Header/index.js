@@ -21,7 +21,7 @@ const Header = ({ isLogged }) => (
         <img src={logo} alt="unnamed game logo" />
       </Navbar.Brand>
       {/* Play button */}
-      <LinkButton cssClassName="play-button" buttonName="Jouer" />
+      <LinkButton cssClassName="play-button mobile" buttonName="Jouer" />
       {/* Burger menu */}
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
@@ -32,13 +32,17 @@ const Header = ({ isLogged }) => (
           <Nav.Link href="#">Présentation de l'équipe</Nav.Link>
           <Nav.Link href="#">Remerciements</Nav.Link>
         </Nav>
-        {/* items to be displayed depending on user's login status */}
-        {
-          !isLogged && <AnonymousUserNav />
-        }
-        {
-          isLogged && <ConnectedUserNav />
-        }
+        <div className="auth">
+          {/* items to be displayed depending on user's login status */}
+          {
+            !isLogged && <AnonymousUserNav />
+          }
+          {
+            isLogged && <ConnectedUserNav />
+          }
+          {/* Play button */}
+          <LinkButton cssClassName="play-button desktop" buttonName="Jouer" />
+        </div>
       </Navbar.Collapse>
     </Navbar>
   </header>
