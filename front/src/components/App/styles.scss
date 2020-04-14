@@ -1,9 +1,31 @@
+/* === global structure === */
 .app {
-  width: 500px;
-  margin: 1em auto;
-  text-align: center;
+  font-family: sans-serif;
+  // background-image: url('https://cdn.pixabay.com/photo/2016/09/16/17/10/science-fiction-1674554_960_720.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-.app img {
-  max-width: 150px;
+.footer {
+  background-color: green;
+  height: 30px;
+  font-size: 0.8em;
+  text-align: center;
+  border-top: 1px solid #FFF;
+  color: #FFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.main {
+  background-color: blue;
+  min-height: calc(100vh - 90px);
+  /* 122 = 16*2(margin main) + 30(footer) + 60 (header) */
+}
+
+.header {
+  background-color: red;
+  height: 60px;
 }
