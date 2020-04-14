@@ -38,7 +38,7 @@ class RandomAttributeContest
     private $mainText;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $image;
 
