@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 
 // == Import local
 import './style.scss';
-import logo from '../../assets/images/Unnamed_Game_3_white.svg'
+import logo from '../../assets/images/Unnamed_Game_3_white.svg';
 import LinkButton from '../LinkButton';
 
 // == Component
@@ -20,7 +20,7 @@ const Header = () => (
         <img src={logo} alt="unnamed game logo" />
       </Navbar.Brand>
       {/* Play button */}
-      <LinkButton cssClassName="play-button" buttonName="Jouer" />
+      <LinkButton cssClassName="play-button-header" buttonName="Jouer" />
       {/* Burger menu */}
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
