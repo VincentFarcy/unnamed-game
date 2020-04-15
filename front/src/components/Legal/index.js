@@ -6,13 +6,13 @@ import PropTypes from 'prop-types';
 import './style.scss';
 
 // == Component
-const Dialog = () => (
+const Legal = () => (
 
-  <p>Tata: Blablabla | Toto: Mouahahah</p>
+  <p>Des mentions légales sérieuses </p>
 
 );
 
 // == Props validation
 
 // == Export
-export default Dialog;
+export default Legal;

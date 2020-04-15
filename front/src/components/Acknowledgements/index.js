@@ -6,13 +6,13 @@ import PropTypes from 'prop-types';
 import './style.scss';
 
 // == Component
-const Dialog = () => (
+const Acknowledgements = () => (
 
-  <p>Tata: Blablabla | Toto: Mouahahah</p>
+  <p>Merci à Tata et à Yoyo </p>
 
 );
 
 // == Props validation
 
 // == Export
-export default Dialog;
+export default Acknowledgements;
