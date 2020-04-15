@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 
 // == Import local
 import './style.scss';
-import logo from '../../assets/images/Unnamed_Game_3_white.svg'
+import logo from '../../assets/images/Unnamed_Game_3_white.svg';
 import LinkButton from '../LinkButton';
 import AnonymousUserNav from './AnonymousUserNav';
 import ConnectedUserNav from './ConnectedUserNav';

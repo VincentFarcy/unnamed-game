@@ -30,6 +30,11 @@
   width: 100%;
 }
 
+img {
+  width: 100%;
+  height: auto;
+}
+
 .player_avatar {
   background-color: hotpink;
   width: 25%;
@@ -68,14 +73,12 @@
 
 .bottom_container {
   display: flex;
-  background-color: yellow;
   height: 20%;
   min-height: 50px;
 }
 
 .npc_avatar {
-  background-color: hotpink;
-  width: 25%;
+  width: 30%;
 }
 
 .npc_info {
@@ -84,13 +87,17 @@
 }
 
 /* === Next button === */
+.button_container {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 2em;
+}
+
 .next_button {
   width: 25%;
   max-width: 220px;
   min-width: 140px;
-  align-self: center;
   text-align: center;
-  margin: 1em;
   border-radius: 25px;
   background: rgba(0,0,0,0.6);
   color: white;
