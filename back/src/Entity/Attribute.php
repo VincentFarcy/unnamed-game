@@ -15,11 +15,13 @@ class Attribute
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups({"chapter", "attribute"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("chapter")
      */
     private $name;
 
@@ -35,6 +37,7 @@ class Attribute
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\RandomAttributeContest", mappedBy="attribute", orphanRemoval=true)
+     * @Groups("chapter")
      */
     private $randomAttributeContests;
 

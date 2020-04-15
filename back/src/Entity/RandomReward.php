@@ -25,46 +25,55 @@ class RandomReward
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("chapter")
      */
     private $rollFrom;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("chapter")
      */
     private $rollTo;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("chapter")
      */
     private $mainText;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups("chapter")
      */
     private $image;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("chapter")
      */
     private $minMoney;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("chapter")
      */
     private $maxMoney;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("chapter")
      */
     private $minXp;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("chapter")
      */
     private $maxXp;
 
     /**
      * @ORM\Column(type="boolean")
+     * @Groups("chapter")
      */
     private $twoRolls;
 

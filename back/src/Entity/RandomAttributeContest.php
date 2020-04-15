@@ -24,46 +24,55 @@ class RandomAttributeContest
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("chapter")
      */
     private $rollFrom;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("chapter")
      */
     private $rollTo;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("chapter")
      */
     private $mainText;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups("chapter")
      */
     private $image;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("chapter")
      */
     private $minLevel;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("chapter")
      */
     private $maxLevel;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("chapter")
      */
     private $damageNbRoll;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("chapter")
      */
     private $damageMin;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("chapter")
      */
     private $damageMax;
 
@@ -80,6 +89,7 @@ class RandomAttributeContest
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Attribute", inversedBy="randomAttributeContests")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups("chapter")
      */
     private $attribute;
 
