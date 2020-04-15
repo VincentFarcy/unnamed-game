@@ -24,8 +24,10 @@ import Reward from '../Reward';
 import CreateCharacter from '../CreateCharacter';
 import Footer from '../Footer';
 
+const temp= "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque illo vitae et? Est eius beatae at, sed autem nulla ratione fugit natus officia aspernatur exercitationem non aliquam quam accusamus quasi?";
 
-// == Coponent
+// == Component
+
 const App = () => (
   <div className="app">
     <Header isLogged={false}/>
@@ -53,9 +55,10 @@ const App = () => (
         introTitle="Unnamed Game"
         introContent="Ceci est l'introduction de mise en ambiance pour le premier jeu proposé !"
         warningContent="Veuillez noter que le premier Unnamed Game est déconseillé aux moins de 12 ans !"
-      />
-      <MainPlay />
-      <CreateCharacter AbilityList="FTG" /> */}
+      /> */}
+      {/* <MainPlay /> */}     
+      {/* <CreateCharacter />  */}   
+      {/* <Story Chapter={temp} /> */}
     </main>
     <Footer />
   </div>
