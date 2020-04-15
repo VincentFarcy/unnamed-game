@@ -23,8 +23,8 @@ const App = () => (
         warningContent="Veuillez noter que le premier Unnamed Game est déconseillé aux moins de 12 ans !"
       /> */}
       {/* <MainPlay /> */}
-      {/* <CreateCharacter AbilityList="Test" /> */}
-      <Story Chapter={temp}/>
+      <CreateCharacter AbilityList="Test" />
+      {/* <Story Chapter={temp}/> */}
     </main>
     <Footer />
   </div>

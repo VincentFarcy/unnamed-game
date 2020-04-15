@@ -11,7 +11,7 @@ import './style.scss';
 // == Component
 const Story = ({ Chapter }) => (
   <div>
-  <p class="story_p">{Chapter}</p>
+  <p className="story_p">{Chapter}</p>
   <Button cssClassName="next_button" buttonName="Suivant"></Button>
   </div>
 );
