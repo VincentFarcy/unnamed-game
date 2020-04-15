@@ -16,7 +16,7 @@ import Legal from '../Legal';
 
 
 // == Import Gameplay Components
-import MainPlay from '../MainPlay';
+import MainPlay from '../../containers/MainPlay';
 import Story from '../Story';
 import Dialog from '../Dialog';
 import Combat from '../Combat';
