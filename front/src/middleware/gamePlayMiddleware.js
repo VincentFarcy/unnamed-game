@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 // local imports
-import { FETCH_INITIALE_GAME_DATA } from '../actions/gamePlay';
+import { FETCH_INITIALE_GAME_DATA, gameDataSuccess, gameDataError } from '../actions/gamePlay';
 import { BASE_API_URI } from '../app.config.js';
 
 // == Api Middleware
@@ -13,19 +13,16 @@ const apiMiddleware = (store) => (next) => (action) => {
       axios({
         url: `${BASE_API_URI}/api/game/load`,
         method: 'get',
-        withCredentials: true,
       })
         .then((res) => {
-          console.log(res.data);
+          store.dispatch(gameDataSuccess(res.data));
         })
-        .catch((err) => {
-          console.log(err);
+        .catch(() => {
+          store.dispatch(gameDataError());
         });
       break;
     default: 
-    console.log('apiState :', store.getState());
-    console.log('apiMiddleware: ', action);
-    next(action);
+      next(action);
   }
 };
 
