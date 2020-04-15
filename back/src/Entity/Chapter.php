@@ -82,8 +82,17 @@ class Chapter
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\RandomAttributeContest", mappedBy="chapter", orphanRemoval=true)
+     * @ORM\OrderBy({"rollFrom" = "ASC"})
+     * @Groups("chapter")
      */
     private $randomAttributeContests;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\RandomReward", mappedBy="chapter", orphanRemoval=true)
+     * @ORM\OrderBy({"rollFrom" = "ASC"})
+     * @Groups("chapter")
+     */
+    private $randomRewards;
 
     public function __construct()
     {
@@ -92,6 +101,7 @@ class Chapter
         $this->randomFightContests = new ArrayCollection();
         $this->createdAt = new \DateTime();
         $this->randomAttributeContests = new ArrayCollection();
+        $this->randomRewards = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -301,6 +311,37 @@ class Chapter
             // set the owning side to null (unless already changed)
             if ($randomAttributeContest->getChapter() === $this) {
                 $randomAttributeContest->setChapter(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|RandomReward[]
+     */
+    public function getRandomRewards(): Collection
+    {
+        return $this->randomRewards;
+    }
+
+    public function addRandomReward(RandomReward $randomReward): self
+    {
+        if (!$this->randomRewards->contains($randomReward)) {
+            $this->randomRewards[] = $randomReward;
+            $randomReward->setChapter($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRandomReward(RandomReward $randomReward): self
+    {
+        if ($this->randomRewards->contains($randomReward)) {
+            $this->randomRewards->removeElement($randomReward);
+            // set the owning side to null (unless already changed)
+            if ($randomReward->getChapter() === $this) {
+                $randomReward->setChapter(null);
             }
         }
 

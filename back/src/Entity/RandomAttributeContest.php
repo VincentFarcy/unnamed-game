@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\RandomAttributeContestRepository")
@@ -89,7 +90,6 @@ class RandomAttributeContest
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Attribute", inversedBy="randomAttributeContests")
      * @ORM\JoinColumn(nullable=false)
-     * @Groups("chapter")
      */
     private $attribute;
 

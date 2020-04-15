@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\RandomRewardRepository")
@@ -15,13 +16,6 @@ class RandomReward
      * @ORM\Column(type="integer")
      */
     private $id;
-
-     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Chapter", inversedBy="randomReward")
-     * @ORM\JoinColumn(nullable=false)
-     */
-
-    private $chapter;
 
     /**
      * @ORM\Column(type="integer")
@@ -87,23 +81,17 @@ class RandomReward
      */
     private $updatedAt;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Chapter", inversedBy="randomRewards")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $chapter;
+
     public function getId(): ?int
     {
         return $this->id;
     }
-
-    public function getChapter(): ?Chapter
-    {
-        return $this->chapter;
-    }
-
-    public function setChapter(?Chapter $chapter): self
-    {
-        $this->chapter = $chapter;
-
-        return $this;
-    }
-
+    
     public function getRollFrom(): ?int
     {
         return $this->rollFrom;
@@ -232,6 +220,18 @@ class RandomReward
     public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function getChapter(): ?Chapter
+    {
+        return $this->chapter;
+    }
+
+    public function setChapter(?Chapter $chapter): self
+    {
+        $this->chapter = $chapter;
 
         return $this;
     }
