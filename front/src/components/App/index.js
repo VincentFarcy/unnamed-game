@@ -11,7 +11,7 @@ import Footer from '../Footer';
 // == Coponent
 const App = () => (
   <div className="app">
-    <Header />
+    <Header isLogged={true} />
     <main className="main">
       {/* <MainSite
         introTitle="Unnamed Game"

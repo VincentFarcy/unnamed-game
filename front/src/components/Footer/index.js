@@ -5,11 +5,11 @@ import PropTypes from 'prop-types';
 // == Import local
 import './style.scss';
 
-import Main from '../MainPlay';
 // == Component
 const Footer = () => (
   <footer className="footer">
-    Footer
+    <p className="footer__copyright">&copy; 2020 - Tous droits résérvés</p>
+    <a className="footer__link" href="/mentions-legales">Mentions légales</a>
   </footer>
 );
 

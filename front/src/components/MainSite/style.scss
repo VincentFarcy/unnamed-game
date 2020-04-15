@@ -1,4 +1,4 @@
-/* === global structure === */
+/* === Main Site === */
 .play-button-main {
   background: rgba(238, 236, 236, 0.4);
   border-radius: 10px;
@@ -22,7 +22,6 @@
              4px -4px 16px #9abbcb;
 }
 
-
 .card {
   margin: auto;
   background: rgba(238, 236, 236, 0.23);
@@ -44,7 +43,6 @@
 }
 
 .card-img-top {
-
   width: 105px;
   height: 105px;
   align-self: center;
@@ -62,35 +60,13 @@
   text-align: center;
 }
 
-.footer {
-  height: 30px;
-  font-size: 0.8em;
-  text-align: center;
-  border-top: 1px solid #FFF;
-  color: #FFF;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
 .main {
   margin: 1em auto;
-  min-height: calc(100vh - 122px);
-  /* 122 = 16*2(margin main) + 30(footer) + 60 (header) */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
-
-/* items not to be displayed depending on user's login status or screen size */
-.not-displayed {
-  display: none;
 }
 
 /* === Main === */
 /* == Home == */
 .start-game {
-  /* background: url('https://cdn.pixabay.com/photo/2016/09/16/17/10/science-fiction-1674554_960_720.jpg') top; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -103,8 +79,7 @@
 
 .introduction,
 .public-warning {
-    
-  margin: 2em 0 2em 0;
+  margin: 2em 0;
 }
 
 .introduction__title {
