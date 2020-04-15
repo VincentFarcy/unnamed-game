@@ -52,12 +52,7 @@ class GameController extends AbstractController
         }
 
         // Send to the front at json format after use of doctrine serializer groups :
-        return $this->json([
-            'user' => 
-                $serializer->normalize(
-                    $user,
-                    null, ['groups' => ['user']]
-                ), 
+        return $this->json([ 
             'chapters' => 
                 $serializer->normalize(
                     $chapters,
