@@ -16,7 +16,7 @@ import ConnectedUserNav from './ConnectedUserNav';
 const Header = ({ isLogged }) => (
   <header className="header">
     {/* https://react-bootstrap.github.io/components/navbar/#navbars-overview */}
-    <Navbar bg="dark" expand="lg" variant="dark">
+    <Navbar expand="lg" variant="dark">
       {/* Logo */}
       <Navbar.Brand>
         <NavLink exact to="/">
