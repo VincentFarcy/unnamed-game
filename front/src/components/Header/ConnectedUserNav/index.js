@@ -3,12 +3,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // == Import local
+import LinkButton from '../../LinkButton';
 
 // == Component
 const ConnectedUserNav = () => (
   <div className="connected-user">
     <p className="greeting-user">Bienvenue Player</p>
-    <a className="btn btn-outline-light" href="#" role="button">Se déconnecter</a>
+    {/* TODO : check how to redirect to home page after logout */}
+    <LinkButton cssClassName="btn btn-outline-light" buttonName="Se déconnecter" url="/" />
   </div>
 );
 

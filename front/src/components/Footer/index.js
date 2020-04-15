@@ -1,5 +1,6 @@
 // == Import npm
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 // == Import local
@@ -9,7 +10,9 @@ import './style.scss';
 const Footer = () => (
   <footer className="footer">
     <p className="footer__copyright">&copy; 2020 - Tous droits résérvés</p>
-    <a className="footer__link" href="/mentions-legales">Mentions légales</a>
+    <NavLink exact to="/legal-notices" className="nav-link footer__link">
+    Mentions légales
+    </NavLink>
   </footer>
 );
 
