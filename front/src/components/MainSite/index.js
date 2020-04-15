@@ -14,14 +14,13 @@ import intro from '../../assets/images/b_04.png';
 // == Component
 const MainSite = ({ introTitle, introContent, warningContent }) => (
   <div>
-    <main className="mainsite">
-      <section className="start-game">
-        <Nav.Link
-          as={Button}
-          variant="outline-light"
-          className="play-button-main"
-          href="#"
-        >
+    <section className="start-game">
+      <Nav.Link
+        as={Button}
+        variant="outline-light"
+        className="play-button-main"
+        href="#"
+      >
           Jouer
         </Nav.Link>
       </section>
@@ -49,8 +48,7 @@ const MainSite = ({ introTitle, introContent, warningContent }) => (
         </Card>
         {/* <h2 className="public-warning__title">Avertissement au public</h2>
        <p className="public-warning__content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo dignissimos, voluptatibus distinctio recusandae incidunt eligendi quas itaque maxime modi ut quia vitae omnis eum perferendis provident magni id aliquid consequuntur deleniti.</p> */}
-      </section>
-    </main>
+      </section>  
   </div>
 );
 
