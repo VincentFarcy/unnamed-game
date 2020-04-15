@@ -64,15 +64,9 @@
   margin: 1em auto;
 }
 
-/* items not to be displayed depending on user's login status or screen size */
-.not-displayed {
-  display: none;
-}
-
 /* === Main === */
 /* == Home == */
 .start-game {
-  /* background: url('https://cdn.pixabay.com/photo/2016/09/16/17/10/science-fiction-1674554_960_720.jpg') top; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -85,8 +79,7 @@
 
 .introduction,
 .public-warning {
-    
-  margin: 2em 0 2em 0;
+  margin: 2em 0;
 }
 
 .introduction__title {
