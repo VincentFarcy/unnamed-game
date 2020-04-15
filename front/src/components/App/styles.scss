@@ -1,5 +1,8 @@
+@import 'src/styles/vars';
+
 /* === global structure === */
 .app {
+  height: 100%;
   font-family: sans-serif;
   background-image: url('../../assets/images/samuel-guerrouche-screenshot001.jpg');
   background-size: cover;
@@ -8,13 +11,21 @@
 }
 
 .header {
-  height: 96px;
+  height: var(--header-height-mobile);
+  position: fixed;
+  top:0;
+  width: 100%;
 }
 
 .main {
-  min-height: calc(100vh - 178px);
-  max-height: calc(100vh - 178px);
-  /* 178 = 50(footer) + 96 (header) + 32 (margin X2) */
+  // min-height: calc(100vh - 178px);
+  // max-height: calc(100vh - 178px);
+  // /* 178 = 50(footer) + 96 (header) + 32 (margin X2) */
+  position: absolute;
+  top: var(--header-height-mobile);
+  height: calc(100% - var(--header-height-mobile) - var(--footer-height));
+  width: 100%;
+  overflow-y: auto;
 }
 
 .main__play {
@@ -30,7 +41,10 @@
 }
 
 .footer {
-  height: 50px;
+  height: var(--footer-height);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
   font-size: 0.8em;
   border-top: 1px solid #FFF;
   color: #FFF;
@@ -50,11 +64,14 @@
 /* === large screen === */
 @media screen AND (min-width: 992px) {
   .header {
-    height: 108px;
+    height: var(--header-height-desktop);
   }
+
   .main {
-    min-height: calc(100vh - 190px);
-    max-height: calc(100vh - 190px);
+    // min-height: calc(100vh - 190px);
+    // max-height: calc(100vh - 190px);
     /*190 = 50(footer) + 108(header) + 32 (margin X2) */
+    top: var(--header-height-desktop);
+    height: calc(100% - var(--header-height-desktop) - var(--footer-height));
   }
 }

@@ -30,7 +30,7 @@ const temp= "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque ill
 
 const App = () => (
   <div className="app">
-    <Header isLogged={false}/>
+    <Header isLogged={true}/>
     <main className="main">
       <Switch>
         {/* Website routes */}
