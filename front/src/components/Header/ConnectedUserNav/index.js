@@ -6,9 +6,9 @@ import PropTypes from 'prop-types';
 
 // == Component
 const ConnectedUserNav = () => (
-  <div class="connected-user">
-    <p class="greeting-user">Bienvenue Player</p>
-    <a class="btn btn-outline-light" href="#" role="button">Se déconnecter</a>
+  <div className="connected-user">
+    <p className="greeting-user">Bienvenue Player</p>
+    <a className="btn btn-outline-light" href="#" role="button">Se déconnecter</a>
   </div>
 );
 
