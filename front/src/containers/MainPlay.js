@@ -1,6 +1,6 @@
 // npm imports
 import { connect } from 'react-redux';
-import { fetchInitialeGameData } from '../actions/api';
+import { fetchInitialeGameData } from '../actions/gamePlay';
 
 // local imports
 import MainPlay from '../components/MainPlay';
