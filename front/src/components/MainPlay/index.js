@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
 import Nav from 'react-bootstrap/Nav';
 import Image from 'react-bootstrap/Image';
+import { NavLink } from 'react-router-dom';
 
 // == Import local
 import './style.scss';
@@ -14,24 +15,15 @@ import savedGameIcon from '../../assets/images/b_31.png';
 const MainPlay = () => (
   <div>
     <section className="game-launcher">
-      <Nav.Link
-        as={Button}
-        variant="outline-light"
-        className="play-button game-launcher__btn"
-        href="#"
-      >
+      <NavLink exact to="/play/create-player" className="nav-link play-button game-launcher__btn">
         <Image className="play-images" src={newGameIcon} />
         <p className="play-text"> Nouvelle Partie</p>
-      </Nav.Link>
-      <Nav.Link
-        as={Button}
-        variant="outline-light"
-        className="play-button game-launcher__btn"
-        href="#"
-      >
+      </NavLink>
+      {/* NOT DISPLAY - MVP without backup
+      <NavLink exact to="/play/story" className="nav-link play-button game-launcher__btn">
         <Image className="play-images" src={savedGameIcon} />
         <p className="play-text"> Continuer la partie</p>
-      </Nav.Link>
+      </NavLink> */}
     </section>
   </div>
 );
