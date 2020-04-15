@@ -1,6 +1,5 @@
-h1 {
-  padding-top: 0.1em;
-  font-size: 1.6em;
+.main__play__title {
+  font-size: 1.8em;
   text-align: center;
 }
 
@@ -75,17 +74,7 @@ h1 {
 
 /* === medium screen === */
 @media screen AND (min-width: 768px) {
-  .main__play {
-    margin: 1em auto;
-    box-shadow: inset 0em 3em rgba(100,255,200,0.7),
-                0 0 1em rgba(100,255,200),
-                0 0 2em rgba(100,255,200),
-                0 0 4em rgba(100,255,200),
-                0 0 8em rgba(100,255,200);
-    width: 80%;
-  }
-
-  h1 {
+  .main__play__title {
     padding-top: 0.2em;
     font-size: 2em;
   }
@@ -124,19 +113,7 @@ h1 {
 
 /* === large screen / desktop === */
 @media screen AND (min-width: 992px) {
-  .main {
-    padding-top: 6em;
-  }
-
-  .main__play {
-    box-shadow: inset 0em 3.5em rgba(100,255,200,0.7),
-                0 0 1em rgba(100,255,200),
-                0 0 2em rgba(100,255,200),
-                0 0 4em rgba(100,255,200),
-                0 0 8em rgba(100,255,200);
-  }
-
-  h1 {
+  .main__play__title {
     padding-top: 0.2em;
     font-size: 2.6em;
   }

@@ -16,7 +16,7 @@ import './style.scss';
 const CreateCharacter = ({ }) => (
   <div className="main__play">
     <div className="title__container">
-      <h1>Création de personnage</h1>
+      <h2 className="main__play__title">Création de personnage</h2>
     </div>
     <div className="ability_main__container">
       <div className="ability_pool__container">
