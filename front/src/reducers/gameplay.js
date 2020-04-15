@@ -1,5 +1,5 @@
 // == Import : local
-import { GAME_DATA_SUCCESS } from '../actions/gamePlay';
+import { GAME_DATA_SUCCESS, INCREMENT_CREATE_CHARACTER, DECREMENT_CREATE_CHARACTER } from '../actions/gamePlay';
 
 // == State
 const initialState = {
@@ -12,7 +12,24 @@ const gameplay = (state = initialState, action = {}) => {
       return {
         ...state,
         ...action.payload,
+        player: {
+          Force: 1,
+          Agilite: 1,
+          Constitution: 1,
+          Volonté: 1,
+          Intelligence: 1,  
+        }
       };
+      case INCREMENT_CREATE_CHARACTER:
+        return {
+          ...state,
+          value: state.value + 1,
+        };
+      case DECREMENT_CREATE_CHARACTER:
+        return {
+          ...state,
+          value: state.value - 1,
+        };  
     default:
       return state;
   }

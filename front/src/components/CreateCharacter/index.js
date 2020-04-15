@@ -13,7 +13,7 @@ import './style.scss';
 
 
 // == Component
-const CreateCharacter = ({ }) => (
+const CreateCharacter = ({increment, decrement  }) => (
   <div className="main__play">
     <div className="title__container">
       <h1>Création de personnage</h1>
@@ -23,11 +23,11 @@ const CreateCharacter = ({ }) => (
         <p className="ability_pool__text">A répartir<span className="ability_pool__value">10</span></p>
       </div>
       <div className="ability__container">
-        <button className="ability__button">-</button>
+        <button className="ability__button" type="button" onClick={decrement}>-</button>
         <img className="ability__image" src={strength} alt="strength" />
         <p className="ability">Force</p>
         <p className="ability__value">1</p>
-        <button className="ability__button">+</button>
+        <button className="ability__button" type="button" onClick={increment}>+</button>
       </div>
       <div className="ability__container">
         <button className="ability__button">-</button>
@@ -66,7 +66,8 @@ const CreateCharacter = ({ }) => (
 
 // == Props validation
 CreateCharacter.propTypes = {
-
+  increment: PropTypes.func.isRequired,
+  decrement: PropTypes.func.isRequired,
 };
 
 
