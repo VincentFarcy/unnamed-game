@@ -1,36 +1,11 @@
-/* === Logo === */
-.logo_min {
-  width: 150px;
-  height: 150px;
-  
-}
-
-.logo {
-  width: 70px;
-  height: 70px;
-}
-
-/* === Main === */
-.main_play {
-  justify-content: space-between;
-  align-items: center;
-  background: rgba(0,0,0,0.6);
-  border-radius: 15px;
-  width: 100%;
-  max-width: 900px;
-  min-width: 300px;
-  box-shadow: inset 0em 2em rgba(100,255,200,0.7);
-  color: white;
-  margin: 0 auto;
-}
-
 h1 {
   padding-top: 0.1em;
-  font-size: 1.8em;
+  font-size: 1.6em;
+  text-align: center;
 }
 
 /* === Ability pool === */
-.ability_pool_container {
+.ability_pool__container {
   width: 100%;
   font-size: 1.3em;
   font-weight: 700;
@@ -39,19 +14,19 @@ h1 {
 }
 
 /* === Ability container === */
-.ability_container {
+.ability__container {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
   width: 100%;
   min-width: 300px;
   max-width: 450px;
-  margin: 1.5em 0;
+  margin: 0.5em 0;
   font-size: 1.2em;
   align-items: center;
 }
 
-.ability_button{
+.ability__button{
   display: flex;
   margin: 0 1em;
   align-self: flex-start;
@@ -63,7 +38,7 @@ h1 {
   border: none;
 }
 
-.ability_value, .ability_pool_value {
+.ability__value, .ability_pool__value {
   padding-left: 1em;
   width: 5%;
 }
@@ -73,36 +48,35 @@ h1 {
   padding-left: 1em;
 }
 
-.ability_image {
+.ability__image {
   width: 1.2em;
   height: 1.2em;
 }
 
 /* === Validate button === */
-.button_container {
+.button__container {
   display: flex;
   justify-content: center;
   padding-bottom: 2em;
 }
 
-.validate_button {
+.validate__button {
   width: 25%;
   max-width: 220px;
   min-width: 140px;
-  align-self: center;
-  text-align: center;
-  border-radius: 25px;
-  background: rgba(0,0,0,0.6);
-  color: white;
-  border: 2px solid  rgba(110,230,255,0.8);
+  padding: 0.25em 0;
+  background: rgba(238, 236, 236, 0.4);
+  border-radius: 10px;
+  border-color: rgba(238, 236, 236, 0.4);
+  color: rgb(248, 250, 250); 
+  box-shadow:  -4px 4px 16px #2f3030, 
+  4px -4px 16px #b4b7b9;
 }
 
 /* === medium screen === */
 @media screen AND (min-width: 768px) {
-  .main_play {
+  .main__play {
     margin: 1em auto;
-    min-height: calc(100vh - 178px);
-    max-height: calc(100vh - 178px);
     box-shadow: inset 0em 3em rgba(100,255,200,0.7),
                 0 0 1em rgba(100,255,200),
                 0 0 2em rgba(100,255,200),
@@ -116,30 +90,31 @@ h1 {
     font-size: 2em;
   }
 
-  .ability_pool_container {
+  .ability_pool__container {
     max-width: none;
     font-size: 2em;
     border-radius: 5px;
   }
 
-  .ability_container {
+  .ability__container {
     min-width: 620px;
     font-size: 2em;
     margin: 1em auto 0 auto;
   }
 
-  .ability_button {
+  .ability__button {
     width: 1.4em;
     height: 1.4em;
     border-radius: 50%;
     align-self: center;
   }
-  .ability_image {
+
+  .ability__image {
     width: 2em;
     height: 2em;
   }
 
-  .validate_button {
+  .validate__button {
     max-width: 500px;
     font-size: 2em;
     margin: 1em 0;
@@ -149,10 +124,11 @@ h1 {
 
 /* === large screen / desktop === */
 @media screen AND (min-width: 992px) {
-  .main_play {
-    margin: 2em auto;
-    min-height: calc(100vh - 222px);
-    max-height: calc(100vh - 222px);
+  .main {
+    padding-top: 6em;
+  }
+
+  .main__play {
     box-shadow: inset 0em 3.5em rgba(100,255,200,0.7),
                 0 0 1em rgba(100,255,200),
                 0 0 2em rgba(100,255,200),
@@ -165,16 +141,16 @@ h1 {
     font-size: 2.6em;
   }
 
-  .ability_pool_container {
+  .ability_pool__container {
     font-size: 2.6em;
   }
 
-  .ability_container {
+  .ability__container {
     min-width: 800px;
     font-size: 2.6em;
    }
 
-  .ability_button {
+  .ability__button {
     width: 1em;
     height: 1em;
     border-radius: 50%;
@@ -182,23 +158,25 @@ h1 {
     transition-property: background-color, color, transform ;
   }
 
-  .ability_button:hover{
+  .ability__button:hover{
     background-color: grey;
     color: white;
     transform: scale(1.4) rotate(360deg);
   }
   
-  .validate_button {
+  .validate__button {
     font-size: 2.6em;
     margin-bottom: 1em;
-    padding: 0.2em 0;
     transition-duration: 0.35s;
-    transition-property: color, transform, color;
+    transition-property: border-color, background-color, box-shadow, color;
   }
 
-  .validate_button:hover {
-    transform: scale(1.2);
-    border: 2px solid  #f0f;
-    color: lightgrey;
+  .validate__button:hover {
+    background-color: rgba(238, 236, 236, 0.4);
+    // border-color: rgba(238, 236, 236, 0.4);
+    color: rgb(248, 250, 250); 
+    box-shadow:  -4px 4px 16px #2f3030, 
+                 4px -4px 16px #9abbcb;
   }
 }
+

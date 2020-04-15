@@ -12,7 +12,9 @@ import './style.scss';
 const Story = ({ Chapter }) => (
   <div className="main__play">
     <p className="story__p">{Chapter}</p>
-    <Button cssClassName="next__button" buttonName="Suivant"></Button>
+    <div className="button__container">
+      <Button cssClassName="next__button" buttonName="Suivant"></Button>
+    </div>
   </div>
 );
 
