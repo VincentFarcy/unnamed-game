@@ -1,7 +1,7 @@
 // == Import npm
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from '../LinkButton';
+import LinkButton from '../LinkButton';
 import strength from '../../../docs/images/strength.png';
 import agility from '../../../docs/images/agility.png';
 import endurance from '../../../docs/images/endurance.png';
@@ -58,8 +58,8 @@ const CreateCharacter = ({ }) => (
         <button className="ability__button">+</button>
       </div>
       <div className="button__container">
-        <Button cssClassName="validate__button" buttonName="Valider"></Button>
-      </div>      
+        <LinkButton cssClassName="validate__button" buttonName="Valider" url="/play/story" />
+      </div>
     </div>
   </div>
 );

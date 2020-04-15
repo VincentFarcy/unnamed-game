@@ -1,5 +1,5 @@
 // == Import : local
-import { GAME_DATA_SUCCESS } from '../actions/gamePlay';
+import { GAME_DATA_SUCCESS, GAME_DATA_ERROR } from '../actions/gamePlay';
 
 // == State
 const initialState = {
@@ -13,10 +13,15 @@ const gameplay = (state = initialState, action = {}) => {
         ...state,
         ...action.payload,
       };
+    case GAME_DATA_ERROR:
+      return {
+        ...state,
+      };
     default:
       return state;
   }
 };
+
 
 // == Export
 export default gameplay;
