@@ -9,8 +9,8 @@ import LinkButton from '../../LinkButton';
 // == Component
 const AnonymousUserNav = () => (
   <ButtonGroup className="anonymous-user">
-    <LinkButton cssClassName="" buttonName="S'inscrire" />
-    <LinkButton cssClassName="" buttonName="Se connecter" />
+    <LinkButton cssClassName="" buttonName="S'inscrire" url="sign-up" />
+    <LinkButton cssClassName="" buttonName="Se connecter" url="sign-in" />
   </ButtonGroup>
 );
 
