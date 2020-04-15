@@ -20,8 +20,8 @@ axios({
   // url: 'https://localhost:8001/api/login_check',
   withCredentials: true,
   data: {
-    username: 'bob@o.o',
-    password: 'tagazou',
+    username: 'bill',
+    password: 'Tagazou0!',
   },
 })
   .then((responseLogin) => {
@@ -30,15 +30,15 @@ axios({
     // BROWSE --------------
     axios({
       method: 'get',
-      url: `${baseApiUri}/api/browse`,
-      // url: 'https://localhost:8001/api/browse',
+      url: `${BASE_API_URI }/api/game/load`,
+      // url: 'https://localhost:8001/api/browse`',
       withCredentials: true,
       headers: {
         Authorization: `Bearer ${token}`,
       },
     })
-      .then((responseBrowse) => {
-        console.log('api', responseBrowse.data);
+      .then((responseGameLoad) => {
+        console.log('ap - game loading', responseGameLoad.data);
       })
       .catch((error) => {
         console.log('api', error);
