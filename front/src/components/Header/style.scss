@@ -1,9 +1,81 @@
 // import scss variables
 @import 'src/styles/vars';
+// items not to be displayed on small screen
+.desktop {
+  display: none;
+}
 
-.play-button {
+.navbar {
+  z-index: 1;
+}
+
+.play-button-header {
   font-size: 1.3em;
   text-transform: uppercase;
   padding: 0.1em;
   width: 50%;
+  background: rgba(238, 236, 236, 0.4);
+  border-radius: 10px;
+  border-color: rgba(238, 236, 236, 0.4);
+  color: rgb(248, 250, 250); 
+  box-shadow:  -4px 4px 16px #9c9fa1, 
+  4px -4px 16px #b4b7b9;
+}
+
+.anonymous-user {
+  width: 100%;
+  margin: 1em 0;
+}
+
+.connected-user {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.greeting-user {
+  font-size: 1.5em;
+  color: #FFF;
+  margin-bottom: 0;
+}
+
+/* === large screen === */
+@media screen AND (min-width: 992px) {
+  // items not to be displayed on large screen
+  .mobile {
+    display: none;
+  }
+
+  .desktop {
+    display: block;
+  }
+
+  .navbar {
+    padding: 0 3em;
+  }
+
+  .navbar-nav {
+    width: 55%;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .nav-link {
+    font-size: 1.2em;
+    text-align: center;
+  }
+
+  .play-button {
+    width: 100%;
+    margin-top: 1em;
+  }
+
+  .auth {
+    padding: 0.5em 0;
+  }
+
+  .greeting-user {
+    margin-right: 1em;
+    text-align: center;
+  }
 }
