@@ -9,7 +9,7 @@ import { increment, decrement } from '../actions/gamePlay';
 
 /* === State (données) === */
 const mapStateToProps = (state, ownProps) => ({
-  tata: "toto",
+  abilities: state.gameplay.abilities,
 });
 
 /* === Actions === */
