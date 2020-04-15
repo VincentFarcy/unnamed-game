@@ -10,6 +10,7 @@ use App\Repository\ContentParameterRepository;
 use App\Repository\HeroRepository;
 use App\Repository\GameParameterRepository;
 use App\Repository\OpponentRepository;
+use App\Repository\AttributeRepository;
 use App\Repository\SequenceRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -28,11 +29,12 @@ class GameController extends AbstractController
      * @Route("load", name="load", methods={"GET"})
      */
     public function load(
+        AttributeRepository $attributeRepository,
+        BackupRepository $backupRepository,
         ChapterRepository $chapterRepository,
-        OpponentRepository $opponentRepository,
         ContentParameterRepository $contentParameterRepository,
         GameParameterRepository $gameParameterRepository,
-        BackupRepository $backupRepository,
+        OpponentRepository $opponentRepository,
         SerializerInterface $serializer)
     {
         // Extract all the datas needed for starting the game from scratch :
@@ -40,6 +42,7 @@ class GameController extends AbstractController
         $opponents = $opponentRepository->findAll();
         $contentParameters = $contentParameterRepository->findAll();
         $gameParameters = $gameParameterRepository->findAll();
+        $attributes = $attributeRepository->findAll();
 
         // or from a backup of the connected user :
         $user = $this->GetUser();
@@ -49,17 +52,18 @@ class GameController extends AbstractController
         }
 
         // Send to the front at json format after use of doctrine serializer groups :
-        return $this->json([
-            'user' => 
-                $serializer->normalize(
-                    $user,
-                    null, ['groups' => ['user']]
-                ), 
+        return $this->json([ 
+            
             'chapters' => 
                 $serializer->normalize(
                     $chapters,
                     null, ['groups' => ['chapter']]
-                ), 
+                ),
+            'attributes' => 
+                $serializer->normalize(
+                    $attributes,
+                    null, ['groups' => ['attribute']]
+                ),  
             'opponents' => 
                 $serializer->normalize(
                     $opponents,
