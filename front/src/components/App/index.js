@@ -21,7 +21,7 @@ import Story from '../../containers/Story';
 import Dialog from '../Dialog';
 import Combat from '../Combat';
 import Reward from '../Reward';
-import CreateCharacter from '../CreateCharacter';
+import CreateCharacter from '../../containers/CreateCharacter';
 import Footer from '../Footer';
 
 const temp= "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque illo vitae et? Est eius beatae at, sed autem nulla ratione fugit natus officia aspernatur exercitationem non aliquam quam accusamus quasi?";
