@@ -1,5 +1,6 @@
 // npm imports
 import { connect } from 'react-redux';
+import { fetchInitialeGameData } from '../actions/api';
 
 // local imports
 import MainPlay from '../components/MainPlay';
@@ -10,7 +11,7 @@ const mapStateToProps = null;
 // actions
 const mapDispatchToProps = (dispatch) => ({
   fetchInitialeGameData: () => {
-    console.log('action pour récupérer les datas');
+    dispatch(fetchInitialeGameData());
   }
 });
 
