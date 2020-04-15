@@ -8,6 +8,7 @@ import MainPlay from '../MainPlay';
 import MainSite from '../MainSite';
 import CreateCharacter from '../CreateCharacter';
 import Footer from '../Footer';
+import Story from '../Story';
 
 // == Coponent
 const App = () => (
@@ -20,7 +21,8 @@ const App = () => (
         warningContent="Veuillez noter que le premier Unnamed Game est déconseillé aux moins de 12 ans !"
       /> */}
       {/* <MainPlay /> */}
-      <CreateCharacter AbilityList="FTG" />
+      {/* <CreateCharacter AbilityList="test" /> */}
+      <Story />
     </main>
     <Footer />
   </div>

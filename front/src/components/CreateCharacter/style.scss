@@ -11,7 +11,7 @@
 }
 
 /* === Main === */
-.main {
+.main_play {
   justify-content: space-between;
   align-items: center;
   background: rgba(0,0,0,0.6);
@@ -21,6 +21,12 @@
   min-width: 300px;
   box-shadow: inset 0em 2em rgba(100,255,200,0.7);
   color: white;
+  margin: 0 auto;
+}
+
+h1 {
+  padding-top: 0.1em;
+  font-size: 1.8em;
 }
 
 /* === Ability pool === */
@@ -30,7 +36,6 @@
   font-weight: 700;
   padding-left: 1em;
   border-radius: 5px;
-  margin-top: 0.25em;
 }
 
 /* === Ability container === */
@@ -41,7 +46,7 @@
   width: 100%;
   min-width: 300px;
   max-width: 450px;
-  margin-top: 2em;
+  margin: 1.5em 0;
   font-size: 1.2em;
   align-items: center;
 }
@@ -74,6 +79,12 @@
 }
 
 /* === Validate button === */
+.button_container {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 2em;
+}
+
 .validate_button {
   width: 25%;
   max-width: 220px;
@@ -88,7 +99,10 @@
 
 /* === medium screen === */
 @media screen AND (min-width: 768px) {
-  .main {
+  .main_play {
+    margin: 1em auto;
+    min-height: calc(100vh - 178px);
+    max-height: calc(100vh - 178px);
     box-shadow: inset 0em 3em rgba(100,255,200,0.7),
                 0 0 1em rgba(100,255,200),
                 0 0 2em rgba(100,255,200),
@@ -96,6 +110,12 @@
                 0 0 8em rgba(100,255,200);
     width: 80%;
   }
+
+  h1 {
+    padding-top: 0.2em;
+    font-size: 2em;
+  }
+
   .ability_pool_container {
     max-width: none;
     font-size: 2em;
@@ -129,12 +149,20 @@
 
 /* === large screen / desktop === */
 @media screen AND (min-width: 992px) {
-  .main {
+  .main_play {
+    margin: 2em auto;
+    min-height: calc(100vh - 222px);
+    max-height: calc(100vh - 222px);
     box-shadow: inset 0em 3.5em rgba(100,255,200,0.7),
                 0 0 1em rgba(100,255,200),
                 0 0 2em rgba(100,255,200),
                 0 0 4em rgba(100,255,200),
                 0 0 8em rgba(100,255,200);
+  }
+
+  h1 {
+    padding-top: 0.2em;
+    font-size: 2.6em;
   }
 
   .ability_pool_container {

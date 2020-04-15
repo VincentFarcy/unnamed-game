@@ -12,8 +12,9 @@
 }
 
 .main {
-  min-height: calc(100vh - 146px);
-  /* 90 = 50(footer) + 96 (header) */
+  min-height: calc(100vh - 178px);
+  max-height: calc(100vh - 178px);
+  /* 178 = 50(footer) + 96 (header) + 32 (margin X2) */
 }
 
 .footer {
@@ -33,8 +34,8 @@
     height: 108px;
   }
   .main {
-    min-height: calc(100vh - 138px);
-    max-height: calc(100vh - 138px);
-    /*138 = 30(footer) & 108(header) */
+    min-height: calc(100vh - 190px);
+    max-height: calc(100vh - 190px);
+    /*190 = 50(footer) + 108(header) + 32 (margin X2) */
   }
 }
