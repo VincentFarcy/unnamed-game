@@ -6,10 +6,13 @@ import './styles.scss';
 import Header from '../Header';
 import MainPlay from '../MainPlay';
 import MainSite from '../MainSite';
+import Story from '../Story';
 import CreateCharacter from '../CreateCharacter';
 import Footer from '../Footer';
 
 // == Coponent
+const temp = "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque illo vitae et? Est eius beatae at, sed autem nulla ratione fugit natus officia aspernatur exercitationem non aliquam quam accusamus quasi?";
+
 const App = () => (
   <div className="app">
     <Header />
@@ -20,7 +23,8 @@ const App = () => (
         warningContent="Veuillez noter que le premier Unnamed Game est déconseillé aux moins de 12 ans !"
       /> */}
       {/* <MainPlay /> */}
-      <CreateCharacter AbilityList="FTG" />
+      {/* <CreateCharacter AbilityList="Test" /> */}
+      <Story Chapter={temp}/>
     </main>
     <Footer />
   </div>
