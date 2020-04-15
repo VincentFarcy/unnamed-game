@@ -1,27 +1,26 @@
 // == Import npm
 import React from 'react';
-import Nav from 'react-bootstrap/Nav';
-import Button from 'react-bootstrap/Button';
+import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 // == Import local
 
 // == Component
-const LinkButton = ({ cssClassName, buttonName }) => (
-  <Nav.Link
-    as={Button}
-    variant="outline-light"
-    className={cssClassName}
-    href="#"
+const LinkButton = ({ cssClassName, buttonName, url = '' }) => (
+  <NavLink
+    exact
+    to={url}
+    className={`${cssClassName} nav-link btn btn-outline-light`}
   >
     {buttonName}
-  </Nav.Link>
+  </NavLink>
 );
 
 // == Props validation
 LinkButton.propTypes = {
   cssClassName: PropTypes.string.isRequired,
   buttonName: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
 };
 
 // == Export

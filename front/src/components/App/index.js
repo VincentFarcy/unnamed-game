@@ -28,7 +28,7 @@ import Footer from '../Footer';
 // == Coponent
 const App = () => (
   <div className="app">
-    <Header />
+    <Header isLogged={false}/>
     <main className="main">
       <Switch>
         {/* Website routes */}

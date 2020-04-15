@@ -2,6 +2,7 @@
 import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
+import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 // == Import local
@@ -17,20 +18,30 @@ const Header = ({ isLogged }) => (
     {/* https://react-bootstrap.github.io/components/navbar/#navbars-overview */}
     <Navbar bg="dark" expand="lg" variant="dark">
       {/* Logo */}
-      <Navbar.Brand href="/">
-        <img src={logo} alt="unnamed game logo" />
+      <Navbar.Brand>
+        <NavLink exact to="/">
+          <img src={logo} alt="unnamed game logo" />
+        </NavLink>
       </Navbar.Brand>
       {/* Play button */}
-      <LinkButton cssClassName="play-button mobile" buttonName="Jouer" />
+      <LinkButton cssClassName="play-button mobile" buttonName="Jouer" url="/play" />
       {/* Burger menu */}
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         {/* Pages */}
         <Nav className="mr-auto">
-          <Nav.Link href="/">Accueil</Nav.Link>
-          <Nav.Link href="#">Règles générales</Nav.Link>
-          <Nav.Link href="#">Présentation de l'équipe</Nav.Link>
-          <Nav.Link href="#">Remerciements</Nav.Link>
+          <NavLink exact to="/" className="nav-link">
+            Accueil
+          </NavLink>
+          <NavLink exact to="/rules" className="nav-link">
+            Règles générales
+          </NavLink>
+          <NavLink exact to="/team" className="nav-link">
+            Présentation de l'équipe
+          </NavLink>
+          <NavLink exact to="/acknowledgements" className="nav-link">
+            Remerciements
+          </NavLink>
         </Nav>
         <div className="auth">
           {/* items to be displayed depending on user's login status */}
@@ -41,7 +52,11 @@ const Header = ({ isLogged }) => (
             isLogged && <ConnectedUserNav />
           }
           {/* Play button */}
-          <LinkButton cssClassName="play-button desktop" buttonName="Jouer" />
+          <LinkButton
+            cssClassName="play-button desktop"
+            buttonName="Jouer"
+            url="/play"
+          />
         </div>
       </Navbar.Collapse>
     </Navbar>
