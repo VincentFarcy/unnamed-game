@@ -6,13 +6,13 @@ import PropTypes from 'prop-types';
 import './style.scss';
 
 // == Component
-const Dialog = () => (
+const Team = () => (
 
-  <p>Tata: Blablabla | Toto: Mouahahah</p>
+  <p>Tout l'équipe de vainqueurs...</p>
 
 );
 
 // == Props validation
 
 // == Export
-export default Dialog;
+export default Team;
