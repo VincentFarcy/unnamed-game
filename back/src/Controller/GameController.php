@@ -44,13 +44,6 @@ class GameController extends AbstractController
         $gameParameters = $gameParameterRepository->findAll();
         $attributes = $attributeRepository->findAll();
 
-        // or from a backup of the connected user :
-        $user = $this->GetUser();
-        $backups = [];
-        if ($user) {
-            $backups = $backupRepository->findByUser($user->getId());
-        }
-
         // Send to the front at json format after use of doctrine serializer groups :
         return $this->json([ 
             
@@ -78,11 +71,6 @@ class GameController extends AbstractController
                 $serializer->normalize(
                     $gameParameters,
                     null, ['groups' => ['game-parameter']]
-                ), 
-            'backups' => 
-                $serializer->normalize(
-                    $backups,
-                    null, ['groups' => ['backup']]
                 ), 
         ]);
     }
