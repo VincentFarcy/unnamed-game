@@ -37,7 +37,7 @@
   background-color: rgba(184, 176, 176, 0.623);
 }
 
-/* === large screen === */
+/* === Tablets === */
 @media screen AND (min-width: 768px) {
   .progress {
     height: 30px;
@@ -49,6 +49,24 @@
     
     &__avatar {
       width: 120px;
+      // margin: 0 15px;
+      
+    }
+  }
+}
+
+/* === Large screens === */
+@media screen AND (min-width: 1024px) {
+  .progress {
+    height: 40px;
+    width: 200px;
+    align-self: center;
+  }
+
+  .player-info {
+    height: 150px;
+    &__avatar {
+      width: 140px;
       // margin: 0 15px;
       
     }
