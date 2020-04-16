@@ -29,7 +29,7 @@ class UserController extends AbstractController
         // Get connected user
         $user = $this->GetUser();
         // His backups
-        $backups = $backupRepository->findByUser($user->getId());
+        $backups = $backupRepository->findBy([], ['createdAt' => 'DESC']);
         // Send data
         return $this->json([
             'user' => 
