@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ChapterController!{% endblock %}
+
+{% block body %}
+
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Type</th>
+      <th scope="col">Column heading</th>
+      <th scope="col">Column heading</th>
+      <th scope="col">Column heading</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    {% for chapter in chapters %}
+    <tr class="{{ cycle(['', 'table-dark'], loop.index0) }}">
+      <th scope="row">Default</th>
+      <td>Column content</td>
+      <td>Column content</td>
+      <td>Column content</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table> 
+
+{% endblock %}

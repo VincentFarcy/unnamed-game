@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Chapter;
 use App\Repository\ChapterRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -16,7 +17,7 @@ class ChapterController extends AbstractController
      */
     public function browse(ChapterRepository $chapterRepository)
     {
-        return $this->render('admin/chapter/index.html.twig', [
+        return $this->render('admin/chapter/browse.html.twig', [
             'chapters' => $chapterRepository->findAll()
         ]);
     }
@@ -24,10 +25,10 @@ class ChapterController extends AbstractController
       /**
      * @Route("/{id}", name="read", requirements={"id": "\d+"})
      */
-    public function read()
+    public function read(Chapter $chapter)
     {
-        return $this->render('admin/chapter/index.html.twig', [
-            'controller_name' => 'ChapterController',
+        return $this->render('admin/chapter/read.html.twig', [
+            'chapter ' => $chapter,
         ]);
     }
 
