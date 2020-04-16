@@ -1,3 +1,7 @@
+.title__container { // all class
+  margin-bottom: 1em;
+}
+
 .main__play__title {
   font-size: 1.8em;
   text-align: center;
@@ -10,6 +14,24 @@
   font-weight: 700;
   padding-left: 1em;
   border-radius: 5px;
+  max-width: 450px; //vf
+  margin-bottom: 1em; //vf
+}
+
+.ability_main__container p {  //vf all class
+  margin-bottom: 0;
+}
+
+.ability_pool__text {   // vf all class
+  text-align: center;
+  color: orange;
+}
+
+.ability_main__container {   // vf all class
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /* === Ability container === */
@@ -52,9 +74,11 @@
 
 /* === Validate button === */
 .button__container {
+  margin-top: 1em; // vf
+  margin-bottom: 1em; // vf
   display: flex;
   justify-content: center;
-  padding-bottom: 2em;
+  // padding-bottom: 2em; vf
 }
 
 .validate__button {
