@@ -36,6 +36,7 @@ const initialState = {
       image: Intelligence,
     },
   ],
+  pool:10,
   chapters: [
     {
       title: "1er chapitre",
@@ -56,14 +57,21 @@ const gameplay = (state = initialState, action = {}) => {
         ...action.payload,
       };
     case INCREMENT_CREATE_CHARACTER:
+      console.log("up");
       return {
         ...state,
-        value: state.value + 1,
+        pool: state.pool -1,
       };
     case DECREMENT_CREATE_CHARACTER:
+      let ability = findAbility(state, action.payload).value;
+      console.log('reducer', ability);
+
       return {
         ...state,
-        value: state.value - 1,
+        abilities: [
+          ...state.abilities,
+        ],
+        pool: state.pool +1,
       };
     default:
       return state;
@@ -73,3 +81,10 @@ const gameplay = (state = initialState, action = {}) => {
 
 // == Export
 export default gameplay;
+
+// == Selector
+export const findAbility = (state, abilityName) => (
+  state.abilities.find((ability) => (
+    ability.name === abilityName
+  ))
+);
