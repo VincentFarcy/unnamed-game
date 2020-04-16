@@ -12,11 +12,11 @@ import './style.scss';
 const CreateCharacter = ({ abilities, increment, decrement }) => (
   <div className="main__play">
     <div className="title__container">
-      <h1>Création de personnage</h1>
+      <h2 className="main__play__title">Création de personnage</h2>
     </div>
     <div className="ability_main__container">
       <div className="ability_pool__container">
-        <p className="ability_pool__text">A répartir<span className="ability_pool__value">10</span></p>
+        <p className="ability_pool__text">A répartir : 10</p>
       </div>
       {
         abilities.map((ability) => (

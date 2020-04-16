@@ -17,7 +17,7 @@ const MainSite = ({ introTitle, introContent, warningContent }) => (
       <LinkButton cssClassName="play-button-main" buttonName="Jouer" url="/play" />
     </section>
     <section className="introduction">
-      <Card style={{ width: '90%' }}>
+      <Card>
         <Card.Img className="intro-image" variant="top" src={intro} />
         <Card.Body>
           <Card.Title className="introduction__title">{introTitle}</Card.Title>
@@ -29,7 +29,7 @@ const MainSite = ({ introTitle, introContent, warningContent }) => (
 
     </section>
     <section className="warning">
-      <Card style={{ width: '90%' }}>
+      <Card>
         <Card.Img variant="top" src={warning} />
         <Card.Body>
           <Card.Title>Avertissement au public</Card.Title>

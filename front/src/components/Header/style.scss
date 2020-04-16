@@ -8,9 +8,8 @@
 .navbar {
   z-index: 1;  
   background-color: #343a40ef;
+  height: var(--header-height-mobile);
 }
-
-
 
 .play-button-header {
   font-size: 1.3em;
@@ -27,7 +26,6 @@
 
 .anonymous-user {
   width: 100%;
-  margin: 1em 0;
 }
 
 .connected-user {
@@ -55,6 +53,7 @@
 
   .navbar {
     padding: 0 3em;
+    height: var(--header-height-desktop);
   }
 
   .navbar-nav {
@@ -70,7 +69,7 @@
 
   .play-button {
     width: 100%;
-    margin-top: 1em;
+    margin-top: 0.25em;
   }
 
   .auth {

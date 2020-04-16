@@ -1,6 +1,9 @@
-h1 {
-  padding-top: 0.1em;
-  font-size: 1.6em;
+.title__container { // all class
+  margin-bottom: 1em;
+}
+
+.main__play__title {
+  font-size: 1.8em;
   text-align: center;
 }
 
@@ -11,6 +14,24 @@ h1 {
   font-weight: 700;
   padding-left: 1em;
   border-radius: 5px;
+  max-width: 450px; //vf
+  margin-bottom: 1em; //vf
+}
+
+.ability_main__container p {  //vf all class
+  margin-bottom: 0;
+}
+
+.ability_pool__text {   // vf all class
+  text-align: center;
+  color: orange;
+}
+
+.ability_main__container {   // vf all class
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /* === Ability container === */
@@ -53,9 +74,11 @@ h1 {
 
 /* === Validate button === */
 .button__container {
+  margin-top: 1em; // vf
+  margin-bottom: 1em; // vf
   display: flex;
   justify-content: center;
-  padding-bottom: 2em;
+  // padding-bottom: 2em; vf
 }
 
 .validate__button {
@@ -73,17 +96,7 @@ h1 {
 
 /* === medium screen === */
 @media screen AND (min-width: 768px) {
-  .main__play {
-    margin: 1em auto;
-    box-shadow: inset 0em 3em rgba(100,255,200,0.7),
-                0 0 1em rgba(100,255,200),
-                0 0 2em rgba(100,255,200),
-                0 0 4em rgba(100,255,200),
-                0 0 8em rgba(100,255,200);
-    width: 80%;
-  }
-
-  h1 {
+  .main__play__title {
     padding-top: 0.2em;
     font-size: 2em;
   }
@@ -121,19 +134,7 @@ h1 {
 
 /* === large screen / desktop === */
 @media screen AND (min-width: 992px) {
-  .main {
-    padding-top: 6em;
-  }
-
-  .main__play {
-    box-shadow: inset 0em 3.5em rgba(100,255,200,0.7),
-                0 0 1em rgba(100,255,200),
-                0 0 2em rgba(100,255,200),
-                0 0 4em rgba(100,255,200),
-                0 0 8em rgba(100,255,200);
-  }
-
-  h1 {
+  .main__play__title {
     padding-top: 0.2em;
     font-size: 2.6em;
   }
