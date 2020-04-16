@@ -16,7 +16,6 @@
 .ability__container {
   display: flex;
   justify-content: space-between;
-  flex-direction: row;
   width: 100%;
   min-width: 300px;
   max-width: 450px;
@@ -28,13 +27,12 @@
 .ability__button{
   display: flex;
   margin: 0 1em;
-  align-self: flex-start;
   width: 1.2em;
   height: 1.2em;
   border-radius: 50%;
   justify-content: center;
-  align-items: center;
   border: none;
+  line-height: 100%;
 }
 
 .ability__value, .ability_pool__value {
@@ -95,7 +93,6 @@
     width: 1.4em;
     height: 1.4em;
     border-radius: 50%;
-    align-self: center;
   }
 
   .ability__image {
@@ -128,8 +125,8 @@
    }
 
   .ability__button {
-    width: 1em;
-    height: 1em;
+    width: 1.2em;
+    height: 1.2em;
     border-radius: 50%;
     transition-duration: 0.35s;
     transition-property: background-color, color, transform ;
@@ -150,7 +147,6 @@
 
   .validate__button:hover {
     background-color: rgba(238, 236, 236, 0.4);
-    // border-color: rgba(238, 236, 236, 0.4);
     color: rgb(248, 250, 250); 
     box-shadow:  -4px 4px 16px #2f3030, 
                  4px -4px 16px #9abbcb;

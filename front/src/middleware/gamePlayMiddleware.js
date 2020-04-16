@@ -3,7 +3,7 @@ import axios from 'axios';
 
 // local imports
 import { FETCH_INITIALE_GAME_DATA, gameDataSuccess, gameDataError } from '../actions/gamePlay';
-import { BASE_API_URI } from '../app.config.js';
+import { BASE_API_URI } from '../app.config';
 
 // == Api Middleware
 const apiMiddleware = (store) => (next) => (action) => {
@@ -21,7 +21,7 @@ const apiMiddleware = (store) => (next) => (action) => {
           store.dispatch(gameDataError());
         });
       break;
-    default: 
+    default:
       next(action);
   }
 };

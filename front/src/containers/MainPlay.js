@@ -12,7 +12,7 @@ const mapStateToProps = null;
 const mapDispatchToProps = (dispatch) => ({
   fetchInitialeGameData: () => {
     dispatch(fetchInitialeGameData());
-  }
+  },
 });
 
 // export
