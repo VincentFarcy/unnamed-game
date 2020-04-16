@@ -10,14 +10,14 @@ import './style.scss';
 
 
 // == Component
-const Reward = ({ rewardContent, rewardTitle }) => (
+const Reward = ({ rewardContent }) => (
   <>
     <div className="player-bar">
       <PlayerInfo />
     </div>
     <div className="main__play">
-      <p className="reward__title"> {rewardTitle} Voici vos récompenses suite au combat</p>
-      <p className="reward__p">{rewardContent} Contenu de la récompense suite au combat</p>
+      <p className="reward__title"> Voici vos récompenses suite au combat</p>
+      <p className="reward__p"> Vous avez gagné {rewardContent.value} {rewardContent.content}</p>
       <div className="button__container">
         <Button cssClassName="next__button" url="/play" buttonName="Suivant" />
       </div>
@@ -27,8 +27,10 @@ const Reward = ({ rewardContent, rewardTitle }) => (
 
 // == Props validation
 Reward.propTypes = {
-  rewardTitle: PropTypes.string.isRequired,
-  rewardContent: PropTypes.string.isRequired,
+  rewardContent: PropTypes.shape({
+    content: PropTypes.string.isRequired,
+    value: PropTypes.number.isRequired,
+  }).isRequired,
 };
 
 
