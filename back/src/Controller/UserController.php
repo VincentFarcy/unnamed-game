@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Repository\BackupRepository;;
 use Doctrine\ORM\EntityManagerInterface;
 use Lexik\Bundle\JWTAuthenticationBundle\Services\JWTTokenManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -22,10 +23,13 @@ class UserController extends AbstractController
      * @Route("read", name="read", methods={"GET"})
      */
     public function read(
+        BackupRepository $backupRepository,
         SerializerInterface $serializer)
     {
         // Get connected user
         $user = $this->GetUser();
+        // His backups
+        $backups = $backupRepository->findByUser($user->getId());
         // Send data
         return $this->json([
             'user' => 
@@ -33,6 +37,11 @@ class UserController extends AbstractController
                     $user,
                     null, ['groups' => ['user']]
                 ), 
+            'backups' => 
+                $serializer->normalize(
+                    $backups,
+                    null, ['groups' => ['backup']]
+            ), 
         ]);
     }
 
