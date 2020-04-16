@@ -1,6 +1,6 @@
 // == Import npm
 import React from 'react';
-import {Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 
 // == Import local
 // == Import Website Components
@@ -17,11 +17,11 @@ import Legal from '../Legal';
 
 // == Import Gameplay Components
 import MainPlay from '../../containers/MainPlay';
-import Story from '../Story';
+import Story from '../../containers/Story';
 import Dialog from '../Dialog';
 import Combat from '../Combat';
 import Reward from '../Reward';
-import CreateCharacter from '../CreateCharacter';
+import CreateCharacter from '../../containers/CreateCharacter';
 import Footer from '../Footer';
 
 const temp= "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque illo vitae et? Est eius beatae at, sed autem nulla ratione fugit natus officia aspernatur exercitationem non aliquam quam accusamus quasi?";
@@ -30,7 +30,7 @@ const temp= "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque ill
 
 const App = () => (
   <div className="app">
-    <Header isLogged={false}/>
+    <Header isLogged={false} />
     <main className="main">
       <Switch>
         {/* Website routes */}
@@ -56,8 +56,8 @@ const App = () => (
         introContent="Ceci est l'introduction de mise en ambiance pour le premier jeu proposé !"
         warningContent="Veuillez noter que le premier Unnamed Game est déconseillé aux moins de 12 ans !"
       /> */}
-      {/* <MainPlay /> */}     
-      {/* <CreateCharacter />  */}   
+      {/* <MainPlay /> */}
+      {/* <CreateCharacter />  */}
       {/* <Story Chapter={temp} /> */}
     </main>
     <Footer />
