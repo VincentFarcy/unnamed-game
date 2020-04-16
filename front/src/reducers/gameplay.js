@@ -43,8 +43,8 @@ const initialState = {
       endText: " Integer eget sagittis ex, eget posuere dui. In porta, turpis eget interdum ultricies, turpis orci malesuada mi, eu posuere nulla massa at massa. Vestibulum pulvinar consectetur urna facilisis porta. Pellentesque quis enim a nisi sollicitudin iaculis vitae vel velit. Maecenas finibus ac enim sed eleifend. Proin non pretium erat. Vivamus venenatis rhoncus eros tempus posuere. Mauris sagittis nibh aliquet risus consectetur vulputate. Cras sit amet fringilla arcu.\r\n\r\nIn ut risus accumsan, congue lectus id, aliquam urna. Cras id erat libero. Cras vulputate lorem non pharetra mattis. Sed viverra risus at accumsan aliquam. Integer pharetra sem tortor, pretium vestibulum lectus semper et. Nulla facilisi. Cras auctor mauris magna, eget consequat leo sagittis in. Nullam bibendum nisl id arcu gravida aliquet. Vestibulum pellentesque mattis felis non venenatis. Suspendisse ullamcorper tellus sed quam ultrices, egestas malesuada metus vestibulum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu convallis nisi. Aenean ornare quam non ultrices suscipit. Nullam id ex felis. Suspendisse eget enim ac felis mattis egestas eget in ex. Nullam sodales, libero nec auctor tristique, magna dolor pellentesque augue, vitae rutrum nulla magna a turpis. ",
       image: null,
       orderBy: 1,
-    }
-      ],
+    },
+  ],
 };
 
 // == Reducer
