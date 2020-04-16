@@ -9,18 +9,19 @@ import './style.scss';
 
 
 // == Component
-const Story = ({ Chapter }) => (
+const Story = ({ story }) => (
   <div className="main__play">
-    <p className="story__p">{Chapter}</p>
+    <p className="story__title">{story.title}</p>
+    <p className="story__p">{story.mainText}</p>
     <div className="button__container">
-      <Button cssClassName="next__button" buttonName="Suivant"></Button>
+      <Button cssClassName="next__button" buttonName="Suivant" />
     </div>
   </div>
 );
 
 // == Props validation
 Story.propTypes = {
-  chapter: PropTypes.string.isRequired,
+  story: PropTypes.string.isRequired,
 };
 
 

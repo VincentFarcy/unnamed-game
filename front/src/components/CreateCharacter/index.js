@@ -4,12 +4,6 @@ import PropTypes from 'prop-types';
 import Button from '../LinkButton';
 import { v4 as uuidv4 } from 'uuid';
 
-import Force from '../../../docs/images/strength.png';
-import Agilité from '../../../docs/images/agility.png';
-import Constitution from '../../../docs/images/endurance.png';
-import Volonté from '../../../docs/images/will.png';
-import Intelligence from '../../../docs/images/intelligence.png';
-
 // == Import local
 import './style.scss';
 
@@ -36,7 +30,7 @@ const CreateCharacter = ({ abilities, increment, decrement }) => (
         ))
       }
       <div className="button__container">
-        <Button cssClassName="validate__button" buttonName="Valider"></Button>
+        <LinkButton cssClassName="validate__button" buttonName="Valider" url="/play/story" />
       </div>
     </div>
   </div>
