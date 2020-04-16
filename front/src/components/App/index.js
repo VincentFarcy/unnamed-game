@@ -6,7 +6,7 @@ import { Switch, Route } from 'react-router-dom';
 // == Import Website Components
 import './styles.scss';
 import Header from '../Header';
-import MainSite from '../MainSite';
+import MainSite from '../../containers/MainSite';
 import Team from '../Team';
 import Acknowledgements from '../Acknowledgements';
 import Rules from '../Rules';
