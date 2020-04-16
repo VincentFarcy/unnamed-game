@@ -3,3 +3,17 @@
 
 // == Import : bootstrap
 @import "~bootstrap/scss/bootstrap";
+
+
+:root {
+  --header-height-mobile: 96px;
+  --header-height-desktop: 108px;
+  --footer-height: 50px;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  overflow: hidden;
+}
