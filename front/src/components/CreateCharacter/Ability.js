@@ -14,7 +14,7 @@ const Ability = ({ name, value, image, increment, decrement }) => (
     <img className="ability__image" src={image} alt={name} />
     <span className="ability">{name}</span>
     <span className="ability__value">{value}</span>
-    <button className="ability__button" type="button" onClick={increment}>+</button>
+    <button className="ability__button" type="button" onClick={(evt) => increment(event.target.parentNode.id)}>+</button>
   </div>
 );
 
