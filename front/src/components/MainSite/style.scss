@@ -6,10 +6,10 @@
   color: rgb(248, 250, 250); 
   box-shadow:  -4px 4px 16px #1b1b1b, 
   4px -4px 16px #b4b7b9;
-  width: 30%;
+  width: 100%; //vf
   font-size: larger;
   font-weight: 900;
-  margin-bottom: 100px;
+  margin-top: 10px; //vf
 }
 
 .play-button-main:hover { 
@@ -93,4 +93,16 @@
 .introduction__content,
 .public-warning__content {
   line-height: 1.4em;
+}
+
+@media (min-height:800px) {
+  .play-button-main {
+    margin-bottom: 40px; //vf
+  }
+}
+
+@media (min-width: 992px) {
+  .play-button-main {
+    width: 400px; //vf
+  }
 }
