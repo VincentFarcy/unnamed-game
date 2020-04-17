@@ -63,6 +63,11 @@ class RandomEvent
      */
     private $updatedAt;
 
+    public function __toString()
+    {
+        return $this->getType();
+    }
+
     public function __construct()
     {
         $this->createdAt = new \DateTime();
