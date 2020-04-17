@@ -4,6 +4,10 @@
   justify-content: flex-start;
 }
 
+.main {
+  flex-wrap: wrap;
+}
+
 /* === Next button === */
 .next__button {
   width: 25%;
