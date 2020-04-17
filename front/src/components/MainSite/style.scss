@@ -6,10 +6,10 @@
   color: rgb(248, 250, 250); 
   box-shadow:  -4px 4px 16px #1b1b1b, 
   4px -4px 16px #b4b7b9;
-  width: 100%; //vf
+  width: 100%;
   font-size: larger;
   font-weight: 900;
-  margin-top: 10px; //vf
+  margin: 2em 0 1em;
 }
 
 .play-button-main:hover { 
@@ -24,6 +24,7 @@
 
 .card {
   margin: auto;
+  padding: 1em;
   background: rgba(238, 236, 236, 0.23);
   color: rgb(248, 250, 250);
   border-radius: 10px;
@@ -95,14 +96,8 @@
   line-height: 1.4em;
 }
 
-@media (min-height:800px) {
-  .play-button-main {
-    margin-bottom: 40px; //vf
-  }
-}
-
 @media (min-width: 992px) {
   .play-button-main {
-    width: 400px; //vf
+    width: 400px;
   }
 }
