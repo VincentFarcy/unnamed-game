@@ -1,30 +1,66 @@
-{% extends 'base.html.twig' %}
+
+{% extends 'admin/base.html.twig' %}
 
 {% block title %}Hello ChapterController!{% endblock %}
 
 {% block body %}
 
-
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th scope="col">Type</th>
-      <th scope="col">Column heading</th>
-      <th scope="col">Column heading</th>
-      <th scope="col">Column heading</th>
-    </tr>
-  </thead>
-  <tbody>
-
-    {% for chapter in chapters %}
-    <tr class="{{ cycle(['', 'table-dark'], loop.index0) }}">
-      <th scope="row">Default</th>
-      <td>Column content</td>
-      <td>Column content</td>
-      <td>Column content</td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table> 
-
+<div class="container">
+    <div class="row">
+    <h1>Liste des Chapitres</h1>
+    </div>
+    <div class="row">
+    <a href="{{ path('admin_chapter_add') }}">Nouveau Chapitre<i class="fa fa-plus-square"></i></a>
+    </div>
+    <div class="row">
+        <table class="table table-hover ">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Title</th>
+                <th scope="col">mainText</th>
+                <th scope="col">endText</th>
+                <th scope="col">Image</th>
+                <th scope="col">orderBy </th>
+                <th scope="col">createdAt</th>
+                <th scope="col">updatedAt</th>
+            </tr> 
+        </thead>
+        <tbody>
+            {% for chapter in chapters %}
+            <tr class="{{ cycle(['', 'table-dark'], loop.index0) }}">
+                <td scope="row">{{ chapter.id }}</th>
+                <td><a href="{{ path('admin_chapter_read', {id: chapter.id}) }}">{{ chapter.title }}</a></td>
+                <td>{{ chapter.mainText }}{#
+                    <a href="{{ path('admin_chapter_edit', {id: chapter.id}) }}" class="btn btn-link">
+                        <i class="fa fa-edit fa-2x"></i>
+                    </a>
+                    <form action="{{ path('admin_chapter_delete', {id: chapter.id}) }}" method="post" class="d-inline">
+                        <input type="hidden" name="_method" value="DELETE" />
+                        <button class="btn btn-link fa fa-trash fa-2x"></button>
+                    </form>
+                    #}
+                </td>
+                <td>{{ chapter.endText }}</td>
+                <td>{{ chapter.image }}</td>
+                <td>{{ chapter.orderBy }}</td>
+                <td>{{ chapter.createdAt|date('Y-m-d H:i:s') }}</td>
+                <td>{{ chapter.updatedAt is not null ? chapter.updatedAt|date('Y-m-d H:i:s') }}</td>
+            </tr>  
+            {% endfor %}
+        </tbody>
+        </table> 
+    </div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('form').forEach(function(element) {
+        element.addEventListener('submit', function(evt) {
+            if (confirm('Êtes-vous sûrs ?') == false) {
+                evt.preventDefault();
+            }
+        });
+    });
+});
+</script>
 {% endblock %}

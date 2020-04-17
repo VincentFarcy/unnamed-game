@@ -28,17 +28,17 @@ class ChapterController extends AbstractController
     public function read(Chapter $chapter)
     {
         return $this->render('admin/chapter/read.html.twig', [
-            'chapter ' => $chapter,
+            'chapter' => $chapter,
         ]);
     }
 
       /**
-     * @Route("/edit/{id}", name="edit", requirements={"id": "\d+"}))
+     * @Route("/{id}/edit", name="edit", requirements={"id": "\d+"}))
      */
-    public function edit()
+    public function edit(Chapter $chapter)
     {
-        return $this->render('admin/chapter/index.html.twig', [
-            'controller_name' => 'ChapterController',
+        return $this->render('admin/chapter/edit.html.twig', [
+            'form' => 'ChapterController',
         ]);
     }
 
@@ -53,7 +53,7 @@ class ChapterController extends AbstractController
     }
 
       /**
-     * @Route("/delete/{id}", name="delete", requirements={"id": "\d+"}))
+     * @Route("/{id}/delete", name="delete", requirements={"id": "\d+"}))
      */
     public function delete()
     {

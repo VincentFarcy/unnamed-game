@@ -1,0 +1,20 @@
+{% extends "admin/base.html.twig" %}
+
+ {% block body %}
+
+ <div class="container">
+    <div class="row">
+        <div class="card mb-3">
+            <h3 class="card-header">{{ chapter.title }} </h3>
+            <div class="card-body">
+                <p>Date de création : {{ chapter.createdAt|date('Y-m-d H:i:s') }} </p>
+                <p>Date de mise à jour : {{ chapter.updatedAt is not null ? chapter.updatedAt|date('Y-m-d H:i:s') }}</p>
+            </div>
+            <div class="card-footer text-muted">
+               <a href="{{ path('admin_chapter_browse') }}">Retour à la liste</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+ {% endblock %}
