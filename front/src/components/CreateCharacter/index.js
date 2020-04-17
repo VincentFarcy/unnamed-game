@@ -24,7 +24,7 @@ const CreateCharacter = ({ abilities, pool }) => (
         ))
       }
       <div className="button__container">
-      { (pool == 0) && <LinkButton cssClassName="validate__button" buttonName="Valider" url="/play/story" /> }
+      { (pool == 0) && <LinkButton cssClassName="validate__button" buttonName="Valider" url="/story" /> }
 
       
       </div>
