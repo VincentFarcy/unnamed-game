@@ -15,7 +15,7 @@ const MainPlay = ({ fetchInitialeGameData }) => (
     <section className="game-launcher">
       <NavLink
         exact
-        to="/play/create-player"
+        to="/create-player"
         className="nav-link play-button game-launcher__btn"
         onClick={fetchInitialeGameData}
       >
@@ -23,7 +23,7 @@ const MainPlay = ({ fetchInitialeGameData }) => (
         <p className="play-text"> Nouvelle Partie</p>
       </NavLink>
       {/* NOT DISPLAY - MVP without backup
-      <NavLink exact to="/play/story" className="nav-link play-button game-launcher__btn">
+      <NavLink exact to="/story" className="nav-link play-button game-launcher__btn">
         <Image className="play-images" src={savedGameIcon} />
         <p className="play-text"> Continuer la partie</p>
       </NavLink> */}

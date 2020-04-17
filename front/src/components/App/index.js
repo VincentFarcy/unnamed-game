@@ -20,7 +20,7 @@ import MainPlay from '../../containers/MainPlay';
 import Story from '../../containers/Story';
 import Dialog from '../Dialog';
 import Combat from '../Combat';
-import Reward from '../Reward';
+import Reward from '../../containers/Reward';
 import CreateCharacter from '../../containers/CreateCharacter';
 import Footer from '../Footer';
 
@@ -44,11 +44,11 @@ const App = () => (
 
         {/* Gameplay routes */}
         <Route exact path="/play" component={MainPlay} />
-        <Route path="/play/create-player" component={CreateCharacter} />
-        <Route path="/play/story" component={Story} />
-        <Route path="/play/combat" component={Combat} />
-        <Route path="/play/reward" component={Reward} />
-        <Route path="/play/dialogue" component={Dialog} />
+        <Route path="/create-player" component={CreateCharacter} />
+        <Route path="/story" component={Story} />
+        <Route path="/combat" component={Combat} />
+        <Route path="/reward" component={Reward} />
+        <Route path="/dialogue" component={Dialog} />
 
       </Switch>
       {/* <MainSite

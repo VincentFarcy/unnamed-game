@@ -57,6 +57,11 @@
   line-height: 100%;
 }
 
+.ability__button:focus{
+  outline: none !important;
+  outline-offset: none !important;
+}
+
 .ability__value, .ability_pool__value {
   padding-left: 1em;
   width: 5%;
@@ -156,19 +161,19 @@
     width: 1.2em;
     height: 1.2em;
     border-radius: 50%;
-    transition-duration: 0.35s;
+    transition-duration: 0.3s;
     transition-property: background-color, color, transform ;
   }
 
   .ability__button:hover{
     background-color: grey;
     color: white;
-    transform: scale(1.4) rotate(360deg);
+    transform: scale(1.4);
   }
-  
+ 
   .validate__button {
     font-size: 2.5em;
-    transition-duration: 0.35s;
+    transition-duration: 0.3s;
     transition-property: border-color, background-color, box-shadow, color;
   }
 

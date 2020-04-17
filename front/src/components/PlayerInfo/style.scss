@@ -1,0 +1,105 @@
+.player-bar {
+  border-radius: 10px;
+  box-shadow:  -4px 4px 22px #1b1b1bee, 
+             4px -4px 22px #cbced0c2;
+  border: solid 1px white;
+  
+}
+
+.player-info {
+  border-radius: 10px;
+  display: flex;
+  align-content: center;
+  background-color: rgba(0, 0, 0, 0.897);
+  justify-content: space-between;
+  flex-direction: row;
+  
+  height: 100px;
+  &__avatar {
+    width: 90px;
+    border: solid 1px white;
+    border-radius: 25px;
+    box-shadow:  -3px 3px 10px #1b1b1bee, 
+             3px -3px 10px #cbced0c2;
+    
+  }
+
+  &__hp{
+    color: white;
+    margin-right: 15px;
+    align-self: center;
+    
+
+  }
+  
+  &__counter {
+    color: white;
+    
+    align-self: center;
+    font-size: small;
+    font-weight: 600;
+    padding-top: 15px;
+    padding-right: 7px;    
+  }
+}
+
+.progress {
+  margin-left: 5px;
+  height: 20px;
+  width: 110px;  
+  align-self: center;
+  background-color: rgba(184, 176, 176, 0.623);
+}
+
+/* === Tablets === */
+@media screen AND (min-width: 768px) {
+  .progress {
+    height: 30px;
+    width: 200px;
+    align-self: center;
+  }
+
+  .player-info {
+    
+    &__avatar {
+      width: 120px;
+      // margin: 0 15px;
+      
+    }
+    
+    &__counter {
+      color: white;      
+      align-self: center;
+      font-size: larger;
+      font-weight: 600;
+      padding-top: 15px;
+      padding-right: 15px;    
+    }
+  }
+}
+
+/* === Large screens === */
+@media screen AND (min-width: 1024px) {
+  .progress {
+    height: 40px;
+    width: 300px;
+    align-self: center;
+  }
+
+  .player-info {
+    height: 150px;
+    &__avatar {
+      width: 140px;
+      // margin: 0 15px;
+      
+    }
+    &__counter {
+      color: white;      
+      align-self: center;
+      font-size: larger;
+      font-weight: 600;
+      padding-top: 15px;
+      padding-right: 25px;    
+    }
+  }
+}

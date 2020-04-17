@@ -2,6 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '../LinkButton';
+import PlayerInfo from '../../containers/PlayerInfo';
 
 
 // == Import local
@@ -9,19 +10,27 @@ import './style.scss';
 
 
 // == Component
-const Reward = ({  }) => (
-  <div className="main__play">
-    <p className="reward__title">Voici vos récompenses suite au combat</p>
-    <p className="reward__p">Contenu de la récompense suite au combat</p>
-    <div className="button__container">
-      <Button cssClassName="next__button" buttonName="Suivant" />
+const Reward = ({ rewardContent }) => (
+  <>
+    <div className="player-bar">
+      <PlayerInfo />
     </div>
-  </div>
+    <div className="main__play">
+      <p className="reward__title"> Voici vos récompenses suite au combat</p>
+      <p className="reward__p"> Vous avez gagné {rewardContent.value} {rewardContent.content}</p>
+      <div className="button__container">
+        <Button cssClassName="next__button" url="/play" buttonName="Suivant" />
+      </div>
+    </div>
+  </>
 );
 
 // == Props validation
 Reward.propTypes = {
-
+  rewardContent: PropTypes.shape({
+    content: PropTypes.string.isRequired,
+    value: PropTypes.number.isRequired,
+  }).isRequired,
 };
 
 
