@@ -47,6 +47,16 @@ const initialState = {
       orderBy: 1,
     },
   ],
+  rewards: [
+    {
+      content: 'Point(s) d\'expérience',
+      value: 3,
+    },
+    {
+      content: 'Points de vie',
+      value: 10,
+    },
+  ],
 };
 
 // == Reducer
