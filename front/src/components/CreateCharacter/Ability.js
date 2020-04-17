@@ -10,7 +10,7 @@ import './style.scss';
 // == Component
 const Ability = ({ name, value, image, increment, decrement }) => (
   <div id={name} key={uuidv4()} className="ability__container">
-    <button className="ability__button" type="button" onClick={(evt) => decrement(event.target.parentNode.id)}>-</button>
+    <button className="ability__button" type="button" onClick={(evt) => decrement(event.target.parentNode.id)}>－</button>
     <img className="ability__image" src={image} alt={name} />
     <span className="ability">{name}</span>
     <span className="ability__value">{value}</span>
