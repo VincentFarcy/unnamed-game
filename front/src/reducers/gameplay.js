@@ -1,11 +1,11 @@
 // == Import : local
 import { GAME_DATA_SUCCESS, INCREMENT_CREATE_CHARACTER, DECREMENT_CREATE_CHARACTER } from '../actions/gamePlay';
 
-import Force from '../../docs/images/strength.png';
-import Agilité from '../../docs/images/agility.png';
-import Constitution from '../../docs/images/endurance.png';
-import Volonté from '../../docs/images/will.png';
-import Intelligence from '../../docs/images/intelligence.png';
+import Force from '../../src/assets/images/strength.png';
+import Agilité from '../../src/assets/images/agility.png';
+import Constitution from '../../src/assets/images/endurance.png';
+import Volonté from '../../src/assets/images/will.png';
+import Intelligence from '../../src/assets/images/intelligence.png';
 
 // == State
 
