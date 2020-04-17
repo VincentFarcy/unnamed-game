@@ -14,14 +14,14 @@ const Story = ({ story }) => (
     <p className="story__title">{story.title}</p>
     <p className="story__p">{story.mainText}</p>
     <div className="button__container">
-      <Button cssClassName="next__button" buttonName="Suivant" />
+      <Button cssClassName="next__button" buttonName="Suivant" url="/play/reward" />
     </div>
   </div>
 );
 
 // == Props validation
 Story.propTypes = {
-  story: PropTypes.string.isRequired,
+  story: PropTypes.object.isRequired,
 };
 
 
