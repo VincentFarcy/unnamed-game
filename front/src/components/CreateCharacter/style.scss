@@ -1,5 +1,5 @@
 .title__container { // all class
-  margin-bottom: 1em;
+  margin-bottom: 1rem;
 }
 
 .main__play__title {
@@ -15,7 +15,7 @@
   padding-left: 1em;
   border-radius: 5px;
   max-width: 450px; //vf
-  margin-bottom: 1em; //vf
+  margin-bottom: 1rem; //vf
 }
 
 .ability_main__container p {  //vf all class
@@ -79,17 +79,14 @@
 
 /* === Validate button === */
 .button__container {
-  margin-top: 1em; // vf
-  margin-bottom: 1em; // vf
-  display: flex;
-  justify-content: center;
-  // padding-bottom: 2em; vf
+  width: 30%;
+  min-width: 140px;
+  margin: 1rem 0;
 }
 
 .validate__button {
-  width: 25%;
-  max-width: 220px;
-  min-width: 140px;
+  width: 100%;
+  margin: auto;
   padding: 0.25em 0;
   background: rgba(238, 236, 236, 0.4);
   border-radius: 10px;
@@ -101,21 +98,26 @@
 
 /* === medium screen === */
 @media screen AND (min-width: 768px) {
+
+  .title__container { 
+    margin-bottom: 1.6rem;
+  }
+
   .main__play__title {
-    padding-top: 0.2em;
     font-size: 2em;
   }
 
   .ability_pool__container {
     max-width: none;
-    font-size: 2em;
+    font-size: 1.8em;
     border-radius: 5px;
+    margin-bottom: 0;
   }
 
   .ability__container {
-    min-width: 620px;
-    font-size: 2em;
-    margin: 1em auto 0 auto;
+    min-width: 590px;
+    font-size: 1.8em;
+    margin: 1rem auto 0 auto;
   }
 
   .ability__button {
@@ -129,10 +131,13 @@
     height: 2em;
   }
 
+  .button__container {
+    min-width: 200px;
+    margin: 1.6rem 0;
+  }
+
   .validate__button {
-    max-width: 500px;
-    font-size: 2em;
-    margin: 1em 0;
+    font-size: 1.8em;
   }
 }
 
@@ -140,17 +145,16 @@
 /* === large screen / desktop === */
 @media screen AND (min-width: 992px) {
   .main__play__title {
-    padding-top: 0.2em;
-    font-size: 2.6em;
+    font-size: 2.5em;
   }
 
   .ability_pool__container {
-    font-size: 2.6em;
+    font-size: 2.2em;
   }
 
   .ability__container {
-    min-width: 800px;
-    font-size: 2.6em;
+    min-width: 760px;
+    font-size: 2.2em;
    }
 
   .ability__button {
@@ -168,8 +172,7 @@
   }
  
   .validate__button {
-    font-size: 2.6em;
-    margin-bottom: 1em;
+    font-size: 2.5em;
     transition-duration: 0.3s;
     transition-property: border-color, background-color, box-shadow, color;
   }
