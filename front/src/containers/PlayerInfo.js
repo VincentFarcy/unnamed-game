@@ -6,8 +6,7 @@ import PlayerInfo from '../components/PlayerInfo';
 
 // state
 const mapStateToProps = (state) => ({
-  // TODO: Handle the counter from state
-  mainCounter: 10,
+  mainCounter: state.gameplay.phpTimer,
   // TODO: Handle the Health Points from state
   playerHp: ((
     // HP = ((Volonté / 2) + Consitution) * 10
