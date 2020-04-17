@@ -6,31 +6,27 @@ import { v4 as uuidv4 } from 'uuid';
 
 // == Import local
 import './style.scss';
-
+import Ability from '../../containers/Ability';
 
 // == Component
-const CreateCharacter = ({ abilities, increment, decrement }) => (
+const CreateCharacter = ({ abilities, pool }) => (
   <div className="main__play">
     <div className="title__container">
-      <h2 className="main__play__title">Création de personnage</h2>
+      <h1>Création de personnage</h1>
     </div>
     <div className="ability_main__container">
       <div className="ability_pool__container">
-        <p className="ability_pool__text">A répartir : 10</p>
+        <p className="ability_pool__text">A répartir<span className="ability_pool__value">{pool}</span></p>
       </div>
       {
         abilities.map((ability) => (
-          <div key={uuidv4()} className="ability__container">
-            <button className="ability__button" type="button" onClick={decrement}>-</button>
-            <img className="ability__image" src={ability.image} alt={ability.name} />
-            <span className="ability">{ability.name}</span>
-            <span className="ability__value">{ability.value}</span>
-            <button className="ability__button" type="button" onClick={increment}>+</button>
-          </div>
+          <Ability key={uuidv4()} {...ability} />
         ))
       }
       <div className="button__container">
-        <LinkButton cssClassName="validate__button" buttonName="Valider" url="/play/story" />
+      { (pool == 0) && <LinkButton cssClassName="validate__button" buttonName="Valider" url="/play/story" /> }
+
+      
       </div>
     </div>
   </div>
@@ -44,8 +40,7 @@ CreateCharacter.propTypes = {
       value: PropTypes.number.isRequired,
     }),
   ).isRequired,
-  increment: PropTypes.func.isRequired,
-  decrement: PropTypes.func.isRequired,
+  pool: PropTypes.number.isRequired,
 };
 
 

@@ -8,6 +8,7 @@ import Volonté from '../../docs/images/will.png';
 import Intelligence from '../../docs/images/intelligence.png';
 
 // == State
+
 const initialState = {
   abilities: [
     {
@@ -36,6 +37,7 @@ const initialState = {
       image: Intelligence,
     },
   ],
+  pool: 10,
   chapters: [
     {
       title: "1er chapitre",
@@ -56,15 +58,33 @@ const gameplay = (state = initialState, action = {}) => {
         ...action.payload,
       };
     case INCREMENT_CREATE_CHARACTER:
-      return {
-        ...state,
-        value: state.value + 1,
-      };
+      findUpAbility(state, action.payload);
+
+      // if (state.pool > 0) {
+      //   console.log("up");
+        return {
+          ...state,
+        };
+      // }
+      // else
+      //   console.log("max");
+      // return {
+      //   ...state,
+      // };
     case DECREMENT_CREATE_CHARACTER:
-      return {
-        ...state,
-        value: state.value - 1,
-      };
+      findDownAbility(state, action.payload);
+
+      // if (state.pool < 10) {
+      //   console.log("down");
+        return {
+          ...state,
+        };
+      // }
+      // else
+      //   console.log("min");
+      // return {
+      //   ...state,
+      // };
     default:
       return state;
   }
@@ -73,3 +93,22 @@ const gameplay = (state = initialState, action = {}) => {
 
 // == Export
 export default gameplay;
+
+// == Selector
+export const findUpAbility = (state, abilityName) => (
+  state.abilities.map((ability) => {
+    if (ability.name === abilityName && ability.value < 5 && state.pool > 0) {
+      ability.value++;
+      state.pool --;
+    }
+  })
+);
+
+export const findDownAbility = (state, abilityName) => (
+  state.abilities.map((ability) => {
+    if (ability.name === abilityName && ability.value > 1 && state.pool < 10) {
+      ability.value--;
+      state.pool ++;
+    }
+  })
+);
