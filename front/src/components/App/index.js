@@ -19,7 +19,7 @@ import Legal from '../Legal';
 import MainPlay from '../../containers/MainPlay';
 import Story from '../../containers/Story';
 import Dialog from '../Dialog';
-import Combat from '../Combat';
+import Combat from '../../containers/Combat';
 import Reward from '../../containers/Reward';
 import CreateCharacter from '../../containers/CreateCharacter';
 import Footer from '../Footer';
