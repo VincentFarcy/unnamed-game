@@ -1,17 +1,66 @@
 // == Import : local
-import { TEST_MIDDLEWARE } from '../actions';
+import {
+  CHANGE_FIELD,
+  SIGNUP,
+  ADD_USER,
+  USER_ERROR_MESSAGES,
+  SET_USER_ERROR_MESSAGE,
+} from '../actions/user';
 
-// == State
+
 const initialState = {
-  name: 'initial state',
+  input: {
+    pseudo: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+    ageChecked: false,
+  },
+  connectedUser: {
+    pseudo: '',
+    email: '',
+    tokenJWT: '',
+    roles: [],
+    backups: [],
+  },
+  isLogged: false,
+  errorMessages: [],
 };
 
 // == Reducer
 const user = (state = initialState, action = {}) => {
+  console.log('reducer-state:', state);
+  console.log('reducer-action:', action);
   switch (action.type) {
-    case TEST_MIDDLEWARE:
+    case CHANGE_FIELD:
       return {
-        propriety: 'after action propriety',
+        ...state,
+        input: {
+          ...state.input,
+          [action.name]: action.value,
+        },
+        errorMessages: [],
+      };
+    case SIGNUP:
+      return {
+        ...state,
+      };
+    case ADD_USER:
+      return {
+        ...state,
+        isLogged: true,
+        connectedUser: action.userData,
+        errorMessages: [],
+      };
+    case USER_ERROR_MESSAGES:
+      return {
+        ...state,
+        errorMessages: action.errorMessages,
+      };
+    case SET_USER_ERROR_MESSAGE:
+      return {
+        ...state,
+        errorMessages: [action.errorMessage],
       };
     default:
       return state;

@@ -5,12 +5,12 @@ import { Switch, Route } from 'react-router-dom';
 // == Import local
 // == Import Website Components
 import './styles.scss';
-import Header from '../Header';
+import Header from '../../containers/Header';
 import MainSite from '../../containers/MainSite';
 import Team from '../Team';
 import Acknowledgements from '../Acknowledgements';
 import Rules from '../Rules';
-import SignUp from '../SignUp';
+import SignUp from '../../containers/SignUp';
 import SignIn from '../SignIn';
 import Legal from '../Legal';
 
@@ -30,7 +30,7 @@ const temp= "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque ill
 
 const App = () => (
   <div className="app">
-    <Header isLogged={false} />
+    <Header />
     <main className="main">
       <Switch>
         {/* Website routes */}
