@@ -4,19 +4,21 @@ import PropTypes from 'prop-types';
 
 // == Import local
 import './style.scss';
-import PlayerInfo from '../../containers/PlayerInfo';
+import PlayerCombatInfo from './PlayerCombatInfo';
 import OpponentCombatInfo from './OpponentCombatInfo';
 
 // == Component
 const Combat = () => (
   <div className="main__play">
-    <p className="combat__title">COMBAT </p>
-    <div className="player__container">
-      <PlayerInfo />
+    <h2 className="combat__title">COMBAT </h2>
+    <div className="combat__container">
+      <div className="player__container">
+        <PlayerCombatInfo />
+      </div>
+      <p className="combat__presentation">VS Hal</p>
+      <div className="opponent__container"></div>
+      <OpponentCombatInfo />
     </div>
-    <p className="combat__presentation">VS Rat</p>
-    <div className="oppoent__container"></div>
-    <OpponentCombatInfo />
   </div>
 );
 
