@@ -6,7 +6,9 @@ import { fetchInitialeGameData } from '../actions/gamePlay';
 import MainPlay from '../components/MainPlay';
 
 // state
-const mapStateToProps = null;
+const mapStateToProps = (state) => ({
+  hasError: state.gameplay.hasError,
+});
 
 // actions
 const mapDispatchToProps = (dispatch) => ({

@@ -8,31 +8,35 @@ import { NavLink } from 'react-router-dom';
 import './style.scss';
 import newGameIcon from '../../assets/images/b_02.png';
 import savedGameIcon from '../../assets/images/b_31.png';
+import ErrorMessage from '../../containers/ErrorMessage';
 
 // == Component
-const MainPlay = ({ fetchInitialeGameData }) => (
-  <div>
-    <section className="game-launcher">
-      <NavLink
-        exact
-        to="/play/create-player"
-        className="nav-link play-button game-launcher__btn"
-        onClick={fetchInitialeGameData}
-      >
-        <Image className="play-images" src={newGameIcon} />
-        <p className="play-text"> Nouvelle Partie</p>
-      </NavLink>
-      {/* NOT DISPLAY - MVP without backup
-      <NavLink exact to="/play/story" className="nav-link play-button game-launcher__btn">
-        <Image className="play-images" src={savedGameIcon} />
-        <p className="play-text"> Continuer la partie</p>
-      </NavLink> */}
-    </section>
-  </div>
+const MainPlay = ({ hasError, fetchInitialeGameData }) => (
+    hasError && <ErrorMessage /> 
+    || !hasError &&
+      <div>
+        <section className="game-launcher">
+          <NavLink
+            exact
+            to="/play/create-player"
+            className="nav-link play-button game-launcher__btn"
+            onClick={fetchInitialeGameData}
+          >
+            <Image className="play-images" src={newGameIcon} />
+            <p className="play-text"> Nouvelle Partie</p>
+          </NavLink>
+          {/* NOT DISPLAY - MVP without backup
+          <NavLink exact to="/play/story" className="nav-link play-button game-launcher__btn">
+            <Image className="play-images" src={savedGameIcon} />
+            <p className="play-text"> Continuer la partie</p>
+          </NavLink> */}
+        </section>
+      </div>
 );
 
 // == Props validation
 MainPlay.propTypes = {
+  hasError: PropTypes.bool.isRequired,
   fetchInitialeGameData: PropTypes.func.isRequired,
 };
 

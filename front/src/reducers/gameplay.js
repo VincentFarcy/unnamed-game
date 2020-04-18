@@ -16,6 +16,8 @@ import Intelligence from 'src/assets/images/intelligence.png';
 const initialState = {
   gameOn: false,
   isLoading: false,
+  loadingErrMessage: '',
+  hasError: false,
   abilities: [
     {
       name: 'Force',
@@ -64,11 +66,20 @@ const gameplay = (state = initialState, action = {}) => {
       return {
         ...state,
         gameOn: true,
+        loadingErrMessage: '',
+        hasError: false,
       };
     case GAME_DATA_SUCCESS:
       return {
         ...state,
         ...action.payload,
+      };
+    case GAME_DATA_ERROR:
+      return {
+        ...state,
+        gameOn: false,
+        isLoading: false,
+        loadingErrMessage: 'Une erreur s\'est produite, merci de réessayer ultérieurement ou de cliquer à nouveau sur Jouer.',
       };
     case INCREMENT_CREATE_CHARACTER:
       findUpAbility(state, action.payload);

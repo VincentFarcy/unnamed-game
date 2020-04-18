@@ -11,7 +11,7 @@ const apiMiddleware = (store) => (next) => (action) => {
     case FETCH_INITIALE_GAME_DATA:
       store.getState().gameplay.isLoading = true;
       axios({
-        url: `${BASE_API_URI}/api/game/load`,
+        url: `${BASE_API_URI}/api/game/loa`,
         method: 'get',
       })
         .then((res) => {
@@ -19,8 +19,7 @@ const apiMiddleware = (store) => (next) => (action) => {
           store.dispatch(gameDataSuccess(res.data));
         })
         .catch(() => {
-          store.getState().gameplay.gameOn = false;
-          store.getState().gameplay.isLoading = false;
+          store.getState().gameplay.hasError = true;
           store.dispatch(gameDataError());
         });
       break;

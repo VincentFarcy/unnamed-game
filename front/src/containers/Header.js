@@ -15,7 +15,6 @@ const mapStateToProps = (state, ownProps) => ({
 /* === Actions === */
 const mapDispatchToProps = (dispatch) => ({
   startGame: () => {
-    console.log('start Game');
     dispatch(changeGameStatus());
   },
 });
