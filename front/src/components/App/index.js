@@ -11,7 +11,7 @@ import Team from '../Team';
 import Acknowledgements from '../Acknowledgements';
 import Rules from '../Rules';
 import SignUp from '../../containers/SignUp';
-import SignIn from '../SignIn';
+import SignIn from '../../containers/SignIn';
 import Legal from '../Legal';
 
 

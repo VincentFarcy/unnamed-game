@@ -9,7 +9,7 @@ import ConnectedUserNav from 'src/components/Header/ConnectedUserNav';
 
 /* === State (données) === */
 const mapStateToProps = (state, ownProps) => ({
-  pseudo: state.user.connectedUser.user.pseudo,
+  pseudo: state.user.connectedUser.pseudo,
 });
 
 /* === Actions === */

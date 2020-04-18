@@ -4,8 +4,7 @@ import PropTypes from 'prop-types';
 
 // == Import local
 import './style.scss';
-// import { BASE_API_URI } from '../../app.config';
-import Field from './Field';
+import Field from '../UserFormField';
 
 const SignUp = ({
   pseudo,

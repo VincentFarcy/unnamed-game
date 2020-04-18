@@ -1,15 +1,18 @@
 // == Import : local
 import {
   CHANGE_FIELD,
+  SIGNIN,
   SIGNUP,
   ADD_USER,
-  USER_ERROR_MESSAGES,
+  GET_USER,
   SET_USER_ERROR_MESSAGE,
+  GET_USER_ERROR_MESSAGES,
 } from '../actions/user';
 
 
 const initialState = {
   input: {
+    userId: '',
     pseudo: '',
     email: '',
     password: '',
@@ -19,10 +22,10 @@ const initialState = {
   connectedUser: {
     pseudo: '',
     email: '',
-    tokenJWT: '',
     roles: [],
-    backups: [],
   },
+  backups: [],
+  tokenJWT: '',
   isLogged: false,
   errorMessages: [],
 };
@@ -41,6 +44,10 @@ const user = (state = initialState, action = {}) => {
         },
         errorMessages: [],
       };
+    case SIGNIN:
+      return {
+        ...state,
+      };
     case SIGNUP:
       return {
         ...state,
@@ -49,18 +56,28 @@ const user = (state = initialState, action = {}) => {
       return {
         ...state,
         isLogged: true,
-        connectedUser: action.userData,
+        connectedUser: action.userData.user,
+        tokenJWT: action.userData.token,
         errorMessages: [],
       };
-    case USER_ERROR_MESSAGES:
+    case GET_USER:
       return {
         ...state,
-        errorMessages: action.errorMessages,
+        isLogged: true,
+        connectedUser: action.userData.user,
+        backups: action.userData.backups,
+        tokenJWT: action.tokenJWT,
+        errorMessages: [],
       };
     case SET_USER_ERROR_MESSAGE:
       return {
         ...state,
         errorMessages: [action.errorMessage],
+      };
+    case GET_USER_ERROR_MESSAGES:
+      return {
+        ...state,
+        errorMessages: action.errorMessages,
       };
     default:
       return state;
