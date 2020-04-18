@@ -24,7 +24,12 @@ const Header = ({ isLogged, startGame }) => (
         </NavLink>
       </Navbar.Brand>
       {/* Play button */}
-      <LinkButton cssClassName="play-button mobile" buttonName="Jouer" url="/play" />
+      <LinkButton
+        cssClassName="play-button mobile"
+        buttonName="Jouer"
+        url="/play"
+        onClick={startGame}
+      />
       {/* Burger menu */}
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
