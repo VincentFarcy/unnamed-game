@@ -13,7 +13,7 @@ import AnonymousUserNav from './AnonymousUserNav';
 import ConnectedUserNav from './ConnectedUserNav';
 
 // == Component
-const Header = ({ isLogged }) => (
+const Header = ({ isLogged, startGame }) => (
   <header className="header">
     {/* https://react-bootstrap.github.io/components/navbar/#navbars-overview */}
     <Navbar expand="lg" variant="dark">
@@ -56,6 +56,7 @@ const Header = ({ isLogged }) => (
             cssClassName="play-button desktop"
             buttonName="Jouer"
             url="/play"
+            onClick={startGame}
           />
         </div>
       </Navbar.Collapse>
@@ -66,7 +67,8 @@ const Header = ({ isLogged }) => (
 // == Props validation
 Header.propTypes = {
   isLogged: PropTypes.bool.isRequired,
-}
+  startGame: PropTypes.func.isRequired,
+};
 
 // == Export
 export default Header;

@@ -1,5 +1,9 @@
 // == Import : local
-import { GAME_DATA_SUCCESS, INCREMENT_CREATE_CHARACTER, DECREMENT_CREATE_CHARACTER } from '../actions/gamePlay';
+import {
+  CHANGE_GAME_STATUS,
+  GAME_DATA_SUCCESS, GAME_DATA_ERROR,
+  INCREMENT_CREATE_CHARACTER, DECREMENT_CREATE_CHARACTER }
+  from '../actions/gamePlay';
 
 import Force from 'src/assets/images/strength.png';
 import Agilité from 'src/assets/images/agility.png';
@@ -10,6 +14,7 @@ import Intelligence from 'src/assets/images/intelligence.png';
 // == State
 
 const initialState = {
+  gameOn: false,
   abilities: [
     {
       name: 'Force',
@@ -54,6 +59,11 @@ const initialState = {
 // == Reducer
 const gameplay = (state = initialState, action = {}) => {
   switch (action.type) {
+    case CHANGE_GAME_STATUS:
+      return {
+        ...state,
+        gameOn: true,
+      };
     case GAME_DATA_SUCCESS:
       return {
         ...state,

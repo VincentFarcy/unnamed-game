@@ -1,11 +1,12 @@
 // == Import npm
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
 // == Import local
 // == Import Website Components
 import './styles.scss';
-import Header from '../Header';
+import Header from '../../containers/Header';
 import MainSite from '../../containers/MainSite';
 import Team from '../Team';
 import Acknowledgements from '../Acknowledgements';
@@ -28,9 +29,9 @@ const temp= "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque ill
 
 // == Component
 
-const App = () => (
+const App = ({ isGameOn }) => (
   <div className="app">
-    <Header isLogged={false} />
+    <Header />
     <main className="main">
       <Switch>
         {/* Website routes */}
@@ -44,11 +45,17 @@ const App = () => (
 
         {/* Gameplay routes */}
         <Route exact path="/play" component={MainPlay} />
-        <Route path="/play/create-player" component={CreateCharacter} />
-        <Route path="/play/story" component={Story} />
-        <Route path="/play/combat" component={Combat} />
-        <Route path="/play/reward" component={Reward} />
-        <Route path="/play/dialogue" component={Dialog} />
+        { isGameOn && 
+          <Route path="/play/create-player" component={CreateCharacter} />
+          || <Redirect to="/play" /> }
+        { isGameOn && <Route path="/play/story" component={Story} />
+          || <Redirect to="/play" /> }
+        { isGameOn && <Route path="/play/combat" component={Combat} />
+          || <Redirect to="/play" /> }
+        { isGameOn && <Route path="/play/reward" component={Reward} />
+          || <Redirect to="/play" /> }
+        { isGameOn && <Route path="/play/dialogue" component={Dialog} />
+          || <Redirect to="/play" /> }
 
       </Switch>
       {/* <MainSite
@@ -63,6 +70,11 @@ const App = () => (
     <Footer />
   </div>
 );
+
+// == Props validation
+App.porpTypes = {
+  isGameOn: PropTypes.bool.isRequired,
+};
 
 // == Export
 export default App;
