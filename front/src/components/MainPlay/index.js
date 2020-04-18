@@ -1,5 +1,5 @@
 // == Import npm
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Image from 'react-bootstrap/Image';
 import { NavLink } from 'react-router-dom';
@@ -11,7 +11,10 @@ import savedGameIcon from '../../assets/images/b_31.png';
 import ErrorMessage from '../../containers/ErrorMessage';
 
 // == Component
-const MainPlay = ({ hasError, fetchInitialeGameData }) => (
+const MainPlay = ({ hasError, startGame, fetchInitialeGameData }) => {
+  useEffect(startGame, []);
+
+  return (
     hasError && <ErrorMessage /> 
     || !hasError &&
       <div>
@@ -32,11 +35,13 @@ const MainPlay = ({ hasError, fetchInitialeGameData }) => (
           </NavLink> */}
         </section>
       </div>
-);
+  );
+};
 
 // == Props validation
 MainPlay.propTypes = {
   hasError: PropTypes.bool.isRequired,
+  startGame: PropTypes.func.isRequired,
   fetchInitialeGameData: PropTypes.func.isRequired,
 };
 

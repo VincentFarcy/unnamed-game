@@ -11,7 +11,7 @@ const apiMiddleware = (store) => (next) => (action) => {
     case FETCH_INITIALE_GAME_DATA:
       store.getState().gameplay.isLoading = true;
       axios({
-        url: `${BASE_API_URI}/api/game/load`,
+        url: `${BASE_API_URI}/api/game/loa`,
         method: 'get',
       })
         .then((res) => {
