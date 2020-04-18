@@ -15,6 +15,7 @@ import Intelligence from 'src/assets/images/intelligence.png';
 
 const initialState = {
   gameOn: false,
+  isLoading: false,
   abilities: [
     {
       name: 'Force',
