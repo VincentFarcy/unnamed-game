@@ -8,6 +8,7 @@ import MainPlay from '../components/MainPlay';
 // state
 const mapStateToProps = (state) => ({
   hasError: state.gameplay.hasError,
+  gameOn: state.gameplay.gameOn,
 });
 
 // actions
