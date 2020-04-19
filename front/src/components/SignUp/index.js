@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Redirect } from 'react-router';
 
 // == Import local
-import './style.scss';
+import '../UserPage/style.scss';
 import Field from '../UserFormField';
 
 const SignUp = ({

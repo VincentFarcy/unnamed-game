@@ -1,29 +1,25 @@
 .form-container {
   .form {
     background-color: rgba(0, 0, 0, 0.6);
-    box-shadow: inset 0em 3em rgba(100,255,200,0.7),
-                0 0 1em rgba(100,255,200),
-                0 0 2em rgba(100,255,200),
-                0 0 4em rgba(100,255,200),
-                0 0 8em rgba(100,255,200);
-    padding: 0 1rem 1rem;
+    padding: 1rem;
     border-radius: .25rem;
     width: 600px;
-    max-width: 80%;
+    max-width: 100%;
     margin: auto;
+    font-size: 90%;
     .form__title {
       text-align: center;
-      font-size: 2rem;
+      font-size: 1.6rem;
       margin: 1rem 0 2.5rem;
       color: white;
     }
     .enable-actions {
       text-align: center;
       .enable-actions__link {
+        padding: 1.2rem;
         background-color: transparent;
         color: rgba(100,255,200);
         border: none;
-        margin: 0 1em;
       }
       .enable-actions__link:hover {
         text-decoration: underline;
@@ -32,7 +28,7 @@
     .actions {
       text-align: center;
       &-button {
-        margin: 0 1em;
+        margin: 1rem 1rem 0;
         text-transform: uppercase;
         padding: 0.6rem 1rem;
         background-color: white;
@@ -56,10 +52,38 @@
     }
     .error-message-list {
       color: grey;
-      margin: 1em .5em 0;
+      margin: 1.5em 1.5em 0;
     }
     .error-message {
       margin: .5em 0;
+    }
+  }
+}
+
+/* === xxs screen === */
+@media screen AND (min-width: 320px) {
+  .form-container {
+    .form {
+      font-size: 100%;
+    }
+  }
+}
+
+/* === medium screen === */
+@media screen AND (min-width: 768px) {
+  .form-container {
+    .form {
+      padding: 0 1rem 1rem;
+      max-width: 80%;
+      box-shadow: inset 0em 3em rgba(100,255,200,0.7),
+                  0 0 1em rgba(100,255,200),
+                  0 0 2em rgba(100,255,200),
+                  0 0 4em rgba(100,255,200),
+                  0 0 8em rgba(100,255,200);
+      .form__title {
+        padding-top: .5rem;
+        font-size: 1.6rem;
+      }
     }
   }
 }
