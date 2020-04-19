@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Entity\Backup;
 use App\Entity\Hero;
-use App\Repository\BackupRepository;
 use App\Repository\ChapterRepository;
 use App\Repository\ContentParameterRepository;
 use App\Repository\HeroRepository;
@@ -30,7 +29,6 @@ class GameController extends AbstractController
      */
     public function load(
         AttributeRepository $attributeRepository,
-        BackupRepository $backupRepository,
         ChapterRepository $chapterRepository,
         ContentParameterRepository $contentParameterRepository,
         GameParameterRepository $gameParameterRepository,
