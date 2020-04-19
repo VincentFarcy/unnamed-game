@@ -35,9 +35,7 @@ const SignUp = ({
       inputErrorMessages.push('Erreur lors de la confirmation du mot de passe.');
     }
 
-    console.log('nbError', inputErrorMessages.length);
     if (inputErrorMessages.length > 0) {
-      console.log('sendErrorMessages');
       sendErrorMessages(inputErrorMessages);
     }
     else {

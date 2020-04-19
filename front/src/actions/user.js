@@ -2,10 +2,14 @@
 export const CHANGE_FIELD = 'CHANGE_FIELD';
 export const SIGNIN = 'SIGNIN';
 export const SIGNUP = 'SIGNUP';
-export const ADD_USER = 'ADD_USER';
+export const GET_NEW_USER = 'GET_NEW_USER';
 export const GET_USER = 'GET_USER';
 export const SEND_ERROR_MESSAGES = 'SEND_ERROR_MESSAGES';
 export const LOGOUT = 'LOGOUT';
+export const SET_EDIT_MODE = 'SET_EDIT_MODE';
+export const SET_DELETE_MODE = 'SET_DELETE_MODE';
+export const EDIT_USER = 'EDIT_USER';
+export const DELETE_USER = 'DELETE_USER';
 
 // == Action creators
 export const changeField = (value, name) => ({
@@ -29,8 +33,9 @@ export const signUp = (pseudo, email, password, confirmPassword, ageChecked) => 
   ageChecked,
 });
 
-export const addUser = (userData) => ({
-  type: ADD_USER,
+export const getNewUser = (userData) => ({
+  type: GET_NEW_USER,
+  // tokenJWT included in userData :
   userData,
 });
 
@@ -49,3 +54,18 @@ export const logout = () => ({
   type: LOGOUT,
 });
 
+export const setEditMode = () => ({
+  type: SET_EDIT_MODE,
+});
+
+export const setDeleteMode = () => ({
+  type: SET_DELETE_MODE,
+});
+
+export const editUser = () => ({
+  type: EDIT_USER,
+});
+
+export const deleteUser = () => ({
+  type: DELETE_USER,
+});

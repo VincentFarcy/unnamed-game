@@ -3,10 +3,14 @@ import {
   CHANGE_FIELD,
   SIGNIN,
   SIGNUP,
-  ADD_USER,
+  GET_NEW_USER,
   GET_USER,
   SEND_ERROR_MESSAGES,
   LOGOUT,
+  SET_EDIT_MODE,
+  SET_DELETE_MODE,
+  EDIT_USER,
+  DELETE_USER,
 } from '../actions/user';
 
 
@@ -23,6 +27,10 @@ const initialState = {
     pseudo: '',
     email: '',
     roles: [],
+  },
+  mode: {
+    editMode: false,
+    deleteMode: false,
   },
   backups: [],
   tokenJWT: '',
@@ -50,7 +58,7 @@ const user = (state = initialState, action = {}) => {
       return {
         ...state,
       };
-    case ADD_USER:
+    case GET_NEW_USER:
       return {
         ...state,
         isLogged: true,
@@ -76,10 +84,51 @@ const user = (state = initialState, action = {}) => {
       return {
         ...state,
         isLogged: false,
-        connectedUser: null,
-        backups: null,
+        connectedUser: {
+          pseudo: '',
+          email: '',
+          roles: [],
+        },
+        backups: [],
         tokenJWT: '',
         errorMessages: [],
+      };
+    case SET_EDIT_MODE:
+      return {
+        ...state,
+        mode: {
+          ...state.mode,
+          editMode: !state.mode.editMode,
+        },
+        input: {
+          ...state.input,
+          pseudo: state.connectedUser.pseudo,
+          email: state.connectedUser.email,
+        },
+      };
+    case EDIT_USER:
+      return {
+        ...state,
+        mode: {
+          ...state.mode,
+          editMode: false,
+        },
+      };
+    case SET_DELETE_MODE:
+      return {
+        ...state,
+        mode: {
+          ...state.mode,
+          deleteMode: !state.mode.deleteMode,
+        },
+      };
+    case DELETE_USER:
+      return {
+        ...state,
+        mode: {
+          ...state.mode,
+          deleteMode: false,
+        },
       };
     default:
       return state;

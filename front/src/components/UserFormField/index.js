@@ -14,6 +14,7 @@ const Field = ({
   placeholder,
   onChange,
   required,
+  disabled,
   min,
   max,
 }) => {
@@ -51,6 +52,7 @@ const Field = ({
         required={required}
         minLength={min}
         maxLength={max}
+        disabled={disabled}
       />
 
       <label
@@ -70,6 +72,7 @@ Field.propTypes = {
   placeholder: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   required: PropTypes.bool,
+  disabled: PropTypes.bool,
   min: PropTypes.number,
   max: PropTypes.number,
 };
@@ -79,6 +82,7 @@ Field.defaultProps = {
   value: '',
   type: 'text',
   required: false,
+  disabled: false,
   min: 0,
   max: 999,
 };

@@ -12,6 +12,7 @@ import Acknowledgements from '../Acknowledgements';
 import Rules from '../Rules';
 import SignUp from '../../containers/SignUp';
 import SignIn from '../../containers/SignIn';
+import UserPage from '../../containers/UserPage';
 import Legal from '../Legal';
 
 
@@ -40,6 +41,7 @@ const App = () => (
         <Route path="/rules" component={Rules} />
         <Route path="/sign-up" component={SignUp} />
         <Route path="/sign-in" component={SignIn} />
+        <Route path="/user" component={UserPage} />
         <Route path="/legal-notices" component={Legal} />
 
         {/* Gameplay routes */}

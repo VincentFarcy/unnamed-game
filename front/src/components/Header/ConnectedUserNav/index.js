@@ -17,7 +17,12 @@ const ConnectedUserNav = ({
 
   return (
     <div className="connected-user">
-      <p className="greeting-user">Bienvenue {pseudo}</p>
+      <Link
+        className="greeting-user"
+        to="/user"
+      >
+      Bienvenue {pseudo}
+      </Link>
       <Link
         className="btn btn-outline-light"
         to="/"

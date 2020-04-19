@@ -5,9 +5,12 @@ import axios from 'axios';
 import {
   SIGNIN,
   SIGNUP,
-  addUser,
+  EDIT_USER,
+  DELETE_USER,
+  getNewUser,
   getUser,
   sendErrorMessages,
+  logout,
 } from '../actions/user';
 import { BASE_API_URI } from '../app.config';
 
@@ -28,9 +31,9 @@ const handleSendErrorMessages = (store, data) => {
 
 // == Api Middleware
 const apiMiddleware = (store) => (next) => (action) => {
-
+  //
   switch (action.type) {
-
+    //
     case SIGNUP: {
       const state = store.getState();
 
@@ -48,7 +51,7 @@ const apiMiddleware = (store) => (next) => (action) => {
       })
         .then((res) => {
           console.log('add user : response', res, res.data);
-          store.dispatch(addUser(res.data));
+          store.dispatch(getNewUser(res.data));
         })
         .catch((err) => {
           console.log('add user : error', err, err.response.data);
@@ -95,6 +98,58 @@ const apiMiddleware = (store) => (next) => (action) => {
         })
         .catch((err) => {
           console.log('login check : error', err, err.response.data);
+          handleSendErrorMessages(store, err.response.data);
+        });
+      break;
+    }
+
+    case EDIT_USER: {
+      const state = store.getState();
+
+      // ========== API : api/user/edit
+      console.log('action pour modifier un utilisateur', state);
+      axios({
+        method: 'put',
+        url: `${BASE_API_URI}/api/user/edit`,
+        withCredentials: true,
+        headers: {
+          Authorization: `Bearer ${state.user.tokenJWT}`,
+        },
+        data: {
+          pseudo: state.user.input.pseudo,
+          email: state.user.input.email,
+        },
+      })
+        .then((res) => {
+          console.log('user edit : response', res, res.data);
+          store.dispatch(getUser(res.data.token, res.data));
+        })
+        .catch((err) => {
+          console.log('user edit : error', err, err.response.data);
+          handleSendErrorMessages(store, err.response.data);
+        });
+      break;
+    }
+
+    case DELETE_USER: {
+      const state = store.getState();
+
+      // ========== API : api/user/delete
+      console.log('action pour supprimer un utilisateur', state);
+      axios({
+        method: 'delete',
+        url: `${BASE_API_URI}/api/user/delete`,
+        withCredentials: true,
+        headers: {
+          Authorization: `Bearer ${state.user.tokenJWT}`,
+        },
+      })
+        .then((res) => {
+          console.log('user delete : response', res, res.data);
+          store.dispatch(logout());
+        })
+        .catch((err) => {
+          console.log('user delete : error', err, err.response.data);
           handleSendErrorMessages(store, err.response.data);
         });
       break;

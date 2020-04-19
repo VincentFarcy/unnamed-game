@@ -1,0 +1,144 @@
+// == Import npm
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Redirect } from 'react-router';
+
+// == Import local
+import './style.scss';
+import Field from '../UserFormField';
+
+const UserPage = ({
+  currentPseudo,
+  currentEmail,
+  pseudo,
+  email,
+  changeField,
+  editUser,
+  deleteUser,
+  errorMessages,
+  editMode,
+  setEditMode,
+  deleteMode,
+  setDeleteMode,
+  isLogged,
+}) => {
+  //
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    switch (true) {
+      case editMode:
+        editUser(); break;
+      case deleteMode:
+        deleteUser(); break;
+      default:
+    }
+  };
+
+  if (!isLogged) {
+    return (
+      <Redirect to="/" />
+    );
+  }
+  return (
+    <div className="form-container">
+      <form className="form" onSubmit={handleSubmit}>
+        <h2 className="form__title">Compte utilisateur</h2>
+
+        <Field
+          placeholder="Pseudo"
+          name="pseudo"
+          type="text"
+          onChange={changeField}
+          value={editMode ? pseudo : currentPseudo}
+          required
+          disabled={!editMode}
+          min={3}
+          max={20}
+        />
+        <Field
+          placeholder="Email"
+          name="email"
+          type="email"
+          onChange={changeField}
+          value={editMode ? email : currentEmail}
+          required
+          disabled={!editMode}
+          min={5}
+          max={250}
+        />
+
+        { (!editMode && !deleteMode) && (
+          <div className="enable-actions">
+            <button
+              type="button"
+              className="enable-actions__link"
+              onClick={setEditMode}
+            >
+              Modifier le compte
+            </button>
+            <button
+              type="button"
+              className="enable-actions__link"
+              onClick={setDeleteMode}
+            >
+              Supprimer le compte
+            </button>
+          </div>
+        )}
+
+        { (editMode || deleteMode) && (
+          <div className="actions">
+            <button
+              type="submit"
+              className="actions-button"
+            >
+              {editMode ? 'Valider' : 'Suppression définitive !'}
+            </button>
+            <button
+              type="button"
+              className="actions-button"
+              onClick={deleteMode ? setDeleteMode : setEditMode}
+            >
+              Annuler
+            </button>
+          </div>
+        )}
+
+        <ul className="error-message-list">{}
+          {errorMessages.map((message) => (
+            <li className="error-message" key={message}>
+              {message}
+            </li>
+          ))}
+        </ul>
+
+      </form>
+    </div>
+  );
+};
+
+// == Props validation
+UserPage.propTypes = {
+  currentPseudo: PropTypes.string.isRequired,
+  currentEmail: PropTypes.string.isRequired,
+  pseudo: PropTypes.string,
+  email: PropTypes.string,
+  changeField: PropTypes.func.isRequired,
+  editUser: PropTypes.func.isRequired,
+  deleteUser: PropTypes.func.isRequired,
+  errorMessages: PropTypes.array.isRequired,
+  editMode: PropTypes.bool.isRequired,
+  setEditMode: PropTypes.func.isRequired,
+  deleteMode: PropTypes.bool.isRequired,
+  setDeleteMode: PropTypes.func.isRequired,
+  isLogged: PropTypes.bool.isRequired,
+};
+
+// Valeurs par défaut pour les props
+UserPage.defaultProps = {
+  pseudo: '',
+  email: '',
+};
+
+// == Export
+export default UserPage;
