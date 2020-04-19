@@ -88,13 +88,13 @@ const gameplay = (state = initialState, action = {}) => {
     // return {
     //   ...state,
     // };
-    case FIND_OPPONENT:
-      findOpponentForCombat(state, action.payload)
-      console.log(action.payload);
-      return {
-        ...state,
-        tata: "yoyo",
-      };
+    // case FIND_OPPONENT:
+    //   findOpponentForCombat(state, action.payload)
+    //   console.log(action.payload);
+    //   return {
+    //     ...state,
+    //     tata: "yoyo",
+    //   };
 
     default:
       return state;
@@ -127,8 +127,8 @@ export const findDownAbility = (state, abilityName) => (
 export const findOpponentForCombat = (state) => {
   // console.log(state);
 
-  const opponents = state.opponents;
-  const opponentsTable = state.chapters[0].randomFightContests;
+  const opponents = state.gameplay.opponents;
+  const opponentsTable = state.gameplay.chapters[0].randomFightContests;
   // console.log(opponentsTable, opponents);
 
   const findOpponentId = roll(1, 100);
@@ -137,7 +137,7 @@ export const findOpponentForCombat = (state) => {
   // console.log(opponentTableId);
 
   const opponentId = opponentTableId.opponent.id;
-  // Sans ce console.log j'ai une erreur en console ??
+  // soucis parfois cela plante sur la l139
   // console.log(opponentId);
 
   const opponent = opponents.find(
