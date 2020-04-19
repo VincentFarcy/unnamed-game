@@ -19,7 +19,7 @@ const Reward = ({ rewardContent }) => (
       <p className="reward__title"> Voici vos récompenses suite au combat</p>
       <p className="reward__p"> Vous avez gagné {rewardContent.value} {rewardContent.content}</p>
       <div className="button__container">
-        <Button cssClassName="next__button" url="/play" buttonName="Suivant" />
+        <Button cssClassName="next__button" url="/combat" buttonName="Suivant" />
       </div>
     </div>
   </>

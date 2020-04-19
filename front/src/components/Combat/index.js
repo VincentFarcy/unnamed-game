@@ -4,11 +4,20 @@ import PropTypes from 'prop-types';
 
 // == Import local
 import './style.scss';
-import PlayerCombatInfo from './PlayerCombatInfo';
-import OpponentCombatInfo from './OpponentCombatInfo';
+import PlayerCombatInfo from '../../containers/PlayerCombatInfo';
+import OpponentCombatInfo from '../../containers/OpponentCombatInfo';
+import roll from '../../func';
 
 // == Component
-const Combat = () => (
+const Combat = ({ opponents, opponentsTable }) => {
+  console.log(opponents);
+  console.log(opponentsTable);
+  const findOpponentId = roll(1,100);
+  console.log(findOpponentId);
+  const opponentId = opponentsTable.find(findOpponentId > opponentsTable.rollFrom && findOpponentId < opponentsTable.rollTo)
+  console.log(opponentId);
+  
+  return (
   <div className="main__play">
     <h2 className="combat__title">COMBAT </h2>
     <div className="combat__container">
@@ -21,9 +30,12 @@ const Combat = () => (
     </div>
   </div>
 );
+}
 
 // == Props validation
 Combat.propTypes = {
+  opponents: PropTypes.array.isRequired,
+
 };
 
 // == Export
