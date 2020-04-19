@@ -1,5 +1,6 @@
 // npm imports
 import { connect } from 'react-redux';
+import { findOpponent } from '../actions/gamePlay'
 
 // local imports
 import Combat from '../components/Combat';
@@ -12,7 +13,11 @@ const mapStateToProps = (state) => ({
 });
 
 // actions
-const mapDispatchToProps = {};
+const mapDispatchToProps = (dispatch) => ({
+  findOpponent: () => {
+    dispatch(findOpponent());
+  },
+});
 
 
 // export

@@ -23,7 +23,7 @@ const OpponentCombatInfo = ({ opponents, opponentsTable }) => {
 
   return (
     <div className="opponent-combat-info">
-      <Image className="opponent-combat-info__avatar" src={opponent.image} rounded alt="none"/>
+      <Image className="opponent-combat-info__avatar" src={avatar} rounded alt="none"/>
       <ProgressBar className="opponent__progress" variant="success" min={0} max={75} now={50} label={`HP: ${now}`} />
 
 

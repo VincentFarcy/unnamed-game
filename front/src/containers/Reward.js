@@ -12,7 +12,11 @@ const mapStateToProps = (state) => ({
 });
 
 // actions
-const mapDispatchToProps = {};
+const mapDispatchToProps = (dispatch) => ({
+  findOpponent: () => {
+    dispatch(findOpponent());
+  },
+});
 
 
 // export

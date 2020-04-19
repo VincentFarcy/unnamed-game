@@ -13,7 +13,7 @@ const Combat = ({ opponents, opponentsTable }) => {
   const findOpponentId = roll(1,100);
   const opponentTableId = opponentsTable.find(
     (opponent) => (findOpponentId > opponent.rollFrom && findOpponentId < opponent.rollTo));
-  const opponentId = {...opponentTableId.opponent}.id;
+  const opponentId = opponentTableId.opponent.id;
   console.log(opponentId);
   const opponent = opponents.find(
     (opponent) => (opponentId === opponent.id));
