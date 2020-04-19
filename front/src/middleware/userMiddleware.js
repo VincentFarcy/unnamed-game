@@ -7,11 +7,24 @@ import {
   SIGNUP,
   addUser,
   getUser,
-  getUserErrorMessages,
-  setUserErrorMessage,
-  redirect,
+  sendErrorMessages,
 } from '../actions/user';
 import { BASE_API_URI } from '../app.config';
+
+const handleSendErrorMessages = (store, data) => {
+  // Init error messages array
+  const errorMessages = [];
+  // Automatic technical message (ex: invalid credential)
+  if (data.message) {
+    errorMessages.push(data.message);
+  }
+  // Messages sent because of funcionnal rule non respected (ex: unique email)
+  if (data.errorMessages) {
+    errorMessages.push(data.errorMessages);
+  }
+  // Sending all messages to state
+  store.dispatch(sendErrorMessages(errorMessages));
+};
 
 // == Api Middleware
 const apiMiddleware = (store) => (next) => (action) => {
@@ -20,6 +33,8 @@ const apiMiddleware = (store) => (next) => (action) => {
 
     case SIGNUP: {
       const state = store.getState();
+
+      // ========== API : api/user/add
       console.log('action pour enregistrer un nouvel utilisateur', state);
       axios({
         url: `${BASE_API_URI}/api/user/add`,
@@ -36,16 +51,17 @@ const apiMiddleware = (store) => (next) => (action) => {
           store.dispatch(addUser(res.data));
         })
         .catch((err) => {
-          console.log('add user : error', err, err.response.data.errorMessages);
-          store.dispatch(getUserErrorMessages(err.response.data.errorMessages));
+          console.log('add user : error', err, err.response.data);
+          handleSendErrorMessages(store, err.response.data);
         });
       break;
     }
 
     case SIGNIN: {
       const state = store.getState();
-      console.log('action pour connecter un utilisateur', state);
 
+      // ========== API : api/login_check
+      console.log('action pour connecter un utilisateur', state);
       axios({
         method: 'post',
         url: `${BASE_API_URI}/api/login_check`,
@@ -56,8 +72,10 @@ const apiMiddleware = (store) => (next) => (action) => {
         },
       })
         .then((res) => {
-          console.log('login check : response', res, res.data.token);
           const tokenJWT = res.data.token;
+
+          // ========== API : api/user/read
+          console.log('login check : response', res, res.data.token);
           axios({
             method: 'get',
             url: `${BASE_API_URI}/api/user/read`,
@@ -72,12 +90,12 @@ const apiMiddleware = (store) => (next) => (action) => {
             })
             .catch((err) => {
               console.log('user read : error', err, err.response.data);
-              store.dispatch(setUserErrorMessage(err.response.data.message));
+              handleSendErrorMessages(store, err.response.data);
             });
         })
         .catch((err) => {
           console.log('login check : error', err, err.response.data);
-          store.dispatch(setUserErrorMessage(err.response.data.message));
+          handleSendErrorMessages(store, err.response.data);
         });
       break;
     }

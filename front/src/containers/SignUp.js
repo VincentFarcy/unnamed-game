@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import SignUp from 'src/components/SignUp';
 
 // Action Creators
-import { signUp, changeField, setUserErrorMessage } from '../actions/user';
+import { signUp, changeField, sendErrorMessages } from '../actions/user';
 
 /* === State (données) === */
 const mapStateToProps = (state) => ({
@@ -15,7 +15,6 @@ const mapStateToProps = (state) => ({
   confirmPassword: state.user.input.confirmPassword,
   ageChecked: state.user.input.ageChecked,
   errorMessages: state.user.errorMessages,
-  setErrorMessages: state.user.setErrorMessages,
   isLogged: state.user.isLogged,
 });
 
@@ -27,8 +26,8 @@ const mapDispatchToProps = (dispatch) => ({
   handleSignUp: () => {
     dispatch(signUp());
   },
-  setUserErrorMessage: (message) => {
-    dispatch(setUserErrorMessage(message));
+  sendErrorMessages: (messages) => {
+    dispatch(sendErrorMessages(messages));
   },
 });
 

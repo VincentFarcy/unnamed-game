@@ -4,8 +4,7 @@ export const SIGNIN = 'SIGNIN';
 export const SIGNUP = 'SIGNUP';
 export const ADD_USER = 'ADD_USER';
 export const GET_USER = 'GET_USER';
-export const GET_USER_ERROR_MESSAGES = 'GET_USER_ERROR_MESSAGES';
-export const SET_USER_ERROR_MESSAGE = 'SET_USER_ERROR_MESSAGE';
+export const SEND_ERROR_MESSAGES = 'SEND_ERROR_MESSAGES';
 export const LOGOUT = 'LOGOUT';
 
 // == Action creators
@@ -41,13 +40,8 @@ export const getUser = (tokenJWT, userData) => ({
   userData,
 });
 
-export const setUserErrorMessage = (errorMessage) => ({
-  type: SET_USER_ERROR_MESSAGE,
-  errorMessage,
-});
-
-export const getUserErrorMessages = (errorMessages) => ({
-  type: GET_USER_ERROR_MESSAGES,
+export const sendErrorMessages = (errorMessages) => ({
+  type: SEND_ERROR_MESSAGES,
   errorMessages,
 });
 

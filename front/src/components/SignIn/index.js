@@ -13,7 +13,6 @@ const SignIn = ({
   changeField,
   handleSignIn,
   errorMessages,
-  setUserErrorMessage,
   isLogged,
 }) => {
   //
@@ -59,7 +58,13 @@ const SignIn = ({
           </button>
         </div>
 
-        <p>{errorMessages}</p>
+        <ul className="error-message-list">{}
+          {errorMessages.map((message) => (
+            <li className="error-message" key={message}>
+              {message}
+            </li>
+          ))}
+        </ul>
 
       </form>
     </div>
@@ -73,7 +78,6 @@ SignIn.propTypes = {
   changeField: PropTypes.func.isRequired,
   handleSignIn: PropTypes.func.isRequired,
   errorMessages: PropTypes.array.isRequired,
-  setUserErrorMessage: PropTypes.func.isRequired,
   isLogged: PropTypes.bool.isRequired,
 };
 

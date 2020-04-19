@@ -5,8 +5,7 @@ import {
   SIGNUP,
   ADD_USER,
   GET_USER,
-  SET_USER_ERROR_MESSAGE,
-  GET_USER_ERROR_MESSAGES,
+  SEND_ERROR_MESSAGES,
   LOGOUT,
 } from '../actions/user';
 
@@ -68,12 +67,7 @@ const user = (state = initialState, action = {}) => {
         tokenJWT: action.tokenJWT,
         errorMessages: [],
       };
-    case SET_USER_ERROR_MESSAGE:
-      return {
-        ...state,
-        errorMessages: [action.errorMessage],
-      };
-    case GET_USER_ERROR_MESSAGES:
+    case SEND_ERROR_MESSAGES:
       return {
         ...state,
         errorMessages: action.errorMessages,

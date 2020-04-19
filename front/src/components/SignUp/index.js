@@ -16,26 +16,33 @@ const SignUp = ({
   changeField,
   handleSignUp,
   errorMessages,
-  setUserErrorMessage,
+  sendErrorMessages,
   isLogged,
 }) => {
   //
   const handleSubmit = (evt) => {
     evt.preventDefault();
 
+    const inputErrorMessages = [];
+
     // eslint-disable-next-line no-useless-escape
     const passwordRegex = RegExp('^(?=.{8,})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])');
     if (!passwordRegex.test(evt.currentTarget.password.value)) {
-      setUserErrorMessage('Le mot de passe doit contenir au moins 8 caractères, dont au moins une minuscule, une majuscule, un chiffre et un caractère spécial.');
-      return;
+      inputErrorMessages.push('Le mot de passe doit contenir au moins 8 caractères, dont au moins une minuscule, une majuscule, un chiffre et un caractère spécial.');
     }
 
     if (evt.currentTarget.password.value !== evt.currentTarget.confirmPassword.value) {
-      setUserErrorMessage('Erreur lors de la confirmation du mot de passe.');
-      return;
+      inputErrorMessages.push('Erreur lors de la confirmation du mot de passe.');
     }
 
-    handleSignUp();
+    console.log('nbError', inputErrorMessages.length);
+    if (inputErrorMessages.length > 0) {
+      console.log('sendErrorMessages');
+      sendErrorMessages(inputErrorMessages);
+    }
+    else {
+      handleSignUp();
+    }
   };
 
   if (isLogged) {
@@ -105,7 +112,13 @@ const SignUp = ({
           </button>
         </div>
 
-        <p>{errorMessages}</p>
+        <ul className="error-message-list">{}
+          {errorMessages.map((message) => (
+            <li className="error-message" key={message}>
+              {message}
+            </li>
+          ))}
+        </ul>
 
       </form>
     </div>
@@ -122,7 +135,7 @@ SignUp.propTypes = {
   changeField: PropTypes.func.isRequired,
   handleSignUp: PropTypes.func.isRequired,
   errorMessages: PropTypes.array.isRequired,
-  setUserErrorMessage: PropTypes.func.isRequired,
+  sendErrorMessages: PropTypes.func.isRequired,
   isLogged: PropTypes.bool.isRequired,
 };
 
