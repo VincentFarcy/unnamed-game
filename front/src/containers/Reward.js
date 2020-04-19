@@ -13,9 +13,6 @@ const mapStateToProps = (state) => ({
 
 // actions
 const mapDispatchToProps = (dispatch) => ({
-  findOpponent: () => {
-    dispatch(findOpponent());
-  },
 });
 
 

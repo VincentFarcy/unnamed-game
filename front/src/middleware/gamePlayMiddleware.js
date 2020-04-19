@@ -2,9 +2,8 @@
 import axios from 'axios';
 
 // local imports
-import { FETCH_INITIALE_GAME_DATA, gameDataSuccess, gameDataError, FIND_OPPONENT } from '../actions/gamePlay';
+import { FETCH_INITIALE_GAME_DATA, gameDataSuccess, gameDataError } from '../actions/gamePlay';
 import { BASE_API_URI } from '../app.config';
-import roll from '../func';
 
 // == Api Middleware
 const apiMiddleware = (store) => (next) => (action) => {
@@ -22,9 +21,6 @@ const apiMiddleware = (store) => (next) => (action) => {
           store.dispatch(gameDataError());
         });
       break;
-      case FIND_OPPONENT:
-        console.log("test");
-        break;
     default:
       next(action);
   }

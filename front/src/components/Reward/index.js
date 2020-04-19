@@ -10,7 +10,7 @@ import './style.scss';
 
 
 // == Component
-const Reward = ({ rewardContent, findOpponent }) => (
+const Reward = ({ rewardContent}) => (
   <>
     <div className="player-bar">
       <PlayerInfo />
@@ -19,7 +19,7 @@ const Reward = ({ rewardContent, findOpponent }) => (
       <p className="reward__title"> Voici vos récompenses suite au combat</p>
       <p className="reward__p"> Vous avez gagné {rewardContent.value} {rewardContent.content}</p>
       <div className="button__container">
-        <Button cssClassName="next__button" url="/combat" buttonName="Suivant" onClick={findOpponent}/>
+        <Button cssClassName="next__button" url="/combat" buttonName="Suivant" />
       </div>
     </div>
   </>

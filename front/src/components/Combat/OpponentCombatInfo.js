@@ -11,7 +11,7 @@ import './style.scss';
 import avatar from 'src/assets/images/hal8000.png';
 
 // == Component
-const OpponentCombatInfo = ({ opponents, opponentsTable }) => {
+const OpponentCombatInfo = ({ }) => {
   const now = 50;
   // const findOpponentId = roll(1, 100);
   // const opponentTableId = opponentsTable.find(
