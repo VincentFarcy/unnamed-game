@@ -8,7 +8,7 @@ import SignIn from 'src/components/SignIn';
 import { signIn, changeField, setUserErrorMessage } from '../actions/user';
 
 /* === State (données) === */
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state) => ({
   userId: state.user.input.userId,
   password: state.user.input.password,
   errorMessages: state.user.errorMessages,

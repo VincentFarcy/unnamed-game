@@ -1,22 +1,38 @@
 // == Import npm
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 // == Import local
 import LinkButton from '../../LinkButton';
 
 // == Component
-const ConnectedUserNav = ({ pseudo }) => (
-  <div className="connected-user">
-    <p className="greeting-user">Bienvenue {pseudo}</p>
-    {/* TODO : check how to redirect to home page after logout */}
-    <LinkButton cssClassName="btn btn-outline-light" buttonName="Se déconnecter" url="/" />
-  </div>
-);
+const ConnectedUserNav = ({
+  pseudo,
+  handleLogout,
+}) => {
+  const handleClick = () => {
+    handleLogout();
+  };
+
+  return (
+    <div className="connected-user">
+      <p className="greeting-user">Bienvenue {pseudo}</p>
+      <Link
+        className="btn btn-outline-light"
+        to="/"
+        onClick={handleClick}
+      >
+      Se deconnecter
+      </Link>
+    </div>
+  );
+};
 
 // == Props validation
 ConnectedUserNav.propTypes = {
   pseudo: PropTypes.string.isRequired,
+  handleLogout: PropTypes.func.isRequired,
 };
 
 // == Export

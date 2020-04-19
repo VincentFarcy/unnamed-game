@@ -5,15 +5,18 @@ import { connect } from 'react-redux';
 import ConnectedUserNav from 'src/components/Header/ConnectedUserNav';
 
 // Action Creators
-
+import { logout } from '../actions/user';
 
 /* === State (données) === */
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state) => ({
   pseudo: state.user.connectedUser.pseudo,
 });
 
 /* === Actions === */
 const mapDispatchToProps = (dispatch) => ({
+  handleLogout: () => {
+    dispatch(logout());
+  },
 });
 
 // Container

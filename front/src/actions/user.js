@@ -6,6 +6,7 @@ export const ADD_USER = 'ADD_USER';
 export const GET_USER = 'GET_USER';
 export const GET_USER_ERROR_MESSAGES = 'GET_USER_ERROR_MESSAGES';
 export const SET_USER_ERROR_MESSAGE = 'SET_USER_ERROR_MESSAGE';
+export const LOGOUT = 'LOGOUT';
 
 // == Action creators
 export const changeField = (value, name) => ({
@@ -48,4 +49,8 @@ export const setUserErrorMessage = (errorMessage) => ({
 export const getUserErrorMessages = (errorMessages) => ({
   type: GET_USER_ERROR_MESSAGES,
   errorMessages,
+});
+
+export const logout = () => ({
+  type: LOGOUT,
 });

@@ -7,6 +7,7 @@ import {
   GET_USER,
   SET_USER_ERROR_MESSAGE,
   GET_USER_ERROR_MESSAGES,
+  LOGOUT,
 } from '../actions/user';
 
 
@@ -32,8 +33,6 @@ const initialState = {
 
 // == Reducer
 const user = (state = initialState, action = {}) => {
-  console.log('reducer-state:', state);
-  console.log('reducer-action:', action);
   switch (action.type) {
     case CHANGE_FIELD:
       return {
@@ -78,6 +77,15 @@ const user = (state = initialState, action = {}) => {
       return {
         ...state,
         errorMessages: action.errorMessages,
+      };
+    case LOGOUT:
+      return {
+        ...state,
+        isLogged: false,
+        connectedUser: null,
+        backups: null,
+        tokenJWT: '',
+        errorMessages: [],
       };
     default:
       return state;

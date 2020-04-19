@@ -8,7 +8,7 @@ import SignUp from 'src/components/SignUp';
 import { signUp, changeField, setUserErrorMessage } from '../actions/user';
 
 /* === State (données) === */
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state) => ({
   pseudo: state.user.input.pseudo,
   email: state.user.input.email,
   password: state.user.input.password,
