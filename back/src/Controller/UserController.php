@@ -48,12 +48,12 @@ class UserController extends AbstractController
     /**
      * @Route("edit", name="edit", methods={"PUT"})
      */
-    /*
     public function edit(
         Request $request,
         EntityManagerInterface $em,
         SerializerInterface $serializer,
-        ValidatorInterface $validator)
+        ValidatorInterface $validator,
+        JWTTokenManagerInterface $JWTManager)
     {
         // Get data from client request
         $content = $request->getContent();
@@ -66,11 +66,12 @@ class UserController extends AbstractController
         $user = $this->GetUser();
 
         // Check sended data
-        if (!isset($pseudo)) {
+        if (    !isset($email)
+            ||  !isset($pseudo)) {
             // error 400
             return $this->json(
                 [
-                   "message" => "Edit user error : no data received",
+                   "message" => "Edit user error : missing data",
                 ],
                 JsonResponse::HTTP_BAD_REQUEST
            );
@@ -78,6 +79,7 @@ class UserController extends AbstractController
 
         // Prepare user before edit
         $user->setPseudo($pseudo);
+        $user->setEmail($email);
         $user->setUpdatedAt(new \DateTime());
 
         // Catch constraints validation error in array $errorMessages
@@ -112,9 +114,10 @@ class UserController extends AbstractController
                         $user,
                         null, ['groups' => ['user']]
                     ), 
+                'token' => $JWTManager->create($user)
             ]
         );
-    }*/
+    }
 
     /**
      * @Route("add", name="add", methods={"POST"})
