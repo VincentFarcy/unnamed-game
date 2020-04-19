@@ -44,6 +44,8 @@ const UserPage = ({
       <form className="form" onSubmit={handleSubmit}>
         <h2 className="form__title">Compte utilisateur</h2>
 
+        {/* pseudo = input field */}
+        {/* currentPseudo = connected user field */}
         <Field
           placeholder="Pseudo"
           name="pseudo"
@@ -55,6 +57,9 @@ const UserPage = ({
           min={3}
           max={20}
         />
+
+        {/* email = input field */}
+        {/* currentEmail = connected user field */}
         <Field
           placeholder="Email"
           name="email"
@@ -67,6 +72,7 @@ const UserPage = ({
           max={250}
         />
 
+        {/* button to activate edit or delete mode */}
         { (!editMode && !deleteMode) && (
           <div className="enable-actions">
             <button
@@ -86,6 +92,7 @@ const UserPage = ({
           </div>
         )}
 
+        {/* button to validate or cancel, edit or delete action */}
         { (editMode || deleteMode) && (
           <div className="actions">
             <button
