@@ -16,6 +16,7 @@ const mapStateToProps = (state) => ({
   ageChecked: state.user.input.ageChecked,
   errorMessages: state.user.errorMessages,
   setErrorMessages: state.user.setErrorMessages,
+  isLogged: state.user.isLogged,
 });
 
 /* === Actions === */

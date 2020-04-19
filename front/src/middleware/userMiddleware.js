@@ -8,7 +8,8 @@ import {
   addUser,
   getUser,
   getUserErrorMessages,
-  setUserErrorMessage
+  setUserErrorMessage,
+  redirect,
 } from '../actions/user';
 import { BASE_API_URI } from '../app.config';
 

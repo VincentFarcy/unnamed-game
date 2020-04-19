@@ -54,3 +54,4 @@ export const getUserErrorMessages = (errorMessages) => ({
 export const logout = () => ({
   type: LOGOUT,
 });
+

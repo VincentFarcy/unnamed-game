@@ -1,6 +1,7 @@
 // == Import npm
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Redirect } from 'react-router';
 
 // == Import local
 import './style.scss';
@@ -13,12 +14,19 @@ const SignIn = ({
   handleSignIn,
   errorMessages,
   setUserErrorMessage,
+  isLogged,
 }) => {
   //
   const handleSubmit = (evt) => {
     evt.preventDefault();
     handleSignIn();
   };
+
+  if (isLogged) {
+    return (
+      <Redirect to="/play" />
+    );
+  }
 
   return (
     <div className="form-container">
@@ -66,6 +74,7 @@ SignIn.propTypes = {
   handleSignIn: PropTypes.func.isRequired,
   errorMessages: PropTypes.array.isRequired,
   setUserErrorMessage: PropTypes.func.isRequired,
+  isLogged: PropTypes.bool.isRequired,
 };
 
 // Valeurs par défaut pour les props
