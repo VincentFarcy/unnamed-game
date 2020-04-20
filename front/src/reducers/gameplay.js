@@ -55,6 +55,8 @@ const initialState = {
   ],
   pool: 10,
   phpTimer: 1,
+  xp: 0,
+  jsx: 0,
   rewards: [
     {
       content: 'Point(s) d\'expérience',
