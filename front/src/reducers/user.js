@@ -1,8 +1,6 @@
 // == Import : local
 import {
   CHANGE_FIELD,
-  SIGNIN,
-  SIGNUP,
   GET_NEW_USER,
   GET_USER,
   SEND_ERROR_MESSAGES,
@@ -50,14 +48,6 @@ const user = (state = initialState, action = {}) => {
         },
         errorMessages: [],
       };
-    case SIGNIN:
-      return {
-        ...state,
-      };
-    case SIGNUP:
-      return {
-        ...state,
-      };
     case GET_NEW_USER:
       return {
         ...state,
@@ -84,6 +74,14 @@ const user = (state = initialState, action = {}) => {
       return {
         ...state,
         isLogged: false,
+        input: {
+          userId: '',
+          pseudo: '',
+          email: '',
+          password: '',
+          confirmPassword: '',
+          ageChecked: false,
+        },
         connectedUser: {
           pseudo: '',
           email: '',

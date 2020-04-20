@@ -128,8 +128,8 @@ const UserPage = ({
 UserPage.propTypes = {
   currentPseudo: PropTypes.string.isRequired,
   currentEmail: PropTypes.string.isRequired,
-  pseudo: PropTypes.string,
-  email: PropTypes.string,
+  pseudo: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
   changeField: PropTypes.func.isRequired,
   editUser: PropTypes.func.isRequired,
   deleteUser: PropTypes.func.isRequired,
@@ -142,10 +142,6 @@ UserPage.propTypes = {
 };
 
 // Valeurs par défaut pour les props
-UserPage.defaultProps = {
-  pseudo: '',
-  email: '',
-};
 
 // == Export
 export default UserPage;

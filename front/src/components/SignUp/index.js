@@ -110,7 +110,7 @@ const SignUp = ({
           </button>
         </div>
 
-        <ul className="error-message-list">{}
+        <ul className="error-message-list">
           {errorMessages.map((message) => (
             <li className="error-message" key={message}>
               {message}
@@ -125,11 +125,11 @@ const SignUp = ({
 
 // == Props validation
 SignUp.propTypes = {
-  pseudo: PropTypes.string,
-  email: PropTypes.string,
-  password: PropTypes.string,
-  confirmPassword: PropTypes.string,
-  ageChecked: PropTypes.bool,
+  pseudo: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
+  password: PropTypes.string.isRequired,
+  confirmPassword: PropTypes.string.isRequired,
+  ageChecked: PropTypes.bool.isRequired,
   changeField: PropTypes.func.isRequired,
   handleSignUp: PropTypes.func.isRequired,
   errorMessages: PropTypes.array.isRequired,
@@ -138,13 +138,6 @@ SignUp.propTypes = {
 };
 
 // Valeurs par défaut pour les props
-SignUp.defaultProps = {
-  pseudo: '',
-  email: '',
-  password: '',
-  confirmPassword: '',
-  ageChecked: false,
-};
 
 // == Export
 export default SignUp;

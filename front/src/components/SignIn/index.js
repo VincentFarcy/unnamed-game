@@ -73,8 +73,8 @@ const SignIn = ({
 
 // == Props validation
 SignIn.propTypes = {
-  userId: PropTypes.string,
-  password: PropTypes.string,
+  userId: PropTypes.string.isRequired,
+  password: PropTypes.string.isRequired,
   changeField: PropTypes.func.isRequired,
   handleSignIn: PropTypes.func.isRequired,
   errorMessages: PropTypes.array.isRequired,
@@ -82,10 +82,6 @@ SignIn.propTypes = {
 };
 
 // Valeurs par défaut pour les props
-SignIn.defaultProps = {
-  userId: '',
-  password: '',
-};
 
 // == Export
 export default SignIn;
