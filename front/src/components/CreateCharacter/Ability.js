@@ -14,7 +14,7 @@ const Ability = ({ name, value, image, description, increment, decrement }) => (
   <div id={name} key={uuidv4()} className="ability__container">
     <OverlayTrigger
       placement="top"
-      delay={{ show: 250, hide: 400 }}
+      delay={{ show: 300, hide: 300 }}
       overlay={
         <Tooltip id={`tooltip`}>
           Valeur min: 1
@@ -26,7 +26,7 @@ const Ability = ({ name, value, image, description, increment, decrement }) => (
     <img className="ability__image" src={image} alt={name} />
     <OverlayTrigger
       placement="top"
-      delay={{ show: 250, hide: 400 }}
+      delay={{ show: 300, hide: 300 }}
       overlay={
         <Tooltip id={`tooltip`}>
           {description}
@@ -38,10 +38,10 @@ const Ability = ({ name, value, image, description, increment, decrement }) => (
     <span className="ability__value">{value}</span>
     <OverlayTrigger
       placement="top"
-      delay={{ show: 250, hide: 400 }}
+      delay={{ show: 300, hide: 300 }}
       overlay={
         <Tooltip id={`tooltip`}>
-          ( Création ) Valeur maxi : 5
+          Valeur max: 5
           </Tooltip>
       }
     >
