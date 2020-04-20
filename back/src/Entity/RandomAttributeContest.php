@@ -93,6 +93,11 @@ class RandomAttributeContest
      */
     private $attribute;
 
+    public function __toString()
+    {
+        return $this->getMainText();
+    }
+
     public function getId(): ?int
     {
         return $this->id;

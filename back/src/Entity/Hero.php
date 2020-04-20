@@ -70,6 +70,11 @@ class Hero
      */
     private $backups;
 
+    public function __toString()
+    {
+        return $this->getName();
+    }
+
     public function __construct()
     {
         $this->backups = new ArrayCollection();
