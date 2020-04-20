@@ -10,7 +10,7 @@ import OpponentCombatInfo from '../../containers/OpponentCombatInfo';
 import LinkButton from '../LinkButton';
 
 // == Component
-const Combat = ({ opponent, isCombatOn, runAway }) => {
+const Combat = ({ opponent, isCombatOn, fight, runAway }) => {
 
   return (
     <div className="main__play">
@@ -22,7 +22,14 @@ const Combat = ({ opponent, isCombatOn, runAway }) => {
         {
           !isCombatOn && 
           <div className="combat__choices">
-            <Button className="choice" variant="danger">Combattre</Button>
+            <Button
+              className="choice"
+              variant="danger"
+              onClick={fight}
+            >
+              Combattre
+            </Button>
+            {/* when you choose to runAway, you have to be redirected and add 1 to PHP */}
             <LinkButton
               cssClassName="choice btn-warning"
               buttonName="Fuir"
@@ -46,6 +53,7 @@ Combat.propTypes = {
   }
   ).isRequired,
   isCombatOn: PropTypes.bool.isRequired,
+  fight: PropTypes.func.isRequired,
   runAway: PropTypes.func.isRequired,
 };
 

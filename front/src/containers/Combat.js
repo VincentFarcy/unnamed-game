@@ -14,6 +14,9 @@ const mapStateToProps = (state) => ({
 
 // actions
 const mapDispatchToProps = (dispatch) => ({
+  fight: () => {
+    console.log('fight');
+  },
   runAway: () => {
     dispatch(runAway());
   },
