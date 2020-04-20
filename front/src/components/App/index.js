@@ -5,13 +5,14 @@ import { Switch, Route } from 'react-router-dom';
 // == Import local
 // == Import Website Components
 import './styles.scss';
-import Header from '../Header';
+import Header from '../../containers/Header';
 import MainSite from '../../containers/MainSite';
 import Team from '../Team';
 import Acknowledgements from '../Acknowledgements';
 import Rules from '../Rules';
-import SignUp from '../SignUp';
-import SignIn from '../SignIn';
+import SignUp from '../../containers/SignUp';
+import SignIn from '../../containers/SignIn';
+import UserPage from '../../containers/UserPage';
 import Legal from '../Legal';
 
 
@@ -30,7 +31,7 @@ const temp= "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque ill
 
 const App = () => (
   <div className="app">
-    <Header isLogged={false} />
+    <Header />
     <main className="main">
       <Switch>
         {/* Website routes */}
@@ -40,6 +41,7 @@ const App = () => (
         <Route path="/rules" component={Rules} />
         <Route path="/sign-up" component={SignUp} />
         <Route path="/sign-in" component={SignIn} />
+        <Route path="/user" component={UserPage} />
         <Route path="/legal-notices" component={Legal} />
 
         {/* Gameplay routes */}
