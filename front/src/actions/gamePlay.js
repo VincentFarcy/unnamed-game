@@ -1,4 +1,5 @@
 // == Action types
+export const RESET_GAME = 'RESET_GAME';
 export const CHANGE_GAME_STATUS = 'CHANGE_GAME_STATUS';
 export const FETCH_INITIALE_GAME_DATA = 'FETCH_INITIALE_GAME_DATA';
 export const GAME_DATA_SUCCESS = 'GAME_DATA_SUCCESS';
@@ -8,6 +9,10 @@ export const DECREMENT_CREATE_CHARACTER = 'DECREMENT_CREATE_CHARACTER';
 export const FIND_OPPONENT = 'FIND_OPPONENT';
 
 // == Action creators
+export const resetGame = () => ({
+  type: RESET_GAME,
+});
+
 export const changeGameStatus = () => ({
   type: CHANGE_GAME_STATUS,
 });

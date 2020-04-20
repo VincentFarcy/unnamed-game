@@ -1,6 +1,6 @@
 // == Import : local
 import {
-  CHANGE_GAME_STATUS,
+  RESET_GAME, CHANGE_GAME_STATUS,
   GAME_DATA_SUCCESS, GAME_DATA_ERROR,
   INCREMENT_CREATE_CHARACTER, DECREMENT_CREATE_CHARACTER, 
   FIND_OPPONENT
@@ -65,6 +65,12 @@ const initialState = {
 // == Reducer
 const gameplay = (state = initialState, action = {}) => {
   switch (action.type) {
+    case RESET_GAME:
+      return {
+        ...state,
+        loadingErrMessage: '',
+        hasError: false,
+      };
     case CHANGE_GAME_STATUS:
       return {
         ...state,

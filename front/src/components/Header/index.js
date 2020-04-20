@@ -13,12 +13,12 @@ import AnonymousUserNav from './AnonymousUserNav';
 import ConnectedUserNav from '../../containers/ConnectedUserNav';
 
 // == Component
-const Header = ({ isLogged, initUserState, startGame }) => {
+const Header = ({ isLogged, initUserState, resetGame, startGame }) => {
   //
   const handleClick = (evt) => {
     if (evt.target.tagName === 'A' || evt.target.tagName === 'BUTTON') {
       initUserState();
-      startGame();
+      resetGame();
     }
   };
 
@@ -83,6 +83,7 @@ const Header = ({ isLogged, initUserState, startGame }) => {
 Header.propTypes = {
   isLogged: PropTypes.bool.isRequired,
   initUserState: PropTypes.func.isRequired,
+  resetGame: PropTypes.func.isRequired,
   startGame: PropTypes.func.isRequired,
 };
 
