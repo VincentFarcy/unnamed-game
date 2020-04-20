@@ -6,7 +6,6 @@ import PlayerInfo from '../components/PlayerInfo';
 
 // state
 const mapStateToProps = (state) => ({
-  // mainCounter: state.gameplay.phpTimer,
   playerHp: state.gameplay.playerHp,
 });
 
