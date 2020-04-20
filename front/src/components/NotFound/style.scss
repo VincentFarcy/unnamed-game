@@ -1,0 +1,46 @@
+
+
+.notFound {
+  height: 100%;
+  background-image: url('../../assets/images/mihai-muscan-42.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+
+  &__text{
+    
+  color: rgb(241, 235, 235);
+  justify-self: center;
+  align-self: center;
+  border: 1px solid #55120e60 ;
+  padding: 5px;
+  font-size: medium;
+  text-align: center;
+  font-weight: 700;
+  background: linear-gradient(225deg, #55120e60, #470f0c69);
+  box-shadow:  -5px 5px 9px #0c0c0c, 
+             5px -5px 9px #55120e;}
+  
+  
+  
+}
+
+
+/* === Tablets === */
+@media screen AND (min-width: 768px) {
+  .notFound {
+
+    font-size: x-large;
+    
+  }
+}
+
+/* === large screen === */
+@media screen AND (min-width: 992px) {
+  .notFound {
+
+    font-size: xx-large;
+    
+  }
+}
