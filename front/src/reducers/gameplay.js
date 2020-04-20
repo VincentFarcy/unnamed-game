@@ -55,6 +55,7 @@ const initialState = {
   ],
   pool: 10,
   phpTimer: 1,
+  playerHP: 0,
   combat: {
     combatStatus: false,
   },
@@ -90,11 +91,13 @@ const gameplay = (state = initialState, action = {}) => {
       findUpAbility(state, action.payload);
       return {
         ...state,
+        playerHp: ((state.abilities[3].value / 2) + (state.abilities[2].value)) * 10,
       };
     case DECREMENT_CREATE_CHARACTER:
       findDownAbility(state, action.payload);
       return {
         ...state,
+        playerHp: ((state.abilities[3].value / 2) + (state.abilities[2].value)) * 10,
       };
     case RUN_AWAY:
       return {
