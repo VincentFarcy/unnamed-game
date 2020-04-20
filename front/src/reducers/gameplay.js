@@ -63,7 +63,9 @@ const initialState = {
     // player current health point which is initialized at the same time as totalPlayerHP
     playerCurrentHP: 0,
     // currentOponent is empty until OpponentCombatInfo is rendered
-    currentOpponent: {},
+    currentOpponent: {
+      opponentCurrentHP: 0,
+    },
   },
 };
 
@@ -120,6 +122,7 @@ const gameplay = (state = initialState, action = {}) => {
         combat: {
           ...state.combat,
           currentOpponent: {
+            opponentCurrentHP: opponent.health,
             ...opponent
           }
         }

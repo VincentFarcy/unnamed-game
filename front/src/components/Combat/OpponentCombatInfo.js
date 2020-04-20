@@ -12,7 +12,7 @@ import './style.scss';
 // == Component
 const OpponentCombatInfo = ({ findOpponent, currentOpponent }) => {
   useEffect(findOpponent, []);
-  const now = 10;
+  const now = currentOpponent.opponentCurrentHP;
 
   return (
     <div className="opponent-combat-info">
