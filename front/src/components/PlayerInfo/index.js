@@ -7,7 +7,7 @@ import ProgressBar from 'react-bootstrap/ProgressBar';
 
 // == Import local
 import './style.scss';
-import avatar from '../../assets/images/PlayerAvatar.svg';
+import avatar from 'src/assets/images/PlayerAvatar.svg';
 
 // == Component
 const PlayerInfo = ({ mainCounter, playerHp }) => {

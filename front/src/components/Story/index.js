@@ -25,6 +25,7 @@ Story.propTypes = {
     title: PropTypes.string.isRequired,
     mainText: PropTypes.string.isRequired,
   }).isRequired,
+
 };
 
 

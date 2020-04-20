@@ -19,10 +19,12 @@ export const gameDataError = () => ({
   type: GAME_DATA_ERROR,
 });
 
-export const increment = () => ({
+export const increment = (payload) => ({
   type: INCREMENT_CREATE_CHARACTER,
+  payload,
 });
 
-export const decrement = () => ({
+export const decrement = (payload) => ({
   type: DECREMENT_CREATE_CHARACTER,
+  payload,
 });
