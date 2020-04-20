@@ -3,6 +3,7 @@ import {
   RESET_GAME, CHANGE_GAME_STATUS,
   GAME_DATA_SUCCESS, GAME_DATA_ERROR,
   INCREMENT_CREATE_CHARACTER, DECREMENT_CREATE_CHARACTER,
+  FIND_OPPONENT,
   RUN_AWAY
 }
   from '../actions/gamePlay';
@@ -61,6 +62,8 @@ const initialState = {
     combatStatus: false,
     // player current health point which is initialized at the same time as totalPlayerHP
     playerCurrentHP: 0,
+    // currentOponent is empty until OpponentCombatInfo is rendered
+    currentOpponent: {},
   },
 };
 
@@ -110,6 +113,17 @@ const gameplay = (state = initialState, action = {}) => {
           playerCurrentHP: ((state.abilities[3].value / 2) + (state.abilities[2].value)) * 10,
         },
       };
+    case FIND_OPPONENT:
+      const opponent = findOpponentForCombat(state);
+      return {
+        ...state,
+        combat: {
+          ...state.combat,
+          currentOpponent: {
+            ...opponent
+          }
+        }
+      };
     case RUN_AWAY:
       return {
         ...state,
@@ -146,8 +160,8 @@ export const findDownAbility = (state, abilityName) => (
 export const findOpponentForCombat = (state) => {
   // console.log(state);
 
-  const opponents = state.gameplay.opponents;
-  const opponentsTable = state.gameplay.chapters[0].randomFightContests;
+  const opponents = state.opponents;
+  const opponentsTable = state.chapters[0].randomFightContests;
   // console.log(opponentsTable, opponents);
 
   const findOpponentId = rollDice(1, 100);

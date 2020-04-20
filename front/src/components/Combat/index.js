@@ -39,8 +39,9 @@ const Combat = ({ opponent, isCombatOn, fight, runAway }) => {
           </div>
         }
         <p className="combat__presentation">VS {opponent.name}</p>
-        <div className="opponent__container"></div>
-          <OpponentCombatInfo {...opponent} />
+        <div className="opponent__container">
+          <OpponentCombatInfo />
+        </div>
       </div>
     </div>
   );
