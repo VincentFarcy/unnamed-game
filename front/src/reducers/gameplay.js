@@ -3,7 +3,6 @@ import {
   RESET_GAME, CHANGE_GAME_STATUS,
   GAME_DATA_SUCCESS, GAME_DATA_ERROR,
   INCREMENT_CREATE_CHARACTER, DECREMENT_CREATE_CHARACTER, 
-  FIND_OPPONENT
 }
   from '../actions/gamePlay';
 import roll from '../func';
@@ -184,7 +183,6 @@ export const findOpponentForCombat = (state) => {
   // console.log(opponentTableId);
 
   const opponentId = opponentTableId.opponent.id;
-  // soucis parfois cela plante sur la l139
   // console.log(opponentId);
 
   const opponent = opponents.find(
