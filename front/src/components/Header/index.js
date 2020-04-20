@@ -10,7 +10,7 @@ import './style.scss';
 import logo from '../../assets/images/Unnamed_Game_3_white.svg';
 import LinkButton from '../LinkButton';
 import AnonymousUserNav from './AnonymousUserNav';
-import ConnectedUserNav from './ConnectedUserNav';
+import ConnectedUserNav from '../../containers/ConnectedUserNav';
 
 // == Component
 const Header = ({ isLogged }) => (
@@ -66,7 +66,7 @@ const Header = ({ isLogged }) => (
 // == Props validation
 Header.propTypes = {
   isLogged: PropTypes.bool.isRequired,
-}
+};
 
 // == Export
 export default Header;
