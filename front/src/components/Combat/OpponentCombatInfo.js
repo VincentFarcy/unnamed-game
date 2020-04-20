@@ -10,15 +10,14 @@ import './style.scss';
 
 
 // == Component
-const OpponentCombatInfo = (props) => {
-  useEffect(props.findOpponent, []);
-  console.log('props in OpponentCombatInfo', props)
+const OpponentCombatInfo = ({ findOpponent, currentOpponent }) => {
+  useEffect(findOpponent, []);
   const now = 10;
 
   return (
     <div className="opponent-combat-info">
-      <Image className="opponent-combat-info__avatar" src={props.currentOpponent.image} rounded alt={props.currentOpponent.image} />
-      <ProgressBar className="opponent__progress" variant="success" min={0} max={props.currentOpponent.health} now={now} label={`HP: ${now}/${props.currentOpponent.health}`} />
+      <Image className="opponent-combat-info__avatar" src={currentOpponent.image} rounded alt={currentOpponent.image} />
+      <ProgressBar className="opponent__progress" variant="success" min={0} max={currentOpponent.health} now={now} label={`HP: ${now}/${currentOpponent.health}`} />
     </div>
   );
 };
@@ -26,6 +25,10 @@ const OpponentCombatInfo = (props) => {
 // == Props validation
 OpponentCombatInfo.propTypes = {
   findOpponent: PropTypes.func.isRequired, 
+  currentOpponent: PropTypes.shape({
+      image: PropTypes.string,
+      health: PropTypes.number,
+  }).isRequired, 
 };
 
 // == Export

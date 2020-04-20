@@ -50,7 +50,7 @@ const Combat = ({ opponent, isCombatOn, fight, runAway }) => {
 // == Props validation
 Combat.propTypes = {
   opponent: PropTypes.shape({
-    name: PropTypes.string.isRequired,
+    name: PropTypes.string,
   }
   ).isRequired,
   isCombatOn: PropTypes.bool.isRequired,
