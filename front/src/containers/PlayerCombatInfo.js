@@ -7,6 +7,7 @@ import PlayerCombatInfo from '../components/Combat/PlayerCombatInfo.js';
 // state
 const mapStateToProps = (state) => ({
   totalPlayerHP: state.gameplay.totalPlayerHP,
+  playerCurrentHP: state.gameplay.combat.playerCurrentHP,
 });
 
 // actions

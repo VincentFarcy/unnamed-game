@@ -59,6 +59,8 @@ const initialState = {
   totalPlayerHP: 0,
   combat: {
     combatStatus: false,
+    // player current health point which is initialized at the same time as totalPlayerHP
+    playerCurrentHP: 0,
   },
 };
 
@@ -93,12 +95,20 @@ const gameplay = (state = initialState, action = {}) => {
       return {
         ...state,
         totalPlayerHP: ((state.abilities[3].value / 2) + (state.abilities[2].value)) * 10,
+        combat: {
+          ...state.combat,
+          playerCurrentHP: ((state.abilities[3].value / 2) + (state.abilities[2].value)) * 10,
+        },
       };
     case DECREMENT_CREATE_CHARACTER:
       findDownAbility(state, action.payload);
       return {
         ...state,
         totalPlayerHP: ((state.abilities[3].value / 2) + (state.abilities[2].value)) * 10,
+        combat: {
+          ...state.combat,
+          playerCurrentHP: ((state.abilities[3].value / 2) + (state.abilities[2].value)) * 10,
+        },
       };
     case RUN_AWAY:
       return {
