@@ -21,7 +21,11 @@ const Story = ({ story }) => (
 
 // == Props validation
 Story.propTypes = {
-  story: PropTypes.object.isRequired,
+  story: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    mainText: PropTypes.string.isRequired,
+  }).isRequired,
+
 };
 
 
