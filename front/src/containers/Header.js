@@ -6,9 +6,10 @@ import Header from 'src/components/Header';
 import { changeGameStatus } from '../actions/gamePlay';
 
 // Action Creators
+import { initUserState } from '../actions/user';
 
 /* === State (données) === */
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state) => ({
   isLogged: state.user.isLogged,
 });
 
@@ -16,6 +17,9 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = (dispatch) => ({
   startGame: () => {
     dispatch(changeGameStatus());
+  },
+  initUserState: () => {
+    dispatch(initUserState());
   },
 });
 

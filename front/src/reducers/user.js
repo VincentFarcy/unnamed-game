@@ -9,6 +9,7 @@ import {
   SET_DELETE_MODE,
   EDIT_USER,
   DELETE_USER,
+  INIT_USER_STATE,
 } from '../actions/user';
 
 
@@ -127,6 +128,25 @@ const user = (state = initialState, action = {}) => {
           ...state.mode,
           deleteMode: false,
         },
+      };
+    case INIT_USER_STATE:
+      return {
+        ...state,
+        input: {
+          ...state.input,
+          userId: '',
+          pseudo: '',
+          email: '',
+          password: '',
+          confirmPassword: '',
+          ageChecked: false,
+        },
+        mode: {
+          ...state.mode,
+          editMode: false,
+          deleteMode: false,
+        },
+        errorMessages: [],
       };
     default:
       return state;
