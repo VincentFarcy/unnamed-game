@@ -14,6 +14,7 @@ const mapStateToProps = (state, ownProps) => ({
   baseAvoid: state.gameplay.baseAvoid,
   baseDamage: state.gameplay.baseDamage,
   baseInitiative: state.gameplay.baseInitiative,
+  healing: state.gameplay.healing,
 });
 
 /* === Actions === */

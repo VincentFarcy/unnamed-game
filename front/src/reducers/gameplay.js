@@ -107,6 +107,7 @@ const gameplay = (state = initialState, action = {}) => {
         baseAvoid: ((state.abilities[1].value) + Math.floor((state.abilities[4].value / 2))),
         baseDamage: state.abilities[0].value,
         baseInitiative: state.abilities[1].value,
+        healing:  Math.floor(((state.abilities[3].value / 2) + (state.abilities[4].value / 2))),
       };
     // }
     // else
@@ -126,6 +127,7 @@ const gameplay = (state = initialState, action = {}) => {
         baseAvoid: ((state.abilities[1].value) + Math.floor((state.abilities[4].value / 2))),
         baseDamage: state.abilities[0].value,
         baseInitiative: state.abilities[1].value,
+        healing: Math.floor(((state.abilities[3].value / 2) + (state.abilities[4].value / 2))),
       };
     // }
     // else

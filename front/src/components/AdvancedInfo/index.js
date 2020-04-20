@@ -10,7 +10,7 @@ import './style.scss';
 
 
 // == Component
-const AdvancedInfo = ({ abilities, baseToHit, baseAvoid, baseDamage, baseInitiative }) => (
+const AdvancedInfo = ({ abilities, baseToHit, baseAvoid, baseDamage, baseInitiative, healing }) => (
   <div className="AdvancedInfo__container">
     <div className="MainAbilities__container">
       {
@@ -66,6 +66,17 @@ const AdvancedInfo = ({ abilities, baseToHit, baseAvoid, baseDamage, baseInitiat
       >
         <span>Dégâts: {baseDamage + 1} - {baseDamage + 4}</span>
       </OverlayTrigger>
+      <OverlayTrigger
+        placement="top"
+        delay={{ show: 300, hide: 300 }}
+        overlay={
+          <Tooltip id={`tooltip`}>
+            Nombre de PV regagné lors d'un repos
+          </Tooltip>
+        }
+      >
+        <span>Guérison: {healing}</span>
+      </OverlayTrigger>
     </div>
   </div>
 );
@@ -83,6 +94,7 @@ AdvancedInfo.propTypes = {
   baseAvoid: PropTypes.number.isRequired,
   baseDamage: PropTypes.number.isRequired,
   baseInitiative: PropTypes.number.isRequired,
+  healing: PropTypes.number.isRequired, 
 };
 
 
