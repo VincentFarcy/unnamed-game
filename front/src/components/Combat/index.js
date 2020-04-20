@@ -7,6 +7,7 @@ import { Button } from 'react-bootstrap';
 import './style.scss';
 import PlayerCombatInfo from '../../containers/PlayerCombatInfo';
 import OpponentCombatInfo from '../../containers/OpponentCombatInfo';
+import LinkButton from '../LinkButton';
 
 // == Component
 const Combat = ({ opponent, isCombatOn, runAway }) => {
@@ -22,13 +23,12 @@ const Combat = ({ opponent, isCombatOn, runAway }) => {
           !isCombatOn && 
           <div className="combat__choices">
             <Button className="choice" variant="danger">Combattre</Button>
-            <Button
-              className="choice"
-              variant="warning"
+            <LinkButton
+              cssClassName="choice btn-warning"
+              buttonName="Fuir"
+              url="/play/reward"
               onClick={runAway}
-            >
-              Fuir
-            </Button>
+            />
           </div>
         }
         <p className="combat__presentation">VS {opponent.name}</p>
