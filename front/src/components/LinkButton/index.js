@@ -20,7 +20,8 @@ const LinkButton = ({ cssClassName, buttonName, url = '' }) => (
 LinkButton.propTypes = {
   cssClassName: PropTypes.string.isRequired,
   buttonName: PropTypes.string.isRequired,
-  url: PropTypes.string.isRequired,
+  url: PropTypes.string,
+  onClick: PropTypes.func,
 };
 
 // == Export
