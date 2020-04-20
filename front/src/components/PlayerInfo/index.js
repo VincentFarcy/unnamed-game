@@ -21,7 +21,7 @@ const PlayerInfo = ({ mainCounter, totalPlayerHP, playerCurrentHP }) => (
 // == Props validation
 PlayerInfo.propTypes = {
   mainCounter: PropTypes.number.isRequired,
-  playerHp: PropTypes.number.isRequired,
+  totalPlayerHP: PropTypes.number.isRequired,
   playerCurrentHP: PropTypes.number.isRequired,
 };
 
