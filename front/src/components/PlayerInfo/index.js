@@ -10,15 +10,15 @@ import './style.scss';
 import avatar from 'src/assets/images/PlayerAvatar.svg';
 
 // == Component
-const PlayerInfo = ({ mainCounter, playerHp }) => {
+const PlayerInfo = ({ mainCounter, totalPlayerHP }) => {
 
   // @int used to calculate the health ProgressBar percentage
-  const now = playerHp;
+  const now = 25;
 
   return (
     <div className="player-info">
       <Image className="player-info__avatar" src={avatar} rounded />
-      <ProgressBar variant="success" min={0} max={75} now={playerHp} label={`HP: ${now}`} />
+      <ProgressBar variant="success" min={0} max={totalPlayerHP} now={now} label={`HP: ${now} / ${totalPlayerHP}`} />
       <p className="player-info__counter"> {`Temps : ${mainCounter} PHP`} </p>
     </div>
   );
