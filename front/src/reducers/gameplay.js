@@ -2,8 +2,7 @@
 import {
   RESET_GAME, CHANGE_GAME_STATUS,
   GAME_DATA_SUCCESS, GAME_DATA_ERROR,
-  INCREMENT_CREATE_CHARACTER, DECREMENT_CREATE_CHARACTER, 
-  FIND_OPPONENT
+  INCREMENT_CREATE_CHARACTER, DECREMENT_CREATE_CHARACTER
 }
   from '../actions/gamePlay';
 import roll from '../func';
@@ -58,16 +57,6 @@ const initialState = {
   combat: {
     combatStatus: false,
   },
-  rewards: [
-    {
-      content: 'Point(s) d\'expérience',
-      value: 3,
-    },
-    {
-      content: 'Points de vie',
-      value: 10,
-    },
-  ],
 };
 
 // == Reducer
