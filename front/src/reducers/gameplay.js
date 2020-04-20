@@ -100,6 +100,11 @@ const gameplay = (state = initialState, action = {}) => {
       //   console.log("up");
       return {
         ...state,
+        playerHp: ((state.abilities[3].value / 2) + (state.abilities[2].value)) * 10,
+        baseToHit: ((state.abilities[1].value) + Math.floor((state.abilities[4].value / 3))),
+        baseAvoid: ((state.abilities[1].value) + Math.floor((state.abilities[4].value / 2))),
+        baseDamage: state.abilities[0].value,
+        baseInitiative: state.abilities[1].value,
       };
     // }
     // else
@@ -114,6 +119,11 @@ const gameplay = (state = initialState, action = {}) => {
       //   console.log("down");
       return {
         ...state,
+        playerHp: ((state.abilities[3].value / 2) + (state.abilities[2].value)) * 10,
+        baseToHit: ((state.abilities[1].value) + Math.floor((state.abilities[4].value / 3))),
+        baseAvoid: ((state.abilities[1].value) + Math.floor((state.abilities[4].value / 2))),
+        baseDamage: state.abilities[0].value,
+        baseInitiative: state.abilities[1].value,
       };
     // }
     // else
