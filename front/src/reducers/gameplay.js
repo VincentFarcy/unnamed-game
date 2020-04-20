@@ -55,6 +55,9 @@ const initialState = {
   ],
   pool: 10,
   phpTimer: 1,
+  combat: {
+    combatStatus: false,
+  },
   rewards: [
     {
       content: 'Point(s) d\'expérience',

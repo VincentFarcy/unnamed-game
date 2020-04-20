@@ -7,6 +7,7 @@ import Combat from '../components/Combat';
 
 // state
 const mapStateToProps = (state) => ({
+  isCombatOn: state.gameplay.combat.combatStatus,
   opponent: findOpponentForCombat(state),
 });
 
