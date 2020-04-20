@@ -10,6 +10,7 @@ export const SET_EDIT_MODE = 'SET_EDIT_MODE';
 export const SET_DELETE_MODE = 'SET_DELETE_MODE';
 export const EDIT_USER = 'EDIT_USER';
 export const DELETE_USER = 'DELETE_USER';
+export const INIT_USER_STATE = 'INIT_USER_STATE';
 
 // == Action creators
 export const changeField = (value, name) => ({
@@ -68,4 +69,8 @@ export const editUser = () => ({
 
 export const deleteUser = () => ({
   type: DELETE_USER,
+});
+
+export const initUserState = () => ({
+  type: INIT_USER_STATE,
 });

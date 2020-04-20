@@ -13,59 +13,69 @@ import AnonymousUserNav from './AnonymousUserNav';
 import ConnectedUserNav from '../../containers/ConnectedUserNav';
 
 // == Component
-const Header = ({ isLogged }) => (
-  <header className="header">
-    {/* https://react-bootstrap.github.io/components/navbar/#navbars-overview */}
-    <Navbar expand="lg" variant="dark">
-      {/* Logo */}
-      <Navbar.Brand>
-        <NavLink exact to="/">
-          <img src={logo} alt="unnamed game logo" />
-        </NavLink>
-      </Navbar.Brand>
-      {/* Play button */}
-      <LinkButton cssClassName="play-button mobile" buttonName="Jouer" url="/play" />
-      {/* Burger menu */}
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav">
-        {/* Pages */}
-        <Nav className="mr-auto">
-          <NavLink exact to="/" className="nav-link">
-            Accueil
+const Header = ({ isLogged, initUserState }) => {
+  //
+  const handleClick = (evt) => {
+    if (evt.target.tagName === 'A' || evt.target.tagName === 'BUTTON') {
+      initUserState();
+    }
+  };
+
+  return (
+    <header className="header" onClick={handleClick}>
+      {/* https://react-bootstrap.github.io/components/navbar/#navbars-overview */}
+      <Navbar expand="lg" variant="dark">
+        {/* Logo */}
+        <Navbar.Brand>
+          <NavLink exact to="/">
+            <img src={logo} alt="unnamed game logo" />
           </NavLink>
-          <NavLink exact to="/rules" className="nav-link">
-            Règles générales
-          </NavLink>
-          <NavLink exact to="/team" className="nav-link">
-            Présentation de l'équipe
-          </NavLink>
-          <NavLink exact to="/acknowledgements" className="nav-link">
-            Remerciements
-          </NavLink>
-        </Nav>
-        <div className="auth">
-          {/* items to be displayed depending on user's login status */}
-          {
-            !isLogged && <AnonymousUserNav />
-          }
-          {
-            isLogged && <ConnectedUserNav />
-          }
-          {/* Play button */}
-          <LinkButton
-            cssClassName="play-button desktop"
-            buttonName="Jouer"
-            url="/play"
-          />
-        </div>
-      </Navbar.Collapse>
-    </Navbar>
-  </header>
-);
+        </Navbar.Brand>
+        {/* Play button */}
+        <LinkButton cssClassName="play-button mobile" buttonName="Jouer" url="/play" />
+        {/* Burger menu */}
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          {/* Pages */}
+          <Nav className="mr-auto">
+            <NavLink exact to="/" className="nav-link">
+              Accueil
+            </NavLink>
+            <NavLink exact to="/rules" className="nav-link">
+              Règles générales
+            </NavLink>
+            <NavLink exact to="/team" className="nav-link">
+              Présentation de l'équipe
+            </NavLink>
+            <NavLink exact to="/acknowledgements" className="nav-link">
+              Remerciements
+            </NavLink>
+          </Nav>
+          <div className="auth">
+            {/* items to be displayed depending on user's login status */}
+            {
+              !isLogged && <AnonymousUserNav />
+            }
+            {
+              isLogged && <ConnectedUserNav />
+            }
+            {/* Play button */}
+            <LinkButton
+              cssClassName="play-button desktop"
+              buttonName="Jouer"
+              url="/play"
+            />
+          </div>
+        </Navbar.Collapse>
+      </Navbar>
+    </header>
+  );
+};
 
 // == Props validation
 Header.propTypes = {
   isLogged: PropTypes.bool.isRequired,
+  initUserState: PropTypes.func.isRequired,
 };
 
 // == Export

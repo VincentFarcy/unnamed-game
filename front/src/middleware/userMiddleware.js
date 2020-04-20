@@ -16,14 +16,14 @@ import { BASE_API_URI } from '../app.config';
 
 const handleSendErrorMessages = (store, data) => {
   // Init error messages array
-  const errorMessages = [];
+  let errorMessages = [];
   // Automatic technical message (ex: invalid credential)
   if (data.message) {
     errorMessages.push(data.message);
   }
-  // Messages sent because of funcionnal rule non respected (ex: unique email)
+  // Messages sent because of functionnal rule non respected (ex: unique email)
   if (data.errorMessages) {
-    errorMessages.push(data.errorMessages);
+    errorMessages = errorMessages.concat(data.errorMessages);
   }
   // Sending all messages to state
   store.dispatch(sendErrorMessages(errorMessages));
