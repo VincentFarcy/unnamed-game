@@ -13,11 +13,12 @@ import AnonymousUserNav from './AnonymousUserNav';
 import ConnectedUserNav from '../../containers/ConnectedUserNav';
 
 // == Component
-const Header = ({ isLogged, initUserState }) => {
+const Header = ({ isLogged, initUserState, resetGame, startGame }) => {
   //
   const handleClick = (evt) => {
     if (evt.target.tagName === 'A' || evt.target.tagName === 'BUTTON') {
       initUserState();
+      resetGame();
     }
   };
 
@@ -32,7 +33,12 @@ const Header = ({ isLogged, initUserState }) => {
           </NavLink>
         </Navbar.Brand>
         {/* Play button */}
-        <LinkButton cssClassName="play-button mobile" buttonName="Jouer" url="/play" />
+        <LinkButton
+          cssClassName="play-button mobile"
+          buttonName="Jouer"
+          url="/play"
+          onClick={startGame}
+        />
         {/* Burger menu */}
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -64,6 +70,7 @@ const Header = ({ isLogged, initUserState }) => {
               cssClassName="play-button desktop"
               buttonName="Jouer"
               url="/play"
+              onClick={startGame}
             />
           </div>
         </Navbar.Collapse>
@@ -76,6 +83,8 @@ const Header = ({ isLogged, initUserState }) => {
 Header.propTypes = {
   isLogged: PropTypes.bool.isRequired,
   initUserState: PropTypes.func.isRequired,
+  resetGame: PropTypes.func.isRequired,
+  startGame: PropTypes.func.isRequired,
 };
 
 // == Export

@@ -1,5 +1,11 @@
 // == Import : local
-import { GAME_DATA_SUCCESS, INCREMENT_CREATE_CHARACTER, DECREMENT_CREATE_CHARACTER, FIND_OPPONENT } from '../actions/gamePlay';
+import {
+  RESET_GAME, CHANGE_GAME_STATUS,
+  GAME_DATA_SUCCESS, GAME_DATA_ERROR,
+  INCREMENT_CREATE_CHARACTER, DECREMENT_CREATE_CHARACTER, 
+  FIND_OPPONENT
+}
+  from '../actions/gamePlay';
 import roll from '../func';
 
 import Force from 'src/assets/images/strength.png';
@@ -11,6 +17,10 @@ import Intelligence from 'src/assets/images/intelligence.png';
 // == State
 
 const initialState = {
+  gameOn: false,
+  isLoading: false,
+  loadingErrMessage: '',
+  hasError: false,
   abilities: [
     {
       name: 'Force',
@@ -55,10 +65,28 @@ const initialState = {
 // == Reducer
 const gameplay = (state = initialState, action = {}) => {
   switch (action.type) {
+    case RESET_GAME:
+      return {
+        ...state,
+        loadingErrMessage: '',
+        hasError: false,
+      };
+    case CHANGE_GAME_STATUS:
+      return {
+        ...state,
+        gameOn: true,
+      };
     case GAME_DATA_SUCCESS:
       return {
         ...state,
         ...action.payload,
+      };
+    case GAME_DATA_ERROR:
+      return {
+        ...state,
+        gameOn: false,
+        isLoading: false,
+        loadingErrMessage: 'Une erreur s\'est produite, merci de réessayer ultérieurement ou de cliquer à nouveau sur Jouer.',
       };
     case INCREMENT_CREATE_CHARACTER:
       findUpAbility(state, action.payload);
