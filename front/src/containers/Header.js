@@ -5,15 +5,18 @@ import { connect } from 'react-redux';
 import Header from 'src/components/Header';
 
 // Action Creators
-
+import { initUserState } from '../actions/user';
 
 /* === State (données) === */
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state) => ({
   isLogged: state.user.isLogged,
 });
 
 /* === Actions === */
 const mapDispatchToProps = (dispatch) => ({
+  initUserState: () => {
+    dispatch(initUserState());
+  },
 });
 
 // Container
