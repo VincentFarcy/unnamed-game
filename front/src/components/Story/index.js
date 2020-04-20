@@ -19,14 +19,18 @@ const Story = ({ story }) => (
     />
     {/* <p className="story__p">{story.mainText}</p> */}
     <div className="button__container">
-      <Button cssClassName="next__button" buttonName="Suivant" url="/reward" />
+      <Button cssClassName="next__button" buttonName="Suivant" url="/play/reward" />
     </div>
   </div>
 );
 
 // == Props validation
 Story.propTypes = {
-  story: PropTypes.object.isRequired,
+  story: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    mainText: PropTypes.string.isRequired,
+  }).isRequired,
+
 };
 
 

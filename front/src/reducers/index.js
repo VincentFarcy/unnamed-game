@@ -4,7 +4,9 @@ import gameplay from './gameplay';
 import user from './user';
 
 // == Export
-export default combineReducers({
+const rootReducer = combineReducers({
   gameplay,
   user,
 });
+
+export default rootReducer;
