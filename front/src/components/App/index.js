@@ -11,8 +11,9 @@ import MainSite from '../../containers/MainSite';
 import Team from '../Team';
 import Acknowledgements from '../Acknowledgements';
 import Rules from '../Rules';
-import SignUp from '../SignUp';
-import SignIn from '../SignIn';
+import SignUp from '../../containers/SignUp';
+import SignIn from '../../containers/SignIn';
+import UserPage from '../../containers/UserPage';
 import Legal from '../Legal';
 
 
@@ -20,7 +21,7 @@ import Legal from '../Legal';
 import MainPlay from '../../containers/MainPlay';
 import Story from '../../containers/Story';
 import Dialog from '../Dialog';
-import Combat from '../Combat';
+import Combat from '../../containers/Combat';
 import Reward from '../../containers/Reward';
 import CreateCharacter from '../../containers/CreateCharacter';
 import Footer from '../Footer';
@@ -41,6 +42,7 @@ const App = ({ isGameOn }) => (
         <Route path="/rules" component={Rules} />
         <Route path="/sign-up" component={SignUp} />
         <Route path="/sign-in" component={SignIn} />
+        <Route path="/user" component={UserPage} />
         <Route path="/legal-notices" component={Legal} />
 
         {/* Gameplay routes */}

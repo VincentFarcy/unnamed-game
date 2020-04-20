@@ -5,6 +5,7 @@ export const GAME_DATA_SUCCESS = 'GAME_DATA_SUCCESS';
 export const GAME_DATA_ERROR = 'GAME_DATA_ERROR';
 export const INCREMENT_CREATE_CHARACTER = 'INCREMENT_CREATE_CHARACTER';
 export const DECREMENT_CREATE_CHARACTER = 'DECREMENT_CREATE_CHARACTER';
+export const FIND_OPPONENT = 'FIND_OPPONENT';
 
 // == Action creators
 export const changeGameStatus = () => ({
@@ -31,5 +32,10 @@ export const increment = (payload) => ({
 
 export const decrement = (payload) => ({
   type: DECREMENT_CREATE_CHARACTER,
+  payload,
+});
+
+export const findOpponent = (payload) => ({
+  type: FIND_OPPONENT,
   payload,
 });

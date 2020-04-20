@@ -9,7 +9,7 @@ import { changeGameStatus } from '../actions/gamePlay';
 
 /* === State (données) === */
 const mapStateToProps = (state, ownProps) => ({
-  isLogged: false,
+  isLogged: state.user.isLogged,
 });
 
 /* === Actions === */
