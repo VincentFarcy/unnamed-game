@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '../LinkButton';
 import PlayerInfo from '../../containers/PlayerInfo';
-import rollDice from '../../func';
+import { rollDice } from '../../func';
 
 
 // == Import local

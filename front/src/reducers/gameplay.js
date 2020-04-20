@@ -6,7 +6,7 @@ import {
   RUN_AWAY
 }
   from '../actions/gamePlay';
-import roll from '../func';
+import { rollDice } from '../func';
 
 import Force from 'src/assets/images/strength.png';
 import Agilité from 'src/assets/images/agility.png';
@@ -150,7 +150,7 @@ export const findOpponentForCombat = (state) => {
   const opponentsTable = state.gameplay.chapters[0].randomFightContests;
   // console.log(opponentsTable, opponents);
 
-  const findOpponentId = roll(1, 100);
+  const findOpponentId = rollDice(1, 100);
   const opponentTableId = opponentsTable.find(
     (opponent) => (findOpponentId > opponent.rollFrom && findOpponentId < opponent.rollTo));
   // console.log(opponentTableId);
