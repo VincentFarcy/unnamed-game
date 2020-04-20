@@ -18,6 +18,7 @@ const Header = ({ isLogged, initUserState, startGame }) => {
   const handleClick = (evt) => {
     if (evt.target.tagName === 'A' || evt.target.tagName === 'BUTTON') {
       initUserState();
+      startGame();
     }
   };
 
