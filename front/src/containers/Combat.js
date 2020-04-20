@@ -3,8 +3,7 @@ import { connect } from 'react-redux';
 
 // local imports
 import Combat from '../components/Combat';
-// import { findOpponentForCombat } from '../reducers/gameplay.js';
-// import { findOpponent } from '../actions/gamePlay';
+import { runAway } from '../actions/gamePlay';
 
 // state
 const mapStateToProps = (state) => ({
