@@ -6,6 +6,7 @@ export const GAME_DATA_SUCCESS = 'GAME_DATA_SUCCESS';
 export const GAME_DATA_ERROR = 'GAME_DATA_ERROR';
 export const INCREMENT_CREATE_CHARACTER = 'INCREMENT_CREATE_CHARACTER';
 export const DECREMENT_CREATE_CHARACTER = 'DECREMENT_CREATE_CHARACTER';
+export const RUN_AWAY = 'RUN_AWAY';
 
 // == Action creators
 export const resetGame = () => ({
@@ -37,4 +38,8 @@ export const increment = (payload) => ({
 export const decrement = (payload) => ({
   type: DECREMENT_CREATE_CHARACTER,
   payload,
+});
+
+export const runAway = () => ({
+  type: RUN_AWAY,
 });

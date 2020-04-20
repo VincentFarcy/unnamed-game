@@ -2,7 +2,8 @@
 import {
   RESET_GAME, CHANGE_GAME_STATUS,
   GAME_DATA_SUCCESS, GAME_DATA_ERROR,
-  INCREMENT_CREATE_CHARACTER, DECREMENT_CREATE_CHARACTER
+  INCREMENT_CREATE_CHARACTER, DECREMENT_CREATE_CHARACTER,
+  RUN_AWAY
 }
   from '../actions/gamePlay';
 import roll from '../func';
@@ -87,40 +88,19 @@ const gameplay = (state = initialState, action = {}) => {
       };
     case INCREMENT_CREATE_CHARACTER:
       findUpAbility(state, action.payload);
-
-      // if (state.pool > 0) {
-      //   console.log("up");
       return {
         ...state,
       };
-    // }
-    // else
-    //   console.log("max");
-    // return {
-    //   ...state,
-    // };
     case DECREMENT_CREATE_CHARACTER:
       findDownAbility(state, action.payload);
-
-      // if (state.pool < 10) {
-      //   console.log("down");
       return {
         ...state,
       };
-    // }
-    // else
-    //   console.log("min");
-    // return {
-    //   ...state,
-    // };
-    // case FIND_OPPONENT:
-    //   findOpponentForCombat(state, action.payload)
-    //   console.log(action.payload);
-    //   return {
-    //     ...state,
-    //     tata: "yoyo",
-    //   };
-
+    case RUN_AWAY:
+      return {
+        ...state,
+        phpTimer: state.phpTimer + 1,
+      };
     default:
       return state;
   }

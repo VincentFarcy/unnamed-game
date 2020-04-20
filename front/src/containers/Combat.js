@@ -1,18 +1,22 @@
 // npm imports
 import { connect } from 'react-redux';
-import { findOpponentForCombat } from '../reducers/gameplay.js'
 
 // local imports
 import Combat from '../components/Combat';
+import { findOpponentForCombat } from '../reducers/gameplay.js';
+import { runAway } from '../actions/gamePlay';
 
 // state
 const mapStateToProps = (state) => ({
-  isCombatOn: state.gameplay.combat.combatStatus,
   opponent: findOpponentForCombat(state),
+  isCombatOn: state.gameplay.combat.combatStatus,
 });
 
 // actions
 const mapDispatchToProps = (dispatch) => ({
+  runAway: () => {
+    dispatch(runAway());
+  },
 });
 
 

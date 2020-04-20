@@ -1,16 +1,15 @@
 // == Import npm
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ButtonGroup, Button } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 
 // == Import local
 import './style.scss';
 import PlayerCombatInfo from '../../containers/PlayerCombatInfo';
 import OpponentCombatInfo from '../../containers/OpponentCombatInfo';
 
-
 // == Component
-const Combat = ({ opponent, isCombatOn }) => {
+const Combat = ({ opponent, isCombatOn, runAway }) => {
 
   return (
     <div className="main__play">
@@ -23,7 +22,13 @@ const Combat = ({ opponent, isCombatOn }) => {
           !isCombatOn && 
           <div className="combat__choices">
             <Button className="choice" variant="danger">Combattre</Button>
-            <Button className="choice" variant="warning">Fuir</Button>
+            <Button
+              className="choice"
+              variant="warning"
+              onClick={runAway}
+            >
+              Fuir
+            </Button>
           </div>
         }
         <p className="combat__presentation">VS {opponent.name}</p>
@@ -40,6 +45,8 @@ Combat.propTypes = {
     name: PropTypes.string.isRequired,
   }
   ).isRequired,
+  isCombatOn: PropTypes.bool.isRequired,
+  runAway: PropTypes.func.isRequired,
 };
 
 // == Export
