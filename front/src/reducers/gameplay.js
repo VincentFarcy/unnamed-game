@@ -75,8 +75,6 @@ const gameplay = (state = initialState, action = {}) => {
       return {
         ...state,
         gameOn: true,
-        loadingErrMessage: '',
-        hasError: false,
       };
     case GAME_DATA_SUCCESS:
       return {
