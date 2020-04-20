@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 // == Import : local
 import Header from 'src/components/Header';
+import { changeGameStatus, resetGame } from '../actions/gamePlay';
 
 // Action Creators
 import { initUserState } from '../actions/user';
@@ -14,6 +15,13 @@ const mapStateToProps = (state) => ({
 
 /* === Actions === */
 const mapDispatchToProps = (dispatch) => ({
+  resetGame: () => {
+    console.log('resetGame');
+    dispatch(resetGame());
+  },
+  startGame: () => {
+    dispatch(changeGameStatus());
+  },
   initUserState: () => {
     dispatch(initUserState());
   },

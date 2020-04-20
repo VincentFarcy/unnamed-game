@@ -2,27 +2,23 @@
 import { connect } from 'react-redux';
 
 // == Import : local
-import CreateCharacter from 'src/components/CreateCharacter';
+import App from 'src/components/App';
 
 // Action Creators
 
 /* === State (données) === */
 const mapStateToProps = (state, ownProps) => ({
-  isLoading: state.gameplay.isLoading,
-  abilities: state.gameplay.abilities,
-  pool: state.gameplay.pool,
+  isGameOn: state.gameplay.gameOn,
 });
 
 /* === Actions === */
 const mapDispatchToProps = {};
 
 // Container
-const CreateCharacterContainer = connect(
+const AppContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(CreateCharacter);
+)(App);
 
 // == Export
-export default CreateCharacterContainer;
-
-
+export default AppContainer;

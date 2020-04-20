@@ -1,15 +1,21 @@
 // npm imports
 import { connect } from 'react-redux';
-import { fetchInitialeGameData } from '../actions/gamePlay';
+import { changeGameStatus, fetchInitialeGameData } from '../actions/gamePlay';
 
 // local imports
 import MainPlay from '../components/MainPlay';
 
 // state
-const mapStateToProps = null;
+const mapStateToProps = (state) => ({
+  hasError: state.gameplay.hasError,
+  gameOn: state.gameplay.gameOn,
+});
 
 // actions
 const mapDispatchToProps = (dispatch) => ({
+  startGame: () => {
+    dispatch(changeGameStatus());
+  },
   fetchInitialeGameData: () => {
     dispatch(fetchInitialeGameData());
   },

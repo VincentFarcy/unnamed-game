@@ -9,15 +9,17 @@ import { BASE_API_URI } from '../app.config';
 const apiMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_INITIALE_GAME_DATA:
-      console.log('action pour récupérer les datas dans le middleware');
+      store.getState().gameplay.isLoading = true;
       axios({
         url: `${BASE_API_URI}/api/game/load`,
         method: 'get',
       })
         .then((res) => {
+          store.getState().gameplay.isLoading = false;
           store.dispatch(gameDataSuccess(res.data));
         })
         .catch(() => {
+          store.getState().gameplay.hasError = true;
           store.dispatch(gameDataError());
         });
       break;
