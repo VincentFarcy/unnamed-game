@@ -3,20 +3,22 @@ import { connect } from 'react-redux';
 
 // local imports
 import Combat from '../components/Combat';
-import { runAway } from '../actions/gamePlay';
-import {} from '../func';
+import { findOpponent, applyDamage, runAway } from '../actions/gamePlay';
 
 // state
 const mapStateToProps = (state) => ({
   opponent: state.gameplay.combat.currentOpponent,
-  isCombatOn: state.gameplay.combat.combatStatus,
+  player: state.gameplay.player,
+  isCombatOn: state.gameplay.combat.isCombatOn,
 });
 
 // actions
 const mapDispatchToProps = (dispatch) => ({
-  fight: () => {
-    console.log('fight');
-    // initialize Player and Opponent's Life Point
+  findOpponent: () => {
+    dispatch(findOpponent());
+  },
+  applyDamage: (damage) => {
+    dispatch(applyDamage(damage));
   },
   runAway: () => {
     dispatch(runAway());

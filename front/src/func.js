@@ -6,6 +6,5 @@
 // const rollDice20 = () => rollDice(1, 20);
 export const rollDice = (min, max) => {
   return min + Math.floor(Math.random() * (max - min + 1));
-}
+};
 
-// export default rollDice;

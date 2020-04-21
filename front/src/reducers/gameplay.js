@@ -4,6 +4,7 @@ import {
   GAME_DATA_SUCCESS, GAME_DATA_ERROR,
   INCREMENT_CREATE_CHARACTER, DECREMENT_CREATE_CHARACTER,
   FIND_OPPONENT,
+  APPLY_DAMAGE,
   RUN_AWAY
 }
   from '../actions/gamePlay';
@@ -65,7 +66,7 @@ const initialState = {
     playerCurrentHP: 0,
   },
   combat: {
-    combatStatus: false,
+    isCombatOn: true,
     // currentOponent is empty until OpponentCombatInfo is rendered
     currentOpponent: {
       opponentCurrentHP: 0,
@@ -140,6 +141,21 @@ const gameplay = (state = initialState, action = {}) => {
             ...opponent
           }
         }
+      };
+    case APPLY_DAMAGE:
+      return {
+        ...state,
+        player: {
+          ...state.player,
+          playerCurrentHP: action.payload.playerCurrentHP,
+        },
+        combat: {
+          ...state.combat,
+          currentOpponent: {
+            ...state.combat.currentOpponent,
+            opponentCurrentHP: action.payload.opponentCurrentHP,
+          },
+        },
       };
     case RUN_AWAY:
       return {
