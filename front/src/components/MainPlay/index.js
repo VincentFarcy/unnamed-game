@@ -16,7 +16,7 @@ const MainPlay = ({
   // gameOn,
   startGame,
   fetchInitialeGameData,
-  fetchUserSavedGames,
+  saves,
   isConnected,
 }) => {
   // https://fr.reactjs.org/docs/hooks-effect.html#example-using-hooks-1
@@ -39,18 +39,19 @@ const MainPlay = ({
             <Image className="play-images" src={newGameIcon} />
             <p className="play-text"> Nouvelle Partie</p>
           </NavLink>
-          { isConnected !== ""
-            && (
+          {
+            isConnected !== ""
+            && saves.map((save) => (
               <NavLink
                 exact
                 to="/play/story"
                 className="nav-link play-button game-saved__btn"
-                onClick={fetchUserSavedGames}
               >
+              {console.log(save)}
                 <Image className="play-images" src={savedGameIcon} />
-                <p className="play-text"> Continuer la partie</p>
+                <p className="play-text"> {`Sauvegarde : ${save.name}`}</p>
               </NavLink>
-            )
+            ))
           }
         </section>
       </div>
@@ -63,6 +64,28 @@ MainPlay.propTypes = {
   hasError: PropTypes.bool.isRequired,
   startGame: PropTypes.func.isRequired,
   fetchInitialeGameData: PropTypes.func.isRequired,
+  isConnected: PropTypes.string.isRequired,
+  saves: PropTypes.arrayOf(
+    PropTypes.shape({
+      sequence: PropTypes.shape({
+        id: PropTypes.number.isRequired,
+      }).isRequired,
+      hero: PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+        gender: PropTypes.string,
+        image: PropTypes.string,
+      }).isRequired,
+      name: PropTypes.string.isRequired,
+      agility: PropTypes.number.isRequired,
+      constitution: PropTypes.number.isRequired,
+      will: PropTypes.number.isRequired,
+      intelligence: PropTypes.number.isRequired,
+      health: PropTypes.number.isRequired,
+      xp: PropTypes.number.isRequired,
+      money: PropTypes.number.isRequired,
+    }),
+  ).isRequired,
 };
 
 // == Export

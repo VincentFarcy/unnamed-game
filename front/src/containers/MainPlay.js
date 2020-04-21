@@ -10,6 +10,7 @@ const mapStateToProps = (state) => ({
   hasError: state.gameplay.hasError,
   gameOn: state.gameplay.gameOn,
   isConnected: state.user.tokenJWT,
+  saves: state.user.backups,
 });
 
 // actions
