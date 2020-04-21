@@ -54,13 +54,13 @@ const App = ({ isGameOn }) => (
         <Route exact path="/play/story">
           { !isGameOn ? <Redirect to="/play" /> : <Story />}
         </Route>
-        <Route exact path="/play/create-player">
+        <Route exact path="/play/combat">
           { !isGameOn ? <Redirect to="/play/combat" /> : <Combat />}
         </Route>
-        <Route exact path="/play/create-player">
+        <Route exact path="/play/reward">
           { !isGameOn ? <Redirect to="/play/reward" /> : <Reward />}
         </Route>
-        <Route exact path="/play/create-player">
+        <Route exact path="/play/dialogue">
           { !isGameOn ? <Redirect to="/play/dialogue" /> : <Dialog />}
         </Route>
         <Route component={NotFound} />
