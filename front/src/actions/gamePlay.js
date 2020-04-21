@@ -9,6 +9,8 @@ export const DECREMENT_CREATE_CHARACTER = 'DECREMENT_CREATE_CHARACTER';
 export const FIND_OPPONENT = 'FIND_OPPONENT';
 export const APPLY_DAMAGE = 'APPLY_DAMAGE';
 export const RUN_AWAY = 'RUN_AWAY';
+export const END_FIGHT = 'END_FIGHT';
+
 
 // == Action creators
 export const resetGame = () => ({
@@ -53,4 +55,8 @@ export const applyDamage = (payload) => ({
 
 export const runAway = () => ({
   type: RUN_AWAY,
+});
+
+export const endFight = () => ({
+  type: END_FIGHT,
 });

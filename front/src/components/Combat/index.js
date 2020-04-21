@@ -11,7 +11,7 @@ import OpponentCombatInfo from '../../containers/OpponentCombatInfo';
 import LinkButton from '../LinkButton';
 
 // == Component
-const Combat = ({ findOpponent, opponent, player, isCombatOn, applyDamage, runAway }) => {
+const Combat = ({ findOpponent, opponent, player, isCombatOn, applyDamage, runAway, endFight }) => {
   useEffect(findOpponent, []);
 
   // combat function
@@ -45,9 +45,7 @@ const Combat = ({ findOpponent, opponent, player, isCombatOn, applyDamage, runAw
     }
     // as long as one of the fighter's HP is above 0
     while (playerHP > 0 && opponentHP > 0);
-
-    console.log('playerHP', playerHP);
-    console.log('opponentHP', opponentHP);
+    endFight();
   };
 
   console.log('combat', opponent);

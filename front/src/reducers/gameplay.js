@@ -5,7 +5,7 @@ import {
   INCREMENT_CREATE_CHARACTER, DECREMENT_CREATE_CHARACTER,
   FIND_OPPONENT,
   APPLY_DAMAGE,
-  RUN_AWAY
+  RUN_AWAY, END_FIGHT
 }
   from '../actions/gamePlay';
 import { rollDice } from '../func';
@@ -161,6 +161,14 @@ const gameplay = (state = initialState, action = {}) => {
       return {
         ...state,
         phpTimer: state.phpTimer + 1,
+      };
+    case END_FIGHT:
+      return {
+        ...state,
+        combat: {
+          ...state.combat,
+          isCombatOn: false,
+        }
       };
     default:
       return state;
