@@ -140,6 +140,7 @@ const gameplay = (state = initialState, action = {}) => {
       const opponent = findOpponentForCombat(state);
       return {
         ...state,
+        sequenceToTell: '',
         combat: {
           ...state.combat,
           currentOpponent: {

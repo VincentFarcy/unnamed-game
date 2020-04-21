@@ -11,15 +11,15 @@ import './style.scss';
 // == Component
 const Sequence = ({ sequence, findSequence }) => {
   useEffect(findSequence, []);
-
+  console.log(sequence.mainText);
   return (
     <div className="main__play">
-      {/* <p className="sequence__title">Jour: {id}</p>
+      <p className="sequence__title">Jour: {sequence.id}</p>
       <Typical
-        className="sequece__p"
-        steps={[mainText, 1000]}
+        className="sequence__p"
+        steps={[sequence.mainText, 1000]}
         wrapper="p"
-      /> */}
+      />
       <div className="button__container">
         <Button cssClassName="next__button" buttonName="Suivant" url="/play/combat" />
       </div>
