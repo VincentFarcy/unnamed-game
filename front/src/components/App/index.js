@@ -22,7 +22,7 @@ import NotFound from '../NotFound';
 import MainPlay from '../../containers/MainPlay';
 import Story from '../../containers/Story';
 import Sequence from '../../containers/Sequence';
-import Dialog from '../Dialog';
+import Death from '../../containers/Death';
 import Combat from '../../containers/Combat';
 import Reward from '../../containers/Reward';
 import CreateCharacter from '../../containers/CreateCharacter';
@@ -63,6 +63,9 @@ const App = ({ isGameOn }) => (
         </Route>
         <Route exact path="/play/reward">
           { !isGameOn ? <Redirect to="/play/reward" /> : <Reward />}
+        </Route>
+        <Route exact path="/play/death">
+          { !isGameOn ? <Redirect to="/play/death" /> : <Death />}
         </Route>
         {/* <Route exact path="/play/dialogue">
           { !isGameOn ? <Redirect to="/play/dialogue" /> : <Dialog />}

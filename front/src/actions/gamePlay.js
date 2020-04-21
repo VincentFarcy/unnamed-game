@@ -9,6 +9,7 @@ export const DECREMENT_CREATE_CHARACTER = 'DECREMENT_CREATE_CHARACTER';
 export const FIND_OPPONENT = 'FIND_OPPONENT';
 export const FIND_SEQUENCE = 'FIND_SEQUENCE';
 export const RUN_AWAY = 'RUN_AWAY';
+export const RESTART_NEW_GAME = 'RESTART_NEW_GAME';
 
 // == Action creators
 export const resetGame = () => ({
@@ -52,4 +53,8 @@ export const findSequence = () => ({
 
 export const runAway = () => ({
   type: RUN_AWAY,
+});
+
+export const restartNewGame = () => ({
+  type: RESTART_NEW_GAME,
 });

@@ -4,7 +4,7 @@ import {
   GAME_DATA_SUCCESS, GAME_DATA_ERROR,
   INCREMENT_CREATE_CHARACTER, DECREMENT_CREATE_CHARACTER,
   FIND_OPPONENT, FIND_SEQUENCE,
-  RUN_AWAY
+  RUN_AWAY, RESTART_NEW_GAME,
 }
   from '../actions/gamePlay';
 import { rollDice } from '../func';
@@ -55,7 +55,7 @@ const initialState = {
     },
   ],
   pool: 10,
-  phpTimer: 2,
+  phpTimer: 1,
   xp: 0,
   jsx: 0,
   sequenceToTell: '',
@@ -83,6 +83,12 @@ const gameplay = (state = initialState, action = {}) => {
         loadingErrMessage: '',
         hasError: false,
       };
+      case RESTART_NEW_GAME:
+        console.log('restart');
+        return {
+          initialState,
+        };
+  
     case CHANGE_GAME_STATUS:
       return {
         ...state,

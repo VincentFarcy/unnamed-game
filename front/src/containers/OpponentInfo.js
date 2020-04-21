@@ -5,8 +5,7 @@ import { connect } from 'react-redux';
 import OpponentInfo from '../components/OpponentInfo';
 
 // state
-const mapStateToProps = (state) => ({
-});
+const mapStateToProps = null;
 
 // actions
 const mapDispatchToProps = {};

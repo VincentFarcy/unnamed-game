@@ -7,7 +7,7 @@ import App from 'src/components/App';
 // Action Creators
 
 /* === State (données) === */
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state) => ({
   isGameOn: state.gameplay.gameOn,
 });
 

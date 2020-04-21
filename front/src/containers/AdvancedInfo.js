@@ -7,7 +7,7 @@ import AdvancedInfo from 'src/components/AdvancedInfo';
 // Action Creators
 
 /* === State (données) === */
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state) => ({
   abilities: state.gameplay.abilities,
   playerHp: state.gameplay.playerTotalHP,
   baseToHit: state.gameplay.player.baseToHit,
@@ -28,5 +28,3 @@ const AdvancedInfoContainer = connect(
 
 // == Export
 export default AdvancedInfoContainer;
-
-

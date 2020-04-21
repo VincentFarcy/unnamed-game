@@ -6,7 +6,7 @@ import OpponentInfo from '../components/Combat/OpponentCombatInfo';
 import { findOpponent } from '../actions/gamePlay';
 
 // state
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state) => ({
   currentOpponent: state.gameplay.combat.currentOpponent,
 });
 
@@ -16,7 +16,6 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(findOpponent());
   },
 });
-
 
 
 // export
