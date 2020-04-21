@@ -38,9 +38,19 @@ class GameController extends AbstractController
         // Extract all the datas needed for starting the game from scratch :
         $chapters = $chapterRepository->findBy([], ['orderBy' => 'ASC']);
         $opponents = $opponentRepository->findAll();
-        $contentParameters = $contentParameterRepository->findAll();
-        $gameParameters = $gameParameterRepository->findAll();
         $attributes = $attributeRepository->findAll();
+        $rawContentParameters = $contentParameterRepository->findAll();
+        $rawGameParameters = $gameParameterRepository->findAll();
+        // Reformating content parameters table
+        $contentParameters = [];
+        foreach($rawContentParameters as $rawContentParameter) {
+            $contentParameters [$rawContentParameter->getLabel()] = $rawContentParameter->getValue();
+        }
+        // Reformating game parameters table        
+        $gameParameters = [];
+        foreach($rawGameParameters as $rawGameParameter) {
+            $gameParameters [$rawGameParameter->getLabel()] = $rawGameParameter->getValue();
+        }
 
         // Send to the front at json format after use of doctrine serializer groups :
         return $this->json([ 
