@@ -136,6 +136,7 @@ const gameplay = (state = initialState, action = {}) => {
         ...state,
         combat: {
           ...state.combat,
+          isCombatOn: true,
           currentOpponent: {
             opponentCurrentHP: opponent.health,
             ...opponent

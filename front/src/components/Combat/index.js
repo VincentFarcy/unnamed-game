@@ -76,11 +76,13 @@ const Combat = ({ findOpponent, opponent, player, isCombatOn, applyDamage, runAw
             />
           </div> 
           :
-          <LinkButton
-            cssClassName="choice btn-warning"
-            buttonName="Suivant"
-            url="/play/reward"
-          />
+          <div className="combat__choices">
+            <LinkButton
+              cssClassName="choice btn-warning"
+              buttonName="Suivant"
+              url="/play/reward"
+            />
+          </div> 
         }
         <p className="combat__presentation">VS {opponent.name}</p>
         <div className="opponent__container">
