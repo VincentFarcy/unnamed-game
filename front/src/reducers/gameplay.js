@@ -108,11 +108,11 @@ const gameplay = (state = initialState, action = {}) => {
           ...state.player,
           playerTotalHP: ((state.abilities[3].value / 2) + (state.abilities[2].value)) * 10,
           playerCurrentHP: ((state.abilities[3].value / 2) + (state.abilities[2].value)) * 10,
-          baseToHit: ((state.abilities[1].value) + Math.floor((state.abilities[4].value / 3))),
-          baseAvoid: ((state.abilities[1].value) + Math.floor((state.abilities[4].value / 2))),
+          baseTouch: ((state.abilities[1].value) + Math.floor((state.abilities[4].value / 3))),
+          dodge: ((state.abilities[1].value) + Math.floor((state.abilities[4].value / 2))),
           baseDamage: state.abilities[0].value,
-          baseInitiative: state.abilities[1].value,
-          healing:  Math.floor(((state.abilities[3].value / 2) + (state.abilities[4].value / 2))),
+          baseSpeed: state.abilities[1].value,
+          baseHealing:  Math.floor(((state.abilities[3].value / 2) + (state.abilities[4].value / 2))),
         },
       };
     case DECREMENT_CREATE_CHARACTER:
@@ -123,11 +123,11 @@ const gameplay = (state = initialState, action = {}) => {
           ...state.player,
           playerTotalHP: ((state.abilities[3].value / 2) + (state.abilities[2].value)) * 10,
           playerCurrentHP: ((state.abilities[3].value / 2) + (state.abilities[2].value)) * 10,   
-          baseToHit: ((state.abilities[1].value) + Math.floor((state.abilities[4].value / 3))),
-          baseAvoid: ((state.abilities[1].value) + Math.floor((state.abilities[4].value / 2))),
+          baseTouch: ((state.abilities[1].value) + Math.floor((state.abilities[4].value / 3))),
+          dodge: ((state.abilities[1].value) + Math.floor((state.abilities[4].value / 2))),
           baseDamage: state.abilities[0].value,
-          baseInitiative: state.abilities[1].value,
-          healing: Math.floor(((state.abilities[3].value / 2) + (state.abilities[4].value / 2))),
+          baseSpeed: state.abilities[1].value,
+          baseHealing: Math.floor(((state.abilities[3].value / 2) + (state.abilities[4].value / 2))),
         },
       };
     case FIND_OPPONENT:
@@ -207,8 +207,10 @@ export const findOpponentForCombat = (state) => {
   // console.log(opponentsTable, opponents);
 
   const findOpponentId = rollDice(1, 100);
+  console.log(findOpponentId);
+
   const opponentTableId = opponentsTable.find(
-    (opponent) => (findOpponentId > opponent.rollFrom && findOpponentId < opponent.rollTo));
+    (opponent) => (findOpponentId >= opponent.rollFrom && findOpponentId <= opponent.rollTo));
   // console.log(opponentTableId);
 
   const opponentId = opponentTableId.opponent.id;

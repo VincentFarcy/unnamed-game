@@ -13,68 +13,90 @@ import AnonymousUserNav from './AnonymousUserNav';
 import ConnectedUserNav from '../../containers/ConnectedUserNav';
 
 // == Component
-const Header = ({ isLogged, initUserState, resetGame, startGame }) => {
+const Header = ({
+  isLogged,
+  initUserState,
+  resetGame,
+  startGame,
+  isExpanded,
+  toggleMenu,
+}) => {
   //
   const handleClick = (evt) => {
     if (evt.target.tagName === 'A' || evt.target.tagName === 'BUTTON') {
       initUserState();
+      toggleMenu(false);
       resetGame();
     }
   };
 
+  const handleToggleMenu = () => {
+    toggleMenu(!isExpanded);
+  };
+
+  // Close mobile menu on window resize
+  const onWindowResize = () => {
+    toggleMenu(false);
+  };
+  window.addEventListener('resize', onWindowResize);
+
   return (
     <header className="header" onClick={handleClick}>
-      {/* https://react-bootstrap.github.io/components/navbar/#navbars-overview */}
-      <Navbar expand="lg" variant="dark">
-        {/* Logo */}
-        <Navbar.Brand>
-          <NavLink exact to="/">
-            <img src={logo} alt="unnamed game logo" />
-          </NavLink>
-        </Navbar.Brand>
-        {/* Play button */}
-        <LinkButton
-          cssClassName="play-button mobile"
-          buttonName="Jouer"
-          url="/play"
-          onClick={startGame}
-        />
-        {/* Burger menu */}
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          {/* Pages */}
-          <Nav className="mr-auto">
-            <NavLink exact to="/" className="nav-link">
-              Accueil
-            </NavLink>
-            <NavLink exact to="/rules" className="nav-link">
-              Règles générales
-            </NavLink>
-            <NavLink exact to="/team" className="nav-link">
-              Présentation de l'équipe
-            </NavLink>
-            <NavLink exact to="/acknowledgements" className="nav-link">
-              Remerciements
-            </NavLink>
-          </Nav>
-          <div className="auth">
-            {/* items to be displayed depending on user's login status */}
-            {
-              !isLogged && <AnonymousUserNav />
-            }
-            {
-              isLogged && <ConnectedUserNav />
-            }
+      <div className={(isExpanded) ? 'nav-container nav-container--expanded' : 'nav-container'}>
+        {/* https://react-bootstrap.github.io/components/navbar/#navbars-overview */}
+        <Navbar expand="lg" variant="dark" expanded={isExpanded}>
+          <div className="mobile-header-container">
+            {/* Logo */}
+            <Navbar.Brand>
+              <NavLink exact to="/">
+                <img src={logo} alt="unnamed game logo" />
+              </NavLink>
+            </Navbar.Brand>
             {/* Play button */}
             <LinkButton
-              cssClassName="play-button desktop"
+              cssClassName="play-button mobile"
               buttonName="Jouer"
               url="/play"
               onClick={startGame}
             />
+            {/* Burger menu */}
+            <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={handleToggleMenu} />
           </div>
-        </Navbar.Collapse>
-      </Navbar>
+          <Navbar.Collapse id="basic-navbar-nav">
+            {/* Pages */}
+            <Nav className="mr-auto">
+              <NavLink exact to="/" className="nav-link">
+                Accueil
+              </NavLink>
+              <NavLink exact to="/rules" className="nav-link">
+                Règles générales
+              </NavLink>
+              <NavLink exact to="/team" className="nav-link">
+                Présentation de l'équipe
+              </NavLink>
+              <NavLink exact to="/acknowledgements" className="nav-link">
+                Remerciements
+              </NavLink>
+            </Nav>
+            <div className="auth">
+              {/* items to be displayed depending on user's login status */}
+              {
+                !isLogged && <AnonymousUserNav />
+              }
+              {
+                isLogged && <ConnectedUserNav />
+              }
+              {/* Play button */}
+              <LinkButton
+                cssClassName="play-button desktop"
+                buttonName="Jouer"
+                url="/play"
+                onClick={startGame}
+              />
+            </div>
+          </Navbar.Collapse>
+        </Navbar>
+      </div>
     </header>
   );
 };
@@ -85,6 +107,8 @@ Header.propTypes = {
   initUserState: PropTypes.func.isRequired,
   resetGame: PropTypes.func.isRequired,
   startGame: PropTypes.func.isRequired,
+  isExpanded: PropTypes.bool.isRequired,
+  toggleMenu: PropTypes.func.isRequired,
 };
 
 // == Export
