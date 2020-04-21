@@ -72,6 +72,17 @@ const initialState = {
       opponentCurrentHP: 0,
     },
   },
+  gameParameters: {
+    attributeMin: 1,
+    attributeMax: 5,
+    attributesPoints: 10,
+    minTouchRoll: 1,
+    maxTouchRoll: 6,
+    minDamageRoll: 1,
+    maxDamageRoll: 4,
+    minSpeedRoll: 1,
+    maxSpeedRoll: 10,
+  },
 };
 
 // == Reducer

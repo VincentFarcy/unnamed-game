@@ -9,15 +9,36 @@ import AdvancedInfo from '../../containers/AdvancedInfo';
 import PlayerCombatInfo from '../../containers/PlayerCombatInfo';
 import OpponentCombatInfo from '../../containers/OpponentCombatInfo';
 import LinkButton from '../LinkButton';
+import { rollDice } from '../../func';
 
 // == Component
-const Combat = ({ findOpponent, opponent, player, isCombatOn, applyDamage, runAway, endFight }) => {
+const Combat = ({
+  findOpponent,
+  opponent,
+  player,
+  isCombatOn,
+  gameParameters,
+  applyDamage,
+  runAway,
+  endFight
+}) => {
   useEffect(findOpponent, []);
 
   // combat function
   const launchFight = () => {
+    const PLAYER = 'PLAYER';
+    const OPPONENT = 'OPPONENT';
+    // initiative
+    let speedPlayer = player.baseSpeed + rollDice(gameParameters.minSpeedRoll, gameParameters.maxSpeedRoll);
+    let speedOpponent = opponent.speed + rollDice(gameParameters.minSpeedRoll, gameParameters.maxSpeedRoll);
+
     // who starts the fight
-    let currentFighter = 'Player';
+    let currentFighter = PLAYER;
+    if (speedOpponent > speedPlayer) {
+      currentFighter = OPPONENT;
+    };
+    console.log(currentFighter);
+
     // Player's HP
     let playerHP = player.playerCurrentHP;
     // Opponent's HP
@@ -25,20 +46,20 @@ const Combat = ({ findOpponent, opponent, player, isCombatOn, applyDamage, runAw
     // the fight goes on
     do {
       switch (currentFighter) {
-        case 'Player':
+        case PLAYER:
           opponentHP = opponentHP - 2;
-          currentFighter = 'Opponent';
+          currentFighter = OPPONENT;
           applyDamage({
-            'playerCurrentHP': playerHP,
-            'opponentCurrentHP': opponentHP,
+            'playerCurrentHP': (playerHP > 0) ? playerHP : 0,
+            'opponentCurrentHP': (opponentHP > 0) ? opponentHP : 0,
           });
           break;
-        case 'Opponent':
+        case OPPONENT:
           playerHP = playerHP - 2;
-          currentFighter = 'Player';
+          currentFighter = PLAYER;
           applyDamage({
-            'playerCurrentHP': playerHP,
-            'opponentCurrentHP': opponentHP,
+            'playerCurrentHP': (playerHP > 0) ? playerHP : 0,
+            'opponentCurrentHP': (opponentHP > 0) ? opponentHP : 0,
           });
           break;
       }
@@ -104,6 +125,14 @@ Combat.propTypes = {
     playerCurrentHP: PropTypes.number.isRequired,
   }).isRequired,
   isCombatOn: PropTypes.bool.isRequired,
+  gameParameters: PropTypes.shape({
+    minTouchRoll: PropTypes.number.isRequired,
+    maxTouchRoll: PropTypes.number.isRequired,
+    minDamageRoll: PropTypes.number.isRequired,
+    maxDamageRoll: PropTypes.number.isRequired,
+    minSpeedRoll: PropTypes.number.isRequired,
+    maxSpeedRoll: PropTypes.number.isRequired,
+  }).isRequired,
   applyDamage: PropTypes.func.isRequired,
   runAway: PropTypes.func.isRequired,
 };

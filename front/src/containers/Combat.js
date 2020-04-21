@@ -10,6 +10,7 @@ const mapStateToProps = (state) => ({
   opponent: state.gameplay.combat.currentOpponent,
   player: state.gameplay.player,
   isCombatOn: state.gameplay.combat.isCombatOn,
+  gameParameters: state.gameplay.gameParameters,
 });
 
 // actions
