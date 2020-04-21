@@ -8,9 +8,10 @@ import './style.scss';
 
 // == Component
 const NotFound = () => (
+
   <div className="notFound">
     <h1 className="notFound__text">Erreur 404
-      <br />Etes-vous sûr de vouloir sortir du programme "LiF3" ?
+      <br />Mettre fin au programme "LiF3" ?
     </h1>
     <LinkButton
         cssClassName="notFound__button"
