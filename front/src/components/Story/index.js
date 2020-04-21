@@ -19,7 +19,7 @@ const Story = ({ story }) => (
     />
     {/* <p className="story__p">{story.mainText}</p> */}
     <div className="button__container">
-      <Button cssClassName="next__button" buttonName="Suivant" url="/play/reward" />
+      <Button cssClassName="next__button" buttonName="Suivant" url="/play/combat" />
     </div>
   </div>
 );

@@ -18,7 +18,8 @@ const MainSite = ({ introTitle, introContent, warningContent, startGame }) => (
         cssClassName="play-button-main"
         buttonName="Jouer"
         url="/play"
-        onClick={startGame} />
+        onClick={startGame}
+      />
     </section>
     <section className="introduction">
       <Card>

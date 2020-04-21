@@ -2,10 +2,12 @@
 import {
   RESET_GAME, CHANGE_GAME_STATUS,
   GAME_DATA_SUCCESS, GAME_DATA_ERROR,
-  INCREMENT_CREATE_CHARACTER, DECREMENT_CREATE_CHARACTER, 
+  INCREMENT_CREATE_CHARACTER, DECREMENT_CREATE_CHARACTER,
+  FIND_OPPONENT,
+  RUN_AWAY
 }
   from '../actions/gamePlay';
-import roll from '../func';
+import { rollDice } from '../func';
 
 import Force from 'src/assets/images/strength.png';
 import Agilité from 'src/assets/images/agility.png';
@@ -56,16 +58,19 @@ const initialState = {
   phpTimer: 1,
   xp: 0,
   jsx: 0,
-  rewards: [
-    {
-      content: 'Point(s) d\'expérience',
-      value: 3,
+  player: {
+    // Total player's health point
+    playerTotalHP: 0,
+    // player current health point which is initialized at the same time as playerTotalHP
+    playerCurrentHP: 0,
+  },
+  combat: {
+    combatStatus: false,
+    // currentOponent is empty until OpponentCombatInfo is rendered
+    currentOpponent: {
+      opponentCurrentHP: 0,
     },
-    {
-      content: 'Points de vie',
-      value: 10,
-    },
-  ],
+  },
 };
 
 // == Reducer
@@ -96,52 +101,51 @@ const gameplay = (state = initialState, action = {}) => {
       };
     case INCREMENT_CREATE_CHARACTER:
       findUpAbility(state, action.payload);
-
-      // if (state.pool > 0) {
-      //   console.log("up");
       return {
         ...state,
-        playerHp: ((state.abilities[3].value / 2) + (state.abilities[2].value)) * 10,
-        baseToHit: ((state.abilities[1].value) + Math.floor((state.abilities[4].value / 3))),
-        baseAvoid: ((state.abilities[1].value) + Math.floor((state.abilities[4].value / 2))),
-        baseDamage: state.abilities[0].value,
-        baseInitiative: state.abilities[1].value,
-        healing:  Math.floor(((state.abilities[3].value / 2) + (state.abilities[4].value / 2))),
+        player: {
+          ...state.player,
+          playerTotalHP: ((state.abilities[3].value / 2) + (state.abilities[2].value)) * 10,
+          playerCurrentHP: ((state.abilities[3].value / 2) + (state.abilities[2].value)) * 10,
+          baseToHit: ((state.abilities[1].value) + Math.floor((state.abilities[4].value / 3))),
+          baseAvoid: ((state.abilities[1].value) + Math.floor((state.abilities[4].value / 2))),
+          baseDamage: state.abilities[0].value,
+          baseInitiative: state.abilities[1].value,
+          healing:  Math.floor(((state.abilities[3].value / 2) + (state.abilities[4].value / 2))),
+        },
       };
-    // }
-    // else
-    //   console.log("max");
-    // return {
-    //   ...state,
-    // };
     case DECREMENT_CREATE_CHARACTER:
       findDownAbility(state, action.payload);
-
-      // if (state.pool < 10) {
-      //   console.log("down");
       return {
         ...state,
-        playerHp: ((state.abilities[3].value / 2) + (state.abilities[2].value)) * 10,
-        baseToHit: ((state.abilities[1].value) + Math.floor((state.abilities[4].value / 3))),
-        baseAvoid: ((state.abilities[1].value) + Math.floor((state.abilities[4].value / 2))),
-        baseDamage: state.abilities[0].value,
-        baseInitiative: state.abilities[1].value,
-        healing: Math.floor(((state.abilities[3].value / 2) + (state.abilities[4].value / 2))),
+        player: {
+          ...state.player,
+          playerTotalHP: ((state.abilities[3].value / 2) + (state.abilities[2].value)) * 10,
+          playerCurrentHP: ((state.abilities[3].value / 2) + (state.abilities[2].value)) * 10,   
+          baseToHit: ((state.abilities[1].value) + Math.floor((state.abilities[4].value / 3))),
+          baseAvoid: ((state.abilities[1].value) + Math.floor((state.abilities[4].value / 2))),
+          baseDamage: state.abilities[0].value,
+          baseInitiative: state.abilities[1].value,
+          healing: Math.floor(((state.abilities[3].value / 2) + (state.abilities[4].value / 2))),
+        },
       };
-    // }
-    // else
-    //   console.log("min");
-    // return {
-    //   ...state,
-    // };
-    // case FIND_OPPONENT:
-    //   findOpponentForCombat(state, action.payload)
-    //   console.log(action.payload);
-    //   return {
-    //     ...state,
-    //     tata: "yoyo",
-    //   };
-
+    case FIND_OPPONENT:
+      const opponent = findOpponentForCombat(state);
+      return {
+        ...state,
+        combat: {
+          ...state.combat,
+          currentOpponent: {
+            opponentCurrentHP: opponent.health,
+            ...opponent
+          }
+        }
+      };
+    case RUN_AWAY:
+      return {
+        ...state,
+        phpTimer: state.phpTimer + 1,
+      };
     default:
       return state;
   }
@@ -173,11 +177,11 @@ export const findDownAbility = (state, abilityName) => (
 export const findOpponentForCombat = (state) => {
   // console.log(state);
 
-  const opponents = state.gameplay.opponents;
-  const opponentsTable = state.gameplay.chapters[0].randomFightContests;
+  const opponents = state.opponents;
+  const opponentsTable = state.chapters[0].randomFightContests;
   // console.log(opponentsTable, opponents);
 
-  const findOpponentId = roll(1, 100);
+  const findOpponentId = rollDice(1, 100);
   const opponentTableId = opponentsTable.find(
     (opponent) => (findOpponentId > opponent.rollFrom && findOpponentId < opponent.rollTo));
   // console.log(opponentTableId);

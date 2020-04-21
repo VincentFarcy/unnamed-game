@@ -13,24 +13,19 @@ import avatar from 'src/assets/images/PlayerAvatar.svg';
 
 
 // == Component
-const PlayerInfo = ({ playerHp }) => {
-
-  // @int used to calculate the health ProgressBar percentage
-  const now = playerHp;
-
-  return (
-    <div className="player-info">
-      <AdvancedInfo />
-      <Image className="player-info__avatar" src={avatar} rounded />
-      <ProgressBar variant="success" min={0} max={75} now={playerHp} label={`HP: ${now}`} />
-      <RessourceInfo />
-    </div>
-  );
-};
+const PlayerInfo = ({ mainCounter, playerTotalHP, playerCurrentHP }) => (
+  <div className="player-info">
+    <Image className="player-info__avatar" src={avatar} rounded />
+    <ProgressBar variant="success" min={0} max={playerTotalHP} now={playerCurrentHP} label={`HP: ${playerCurrentHP} / ${playerTotalHP}`} />
+    <p className="player-info__counter"> {`Temps : ${mainCounter} PHP`} </p>
+  </div>
+);
 
 // == Props validation
 PlayerInfo.propTypes = {
-  playerHp: PropTypes.number.isRequired,
+  mainCounter: PropTypes.number.isRequired,
+  playerTotalHP: PropTypes.number.isRequired,
+  playerCurrentHP: PropTypes.number.isRequired,
 };
 
 // == Export
