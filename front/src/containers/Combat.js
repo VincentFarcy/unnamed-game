@@ -9,6 +9,7 @@ import { findOpponent, applyDamage, runAway, endFight } from '../actions/gamePla
 const mapStateToProps = (state) => ({
   opponent: state.gameplay.combat.currentOpponent,
   player: state.gameplay.player,
+  strength: state.gameplay.abilities[0].value,
   isCombatOn: state.gameplay.combat.isCombatOn,
   gameParameters: state.gameplay.gameParameters,
 });

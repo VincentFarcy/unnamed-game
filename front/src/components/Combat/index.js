@@ -16,6 +16,7 @@ const Combat = ({
   findOpponent,
   opponent,
   player,
+  strength,
   isCombatOn,
   gameParameters,
   applyDamage,
@@ -28,17 +29,30 @@ const Combat = ({
   const fightRound = (touch, dodge) => {
     const roll = rollDice(gameParameters.minTouchRoll, gameParameters.maxTouchRoll);
     if (roll === gameParameters.maxTouchRoll) {
+      console.log('roll', roll);
+      console.log('touch', touch);
+      console.log('dodge * 2', dodge * 2);
       return true
     }
     else {
+      console.log('roll', roll);
+      console.log('touch', touch);
+      console.log('dodge * 2', dodge * 2);
       return (touch + roll) > (dodge * 2);
     }
   };
+
+  const randomDamage = (strength) => {
+    const damage = strength + rollDice(gameParameters.minDamageRoll, gameParameters.maxDamageRoll);
+    console.log('strength', strength);
+    return damage;
+  }
 
   // combat function
   const launchFight = () => {
     const PLAYER = 'PLAYER';
     const OPPONENT = 'OPPONENT';
+
     // initiative
     let speedPlayer = player.baseSpeed + rollDice(gameParameters.minSpeedRoll, gameParameters.maxSpeedRoll);
     let speedOpponent = opponent.speed + rollDice(gameParameters.minSpeedRoll, gameParameters.maxSpeedRoll);
@@ -55,19 +69,33 @@ const Combat = ({
     let opponentHP = opponent.opponentCurrentHP;
     // the fight goes on
     do {
+      let damage = 0;
+
+      console.log('initiative', currentFighter);
+
       switch (currentFighter) {
         case PLAYER:
           const playerTouch = fightRound(player.baseTouch , opponent.dodge);
-          opponentHP = opponentHP - 2;
+          console.log('playerTouch', playerTouch);
+          if (playerTouch) {
+            damage = randomDamage(strength);
+            opponentHP = opponentHP - damage;
+          }
           currentFighter = OPPONENT;
           applyDamage({
             'playerCurrentHP': (playerHP > 0) ? playerHP : 0,
             'opponentCurrentHP': (opponentHP > 0) ? opponentHP : 0,
           });
+          console.log('opponentCurrentHP', damage, opponentHP);
+          console.log('playerCurrentHP', damage, playerHP);
           break;
         case OPPONENT:
           const opponentTouch = fightRound(opponent.touch, player.dodge);
-          playerHP = playerHP - 2;
+          console.log('opponentTouch', opponentTouch);
+          if (opponentTouch) {
+            damage = randomDamage(0);
+            playerHP = playerHP - damage;
+          };
           currentFighter = PLAYER;
           applyDamage({
             'playerCurrentHP': (playerHP > 0) ? playerHP : 0,
@@ -136,6 +164,7 @@ Combat.propTypes = {
     playerCurrentHP: PropTypes.number.isRequired,
   }).isRequired,
   isCombatOn: PropTypes.bool.isRequired,
+  strength: PropTypes.number.isRequired,
   gameParameters: PropTypes.shape({
     minTouchRoll: PropTypes.number.isRequired,
     maxTouchRoll: PropTypes.number.isRequired,
