@@ -106,6 +106,11 @@ class Opponent
      */
     private $randomFightContests;
 
+    public function __toString()
+    {
+        return $this->getName();
+    }
+
     public function __construct()
     {
         $this->randomFightContests = new ArrayCollection();

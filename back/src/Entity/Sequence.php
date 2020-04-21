@@ -58,6 +58,11 @@ class Sequence
      */
     private $backups;
 
+    public function __toString()
+    {
+        return $this->getTitle();
+    }
+
     public function __construct()
     {
         $this->backups = new ArrayCollection();

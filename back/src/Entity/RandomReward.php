@@ -87,6 +87,11 @@ class RandomReward
      */
     private $chapter;
 
+    public function __toString()
+    {
+        return $this->getMainText();
+    }
+
     public function getId(): ?int
     {
         return $this->id;

@@ -42,6 +42,11 @@ class Attribute
      */
     private $randomAttributeContests;
 
+    public function __toString()
+    {
+        return $this->getName();
+    }
+
     public function __construct()
     {
         $this->randomAttributeContests = new ArrayCollection();
