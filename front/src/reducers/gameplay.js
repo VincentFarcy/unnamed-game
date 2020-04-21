@@ -182,8 +182,10 @@ export const findOpponentForCombat = (state) => {
   // console.log(opponentsTable, opponents);
 
   const findOpponentId = rollDice(1, 100);
+  console.log(findOpponentId);
+
   const opponentTableId = opponentsTable.find(
-    (opponent) => (findOpponentId > opponent.rollFrom && findOpponentId < opponent.rollTo));
+    (opponent) => (findOpponentId >= opponent.rollFrom && findOpponentId <= opponent.rollTo));
   // console.log(opponentTableId);
 
   const opponentId = opponentTableId.opponent.id;
