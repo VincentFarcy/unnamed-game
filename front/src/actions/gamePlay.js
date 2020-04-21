@@ -7,6 +7,7 @@ export const GAME_DATA_ERROR = 'GAME_DATA_ERROR';
 export const INCREMENT_CREATE_CHARACTER = 'INCREMENT_CREATE_CHARACTER';
 export const DECREMENT_CREATE_CHARACTER = 'DECREMENT_CREATE_CHARACTER';
 export const FIND_OPPONENT = 'FIND_OPPONENT';
+export const FIND_SEQUENCE = 'FIND_SEQUENCE';
 export const RUN_AWAY = 'RUN_AWAY';
 
 // == Action creators
@@ -43,6 +44,10 @@ export const decrement = (payload) => ({
 
 export const findOpponent = () => ({
   type: FIND_OPPONENT,
+});
+
+export const findSequence = () => ({
+  type: FIND_SEQUENCE,
 });
 
 export const runAway = () => ({

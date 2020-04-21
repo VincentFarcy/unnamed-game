@@ -21,6 +21,7 @@ import NotFound from '../NotFound';
 // == Import Gameplay Components
 import MainPlay from '../../containers/MainPlay';
 import Story from '../../containers/Story';
+import Sequence from '../../containers/Sequence';
 import Dialog from '../Dialog';
 import Combat from '../../containers/Combat';
 import Reward from '../../containers/Reward';
@@ -54,15 +55,18 @@ const App = ({ isGameOn }) => (
         <Route exact path="/play/story">
           { !isGameOn ? <Redirect to="/play" /> : <Story />}
         </Route>
+        <Route exact path="/play/sequence">
+          { !isGameOn ? <Redirect to="/play" /> : <Sequence />}
+        </Route>
         <Route exact path="/play/combat">
           { !isGameOn ? <Redirect to="/play/combat" /> : <Combat />}
         </Route>
         <Route exact path="/play/reward">
           { !isGameOn ? <Redirect to="/play/reward" /> : <Reward />}
         </Route>
-        <Route exact path="/play/dialogue">
+        {/* <Route exact path="/play/dialogue">
           { !isGameOn ? <Redirect to="/play/dialogue" /> : <Dialog />}
-        </Route>
+        </Route> */}
         <Route component={NotFound} />
       </Switch>
 

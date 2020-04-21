@@ -17,9 +17,8 @@ const Story = ({ story }) => (
       steps={[story.mainText, 1000]}
       wrapper="p"
     />
-    {/* <p className="story__p">{story.mainText}</p> */}
     <div className="button__container">
-      <Button cssClassName="next__button" buttonName="Suivant" url="/play/combat" />
+      <Button cssClassName="next__button" buttonName="Suivant" url="/play/sequence" />
     </div>
   </div>
 );
