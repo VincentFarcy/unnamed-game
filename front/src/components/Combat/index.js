@@ -24,6 +24,17 @@ const Combat = ({
 }) => {
   useEffect(findOpponent, []);
 
+  // 
+  const fightRound = (touch, dodge) => {
+    const roll = rollDice(gameParameters.minTouchRoll, gameParameters.maxTouchRoll);
+    if (roll === gameParameters.maxTouchRoll) {
+      return true
+    }
+    else {
+      return (touch + roll) > (dodge * 2);
+    }
+  };
+
   // combat function
   const launchFight = () => {
     const PLAYER = 'PLAYER';
@@ -37,7 +48,6 @@ const Combat = ({
     if (speedOpponent > speedPlayer) {
       currentFighter = OPPONENT;
     };
-    console.log(currentFighter);
 
     // Player's HP
     let playerHP = player.playerCurrentHP;
@@ -47,6 +57,7 @@ const Combat = ({
     do {
       switch (currentFighter) {
         case PLAYER:
+          const playerTouch = fightRound(player.baseTouch , opponent.dodge);
           opponentHP = opponentHP - 2;
           currentFighter = OPPONENT;
           applyDamage({
@@ -55,6 +66,7 @@ const Combat = ({
           });
           break;
         case OPPONENT:
+          const opponentTouch = fightRound(opponent.touch, player.dodge);
           playerHP = playerHP - 2;
           currentFighter = PLAYER;
           applyDamage({
@@ -69,7 +81,6 @@ const Combat = ({
     endFight();
   };
 
-  console.log('combat', opponent);
   return (
     <div className="main__play">
       <h2 className="combat__title">COMBAT </h2>
