@@ -13,12 +13,12 @@ import './style.scss';
 // == Component
 const Reward = ({ rewardContent }) => {
   // == Dice Roll to manage the Random Loot Table
-  const rollDice100 = () => rollDice(1, 100);
-  const rollDiceReward = rollDice100();
+  const rollDiceReward = rollDice(1, 100);
+  console.log(rollDiceReward);
 
   // == Here we find in the database which Loot Table to pick the rewards from
   const rollRange = rewardContent.find(
-    (reward) => (reward.rollFrom < rollDiceReward && rollDiceReward < reward.rollTo),
+    (reward) => (rollDiceReward >= reward.rollFrom && rollDiceReward <= reward.rollTo),
   );
 
   // == Here we determine from the Loot Table above the amount of moneyu (JSX) 
