@@ -2,6 +2,7 @@
 export const RESET_GAME = 'RESET_GAME';
 export const CHANGE_GAME_STATUS = 'CHANGE_GAME_STATUS';
 export const FETCH_INITIALE_GAME_DATA = 'FETCH_INITIALE_GAME_DATA';
+export const FETCH_USER_SAVED_GAMES = 'FETCH_USER_SAVED_GAMES';
 export const GAME_DATA_SUCCESS = 'GAME_DATA_SUCCESS';
 export const GAME_DATA_ERROR = 'GAME_DATA_ERROR';
 export const INCREMENT_CREATE_CHARACTER = 'INCREMENT_CREATE_CHARACTER';
@@ -20,6 +21,10 @@ export const changeGameStatus = () => ({
 
 export const fetchInitialeGameData = () => ({
   type: FETCH_INITIALE_GAME_DATA,
+});
+
+export const fetchUserSavedGames = () => ({
+  type: FETCH_USER_SAVED_GAMES,
 });
 
 export const gameDataSuccess = (payload) => ({

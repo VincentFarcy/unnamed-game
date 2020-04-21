@@ -47,6 +47,9 @@ const App = ({ isGameOn }) => (
         <Route exact path="/legal-notices" component={Legal} />
 
         {/* Gameplay routes */}
+        {/* Redirects Player to the /play route in case the isGameOn is false
+            As such preventing them from calling a /play/xxx url
+            without initializing the game state first */}
         <Route exact path="/play" component={MainPlay} />
         <Route exact path="/play/create-player">
           { !isGameOn ? <Redirect to="/play" /> : <CreateCharacter />}
@@ -54,13 +57,13 @@ const App = ({ isGameOn }) => (
         <Route exact path="/play/story">
           { !isGameOn ? <Redirect to="/play" /> : <Story />}
         </Route>
-        <Route exact path="/play/create-player">
+        <Route exact path="/play/combat">
           { !isGameOn ? <Redirect to="/play/combat" /> : <Combat />}
         </Route>
-        <Route exact path="/play/create-player">
+        <Route exact path="/play/reward">
           { !isGameOn ? <Redirect to="/play/reward" /> : <Reward />}
         </Route>
-        <Route exact path="/play/create-player">
+        <Route exact path="/play/dialogue">
           { !isGameOn ? <Redirect to="/play/dialogue" /> : <Dialog />}
         </Route>
         <Route component={NotFound} />

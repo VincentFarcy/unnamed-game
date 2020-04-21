@@ -1,19 +1,24 @@
-// == Import : local
-import {
-  RESET_GAME, CHANGE_GAME_STATUS,
-  GAME_DATA_SUCCESS, GAME_DATA_ERROR,
-  INCREMENT_CREATE_CHARACTER, DECREMENT_CREATE_CHARACTER,
-  FIND_OPPONENT,
-  RUN_AWAY
-}
-  from '../actions/gamePlay';
-import { rollDice } from '../func';
 
+// == Import : assets
 import Force from 'src/assets/images/strength.png';
 import Agilité from 'src/assets/images/agility.png';
 import Constitution from 'src/assets/images/endurance.png';
 import Volonté from 'src/assets/images/will.png';
 import Intelligence from 'src/assets/images/intelligence.png';
+
+// == Import : local
+import {
+  RESET_GAME,
+  CHANGE_GAME_STATUS,
+  GAME_DATA_SUCCESS,
+  GAME_DATA_ERROR,
+  INCREMENT_CREATE_CHARACTER,
+  DECREMENT_CREATE_CHARACTER,
+  FIND_OPPONENT,
+  RUN_AWAY,
+}
+  from '../actions/gamePlay';
+import { rollDice } from '../func';
 
 // == State
 
@@ -111,7 +116,7 @@ const gameplay = (state = initialState, action = {}) => {
           baseAvoid: ((state.abilities[1].value) + Math.floor((state.abilities[4].value / 2))),
           baseDamage: state.abilities[0].value,
           baseInitiative: state.abilities[1].value,
-          healing:  Math.floor(((state.abilities[3].value / 2) + (state.abilities[4].value / 2))),
+          healing: Math.floor(((state.abilities[3].value / 2) + (state.abilities[4].value / 2))),
         },
       };
     case DECREMENT_CREATE_CHARACTER:
@@ -121,7 +126,7 @@ const gameplay = (state = initialState, action = {}) => {
         player: {
           ...state.player,
           playerTotalHP: ((state.abilities[3].value / 2) + (state.abilities[2].value)) * 10,
-          playerCurrentHP: ((state.abilities[3].value / 2) + (state.abilities[2].value)) * 10,   
+          playerCurrentHP: ((state.abilities[3].value / 2) + (state.abilities[2].value)) * 10,
           baseToHit: ((state.abilities[1].value) + Math.floor((state.abilities[4].value / 3))),
           baseAvoid: ((state.abilities[1].value) + Math.floor((state.abilities[4].value / 2))),
           baseDamage: state.abilities[0].value,
@@ -137,7 +142,7 @@ const gameplay = (state = initialState, action = {}) => {
           ...state.combat,
           currentOpponent: {
             opponentCurrentHP: opponent.health,
-            ...opponent
+            ...opponent,
           }
         }
       };

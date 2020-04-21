@@ -9,6 +9,7 @@ import MainPlay from '../components/MainPlay';
 const mapStateToProps = (state) => ({
   hasError: state.gameplay.hasError,
   gameOn: state.gameplay.gameOn,
+  isConnected: state.user.tokenJWT,
 });
 
 // actions
