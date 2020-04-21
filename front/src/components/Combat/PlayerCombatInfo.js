@@ -10,16 +10,16 @@ import './style.scss';
 import avatar from 'src/assets/images/PlayerAvatar.svg';
 
 // == Component
-const PlayerCombatInfo = ({ totalPlayerHP, playerCurrentHP }) => (
+const PlayerCombatInfo = ({ playerTotalHP, playerCurrentHP }) => (
   <div className="player-combat-info">
-    <ProgressBar className="player__progress" variant="success" min={0} max={totalPlayerHP} now={playerCurrentHP} label={`HP: ${playerCurrentHP} / ${totalPlayerHP}`} />
+    <ProgressBar className="player__progress" variant="success" min={0} max={playerTotalHP} now={playerCurrentHP} label={`HP: ${playerCurrentHP} / ${playerTotalHP}`} />
     <Image className="player-combat-info__avatar" src={avatar} rounded />
   </div>
 );
 
 // == Props validation
 PlayerCombatInfo.propTypes = {
-  totalPlayerHP: PropTypes.number.isRequired,
+  playerTotalHP: PropTypes.number.isRequired,
   playerCurrentHP: PropTypes.number.isRequired,
 };
 

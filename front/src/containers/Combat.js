@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 // local imports
 import Combat from '../components/Combat';
 import { runAway } from '../actions/gamePlay';
+import {} from '../func';
 
 // state
 const mapStateToProps = (state) => ({

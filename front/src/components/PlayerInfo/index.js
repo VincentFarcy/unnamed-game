@@ -10,10 +10,10 @@ import './style.scss';
 import avatar from 'src/assets/images/PlayerAvatar.svg';
 
 // == Component
-const PlayerInfo = ({ mainCounter, totalPlayerHP, playerCurrentHP }) => (
+const PlayerInfo = ({ mainCounter, playerTotalHP, playerCurrentHP }) => (
   <div className="player-info">
     <Image className="player-info__avatar" src={avatar} rounded />
-    <ProgressBar variant="success" min={0} max={totalPlayerHP} now={playerCurrentHP} label={`HP: ${playerCurrentHP} / ${totalPlayerHP}`} />
+    <ProgressBar variant="success" min={0} max={playerTotalHP} now={playerCurrentHP} label={`HP: ${playerCurrentHP} / ${playerTotalHP}`} />
     <p className="player-info__counter"> {`Temps : ${mainCounter} PHP`} </p>
   </div>
 );
@@ -21,7 +21,7 @@ const PlayerInfo = ({ mainCounter, totalPlayerHP, playerCurrentHP }) => (
 // == Props validation
 PlayerInfo.propTypes = {
   mainCounter: PropTypes.number.isRequired,
-  totalPlayerHP: PropTypes.number.isRequired,
+  playerTotalHP: PropTypes.number.isRequired,
   playerCurrentHP: PropTypes.number.isRequired,
 };
 

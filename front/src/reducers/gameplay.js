@@ -58,8 +58,8 @@ const initialState = {
   phpTimer: 1,
   player: {
     // Total player's health point
-    totalPlayerHP: 0,
-    // player current health point which is initialized at the same time as totalPlayerHP
+    playerTotalHP: 0,
+    // player current health point which is initialized at the same time as playerTotalHP
     playerCurrentHP: 0,
   },
   combat: {
@@ -103,7 +103,7 @@ const gameplay = (state = initialState, action = {}) => {
         ...state,
         player: {
           ...state.player,
-          totalPlayerHP: ((state.abilities[3].value / 2) + (state.abilities[2].value)) * 10,
+          playerTotalHP: ((state.abilities[3].value / 2) + (state.abilities[2].value)) * 10,
           playerCurrentHP: ((state.abilities[3].value / 2) + (state.abilities[2].value)) * 10,
         },
       };
@@ -113,7 +113,7 @@ const gameplay = (state = initialState, action = {}) => {
         ...state,
         player: {
           ...state.player,
-          totalPlayerHP: ((state.abilities[3].value / 2) + (state.abilities[2].value)) * 10,
+          playerTotalHP: ((state.abilities[3].value / 2) + (state.abilities[2].value)) * 10,
           playerCurrentHP: ((state.abilities[3].value / 2) + (state.abilities[2].value)) * 10,
         },
       };
