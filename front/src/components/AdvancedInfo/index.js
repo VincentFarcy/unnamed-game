@@ -89,12 +89,12 @@ AdvancedInfo.propTypes = {
       value: PropTypes.number.isRequired,
     }),
   ).isRequired,
-  playerHp: PropTypes.number.isRequired,
-  baseToHit: PropTypes.number.isRequired,
-  baseAvoid: PropTypes.number.isRequired,
-  baseDamage: PropTypes.number.isRequired,
-  baseInitiative: PropTypes.number.isRequired,
-  healing: PropTypes.number.isRequired, 
+  // playerHp: PropTypes.number.isRequired,
+  // baseToHit: PropTypes.number.isRequired,
+  // baseAvoid: PropTypes.number.isRequired,
+  // baseDamage: PropTypes.number.isRequired,
+  // baseInitiative: PropTypes.number.isRequired,
+  // healing: PropTypes.number.isRequired, 
 };
 
 
