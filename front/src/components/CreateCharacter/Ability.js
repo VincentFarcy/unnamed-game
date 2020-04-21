@@ -16,9 +16,11 @@ const Ability = ({ name, value, image, description, increment, decrement }) => (
       placement="top"
       delay={{ show: 300, hide: 300 }}
       overlay={
-        <Tooltip id={`tooltip`}>
+        (
+          <Tooltip id={`tooltip`}>
           Valeur min: 1
           </Tooltip>
+        )
       }
     >
       <button className="ability__button" type="button" onClick={(evt) => decrement(event.target.parentNode.id)}>－</button>
@@ -28,9 +30,11 @@ const Ability = ({ name, value, image, description, increment, decrement }) => (
       placement="top"
       delay={{ show: 300, hide: 300 }}
       overlay={
-        <Tooltip id={`tooltip`}>
-          {description}
+        (
+          <Tooltip id={`tooltip`}>
+            {description}
           </Tooltip>
+          )
       }
     >
     <span className="ability">{name}</span>
@@ -40,9 +44,11 @@ const Ability = ({ name, value, image, description, increment, decrement }) => (
       placement="top"
       delay={{ show: 300, hide: 300 }}
       overlay={
-        <Tooltip id={`tooltip`}>
+        (
+          <Tooltip id={`tooltip`}>
           Valeur max: 5
           </Tooltip>
+        )
       }
     >
       <button className="ability__button" type="button" onClick={(evt) => increment(event.target.parentNode.id)}>+</button>
@@ -54,7 +60,8 @@ const Ability = ({ name, value, image, description, increment, decrement }) => (
 Ability.propTypes = {
   name: PropTypes.string.isRequired,
   value: PropTypes.number.isRequired,
-  description:  PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
   increment: PropTypes.func.isRequired,
   decrement: PropTypes.func.isRequired,
 };

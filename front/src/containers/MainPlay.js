@@ -1,6 +1,6 @@
 // npm imports
 import { connect } from 'react-redux';
-import { changeGameStatus, fetchInitialeGameData } from '../actions/gamePlay';
+import { changeGameStatus, fetchInitialeGameData, fetchUserSavedGames } from '../actions/gamePlay';
 
 // local imports
 import MainPlay from '../components/MainPlay';
@@ -21,6 +21,9 @@ const mapDispatchToProps = (dispatch) => ({
   fetchInitialeGameData: () => {
     dispatch(fetchInitialeGameData());
   },
+  fetchUserSavedGames: () => {
+    dispatch(fetchUserSavedGames());
+  }
 });
 
 // export

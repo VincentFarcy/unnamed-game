@@ -14,10 +14,14 @@ import {
   GAME_DATA_ERROR,
   INCREMENT_CREATE_CHARACTER,
   DECREMENT_CREATE_CHARACTER,
+  SAVED_DATA_SUCCESS,
+  SAVED_DATA_ERROR,
   FIND_OPPONENT,
   RUN_AWAY,
 }
   from '../actions/gamePlay';
+  // TODO : case get user
+import { GET_USER } from '../actions/user';
 import { rollDice } from '../func';
 
 // == State
@@ -76,10 +80,12 @@ const initialState = {
       opponentCurrentHP: 0,
     },
   },
+  savedGame: '',
 };
 
 // == Reducer
 const gameplay = (state = initialState, action = {}) => {
+  console.log(action.type, state.user);
   switch (action.type) {
     case RESET_GAME:
       return {
@@ -143,13 +149,60 @@ const gameplay = (state = initialState, action = {}) => {
           currentOpponent: {
             opponentCurrentHP: opponent.health,
             ...opponent,
-          }
-        }
+          },
+        },
       };
     case RUN_AWAY:
       return {
         ...state,
         phpTimer: state.phpTimer + 1,
+      };
+    case SAVED_DATA_SUCCESS:
+      console.log(action.payload);
+      return {
+        ...state,
+        savedGame: {
+          ...action.payload,
+        },
+        abilities: [
+          {
+            name: 'Force',
+            value: action.payload.backups[0].strength.value,
+            image: Force,
+            description: 'Affecte les dégâts',
+          },
+          {
+            name: 'Agilité',
+            value: action.payload.backups[0].agility.value,
+            image: Agilité,
+            description: 'Affecte le toucher, l\'initiative, l\'esquive',
+          },
+          {
+            name: 'Constitution',
+            value: action.payload.backups[0].constituion.value,
+            image: Constitution,
+            description: 'Affecte les PV',
+          },
+          {
+            name: 'Volonté',
+            value: action.payload.backups[0].will.value,
+            image: Volonté,
+            description: 'Affecte les PV, la guérison, permet de réaliser certaines actions',
+          },
+          {
+            name: 'Intelligence',
+            value: action.payload.backups[0].intelligence.value,
+            image: Intelligence,
+            description: 'Affecte le toucher, l\'esquive, la guérison, permet de réaliser certaines actions',
+          },
+        ],
+      };
+    case SAVED_DATA_ERROR:
+      return {
+        ...state,
+        gameOn: false,
+        isLoading: false,
+        loadingErrMessage: 'Une erreur s\'est produite, merci de réessayer ultérieurement ou de cliquer à nouveau sur Jouer.',
       };
     default:
       return state;
@@ -182,20 +235,22 @@ export const findDownAbility = (state, abilityName) => (
 export const findOpponentForCombat = (state) => {
   // console.log(state);
 
-  const opponents = state.opponents;
+  const { opponents } = state;
   const opponentsTable = state.chapters[0].randomFightContests;
   // console.log(opponentsTable, opponents);
 
   const findOpponentId = rollDice(1, 100);
   const opponentTableId = opponentsTable.find(
-    (opponent) => (findOpponentId > opponent.rollFrom && findOpponentId < opponent.rollTo));
+    (opponent) => (findOpponentId > opponent.rollFrom && findOpponentId < opponent.rollTo),
+  );
   // console.log(opponentTableId);
 
   const opponentId = opponentTableId.opponent.id;
   // console.log(opponentId);
 
   const opponent = opponents.find(
-    (opponent) => (opponentId === opponent.id));
+    (opponent) => (opponentId === opponent.id),
+  );
   // console.log(opponent);
 
   return opponent;

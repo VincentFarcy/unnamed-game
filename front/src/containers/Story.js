@@ -6,6 +6,7 @@ import Story from '../components/Story';
 
 // state
 const mapStateToProps = (state) => ({
+  isLoading: state.gameplay.isLoading,
   story: state.gameplay.chapters[0],
 });
 

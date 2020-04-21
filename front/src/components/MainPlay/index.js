@@ -16,13 +16,18 @@ const MainPlay = ({
   // gameOn,
   startGame,
   fetchInitialeGameData,
+  fetchUserSavedGames,
   saves,
   isConnected,
 }) => {
   // https://fr.reactjs.org/docs/hooks-effect.html#example-using-hooks-1
   // voir les useEffect avec nettoyage
   !hasError && useEffect(startGame, []);
-  console.log(hasError);
+
+  // const handleClick = () => {
+  //   fetchInitialeGameData();
+  //   fetchUserSavedGames();
+  // };
 
   return (
     hasError ? <ErrorMessage /> : !hasError && (
@@ -41,17 +46,18 @@ const MainPlay = ({
           </NavLink>
           {
             isConnected !== ""
-            && saves.map((save) => (
+            && (
               <NavLink
                 exact
                 to="/play/story"
                 className="nav-link play-button game-saved__btn"
+                onClick={fetchInitialeGameData}
               >
-              {console.log(save)}
                 <Image className="play-images" src={savedGameIcon} />
-                <p className="play-text"> {`Sauvegarde : ${save.name}`}</p>
+
+                <p className="play-text"> {`Reprendre la sauvegarde : ${saves[0].name}`}</p>
               </NavLink>
-            ))
+            )
           }
         </section>
       </div>
@@ -64,6 +70,7 @@ MainPlay.propTypes = {
   hasError: PropTypes.bool.isRequired,
   startGame: PropTypes.func.isRequired,
   fetchInitialeGameData: PropTypes.func.isRequired,
+  fetchUserSavedGames: PropTypes.func.isRequired,
   isConnected: PropTypes.string.isRequired,
   saves: PropTypes.arrayOf(
     PropTypes.shape({
