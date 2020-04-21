@@ -15,6 +15,7 @@ import SignUp from '../../containers/SignUp';
 import SignIn from '../../containers/SignIn';
 import UserPage from '../../containers/UserPage';
 import Legal from '../Legal';
+import NotFound from '../NotFound';
 
 
 // == Import Gameplay Components
@@ -37,37 +38,34 @@ const App = ({ isGameOn }) => (
       <Switch>
         {/* Website routes */}
         <Route exact path="/" component={MainSite} />
-        <Route path="/team" component={Team} />
-        <Route path="/acknowledgements" component={Acknowledgements} />
-        <Route path="/rules" component={Rules} />
-        <Route path="/sign-up" component={SignUp} />
-        <Route path="/sign-in" component={SignIn} />
-        <Route path="/user" component={UserPage} />
-        <Route path="/legal-notices" component={Legal} />
+        <Route exact path="/team" component={Team} />
+        <Route exact path="/acknowledgements" component={Acknowledgements} />
+        <Route exact path="/rules" component={Rules} />
+        <Route exact path="/sign-up" component={SignUp} />
+        <Route exact path="/sign-in" component={SignIn} />
+        <Route exact path="/user" component={UserPage} />
+        <Route exact path="/legal-notices" component={Legal} />
 
         {/* Gameplay routes */}
         <Route exact path="/play" component={MainPlay} />
-        { isGameOn && 
-          <Route path="/play/create-player" component={CreateCharacter} />
-          || <Redirect to="/play" /> }
-        { isGameOn && <Route path="/play/story" component={Story} />
-          || <Redirect to="/play" /> }
-        { isGameOn && <Route path="/play/combat" component={Combat} />
-          || <Redirect to="/play" /> }
-        { isGameOn && <Route path="/play/reward" component={Reward} />
-          || <Redirect to="/play" /> }
-        { isGameOn && <Route path="/play/dialogue" component={Dialog} />
-          || <Redirect to="/play" /> }
-
+        <Route exact path="/play/create-player">
+          { !isGameOn ? <Redirect to="/play" /> : <CreateCharacter />}
+        </Route>
+        <Route exact path="/play/story">
+          { !isGameOn ? <Redirect to="/play" /> : <Story />}
+        </Route>
+        <Route exact path="/play/create-player">
+          { !isGameOn ? <Redirect to="/play/combat" /> : <Combat />}
+        </Route>
+        <Route exact path="/play/create-player">
+          { !isGameOn ? <Redirect to="/play/reward" /> : <Reward />}
+        </Route>
+        <Route exact path="/play/create-player">
+          { !isGameOn ? <Redirect to="/play/dialogue" /> : <Dialog />}
+        </Route>
+        <Route component={NotFound} />
       </Switch>
-      {/* <MainSite
-        introTitle="Unnamed Game"
-        introContent="Ceci est l'introduction de mise en ambiance pour le premier jeu proposé !"
-        warningContent="Veuillez noter que le premier Unnamed Game est déconseillé aux moins de 12 ans !"
-      /> */}
-      {/* <MainPlay /> */}
-      {/* <CreateCharacter />  */}
-      {/* <Story Chapter={temp} /> */}
+
     </main>
     <Footer />
   </div>
