@@ -10,12 +10,14 @@ import './style.scss';
 import logo from '../../assets/images/Unnamed_Game_3_white.svg';
 import LinkButton from '../LinkButton';
 import AnonymousUserNav from './AnonymousUserNav';
-import ConnectedUserNav from './ConnectedUserNav';
+import ConnectedUserNav from '../../containers/ConnectedUserNav';
 
 // == Component
 const Header = ({
   isLogged,
   initUserState,
+  resetGame,
+  startGame,
   isExpanded,
   toggleMenu,
 }) => {
@@ -24,6 +26,7 @@ const Header = ({
     if (evt.target.tagName === 'A' || evt.target.tagName === 'BUTTON') {
       initUserState();
       toggleMenu(false);
+      resetGame();
     }
   };
 
@@ -32,10 +35,10 @@ const Header = ({
   };
 
   // Close mobile menu on window resize
-  const test = () => {
+  const onWindowResize = () => {
     toggleMenu(false);
   };
-  window.addEventListener('resize', test);
+  window.addEventListener('resize', onWindowResize);
 
   return (
     <header className="header" onClick={handleClick}>
@@ -50,7 +53,12 @@ const Header = ({
               </NavLink>
             </Navbar.Brand>
             {/* Play button */}
-            <LinkButton cssClassName="play-button mobile" buttonName="Jouer" url="/play" />
+            <LinkButton
+              cssClassName="play-button mobile"
+              buttonName="Jouer"
+              url="/play"
+              onClick={startGame}
+            />
             {/* Burger menu */}
             <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={handleToggleMenu} />
           </div>
@@ -83,6 +91,7 @@ const Header = ({
                 cssClassName="play-button desktop"
                 buttonName="Jouer"
                 url="/play"
+                onClick={startGame}
               />
             </div>
           </Navbar.Collapse>
@@ -91,12 +100,13 @@ const Header = ({
     </header>
   );
 };
->>>>>>> Stashed changes
 
 // == Props validation
 Header.propTypes = {
   isLogged: PropTypes.bool.isRequired,
   initUserState: PropTypes.func.isRequired,
+  resetGame: PropTypes.func.isRequired,
+  startGame: PropTypes.func.isRequired,
   isExpanded: PropTypes.bool.isRequired,
   toggleMenu: PropTypes.func.isRequired,
 };

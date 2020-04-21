@@ -11,10 +11,15 @@ import warning from '../../assets/images/r_36.png';
 import intro from '../../assets/images/b_04.png';
 
 // == Component
-const MainSite = ({ introTitle, introContent, warningContent }) => (
+const MainSite = ({ introTitle, introContent, warningContent, startGame }) => (
   <div>
     <section className="start-game">
-      <LinkButton cssClassName="play-button-main" buttonName="Jouer" url="/play" />
+      <LinkButton
+        cssClassName="play-button-main"
+        buttonName="Jouer"
+        url="/play"
+        onClick={startGame}
+      />
     </section>
     <section className="introduction">
       <Card>
@@ -47,6 +52,7 @@ MainSite.propTypes = {
   introTitle: PropTypes.string.isRequired,
   introContent: PropTypes.string.isRequired,
   warningContent: PropTypes.string.isRequired,
+  startGame: PropTypes.func.isRequired,
 };
 
 

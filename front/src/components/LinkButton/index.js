@@ -6,11 +6,12 @@ import PropTypes from 'prop-types';
 // == Import local
 
 // == Component
-const LinkButton = ({ cssClassName, buttonName, url = '' }) => (
+const LinkButton = ({ cssClassName, buttonName, url = '', onClick }) => (
   <NavLink
     exact
     to={url}
     className={`${cssClassName} nav-link btn btn-outline-light`}
+    onClick={onClick}
   >
     {buttonName}
   </NavLink>
@@ -20,7 +21,8 @@ const LinkButton = ({ cssClassName, buttonName, url = '' }) => (
 LinkButton.propTypes = {
   cssClassName: PropTypes.string.isRequired,
   buttonName: PropTypes.string.isRequired,
-  url: PropTypes.string.isRequired,
+  url: PropTypes.string,
+  onClick: PropTypes.func,
 };
 
 // == Export

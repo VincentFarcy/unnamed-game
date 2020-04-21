@@ -5,12 +5,10 @@ import { connect } from 'react-redux';
 import CreateCharacter from 'src/components/CreateCharacter';
 
 // Action Creators
-import { increment, decrement } from '../actions/gamePlay';
-
-import { findAbility } from '../reducers/gameplay';
 
 /* === State (données) === */
 const mapStateToProps = (state, ownProps) => ({
+  isLoading: state.gameplay.isLoading,
   abilities: state.gameplay.abilities,
   pool: state.gameplay.pool,
 });

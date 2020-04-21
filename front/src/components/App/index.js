@@ -1,25 +1,28 @@
 // == Import npm
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
 // == Import local
 // == Import Website Components
 import './styles.scss';
-import Header from '../Header';
+import Header from '../../containers/Header';
 import MainSite from '../../containers/MainSite';
 import Team from '../Team';
 import Acknowledgements from '../Acknowledgements';
 import Rules from '../Rules';
-import SignUp from '../SignUp';
-import SignIn from '../SignIn';
+import SignUp from '../../containers/SignUp';
+import SignIn from '../../containers/SignIn';
+import UserPage from '../../containers/UserPage';
 import Legal from '../Legal';
+import NotFound from '../NotFound';
 
 
 // == Import Gameplay Components
 import MainPlay from '../../containers/MainPlay';
 import Story from '../../containers/Story';
 import Dialog from '../Dialog';
-import Combat from '../Combat';
+import Combat from '../../containers/Combat';
 import Reward from '../../containers/Reward';
 import CreateCharacter from '../../containers/CreateCharacter';
 import Footer from '../Footer';
@@ -28,41 +31,50 @@ const temp= "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque ill
 
 // == Component
 
-const App = () => (
+const App = ({ isGameOn }) => (
   <div className="app">
-    <Header isLogged={false} />
+    <Header />
     <main className="main">
       <Switch>
         {/* Website routes */}
         <Route exact path="/" component={MainSite} />
-        <Route path="/team" component={Team} />
-        <Route path="/acknowledgements" component={Acknowledgements} />
-        <Route path="/rules" component={Rules} />
-        <Route path="/sign-up" component={SignUp} />
-        <Route path="/sign-in" component={SignIn} />
-        <Route path="/legal-notices" component={Legal} />
+        <Route exact path="/team" component={Team} />
+        <Route exact path="/acknowledgements" component={Acknowledgements} />
+        <Route exact path="/rules" component={Rules} />
+        <Route exact path="/sign-up" component={SignUp} />
+        <Route exact path="/sign-in" component={SignIn} />
+        <Route exact path="/user" component={UserPage} />
+        <Route exact path="/legal-notices" component={Legal} />
 
         {/* Gameplay routes */}
         <Route exact path="/play" component={MainPlay} />
-        <Route path="/create-player" component={CreateCharacter} />
-        <Route path="/story" component={Story} />
-        <Route path="/combat" component={Combat} />
-        <Route path="/reward" component={Reward} />
-        <Route path="/dialogue" component={Dialog} />
-
+        <Route exact path="/play/create-player">
+          { !isGameOn ? <Redirect to="/play" /> : <CreateCharacter />}
+        </Route>
+        <Route exact path="/play/story">
+          { !isGameOn ? <Redirect to="/play" /> : <Story />}
+        </Route>
+        <Route exact path="/play/create-player">
+          { !isGameOn ? <Redirect to="/play/combat" /> : <Combat />}
+        </Route>
+        <Route exact path="/play/create-player">
+          { !isGameOn ? <Redirect to="/play/reward" /> : <Reward />}
+        </Route>
+        <Route exact path="/play/create-player">
+          { !isGameOn ? <Redirect to="/play/dialogue" /> : <Dialog />}
+        </Route>
+        <Route component={NotFound} />
       </Switch>
-      {/* <MainSite
-        introTitle="Unnamed Game"
-        introContent="Ceci est l'introduction de mise en ambiance pour le premier jeu proposé !"
-        warningContent="Veuillez noter que le premier Unnamed Game est déconseillé aux moins de 12 ans !"
-      /> */}
-      {/* <MainPlay /> */}
-      {/* <CreateCharacter />  */}
-      {/* <Story Chapter={temp} /> */}
+
     </main>
     <Footer />
   </div>
 );
+
+// == Props validation
+App.porpTypes = {
+  isGameOn: PropTypes.bool.isRequired,
+};
 
 // == Export
 export default App;

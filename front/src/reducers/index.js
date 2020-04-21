@@ -5,8 +5,10 @@ import user from './user';
 import menu from './menu';
 
 // == Export
-export default combineReducers({
+const rootReducer = combineReducers({
   gameplay,
   user,
   menu,
 });
+
+export default rootReducer;
