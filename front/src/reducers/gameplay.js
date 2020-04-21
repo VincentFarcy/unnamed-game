@@ -56,12 +56,14 @@ const initialState = {
   ],
   pool: 10,
   phpTimer: 1,
-  // Total player's health point
-  totalPlayerHP: 0,
-  combat: {
-    combatStatus: false,
+  player: {
+    // Total player's health point
+    totalPlayerHP: 0,
     // player current health point which is initialized at the same time as totalPlayerHP
     playerCurrentHP: 0,
+  },
+  combat: {
+    combatStatus: false,
     // currentOponent is empty until OpponentCombatInfo is rendered
     currentOpponent: {
       opponentCurrentHP: 0,
@@ -99,9 +101,9 @@ const gameplay = (state = initialState, action = {}) => {
       findUpAbility(state, action.payload);
       return {
         ...state,
-        totalPlayerHP: ((state.abilities[3].value / 2) + (state.abilities[2].value)) * 10,
-        combat: {
-          ...state.combat,
+        player: {
+          ...state.player,
+          totalPlayerHP: ((state.abilities[3].value / 2) + (state.abilities[2].value)) * 10,
           playerCurrentHP: ((state.abilities[3].value / 2) + (state.abilities[2].value)) * 10,
         },
       };
@@ -109,9 +111,9 @@ const gameplay = (state = initialState, action = {}) => {
       findDownAbility(state, action.payload);
       return {
         ...state,
-        totalPlayerHP: ((state.abilities[3].value / 2) + (state.abilities[2].value)) * 10,
-        combat: {
-          ...state.combat,
+        player: {
+          ...state.player,
+          totalPlayerHP: ((state.abilities[3].value / 2) + (state.abilities[2].value)) * 10,
           playerCurrentHP: ((state.abilities[3].value / 2) + (state.abilities[2].value)) * 10,
         },
       };
