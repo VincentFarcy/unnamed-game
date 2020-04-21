@@ -5,6 +5,7 @@ import { Button } from 'react-bootstrap';
 
 // == Import local
 import './style.scss';
+import AdvancedInfo from '../../containers/AdvancedInfo';
 import PlayerCombatInfo from '../../containers/PlayerCombatInfo';
 import OpponentCombatInfo from '../../containers/OpponentCombatInfo';
 import LinkButton from '../LinkButton';
@@ -15,6 +16,7 @@ const Combat = ({ opponent, isCombatOn, fight, runAway }) => {
   return (
     <div className="main__play">
       <h2 className="combat__title">COMBAT </h2>
+      <AdvancedInfo />
       <div className="combat__container">
         <div className="player__container">
           <PlayerCombatInfo />

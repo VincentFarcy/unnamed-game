@@ -3,11 +3,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Image from 'react-bootstrap/Image';
 import ProgressBar from 'react-bootstrap/ProgressBar';
+import AdvancedInfo from '../../containers/AdvancedInfo';
+import RessourceInfo from '../../containers/RessourceInfo';
 
 
 // == Import local
 import './style.scss';
 import avatar from 'src/assets/images/PlayerAvatar.svg';
+
 
 // == Component
 const PlayerInfo = ({ mainCounter, playerTotalHP, playerCurrentHP }) => (
