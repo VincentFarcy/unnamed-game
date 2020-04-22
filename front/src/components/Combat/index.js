@@ -22,8 +22,13 @@ const Combat = ({
   applyDamage,
   runAway,
   endFight,
+  changeBg,
 }) => {
   useEffect(findOpponent, []);
+  useEffect(() => {
+    changeBg('bg--combat');
+  }, []);
+
 
   // first fighter randomisation
   const fightRound = (touch, dodge) => {
@@ -201,6 +206,7 @@ Combat.propTypes = {
   applyDamage: PropTypes.func.isRequired,
   runAway: PropTypes.func.isRequired,
   endFight: PropTypes.func.isRequired,
+  changeBg: PropTypes.func.isRequired,
 };
 
 // == Export
