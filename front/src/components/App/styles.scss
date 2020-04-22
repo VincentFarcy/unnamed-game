@@ -12,12 +12,12 @@
 }
 
 .app > * { 
-  min-width: 300px; //vf
+  min-width: 300px;
 }
 
 main > div {
-  width:100%; //vf
-  max-width: 1400px; //vf
+  width:100%;
+  max-width: 1400px;
   margin: auto;
 }
 
@@ -26,6 +26,7 @@ main > div {
   position: fixed;
   top:0;
   width: 100%;
+  z-index:10;
 }
 
 .main {
@@ -36,8 +37,8 @@ main > div {
   overflow-y: auto;
   display: flex;
   padding: 1em;
-  justify-content: center; //vf
-  align-items: flex-start; //vf
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .footer {
@@ -45,13 +46,7 @@ main > div {
   position: fixed;
   bottom: 0;
   width: 100%;
-  font-size: 0.8em;
-  border-top: 1px solid #FFF;
-  color: #FFF;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  z-index:10;
 }
 
 /* === large screen === */

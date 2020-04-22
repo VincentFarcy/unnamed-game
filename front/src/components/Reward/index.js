@@ -35,7 +35,7 @@ const Reward = ({ rewardContent }) => {
         <p className="reward__title"> Voici vos récompenses suite au combat</p>
         <p className="reward__p"> {`Vous avez gagné ${jsxRoll} JSX et ${xpRoll} point(s) d'éxpérience`} </p>
         <div className="button__container">
-          <Button cssClassName="next__button" url="/play/story" buttonName="Suivant" />
+          <Button cssClassName="next__button" url="/play/sequence" buttonName="Suivant" />
         </div>
       </div>
     </>

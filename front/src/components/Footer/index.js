@@ -9,10 +9,12 @@ import './style.scss';
 // == Component
 const Footer = () => (
   <footer className="footer">
-    <p className="footer__copyright">&copy; 2020 - Tous droits résérvés</p>
-    <NavLink exact to="/legal-notices" className="nav-link footer__link">
-    Mentions légales
-    </NavLink>
+    <div className="footer-container">
+      <p className="footer__copyright">&copy; 2020 - Tous droits résérvés</p>
+      <NavLink exact to="/legal-notices" className="nav-link footer__link">
+      Mentions légales
+      </NavLink>
+    </div>
   </footer>
 );
 

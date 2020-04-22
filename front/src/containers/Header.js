@@ -7,10 +7,12 @@ import { changeGameStatus, resetGame } from '../actions/gamePlay';
 
 // Action Creators
 import { initUserState } from '../actions/user';
+import { toggleMenu } from '../actions/menu';
 
 /* === State (données) === */
 const mapStateToProps = (state) => ({
   isLogged: state.user.isLogged,
+  isExpanded: state.menu.isExpanded,
 });
 
 /* === Actions === */
@@ -24,6 +26,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   initUserState: () => {
     dispatch(initUserState());
+  },
+  toggleMenu: (toggle) => {
+    dispatch(toggleMenu(toggle));
   },
 });
 

@@ -1,5 +1,5 @@
 // == Import npm
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Image from 'react-bootstrap/Image';
 import ProgressBar from 'react-bootstrap/ProgressBar';
@@ -19,8 +19,7 @@ import './style.scss';
 
 
 // == Component
-const OpponentCombatInfo = ({ findOpponent, currentOpponent }) => {
-  useEffect(findOpponent, []);
+const OpponentCombatInfo = ({ currentOpponent }) => {
   const now = currentOpponent.opponentCurrentHP;
   const findImage = currentOpponent.image;
 
@@ -43,8 +42,7 @@ const OpponentCombatInfo = ({ findOpponent, currentOpponent }) => {
 };
 
 // == Props validation
-OpponentCombatInfo.propTypes = {
-  findOpponent: PropTypes.func.isRequired, 
+OpponentCombatInfo.propTypes = { 
   currentOpponent: PropTypes.shape({
       image: PropTypes.string,
       health: PropTypes.number,

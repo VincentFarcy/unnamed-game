@@ -4,7 +4,11 @@ import {
   GAME_DATA_SUCCESS, GAME_DATA_ERROR,
   INCREMENT_CREATE_CHARACTER, DECREMENT_CREATE_CHARACTER,
   FIND_OPPONENT,
-  RUN_AWAY
+  APPLY_DAMAGE,
+  RUN_AWAY, 
+  END_FIGHT,
+  FIND_SEQUENCE,
+  RESTART_NEW_GAME,
 }
   from '../actions/gamePlay';
 import { rollDice } from '../func';
@@ -58,6 +62,7 @@ const initialState = {
   phpTimer: 1,
   xp: 0,
   jsx: 0,
+  sequenceToTell: '',
   player: {
     // Total player's health point
     playerTotalHP: 0,
@@ -65,11 +70,22 @@ const initialState = {
     playerCurrentHP: 0,
   },
   combat: {
-    combatStatus: false,
+    isCombatOn: true,
     // currentOponent is empty until OpponentCombatInfo is rendered
     currentOpponent: {
       opponentCurrentHP: 0,
     },
+  },
+  gameParameters: {
+    attributeMin: 1,
+    attributeMax: 5,
+    attributesPoints: 10,
+    minTouchRoll: 1,
+    maxTouchRoll: 6,
+    minDamageRoll: 1,
+    maxDamageRoll: 4,
+    minSpeedRoll: 1,
+    maxSpeedRoll: 10,
   },
 };
 
@@ -82,6 +98,12 @@ const gameplay = (state = initialState, action = {}) => {
         loadingErrMessage: '',
         hasError: false,
       };
+      case RESTART_NEW_GAME:
+        console.log('restart');
+        return {
+          initialState,
+        };
+  
     case CHANGE_GAME_STATUS:
       return {
         ...state,
@@ -111,7 +133,7 @@ const gameplay = (state = initialState, action = {}) => {
           dodge: ((state.abilities[1].value) + Math.floor((state.abilities[4].value / 2))),
           baseDamage: state.abilities[0].value,
           baseSpeed: state.abilities[1].value,
-          baseHealing:  Math.floor(((state.abilities[3].value / 2) + (state.abilities[4].value / 2))),
+          baseHealing: Math.floor(((state.abilities[3].value / 2) + (state.abilities[4].value / 2))),
         },
       };
     case DECREMENT_CREATE_CHARACTER:
@@ -121,7 +143,7 @@ const gameplay = (state = initialState, action = {}) => {
         player: {
           ...state.player,
           playerTotalHP: ((state.abilities[3].value / 2) + (state.abilities[2].value)) * 10,
-          playerCurrentHP: ((state.abilities[3].value / 2) + (state.abilities[2].value)) * 10,   
+          playerCurrentHP: ((state.abilities[3].value / 2) + (state.abilities[2].value)) * 10,
           baseTouch: ((state.abilities[1].value) + Math.floor((state.abilities[4].value / 3))),
           dodge: ((state.abilities[1].value) + Math.floor((state.abilities[4].value / 2))),
           baseDamage: state.abilities[0].value,
@@ -133,18 +155,49 @@ const gameplay = (state = initialState, action = {}) => {
       const opponent = findOpponentForCombat(state);
       return {
         ...state,
+        sequenceToTell: '',
         combat: {
           ...state.combat,
+          isCombatOn: true,
           currentOpponent: {
             opponentCurrentHP: opponent.health,
             ...opponent
           }
         }
       };
+    case APPLY_DAMAGE:
+      return {
+        ...state,
+        player: {
+          ...state.player,
+          playerCurrentHP: action.payload.playerCurrentHP,
+        },
+        combat: {
+          ...state.combat,
+          currentOpponent: {
+            ...state.combat.currentOpponent,
+            opponentCurrentHP: action.payload.opponentCurrentHP,
+          },
+        },
+      };
+    case FIND_SEQUENCE:
+      const sequence = findInfoForSequence(state);
+      return {
+        ...state,
+        sequenceToTell: sequence,
+      };
     case RUN_AWAY:
       return {
         ...state,
         phpTimer: state.phpTimer + 1,
+      };
+    case END_FIGHT:
+      return {
+        ...state,
+        combat: {
+          ...state.combat,
+          isCombatOn: false,
+        }
       };
     default:
       return state;
@@ -196,4 +249,17 @@ export const findOpponentForCombat = (state) => {
   // console.log(opponent);
 
   return opponent;
+};
+
+export const findInfoForSequence = (state) => {
+
+  const sequenceList = state.chapters[0].sequences;
+  const timing = state.phpTimer;
+  console.log(sequenceList, timing);
+
+  const sequenceTable = sequenceList.find(
+    (sequence) => (timing == sequence.id));
+  console.log(sequenceTable);
+
+  return sequenceTable;
 };
