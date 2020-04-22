@@ -154,7 +154,7 @@ const Combat = ({
       </div>
     </div>
   );
-}
+};
 
 // == Props validation
 Combat.propTypes = {
