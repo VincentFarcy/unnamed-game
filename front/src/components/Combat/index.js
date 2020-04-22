@@ -76,7 +76,7 @@ const Combat = ({
       switch (currentFighter) {
         case PLAYER:
           // random touch
-          const playerTouch = fightRound(player.baseTouch , opponent.dodge);
+          const playerTouch = fightRound(player.baseTouch, opponent.dodge);
           // if fighter touches
           if (playerTouch) {
             // damage calculation
@@ -91,12 +91,12 @@ const Combat = ({
           roundHistory.push({
             'playerCurrentHP': (playerHP > 0) ? playerHP : 0,
             'opponentCurrentHP': (opponentHP > 0) ? opponentHP : 0,
-          }); 
+          });
 
           // change the state accordingly 
           applyDamage({
-              'playerCurrentHP': (playerHP > 0) ? playerHP : 0,
-              'opponentCurrentHP': (opponentHP > 0) ? opponentHP : 0,
+            'playerCurrentHP': (playerHP > 0) ? playerHP : 0,
+            'opponentCurrentHP': (opponentHP > 0) ? opponentHP : 0,
           });
         case OPPONENT:
           // random touch
@@ -115,7 +115,7 @@ const Combat = ({
           roundHistory.push({
             'playerCurrentHP': (playerHP > 0) ? playerHP : 0,
             'opponentCurrentHP': (opponentHP > 0) ? opponentHP : 0,
-          }); 
+          });
 
           // change the state accordingly 
           applyDamage({
@@ -140,33 +140,33 @@ const Combat = ({
           <PlayerCombatInfo />
         </div>
         {
-          isCombatOn 
+          isCombatOn
             ? (
-            <div className="combat__choices">
-              <Button
-                className="choice"
-                variant="danger"
-                onClick={launchFight}
-              >
-                Combattre
+              <div className="combat__choices">
+                <Button
+                  className="choice"
+                  variant="danger"
+                  onClick={launchFight}
+                >
+                  Combattre
               </Button>
-              {/* when you choose to runAway, you have to be redirected and add 1 to PHP */}
-              <LinkButton
-                cssClassName="choice btn-warning"
-                buttonName="Fuir"
-                url="/play/sequence"
-                onClick={runAway}
-              />
-            </div> 
+                {/* when you choose to runAway, you have to be redirected and add 1 to PHP */}
+                <LinkButton
+                  cssClassName="choice btn-warning"
+                  buttonName="Fuir"
+                  url="/play/sequence"
+                  onClick={runAway}
+                />
+              </div>
             )
             : (
-            <div className="combat__choices">
-              <LinkButton
-                cssClassName="choice btn-warning"
-                buttonName="Suivant"
-                url={playerHP > 0 ? "/play/reward" : "/play/death"}
-              />
-            </div> 
+              <div className="combat__choices">
+                <LinkButton
+                  cssClassName="choice btn-warning"
+                  buttonName="Suivant"
+                  url={playerHP > 0 ? "/play/reward" : "/play/death"}
+                />
+              </div>
             )
         }
         <p className="combat__presentation">VS {opponent.name}</p>

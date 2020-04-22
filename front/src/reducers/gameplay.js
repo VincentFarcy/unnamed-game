@@ -86,14 +86,6 @@ const initialState = {
       opponentCurrentHP: 0,
     },
   },
-  gameParameters: {
-    minTouchRoll: 1,
-    maxTouchRoll: 6,
-    minDamageRoll: 1,
-    maxDamageRoll: 4,
-    minSpeedRoll: 1,
-    maxSpeedRoll: 10,
-  },
 };
 
 // == Reducer
@@ -107,12 +99,115 @@ const gameplay = (state = initialState, action = {}) => {
       };
     case RESTART_NEW_GAME:
       return {
-        initialState,
+        gameOn: false,
+        isLoading: false,
+        loadingErrMessage: '',
+        hasError: false,
+        abilities: [
+          {
+            name: 'Force',
+            value: 1,
+            image: Force,
+            description: 'Affecte les dégâts',
+          },
+          {
+            name: 'Agilité',
+            value: 1,
+            image: Agilité,
+            description: 'Affecte le toucher, l\'initiative, l\'esquive',
+          },
+          {
+            name: 'Constitution',
+            value: 1,
+            image: Constitution,
+            description: 'Affecte les PV',
+          },
+          {
+            name: 'Volonté',
+            value: 1,
+            image: Volonté,
+            description: 'Affecte les PV, la guérison, permet de réaliser certaines actions',
+          },
+          {
+            name: 'Intelligence',
+            value: 1,
+            image: Intelligence,
+            description: 'Affecte le toucher, l\'esquive, la guérison, permet de réaliser certaines actions',
+          },
+        ],
+        pool: 0,
+        phpTimer: 1,
+        xp: 0,
+        jsx: 0,
+        rewards: '',
+        sequenceToTell: '',
+        currentEvent: '',
+        player: {
+          playerTotalHP: 0,
+          playerCurrentHP: 0,
+        },
+        combat: {
+          isCombatOn: true,
+          currentOpponent: {
+            opponentCurrentHP: 0,
+          },
+        },
       };
     case CHANGE_GAME_STATUS:
       return {
-        ...state,
         gameOn: true,
+        isLoading: false,
+        loadingErrMessage: '',
+        hasError: false,
+        abilities: [
+          {
+            name: 'Force',
+            value: 1,
+            image: Force,
+            description: 'Affecte les dégâts',
+          },
+          {
+            name: 'Agilité',
+            value: 1,
+            image: Agilité,
+            description: 'Affecte le toucher, l\'initiative, l\'esquive',
+          },
+          {
+            name: 'Constitution',
+            value: 1,
+            image: Constitution,
+            description: 'Affecte les PV',
+          },
+          {
+            name: 'Volonté',
+            value: 1,
+            image: Volonté,
+            description: 'Affecte les PV, la guérison, permet de réaliser certaines actions',
+          },
+          {
+            name: 'Intelligence',
+            value: 1,
+            image: Intelligence,
+            description: 'Affecte le toucher, l\'esquive, la guérison, permet de réaliser certaines actions',
+          },
+        ],
+        pool: 0,
+        phpTimer: 1,
+        xp: 0,
+        jsx: 0,
+        rewards: '',
+        sequenceToTell: '',
+        currentEvent: '',
+        player: {
+          playerTotalHP: 0,
+          playerCurrentHP: 0,
+        },
+        combat: {
+          isCombatOn: true,
+          currentOpponent: {
+            opponentCurrentHP: 0,
+          },
+        },
       };
     case GAME_DATA_SUCCESS:
       return {
@@ -324,17 +419,13 @@ export const findRandomReward = (state) => {
 };
 
 export const findInfoForEvent = (state) => {
-  console.log('je lance ma recherche event');
   const eventTable = state.chapters[0].randomAttributeContests;
-  console.log(eventTable);
 
   const findEventId = rollDice(1, 100);
-  console.log(findEventId);
 
   const rightEvent = eventTable.find(
     (event) => (findEventId >= event.rollFrom && findEventId <= event.rollTo),
   );
-  console.log(rightEvent);
 
   return rightEvent;
 };

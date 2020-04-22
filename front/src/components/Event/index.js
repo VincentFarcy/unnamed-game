@@ -6,15 +6,30 @@ import React, { useEffect } from 'react';
 
 // == Import local
 import './style.scss';
+import { rollDice } from '../../func';
 
 
 // == Component
-const Event = ({ event, findEvent }) => {
-  console.log(event);
+const Event = ({ event, findEvent, strength, agility, will, intelligence }) => {
+  console.log(strength, agility, will, intelligence);
   useEffect(findEvent, []);
+  const currentEvent = event.mainText;
+  const difficultyEvent = rollDice(event.minLevel, event.maxLevel);
+  console.log(currentEvent, difficultyEvent);
+  const dice = rollDice(1, 6);
+  const strengthCheck = strength + dice;
+  const agilityCheck = agility + dice;
+  const willCheck = will + dice;
+  const intelligenceCheck = intelligence + dice;
+  console.log(dice, strengthCheck, agilityCheck, willCheck, intelligenceCheck);
+
+
+
+
+
   return (
     <div className="main__play">
-      <p className="story__title">{event.mainText}</p>
+      <p className="event__title">{event.mainText}</p>
       {/* {php === 1
       ? (
         <>
@@ -35,11 +50,6 @@ const Event = ({ event, findEvent }) => {
     </div>
   );
 };
-
-// == Props validation
-Event.propTypes = {
-};
-
 
 // == Export
 export default Event;
