@@ -25,7 +25,7 @@ const Combat = ({
 }) => {
   useEffect(findOpponent, []);
 
-  // 
+  // first fighter randomisation
   const fightRound = (touch, dodge) => {
     const roll = rollDice(gameParameters.minTouchRoll, gameParameters.maxTouchRoll);
     if (roll === gameParameters.maxTouchRoll) {
@@ -36,10 +36,16 @@ const Combat = ({
     }
   };
 
+  // damage randomisation
   const randomDamage = (strength) => {
     const damage = strength + rollDice(gameParameters.minDamageRoll, gameParameters.maxDamageRoll);
     return damage;
-  }
+  };
+
+  // Player's HP initialization
+  let playerHP = player.playerCurrentHP;
+  // Opponent's HP initialization
+  let opponentHP = opponent.opponentCurrentHP;
 
   // combat function
   const launchFight = () => {
@@ -56,36 +62,62 @@ const Combat = ({
       currentFighter = OPPONENT;
     };
 
-    // Player's HP
-    let playerHP = player.playerCurrentHP;
-    // Opponent's HP
-    let opponentHP = opponent.opponentCurrentHP;
+
+    // delay to display damages on HP bar
+    let delay = 1000;
+    // round history
+    let roundHistory = [];
+
     // the fight goes on
     do {
+      // initialize damage
       let damage = 0;
-
-      // console.log('initiative', currentFighter);
 
       switch (currentFighter) {
         case PLAYER:
+          // random touch
           const playerTouch = fightRound(player.baseTouch , opponent.dodge);
+          // if fighter touches
           if (playerTouch) {
+            // damage calculation
             damage = randomDamage(strength);
+            // HP after damage
             opponentHP = opponentHP - damage;
           }
+          // change fighter
           currentFighter = OPPONENT;
-          applyDamage({
+
+          // save the curent round
+          roundHistory.push({
             'playerCurrentHP': (playerHP > 0) ? playerHP : 0,
             'opponentCurrentHP': (opponentHP > 0) ? opponentHP : 0,
+          }); 
+
+          // change the state accordingly 
+          applyDamage({
+              'playerCurrentHP': (playerHP > 0) ? playerHP : 0,
+              'opponentCurrentHP': (opponentHP > 0) ? opponentHP : 0,
           });
-          break;
         case OPPONENT:
+          // random touch
           const opponentTouch = fightRound(opponent.touch, player.dodge);
+          // if fighter touches
           if (opponentTouch) {
+            // damage calculation
             damage = randomDamage(0);
+            // HP after damage
             playerHP = playerHP - damage;
           };
+          // change fighter
           currentFighter = PLAYER;
+
+          // save the curent round
+          roundHistory.push({
+            'playerCurrentHP': (playerHP > 0) ? playerHP : 0,
+            'opponentCurrentHP': (opponentHP > 0) ? opponentHP : 0,
+          }); 
+
+          // change the state accordingly 
           applyDamage({
             'playerCurrentHP': (playerHP > 0) ? playerHP : 0,
             'opponentCurrentHP': (opponentHP > 0) ? opponentHP : 0,
@@ -95,6 +127,7 @@ const Combat = ({
     }
     // as long as one of the fighter's HP is above 0
     while (playerHP > 0 && opponentHP > 0);
+
     endFight();
   };
 
@@ -129,7 +162,7 @@ const Combat = ({
             <LinkButton
               cssClassName="choice btn-warning"
               buttonName="Suivant"
-              url="/play/reward"
+              url={playerHP > 0 ? "/play/reward" : "/play/death"}
             />
           </div> 
         }
