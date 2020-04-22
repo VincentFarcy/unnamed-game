@@ -110,7 +110,7 @@ const gameplay = (state = initialState, action = {}) => {
       return {
         ...state,
         ...action.payload,
-        pool: action.payload.gameParameters.attributePoints,
+        pool: action.payload.gameParameters.attribute_points,
         gameParameters: {
           ...state.gameParameters,
           ...action.payload.gameParameters,
