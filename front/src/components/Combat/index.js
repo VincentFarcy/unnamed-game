@@ -62,11 +62,12 @@ const Combat = ({
       currentFighter = OPPONENT;
     };
 
-
-    // delay to display damages on HP bar
-    let delay = 1000;
     // round history
     let roundHistory = [];
+    // round counter
+    let roundCounter = 0;
+    // delay for setTimeout
+    let setTimeOutDelay = 500;
 
     // the fight goes on
     do {
@@ -75,6 +76,8 @@ const Combat = ({
 
       switch (currentFighter) {
         case PLAYER:
+          // incremente round coutner
+          roundCounter++;
           // random touch
           const playerTouch = fightRound(player.baseTouch , opponent.dodge);
           // if fighter touches
@@ -92,13 +95,9 @@ const Combat = ({
             'playerCurrentHP': (playerHP > 0) ? playerHP : 0,
             'opponentCurrentHP': (opponentHP > 0) ? opponentHP : 0,
           }); 
-
-          // change the state accordingly 
-          applyDamage({
-              'playerCurrentHP': (playerHP > 0) ? playerHP : 0,
-              'opponentCurrentHP': (opponentHP > 0) ? opponentHP : 0,
-          });
         case OPPONENT:
+          // incremente round coutner
+          roundCounter++;
           // random touch
           const opponentTouch = fightRound(opponent.touch, player.dodge);
           // if fighter touches
@@ -116,19 +115,26 @@ const Combat = ({
             'playerCurrentHP': (playerHP > 0) ? playerHP : 0,
             'opponentCurrentHP': (opponentHP > 0) ? opponentHP : 0,
           }); 
-
-          // change the state accordingly 
-          applyDamage({
-            'playerCurrentHP': (playerHP > 0) ? playerHP : 0,
-            'opponentCurrentHP': (opponentHP > 0) ? opponentHP : 0,
-          });
           break;
       }
     }
     // as long as one of the fighter's HP is above 0
     while (playerHP > 0 && opponentHP > 0);
 
-    endFight();
+    // for each round we want to apply the damage
+    roundHistory.forEach((element, index) => {
+      // change delay 
+      let delay = setTimeOutDelay * index;
+
+      // apply damage 
+      const functionToExecute = () => applyDamage(element);
+
+      return setTimeout(functionToExecute, delay)
+    });
+
+    // to display next button
+    const functionToExecute = () => endFight();
+    setTimeout(functionToExecute, setTimeOutDelay * roundCounter);
   };
 
   return (
