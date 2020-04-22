@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 // local imports
 import OpponentInfo from '../components/Combat/OpponentCombatInfo';
-import { findOpponent } from '../actions/gamePlay';
 
 // state
 const mapStateToProps = (state) => ({
@@ -11,11 +10,7 @@ const mapStateToProps = (state) => ({
 });
 
 // actions
-const mapDispatchToProps = (dispatch) => ({
-  findOpponent: () => {
-    dispatch(findOpponent());
-  },
-});
+const mapDispatchToProps = {};
 
 
 // export

@@ -7,9 +7,12 @@ export const GAME_DATA_ERROR = 'GAME_DATA_ERROR';
 export const INCREMENT_CREATE_CHARACTER = 'INCREMENT_CREATE_CHARACTER';
 export const DECREMENT_CREATE_CHARACTER = 'DECREMENT_CREATE_CHARACTER';
 export const FIND_OPPONENT = 'FIND_OPPONENT';
-export const FIND_SEQUENCE = 'FIND_SEQUENCE';
+export const APPLY_DAMAGE = 'APPLY_DAMAGE';
 export const RUN_AWAY = 'RUN_AWAY';
+export const END_FIGHT = 'END_FIGHT';
+export const FIND_SEQUENCE = 'FIND_SEQUENCE';
 export const RESTART_NEW_GAME = 'RESTART_NEW_GAME';
+
 
 // == Action creators
 export const resetGame = () => ({
@@ -47,12 +50,21 @@ export const findOpponent = () => ({
   type: FIND_OPPONENT,
 });
 
+export const applyDamage = (payload) => ({
+  type: APPLY_DAMAGE,
+  payload,
+});
+
 export const findSequence = () => ({
   type: FIND_SEQUENCE,
 });
 
 export const runAway = () => ({
   type: RUN_AWAY,
+});
+
+export const endFight = () => ({
+  type: END_FIGHT,
 });
 
 export const restartNewGame = () => ({

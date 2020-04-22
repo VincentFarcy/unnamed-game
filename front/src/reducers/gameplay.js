@@ -3,8 +3,12 @@ import {
   RESET_GAME, CHANGE_GAME_STATUS,
   GAME_DATA_SUCCESS, GAME_DATA_ERROR,
   INCREMENT_CREATE_CHARACTER, DECREMENT_CREATE_CHARACTER,
-  FIND_OPPONENT, FIND_SEQUENCE,
-  RUN_AWAY, RESTART_NEW_GAME,
+  FIND_OPPONENT,
+  APPLY_DAMAGE,
+  RUN_AWAY, 
+  END_FIGHT,
+  FIND_SEQUENCE,
+  RESTART_NEW_GAME,
 }
   from '../actions/gamePlay';
 import { rollDice } from '../func';
@@ -66,11 +70,22 @@ const initialState = {
     playerCurrentHP: 0,
   },
   combat: {
-    combatStatus: false,
+    isCombatOn: true,
     // currentOponent is empty until OpponentCombatInfo is rendered
     currentOpponent: {
       opponentCurrentHP: 0,
     },
+  },
+  gameParameters: {
+    attributeMin: 1,
+    attributeMax: 5,
+    attributesPoints: 10,
+    minTouchRoll: 1,
+    maxTouchRoll: 6,
+    minDamageRoll: 1,
+    maxDamageRoll: 4,
+    minSpeedRoll: 1,
+    maxSpeedRoll: 10,
   },
 };
 
@@ -143,23 +158,46 @@ const gameplay = (state = initialState, action = {}) => {
         sequenceToTell: '',
         combat: {
           ...state.combat,
+          isCombatOn: true,
           currentOpponent: {
             opponentCurrentHP: opponent.health,
             ...opponent
           }
         }
       };
+    case APPLY_DAMAGE:
+      return {
+        ...state,
+        player: {
+          ...state.player,
+          playerCurrentHP: action.payload.playerCurrentHP,
+        },
+        combat: {
+          ...state.combat,
+          currentOpponent: {
+            ...state.combat.currentOpponent,
+            opponentCurrentHP: action.payload.opponentCurrentHP,
+          },
+        },
+      };
     case FIND_SEQUENCE:
       const sequence = findInfoForSequence(state);
       return {
         ...state,
         sequenceToTell: sequence,
-      }
-
+      };
     case RUN_AWAY:
       return {
         ...state,
         phpTimer: state.phpTimer + 1,
+      };
+    case END_FIGHT:
+      return {
+        ...state,
+        combat: {
+          ...state.combat,
+          isCombatOn: false,
+        }
       };
     default:
       return state;
