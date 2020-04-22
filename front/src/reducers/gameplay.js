@@ -55,7 +55,7 @@ const initialState = {
       description: 'Affecte le toucher, l\'esquive, la guérison, permet de réaliser certaines actions',
     },
   ],
-  pool: 10,
+  pool: 0,
   phpTimer: 1,
   xp: 0,
   jsx: 0,
@@ -100,6 +100,7 @@ const gameplay = (state = initialState, action = {}) => {
       return {
         ...state,
         ...action.payload,
+        pool: action.payload.gameParameters.attributePoints,
         gameParameters: {
           ...state.gameParameters,
           ...action.payload.gameParameters,
@@ -195,7 +196,7 @@ export default gameplay;
 // == Selector
 export const findUpAbility = (state, abilityName) => (
   state.abilities.map((ability) => {
-    if (ability.name === abilityName && ability.value < 5 && state.pool > 0) {
+    if (ability.name === abilityName && ability.value < state.gameParameters.attribute_max && state.pool > 0) {
       ability.value++;
       state.pool--;
     }
@@ -204,7 +205,7 @@ export const findUpAbility = (state, abilityName) => (
 
 export const findDownAbility = (state, abilityName) => (
   state.abilities.map((ability) => {
-    if (ability.name === abilityName && ability.value > 1 && state.pool < 10) {
+    if (ability.name === abilityName && ability.value > state.gameParameters.attribute_min && state.pool <  state.gameParameters.attributePoints) {
       ability.value--;
       state.pool++;
     }
