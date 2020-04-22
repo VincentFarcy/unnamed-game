@@ -258,7 +258,6 @@ export const findInfoForSequence = (state) => {
 
   const sequenceList = state.chapters[0].sequences;
   const timing = state.phpTimer;
-  console.log(sequenceList.length);
 
   const sequenceTable = sequenceList.find(
     (sequence) => (timing === sequence.id),
@@ -270,6 +269,5 @@ export const findInfoForSequence = (state) => {
       mainText: 'end',
     };
   }
-  console.log(sequenceTable);
   return sequenceTable;
 };
