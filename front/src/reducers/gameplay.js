@@ -5,7 +5,7 @@ import {
   INCREMENT_CREATE_CHARACTER, DECREMENT_CREATE_CHARACTER,
   FIND_OPPONENT,
   APPLY_DAMAGE,
-  RUN_AWAY, 
+  RUN_AWAY,
   END_FIGHT,
   FIND_SEQUENCE,
   RESTART_NEW_GAME,
@@ -95,12 +95,11 @@ const gameplay = (state = initialState, action = {}) => {
         loadingErrMessage: '',
         hasError: false,
       };
-      case RESTART_NEW_GAME:
-        console.log('restart');
-        return {
-          initialState,
-        };
-  
+    case RESTART_NEW_GAME:
+      return {
+        initialState,
+      };
+
     case CHANGE_GAME_STATUS:
       return {
         ...state,
@@ -222,7 +221,7 @@ export const findUpAbility = (state, abilityName) => (
 
 export const findDownAbility = (state, abilityName) => (
   state.abilities.map((ability) => {
-    if (ability.name === abilityName && ability.value > state.gameParameters.attribute_min && state.pool <  state.gameParameters.attributePoints) {
+    if (ability.name === abilityName && ability.value > state.gameParameters.attribute_min && state.pool < state.gameParameters.attributePoints) {
       ability.value--;
       state.pool++;
     }
@@ -237,17 +236,19 @@ export const findOpponentForCombat = (state) => {
   // console.log(opponentsTable, opponents);
 
   const findOpponentId = rollDice(1, 100);
-  console.log(findOpponentId);
+  // console.log(findOpponentId);
 
   const opponentTableId = opponentsTable.find(
-    (opponent) => (findOpponentId >= opponent.rollFrom && findOpponentId <= opponent.rollTo));
+    (oppoRange) => (findOpponentId >= oppoRange.rollFrom && findOpponentId <= oppoRange.rollTo),
+  );
   // console.log(opponentTableId);
 
   const opponentId = opponentTableId.opponent.id;
   // console.log(opponentId);
 
   const opponent = opponents.find(
-    (opponent) => (opponentId === opponent.id));
+    (rightOpponent) => (opponentId === rightOpponent.id),
+  );
   // console.log(opponent);
 
   return opponent;
@@ -257,11 +258,18 @@ export const findInfoForSequence = (state) => {
 
   const sequenceList = state.chapters[0].sequences;
   const timing = state.phpTimer;
-  console.log(sequenceList, timing);
+  console.log(sequenceList.length);
 
   const sequenceTable = sequenceList.find(
-    (sequence) => (timing == sequence.id));
-  console.log(sequenceTable);
+    (sequence) => (timing === sequence.id),
+  );
 
+  if (timing > sequenceList.length) {
+    return {
+      id: 99,
+      mainText: 'end',
+    };
+  }
+  console.log(sequenceTable);
   return sequenceTable;
 };

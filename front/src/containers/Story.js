@@ -7,6 +7,7 @@ import Story from '../components/Story';
 // state
 const mapStateToProps = (state) => ({
   story: state.gameplay.chapters[0],
+  php: state.gameplay.phpTimer,
 });
 
 // actions
