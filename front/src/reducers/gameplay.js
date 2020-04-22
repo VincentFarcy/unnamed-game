@@ -87,14 +87,6 @@ const initialState = {
       opponentCurrentHP: 0,
     },
   },
-  gameParameters: {
-    minTouchRoll: 1,
-    maxTouchRoll: 6,
-    minDamageRoll: 1,
-    maxDamageRoll: 4,
-    minSpeedRoll: 1,
-    maxSpeedRoll: 10,
-  },
 };
 
 // == Reducer
@@ -120,10 +112,6 @@ const gameplay = (state = initialState, action = {}) => {
         ...state,
         ...action.payload,
         pool: action.payload.gameParameters.attribute_points,
-        gameParameters: {
-          ...state.gameParameters,
-          ...action.payload.gameParameters,
-        },
       };
     case GAME_DATA_ERROR:
       return {
