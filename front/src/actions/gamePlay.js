@@ -12,6 +12,7 @@ export const RUN_AWAY = 'RUN_AWAY';
 export const END_FIGHT = 'END_FIGHT';
 export const FIND_SEQUENCE = 'FIND_SEQUENCE';
 export const RESTART_NEW_GAME = 'RESTART_NEW_GAME';
+export const FIND_RANDOM_REWARD = 'FIND_RANDOM_REWARD';
 
 
 // == Action creators
@@ -69,4 +70,8 @@ export const endFight = () => ({
 
 export const restartNewGame = () => ({
   type: RESTART_NEW_GAME,
+});
+
+export const findRandomReward = () => ({
+  type: FIND_RANDOM_REWARD,
 });

@@ -1,5 +1,5 @@
 // == Import npm
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Button from '../LinkButton';
 import PlayerInfo from '../../containers/PlayerInfo';
@@ -11,20 +11,14 @@ import './style.scss';
 
 
 // == Component
-const Reward = ({ rewardContent }) => {
+const Reward = ({ currentReward, findRandomReward }) => {
+  useEffect(findRandomReward, []);
   // == Dice Roll to manage the Random Loot Table
-  const rollDiceReward = rollDice(1, 100);
-  console.log(rollDiceReward);
-
-  // == Here we find in the database which Loot Table to pick the rewards from
-  const rollRange = rewardContent.find(
-    (reward) => (rollDiceReward >= reward.rollFrom && rollDiceReward <= reward.rollTo),
-  );
-
-  // == Here we determine from the Loot Table above the amount of moneyu (JSX) 
+  console.log('rewardcontent', currentReward);
+  // == Here we determine from the Loot Table above the amount of moneyu (JSX)
   // and Experience (XP) the player wins
-  const xpRoll = rollDice(rollRange.minXp, rollRange.maxXp);
-  const jsxRoll = rollDice(rollRange.minMoney, rollRange.maxMoney);
+  const xpRoll = rollDice(currentReward.minXp, currentReward.maxXp);
+  const jsxRoll = rollDice(currentReward.minMoney, currentReward.maxMoney);
 
   return (
     <>
@@ -44,12 +38,13 @@ const Reward = ({ rewardContent }) => {
 
 // == Props validation
 Reward.propTypes = {
-  rewardContent: PropTypes.arrayOf(
+  currentReward: PropTypes.arrayOf(
     PropTypes.shape({
       maxXp: PropTypes.number.isRequired,
       maxMoney: PropTypes.number.isRequired,
     }),
   ).isRequired,
+  findRandomReward: PropTypes.func.isRequired,
 };
 
 

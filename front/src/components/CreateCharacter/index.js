@@ -1,8 +1,9 @@
 // == Import npm
 import React from 'react';
 import PropTypes from 'prop-types';
-import LinkButton from '../LinkButton';
 import { v4 as uuidv4 } from 'uuid';
+import LinkButton from '../LinkButton';
+
 
 // == Import local
 import './style.scss';
@@ -12,7 +13,8 @@ import Ability from '../../containers/Ability';
 // == Component
 const CreateCharacter = ({ isLoading, abilities, pool }) => (
   isLoading && <Loader />
-  || !isLoading && 
+  || !isLoading &&
+    (
     <div className="main__play">
       <div className="title__container">
         <h1>Création de personnage</h1>
@@ -31,6 +33,7 @@ const CreateCharacter = ({ isLoading, abilities, pool }) => (
         </div>
       </div>
     </div>
+    )
 );
 
 // == Props validation
