@@ -59,7 +59,7 @@ const App = ({ isGameOn }) => (
           { !isGameOn ? <Redirect to="/play" /> : <Sequence />}
         </Route>
         <Route exact path="/play/combat">
-          { !isGameOn ? <Redirect to="/play/combat" /> : <Combat />}
+          { !isGameOn ? <Redirect to="/play" /> : <Combat />}
         </Route>
         <Route exact path="/play/reward">
           { !isGameOn ? <Redirect to="/play/reward" /> : <Reward />}
