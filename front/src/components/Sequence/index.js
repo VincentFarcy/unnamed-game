@@ -7,20 +7,20 @@ import Story from '../../containers/Story';
 import Hal from './halInfo';
 
 // == Import local
-import './style.scss';
+import '../Story/style.scss';;
 
 
 // == Component
 const Sequence = ({ sequence, findSequence }) => {
   useEffect(findSequence, []);
   return (
-    <>
+    <div className="story-container">
       {sequence.id === 99 ? <Story />
         : (
           <div className="main__play">
-            <p className="sequence__title">{sequence.title}</p>
+            <p className="story__title">{sequence.title}</p>
             <Typical
-              className="sequence__p"
+              className="story__p"
               steps={[sequence.mainText, 1000]}
               wrapper="p"
             />
@@ -29,7 +29,7 @@ const Sequence = ({ sequence, findSequence }) => {
             </div>
           </div>
         )}
-    </>
+    </div>
   );
 };
 

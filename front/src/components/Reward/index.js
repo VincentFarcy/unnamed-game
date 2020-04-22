@@ -19,7 +19,7 @@ const Reward = ({
   // == Updates the state to get the xpReward and the jsxReward
   useEffect(findRandomReward, []);
   return (
-    <>
+    <div className="reward__container">
       <div className="player-bar">
         <PlayerInfo />
       </div>
@@ -35,7 +35,7 @@ const Reward = ({
           />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
