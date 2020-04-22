@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Typical from 'react-typical';
 import Button from '../LinkButton';
 import Story from '../../containers/Story';
+import Hal from './halInfo';
 
 // == Import local
 import './style.scss';
@@ -17,7 +18,7 @@ const Sequence = ({ sequence, findSequence }) => {
       {sequence.id === 99 ? <Story />
         : (
           <div className="main__play">
-            <p className="sequence__title">Jour: {sequence.id}</p>
+            <p className="sequence__title">{sequence.title}</p>
             <Typical
               className="sequence__p"
               steps={[sequence.mainText, 1000]}

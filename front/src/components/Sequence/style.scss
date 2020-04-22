@@ -4,6 +4,10 @@
   justify-content: flex-start;
 }
 
+.button__container {
+  display: flex;
+}
+
 /* === Next button === */
 .next__button {
   width: 25%;
