@@ -7,7 +7,7 @@ import RessourceInfo from 'src/components/RessourceInfo';
 // Action Creators
 
 /* === State (données) === */
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state) => ({
   mainCounter: state.gameplay.phpTimer,
   experience: state.gameplay.xp,
   money: state.gameplay.jsx,
@@ -24,5 +24,3 @@ const RessourceInfoContainer = connect(
 
 // == Export
 export default RessourceInfoContainer;
-
-

@@ -15,7 +15,7 @@ const MainPlay = ({ hasError, gameOn, startGame, fetchInitialeGameData }) => {
   // https://fr.reactjs.org/docs/hooks-effect.html#example-using-hooks-1
   // voir les useEffect avec nettoyage
   !hasError && useEffect(startGame, []);
-  console.log(hasError);
+  // console.log(hasError);
 
   return ( 
     hasError && <ErrorMessage />

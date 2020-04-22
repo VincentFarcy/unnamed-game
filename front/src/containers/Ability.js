@@ -7,8 +7,6 @@ import Ability from 'src/components/CreateCharacter/Ability';
 // Action Creators
 import { increment, decrement } from '../actions/gamePlay';
 
-import { findAbility } from '../reducers/gameplay';
-
 /* === State (données) === */
 const mapStateToProps = null;
 
@@ -30,4 +28,3 @@ const AbilityContainer = connect(
 
 // == Export
 export default AbilityContainer;
-
