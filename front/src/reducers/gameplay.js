@@ -104,7 +104,6 @@ const gameplay = (state = initialState, action = {}) => {
         hasError: false,
       };
     case RESTART_NEW_GAME:
-      console.log('restart');
       return {
         initialState,
       };
@@ -240,7 +239,7 @@ export const findUpAbility = (state, abilityName) => (
 
 export const findDownAbility = (state, abilityName) => (
   state.abilities.map((ability) => {
-    if (ability.name === abilityName && ability.value > state.gameParameters.attribute_min && state.pool <  state.gameParameters.attributePoints) {
+    if (ability.name === abilityName && ability.value > state.gameParameters.attribute_min && state.pool < state.gameParameters.attribute_points) {
       ability.value--;
       state.pool++;
     }
@@ -255,17 +254,19 @@ export const findOpponentForCombat = (state) => {
   // console.log(opponentsTable, opponents);
 
   const findOpponentId = rollDice(1, 100);
-  console.log(findOpponentId);
+  // console.log(findOpponentId);
 
   const opponentTableId = opponentsTable.find(
-    (opponent) => (findOpponentId >= opponent.rollFrom && findOpponentId <= opponent.rollTo));
+    (oppoRange) => (findOpponentId >= oppoRange.rollFrom && findOpponentId <= oppoRange.rollTo),
+  );
   // console.log(opponentTableId);
 
   const opponentId = opponentTableId.opponent.id;
   // console.log(opponentId);
 
   const opponent = opponents.find(
-    (opponent) => (opponentId === opponent.id));
+    (rightOpponent) => (opponentId === rightOpponent.id),
+  );
   // console.log(opponent);
 
   return opponent;
@@ -274,12 +275,17 @@ export const findOpponentForCombat = (state) => {
 export const findInfoForSequence = (state) => {
   const sequenceList = state.chapters[0].sequences;
   const timing = state.phpTimer;
-  console.log(sequenceList, timing);
 
   const sequenceTable = sequenceList.find(
-    (sequence) => (timing == sequence.id));
-  console.log(sequenceTable);
+    (sequence) => (timing === sequence.id),
+  );
 
+  if (timing > sequenceList.length) {
+    return {
+      id: 99,
+      mainText: 'end',
+    };
+  }
   return sequenceTable;
 };
 
