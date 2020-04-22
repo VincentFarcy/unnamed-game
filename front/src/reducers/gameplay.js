@@ -73,9 +73,6 @@ const initialState = {
     },
   },
   gameParameters: {
-    attributeMin: 1,
-    attributeMax: 5,
-    attributesPoints: 10,
     minTouchRoll: 1,
     maxTouchRoll: 6,
     minDamageRoll: 1,
@@ -103,6 +100,10 @@ const gameplay = (state = initialState, action = {}) => {
       return {
         ...state,
         ...action.payload,
+        gameParameters: {
+          ...state.gameParameters,
+          ...action.payload.gameParameters,
+        },
       };
     case GAME_DATA_ERROR:
       return {
