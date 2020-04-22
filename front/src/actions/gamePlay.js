@@ -8,10 +8,11 @@ export const INCREMENT_CREATE_CHARACTER = 'INCREMENT_CREATE_CHARACTER';
 export const DECREMENT_CREATE_CHARACTER = 'DECREMENT_CREATE_CHARACTER';
 export const FIND_OPPONENT = 'FIND_OPPONENT';
 export const APPLY_DAMAGE = 'APPLY_DAMAGE';
-export const RUN_AWAY = 'RUN_AWAY';
+export const NEXT_SEQUENCE = 'NEXT_SEQUENCE';
 export const END_FIGHT = 'END_FIGHT';
 export const FIND_SEQUENCE = 'FIND_SEQUENCE';
 export const RESTART_NEW_GAME = 'RESTART_NEW_GAME';
+export const FIND_RANDOM_REWARD = 'FIND_RANDOM_REWARD';
 
 
 // == Action creators
@@ -59,8 +60,8 @@ export const findSequence = () => ({
   type: FIND_SEQUENCE,
 });
 
-export const runAway = () => ({
-  type: RUN_AWAY,
+export const nextSequence = () => ({
+  type: NEXT_SEQUENCE,
 });
 
 export const endFight = () => ({
@@ -69,4 +70,8 @@ export const endFight = () => ({
 
 export const restartNewGame = () => ({
   type: RESTART_NEW_GAME,
+});
+
+export const findRandomReward = () => ({
+  type: FIND_RANDOM_REWARD,
 });
