@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 
 // == Import : local
 import Header from 'src/components/Header';
-import { changeGameStatus, resetGame } from '../actions/gamePlay';
 
 // Action Creators
 import { initUserState } from '../actions/user';
 import { toggleMenu } from '../actions/menu';
+import { changeGameStatus, resetGame, changeBg } from '../actions/gamePlay';
 
 /* === State (données) === */
 const mapStateToProps = (state) => ({
@@ -29,6 +29,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   toggleMenu: (toggle) => {
     dispatch(toggleMenu(toggle));
+  },
+  changeBg: (bgImageCssClass) => {
+    dispatch(changeBg(bgImageCssClass));
   },
 });
 
