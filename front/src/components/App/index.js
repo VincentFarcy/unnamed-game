@@ -31,6 +31,7 @@ const temp= "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque ill
 
 const App = ({ isGameOn, bgImageCssClass }) => (
   <div className={`app ${bgImageCssClass}`}>
+    <div hidden className="bg--hidden" />
     <Header />
     <main className="main">
       <Switch>

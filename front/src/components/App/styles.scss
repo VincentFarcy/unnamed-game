@@ -15,6 +15,11 @@
   background-image: url('../../assets/images/mihai-muscan-42.jpg');
 }
 
+.bg--hidden {
+  background-image: url('../../assets/images/mihai-muscan-42.jpg');
+  display:hidden
+}
+
 .app > * { 
   min-width: 300px;
 }
