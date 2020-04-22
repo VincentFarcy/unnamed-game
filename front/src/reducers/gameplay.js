@@ -69,7 +69,10 @@ const initialState = {
   phpTimer: 1,
   xp: 0,
   jsx: 0,
-  rewards: '',
+  rewards: {
+    xpRoll: 0,
+    jsxRoll: 0,
+  },
   sequenceToTell: '',
   player: {
     // Total player's health point

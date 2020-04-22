@@ -10,10 +10,14 @@ import './style.scss';
 
 
 // == Component
-const Reward = ({ xpReward, jsxReward, findRandomReward, nextSequence }) => {
-  // == Updates the state to get the xpReward and the jswReward
+const Reward = ({
+  xpReward,
+  jsxReward,
+  findRandomReward,
+  nextSequence,
+}) => {
+  // == Updates the state to get the xpReward and the jsxReward
   useEffect(findRandomReward, []);
-
   return (
     <>
       <div className="player-bar">
