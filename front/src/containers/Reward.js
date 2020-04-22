@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 // local imports
 import Reward from '../components/Reward';
-import { findRandomReward } from '../actions/gamePlay';
+import { findRandomReward, nextSequence } from '../actions/gamePlay';
 
 // state
 const mapStateToProps = (state) => ({
@@ -15,6 +15,9 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   findRandomReward: () => {
     dispatch(findRandomReward());
+  },
+  nextSequence: () => {
+    dispatch(nextSequence());
   },
 });
 
