@@ -29,22 +29,22 @@ const Combat = ({
   const fightRound = (touch, dodge) => {
     const roll = rollDice(gameParameters.minTouchRoll, gameParameters.maxTouchRoll);
     if (roll === gameParameters.maxTouchRoll) {
-      console.log('roll', roll);
-      console.log('touch', touch);
-      console.log('dodge * 2', dodge * 2);
+      // console.log('roll', roll);
+      // console.log('touch', touch);
+      // console.log('dodge * 2', dodge * 2);
       return true
     }
     else {
-      console.log('roll', roll);
-      console.log('touch', touch);
-      console.log('dodge * 2', dodge * 2);
+      // console.log('roll', roll);
+      // console.log('touch', touch);
+      // console.log('dodge * 2', dodge * 2);
       return (touch + roll) > (dodge * 2);
     }
   };
 
   const randomDamage = (strength) => {
     const damage = strength + rollDice(gameParameters.minDamageRoll, gameParameters.maxDamageRoll);
-    console.log('strength', strength);
+    // console.log('strength', strength);
     return damage;
   }
 
@@ -71,12 +71,12 @@ const Combat = ({
     do {
       let damage = 0;
 
-      console.log('initiative', currentFighter);
+      // console.log('initiative', currentFighter);
 
       switch (currentFighter) {
         case PLAYER:
           const playerTouch = fightRound(player.baseTouch , opponent.dodge);
-          console.log('playerTouch', playerTouch);
+          // console.log('playerTouch', playerTouch);
           if (playerTouch) {
             damage = randomDamage(strength);
             opponentHP = opponentHP - damage;
@@ -86,12 +86,12 @@ const Combat = ({
             'playerCurrentHP': (playerHP > 0) ? playerHP : 0,
             'opponentCurrentHP': (opponentHP > 0) ? opponentHP : 0,
           });
-          console.log('opponentCurrentHP', damage, opponentHP);
-          console.log('playerCurrentHP', damage, playerHP);
+          // console.log('opponentCurrentHP', damage, opponentHP);
+          // console.log('playerCurrentHP', damage, playerHP);
           break;
         case OPPONENT:
           const opponentTouch = fightRound(opponent.touch, player.dodge);
-          console.log('opponentTouch', opponentTouch);
+          // console.log('opponentTouch', opponentTouch);
           if (opponentTouch) {
             damage = randomDamage(0);
             playerHP = playerHP - damage;
