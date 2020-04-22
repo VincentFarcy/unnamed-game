@@ -28,6 +28,7 @@ class Sequence
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("chapter")
      */
     private $title;
 
