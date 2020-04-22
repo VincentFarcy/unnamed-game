@@ -70,12 +70,12 @@ class GameController extends AbstractController
                     $opponents,
                     null, ['groups' => ['opponent']]
                 ), 
-            'content-parameters' => 
+            'contentParameters' => 
                 $serializer->normalize(
                     $contentParameters,
                     null, ['groups' => ['content-parameter']]
                 ), 
-            'game-parameters' => 
+            'gameParameters' => 
                 $serializer->normalize(
                     $gameParameters,
                     null, ['groups' => ['game-parameter']]
