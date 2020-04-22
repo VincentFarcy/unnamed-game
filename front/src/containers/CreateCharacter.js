@@ -7,7 +7,7 @@ import CreateCharacter from 'src/components/CreateCharacter';
 // Action Creators
 
 /* === State (données) === */
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state) => ({
   isLoading: state.gameplay.isLoading,
   abilities: state.gameplay.abilities,
   pool: state.gameplay.pool,
@@ -24,5 +24,3 @@ const CreateCharacterContainer = connect(
 
 // == Export
 export default CreateCharacterContainer;
-
-

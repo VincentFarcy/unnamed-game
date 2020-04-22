@@ -5,13 +5,12 @@ import { connect } from 'react-redux';
 import OpponentInfo from '../components/Combat/OpponentCombatInfo';
 
 // state
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state) => ({
   currentOpponent: state.gameplay.combat.currentOpponent,
 });
 
 // actions
 const mapDispatchToProps = {};
-
 
 
 // export
