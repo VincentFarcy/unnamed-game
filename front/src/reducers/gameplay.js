@@ -21,6 +21,7 @@ import {
   FIND_SEQUENCE,
   RESTART_NEW_GAME,
   FIND_RANDOM_REWARD,
+  FIND_EVENT,
 }
   from '../actions/gamePlay';
 import { rollDice } from '../func';
@@ -71,6 +72,7 @@ const initialState = {
   jsx: 0,
   rewards: '',
   sequenceToTell: '',
+  currentEvent: '',
   player: {
     // Total player's health point
     playerTotalHP: 0,
@@ -158,7 +160,8 @@ const gameplay = (state = initialState, action = {}) => {
           dodge: ((state.abilities[1].value) + Math.floor((state.abilities[4].value / 2))),
           baseDamage: state.abilities[0].value,
           baseSpeed: state.abilities[1].value,
-          baseHealing: Math.floor(((state.abilities[3].value / 2) + (state.abilities[4].value / 2))),
+          baseHealing: Math.floor(((state.abilities[3].value / 2)
+            + (state.abilities[4].value / 2))),
         },
       };
     case FIND_OPPONENT:
@@ -218,9 +221,17 @@ const gameplay = (state = initialState, action = {}) => {
         jsx: state.jsx + randomReward.jsxRoll,
         xp: state.xp + randomReward.xpRoll,
       };
+    case FIND_EVENT:
+      console.log('case FINDEVENT');
+      const event = findInfoForEvent(state);
+      return {
+        ...state,
+        currentEvent: event,
+      };
     default:
       return state;
   }
+
 };
 
 
@@ -230,7 +241,8 @@ export default gameplay;
 // == Selector
 export const findUpAbility = (state, abilityName) => (
   state.abilities.map((ability) => {
-    if (ability.name === abilityName && ability.value < state.gameParameters.attribute_max && state.pool > 0) {
+    if (ability.name === abilityName && ability.value < state.gameParameters.attribute_max
+      && state.pool > 0) {
       ability.value++;
       state.pool--;
     }
@@ -239,7 +251,8 @@ export const findUpAbility = (state, abilityName) => (
 
 export const findDownAbility = (state, abilityName) => (
   state.abilities.map((ability) => {
-    if (ability.name === abilityName && ability.value > state.gameParameters.attribute_min && state.pool < state.gameParameters.attribute_points) {
+    if (ability.name === abilityName && ability.value > state.gameParameters.attribute_min
+      && state.pool < state.gameParameters.attribute_points) {
       ability.value--;
       state.pool++;
     }
@@ -308,4 +321,20 @@ export const findRandomReward = (state) => {
     xpRoll,
     jsxRoll,
   };
+};
+
+export const findInfoForEvent = (state) => {
+  console.log('je lance ma recherche event');
+  const eventTable = state.chapters[0].randomAttributeContests;
+  console.log(eventTable);
+
+  const findEventId = rollDice(1, 100);
+  console.log(findEventId);
+
+  const rightEvent = eventTable.find(
+    (event) => (findEventId >= event.rollFrom && findEventId <= event.rollTo),
+  );
+  console.log(rightEvent);
+
+  return rightEvent;
 };
