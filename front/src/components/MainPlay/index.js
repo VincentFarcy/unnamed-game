@@ -11,7 +11,12 @@ import savedGameIcon from '../../assets/images/b_31.png';
 import ErrorMessage from '../../containers/ErrorMessage';
 
 // == Component
-const MainPlay = ({ hasError, gameOn, startGame, fetchInitialeGameData }) => {
+const MainPlay = ({
+  hasError,
+  gameOn,
+  startGame,
+  fetchInitialeGameData 
+}) => {
   // https://fr.reactjs.org/docs/hooks-effect.html#example-using-hooks-1
   // voir les useEffect avec nettoyage
   !hasError && useEffect(startGame, []);
@@ -22,7 +27,9 @@ const MainPlay = ({ hasError, gameOn, startGame, fetchInitialeGameData }) => {
     // if we have to put this solution in action it will require the creation of the route in App
     // hasError && <Redirect to="/error" />
     ||
-    !hasError && <div>
+    !hasError &&
+    (
+    <div>
       <section className="game-launcher">
         <NavLink
           exact
@@ -40,6 +47,7 @@ const MainPlay = ({ hasError, gameOn, startGame, fetchInitialeGameData }) => {
         </NavLink> */}
       </section>
     </div>
+    )
   );
 };
 

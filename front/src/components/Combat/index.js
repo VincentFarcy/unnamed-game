@@ -21,7 +21,7 @@ const Combat = ({
   gameParameters,
   applyDamage,
   runAway,
-  endFight
+  endFight,
 }) => {
   useEffect(findOpponent, []);
 
@@ -32,7 +32,7 @@ const Combat = ({
       // console.log('roll', roll);
       // console.log('touch', touch);
       // console.log('dodge * 2', dodge * 2);
-      return true
+      return true;
     }
     else {
       // console.log('roll', roll);
@@ -118,31 +118,34 @@ const Combat = ({
           <PlayerCombatInfo />
         </div>
         {
-          isCombatOn ?
-          <div className="combat__choices">
-            <Button
-              className="choice"
-              variant="danger"
-              onClick={launchFight}
-            >
-              Combattre
-            </Button>
-            {/* when you choose to runAway, you have to be redirected and add 1 to PHP */}
-            <LinkButton
-              cssClassName="choice btn-warning"
-              buttonName="Fuir"
-              url="/play/reward"
-              onClick={runAway}
-            />
-          </div> 
-          :
-          <div className="combat__choices">
-            <LinkButton
-              cssClassName="choice btn-warning"
-              buttonName="Suivant"
-              url="/play/reward"
-            />
-          </div> 
+          isCombatOn
+            ? (
+              <div className="combat__choices">
+                <Button
+                  className="choice"
+                  variant="danger"
+                  onClick={launchFight}
+                >
+                Combattre
+                </Button>
+                {/* when you choose to runAway, you have to be redirected and add 1 to PHP */}
+                <LinkButton
+                  cssClassName="choice btn-warning"
+                  buttonName="Fuir"
+                  url="/play/reward"
+                  onClick={runAway}
+                />
+              </div>
+            )
+            : (
+              <div className="combat__choices">
+                <LinkButton
+                  cssClassName="choice btn-warning"
+                  buttonName="Suivant"
+                  url="/play/reward"
+                />
+              </div>
+            )
         }
         <p className="combat__presentation">VS {opponent.name}</p>
         <div className="opponent__container">
@@ -151,7 +154,7 @@ const Combat = ({
       </div>
     </div>
   );
-}
+};
 
 // == Props validation
 Combat.propTypes = {
