@@ -7,7 +7,8 @@ import { findRandomReward } from '../actions/gamePlay';
 
 // state
 const mapStateToProps = (state) => ({
-  currentReward: state.gameplay.rewards,
+  xpReward: state.gameplay.rewards.xpRoll,
+  jsxReward: state.gameplay.rewards.jsxRoll,
 });
 
 // actions

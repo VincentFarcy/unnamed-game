@@ -6,7 +6,7 @@ import Combat from '../components/Combat';
 import {
   findOpponent,
   applyDamage,
-  runAway,
+  nextSequence,
   endFight,
 } from '../actions/gamePlay';
 
@@ -28,7 +28,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(applyDamage(damage));
   },
   runAway: () => {
-    dispatch(runAway());
+    dispatch(nextSequence());
   },
   endFight: () => {
     dispatch(endFight());

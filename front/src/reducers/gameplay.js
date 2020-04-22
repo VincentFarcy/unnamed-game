@@ -16,7 +16,7 @@ import {
   DECREMENT_CREATE_CHARACTER,
   FIND_OPPONENT,
   APPLY_DAMAGE,
-  RUN_AWAY,
+  NEXT_SEQUENCE,
   END_FIGHT,
   FIND_SEQUENCE,
   RESTART_NEW_GAME,
@@ -120,6 +120,7 @@ const gameplay = (state = initialState, action = {}) => {
       return {
         ...state,
         ...action.payload,
+        pool: action.payload.gameParameters.attribute_points,
         gameParameters: {
           ...state.gameParameters,
           ...action.payload.gameParameters,
@@ -199,7 +200,7 @@ const gameplay = (state = initialState, action = {}) => {
         ...state,
         sequenceToTell: sequence,
       };
-    case RUN_AWAY:
+    case NEXT_SEQUENCE:
       return {
         ...state,
         phpTimer: state.phpTimer + 1,
@@ -218,6 +219,8 @@ const gameplay = (state = initialState, action = {}) => {
       return {
         ...state,
         rewards: randomReward,
+        jsx: state.jsx + randomReward.jsxRoll,
+        xp: state.xp + randomReward.xpRoll,
       };
     default:
       return state;
@@ -292,5 +295,14 @@ export const findRandomReward = (state) => {
   const rollRange = rewardTable.find(
     (reward) => (rollDiceReward >= reward.rollFrom && rollDiceReward <= reward.rollTo),
   );
-  return rollRange;
+
+  // == Here we determine from the Loot Table above the amount of moneyu (JSX)
+  // and Experience (XP) the player wins
+  const xpRoll = rollDice(rollRange.minXp, rollRange.maxXp);
+  const jsxRoll = rollDice(rollRange.minMoney, rollRange.maxMoney);
+
+  return {
+    xpRoll,
+    jsxRoll,
+  };
 };
