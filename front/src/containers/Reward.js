@@ -10,8 +10,7 @@ const mapStateToProps = (state) => ({
 });
 
 // actions
-const mapDispatchToProps = (dispatch) => ({
-});
+const mapDispatchToProps = {};
 
 
 // export

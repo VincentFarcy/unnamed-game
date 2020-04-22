@@ -6,7 +6,7 @@ import ErrorMessage from 'src/components/ErrorMessage';
 // Action Creators
 
 /* === State (données) === */
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state) => ({
   message: state.gameplay.loadingErrMessage,
 });
 

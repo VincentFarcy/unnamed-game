@@ -3,8 +3,8 @@ import {
   RESET_GAME, CHANGE_GAME_STATUS,
   GAME_DATA_SUCCESS, GAME_DATA_ERROR,
   INCREMENT_CREATE_CHARACTER, DECREMENT_CREATE_CHARACTER,
-  FIND_OPPONENT,
-  RUN_AWAY
+  FIND_OPPONENT, FIND_SEQUENCE,
+  RUN_AWAY, RESTART_NEW_GAME,
 }
   from '../actions/gamePlay';
 import { rollDice } from '../func';
@@ -58,6 +58,7 @@ const initialState = {
   phpTimer: 1,
   xp: 0,
   jsx: 0,
+  sequenceToTell: '',
   player: {
     // Total player's health point
     playerTotalHP: 0,
@@ -82,6 +83,12 @@ const gameplay = (state = initialState, action = {}) => {
         loadingErrMessage: '',
         hasError: false,
       };
+      case RESTART_NEW_GAME:
+        console.log('restart');
+        return {
+          initialState,
+        };
+  
     case CHANGE_GAME_STATUS:
       return {
         ...state,
@@ -111,7 +118,7 @@ const gameplay = (state = initialState, action = {}) => {
           dodge: ((state.abilities[1].value) + Math.floor((state.abilities[4].value / 2))),
           baseDamage: state.abilities[0].value,
           baseSpeed: state.abilities[1].value,
-          baseHealing:  Math.floor(((state.abilities[3].value / 2) + (state.abilities[4].value / 2))),
+          baseHealing: Math.floor(((state.abilities[3].value / 2) + (state.abilities[4].value / 2))),
         },
       };
     case DECREMENT_CREATE_CHARACTER:
@@ -121,7 +128,7 @@ const gameplay = (state = initialState, action = {}) => {
         player: {
           ...state.player,
           playerTotalHP: ((state.abilities[3].value / 2) + (state.abilities[2].value)) * 10,
-          playerCurrentHP: ((state.abilities[3].value / 2) + (state.abilities[2].value)) * 10,   
+          playerCurrentHP: ((state.abilities[3].value / 2) + (state.abilities[2].value)) * 10,
           baseTouch: ((state.abilities[1].value) + Math.floor((state.abilities[4].value / 3))),
           dodge: ((state.abilities[1].value) + Math.floor((state.abilities[4].value / 2))),
           baseDamage: state.abilities[0].value,
@@ -133,6 +140,7 @@ const gameplay = (state = initialState, action = {}) => {
       const opponent = findOpponentForCombat(state);
       return {
         ...state,
+        sequenceToTell: '',
         combat: {
           ...state.combat,
           currentOpponent: {
@@ -141,6 +149,13 @@ const gameplay = (state = initialState, action = {}) => {
           }
         }
       };
+    case FIND_SEQUENCE:
+      const sequence = findInfoForSequence(state);
+      return {
+        ...state,
+        sequenceToTell: sequence,
+      }
+
     case RUN_AWAY:
       return {
         ...state,
@@ -196,4 +211,17 @@ export const findOpponentForCombat = (state) => {
   // console.log(opponent);
 
   return opponent;
+};
+
+export const findInfoForSequence = (state) => {
+
+  const sequenceList = state.chapters[0].sequences;
+  const timing = state.phpTimer;
+  console.log(sequenceList, timing);
+
+  const sequenceTable = sequenceList.find(
+    (sequence) => (timing == sequence.id));
+  console.log(sequenceTable);
+
+  return sequenceTable;
 };

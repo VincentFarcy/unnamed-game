@@ -2,7 +2,7 @@
 import { connect } from 'react-redux';
 
 // local imports
-import PlayerCombatInfo from '../components/Combat/PlayerCombatInfo.js';
+import PlayerCombatInfo from '../components/Combat/PlayerCombatInfo';
 
 // state
 const mapStateToProps = (state) => ({
