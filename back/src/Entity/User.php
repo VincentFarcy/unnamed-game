@@ -86,6 +86,11 @@ class User implements UserInterface
      */
     private $heroes;
 
+    public function __toString()
+    {
+        return $this->getUsername();
+    }
+
     public function __construct()
     {
         $this->heroes = new ArrayCollection();

@@ -64,6 +64,11 @@ class RandomFightContest
      */
     private $updatedAt;
 
+    public function __toString()
+    {
+        return $this->opponent->getName();
+    }
+
     public function __construct()
     {
         $this->createdAt = new \DateTime();

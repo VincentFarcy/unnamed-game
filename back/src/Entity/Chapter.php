@@ -94,6 +94,11 @@ class Chapter
      */
     private $randomRewards;
 
+    public function __toString()
+    {
+        return $this->getTitle();
+    }
+
     public function __construct()
     {
         $this->sequences = new ArrayCollection();
