@@ -222,7 +222,7 @@ export const findUpAbility = (state, abilityName) => (
 
 export const findDownAbility = (state, abilityName) => (
   state.abilities.map((ability) => {
-    if (ability.name === abilityName && ability.value > state.gameParameters.attribute_min && state.pool <  state.gameParameters.attributePoints) {
+    if (ability.name === abilityName && ability.value > state.gameParameters.attribute_min && state.pool <  state.gameParameters.attribute_points) {
       ability.value--;
       state.pool++;
     }
