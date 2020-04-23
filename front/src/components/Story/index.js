@@ -8,7 +8,7 @@ import Button from '../LinkButton';
 import './style.scss';
 
 // == Component
-const Story = ({ story, php, restartNewGame })  => (
+const Story = ({ story, php, restartNewGame }) => (
   <div className="story-container">
     <div className="main__play">
       <p className="story__title">{story.title}</p>
@@ -25,13 +25,14 @@ const Story = ({ story, php, restartNewGame })  => (
           <>
             <Typical className="story__p" steps={[story.endText, 1000]} wrapper="p" />
             <div className="button__container">
-            <div className="button__container">
-              <Button
-                cssClassName="next__button"
-                buttonName="Fin"
-                url="/"
-                onClick={restartNewGame}
-              />
+              <div className="button__container">
+                <Button
+                  cssClassName="next__button"
+                  buttonName="Fin"
+                  url="/"
+                  onClick={restartNewGame}
+                />
+              </div>
             </div>
           </>
         )}

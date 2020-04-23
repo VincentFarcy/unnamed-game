@@ -354,6 +354,7 @@ const gameplay = (state = initialState, action = {}) => {
         ...state,
         difficulty: rollDice(3, 10),
         playerRoll: rollDice(1, 6),
+      };
     case CHANGE_BG:
       return {
         ...state,
