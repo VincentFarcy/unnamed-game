@@ -9,7 +9,7 @@ import './style.scss';
 
 
 // == Component
-const Story = ({ story, php }) => (
+const Story = ({ story, php, restartNewGame }) => (
   <div className="main__play">
     <p className="story__title">{story.title}</p>
     {php === 1
@@ -25,7 +25,12 @@ const Story = ({ story, php }) => (
         <>
           <Typical className="story__p" steps={[story.endText, 1000]} wrapper="p" />
           <div className="button__container">
-            <Button cssClassName="next__button" buttonName="Fin" url="/" />
+            <Button
+              cssClassName="next__button"
+              buttonName="Fin"
+              url="/"
+              onClick={restartNewGame}
+            />
           </div>
         </>
       )}
@@ -40,6 +45,7 @@ Story.propTypes = {
     endText: PropTypes.string.isRequired,
   }).isRequired,
   php: PropTypes.number.isRequired,
+  restartNewGame: PropTypes.func.isRequired,
 };
 
 

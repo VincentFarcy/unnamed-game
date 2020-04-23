@@ -11,7 +11,11 @@ const mapStateToProps = (state) => ({
 });
 
 // actions
-const mapDispatchToProps = {};
+const mapDispatchToProps = (dispatch) => ({
+  restartNewGame: () => {
+    dispatch(restartNewGame());
+  },
+});
 
 
 // export
