@@ -71,7 +71,7 @@ const Combat = ({
     // round counter
     let roundCounter = 0;
     // delay for setTimeout
-    const setTimeOutDelay = 500;
+    const setTimeOutDelay = 250;
 
     // the fight goes on
     do {

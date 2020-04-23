@@ -87,6 +87,9 @@ const initialState = {
     // currentOponent is empty until OpponentCombatInfo is rendered
     currentOpponent: {
       opponentCurrentHP: 0,
+      speed: 0,
+      touch: 0,
+      dodge: 0,
     },
   },
 };
