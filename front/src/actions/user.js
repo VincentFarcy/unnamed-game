@@ -11,6 +11,7 @@ export const SET_DELETE_MODE = 'SET_DELETE_MODE';
 export const EDIT_USER = 'EDIT_USER';
 export const DELETE_USER = 'DELETE_USER';
 export const INIT_USER_STATE = 'INIT_USER_STATE';
+export const REFRESH_USER_BACKUPS = 'REFRESH_USER_BACKUPS';
 
 // == Action creators
 export const changeField = (value, name) => ({
@@ -73,4 +74,9 @@ export const deleteUser = () => ({
 
 export const initUserState = () => ({
   type: INIT_USER_STATE,
+});
+
+export const refreshUserBackups = (backups) => ({
+  type: REFRESH_USER_BACKUPS,
+  backups,
 });

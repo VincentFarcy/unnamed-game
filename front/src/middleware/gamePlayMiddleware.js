@@ -2,17 +2,22 @@
 import axios from 'axios';
 
 // local imports
-import { 
+import {
   FETCH_INITIALE_GAME_DATA,
   GAME_BACKUP,
   gameDataSuccess,
   gameDataError,
 } from '../actions/gamePlay';
+import {
+  refreshUserBackups,
+} from '../actions/user';
 
 import { BASE_API_URI } from '../app.config';
 
 // == Api Middleware
 const apiMiddleware = (store) => (next) => (action) => {
+  const state = store.getState();
+
   switch (action.type) {
     case FETCH_INITIALE_GAME_DATA:
       store.getState().gameplay.isLoading = true;
@@ -29,8 +34,14 @@ const apiMiddleware = (store) => (next) => (action) => {
           store.dispatch(gameDataError());
         });
       break;
-      case GAME_BACKUP:
-        const state = store.getState();
+    case GAME_BACKUP:
+      // Check if token JWT exist
+      if (state.user.tokenJWT !== '') {
+        // HeroId if exists
+        let heroId = null;
+        if (state.user.backups.length > 0) {
+          heroId = state.user.backups[0].hero.id;
+        }
         axios({
           method: 'post',
           url: `${BASE_API_URI}/api/game/backup`,
@@ -39,29 +50,32 @@ const apiMiddleware = (store) => (next) => (action) => {
             Authorization: `Bearer ${state.user.tokenJWT}`,
           },
           data: {
-            'sequenceId' : state.gameplay.sequenceToTell.id,
-            'hero' : {
-              'name' : 'hero',
-              'gender' : 'm',
+            sequenceId: state.gameplay.sequenceToTell.id,
+            hero: {
+              id: heroId,
+              name: 'hero',
+              gender: 'm',
             },
-            'name' : 'save',
-            'strength' : state.gameplay.abilities.find(ability => name='Force').value,
-            'agility' :  state.gameplay.abilities.find(ability => name='Agilité').value,
-            'constitution' : state.gameplay.abilities.find(ability => name='Constitution').value,
-            'will' : state.gameplay.abilities.find(ability => name='Volonté').value,
-            'intelligence' : state.gameplay.abilities.find(ability => name='Intelligence').value,
-            'health' : state.gameplay.player.playerCurrentHP,
-            'money' :  state.gameplay.jsx,
-            'xp' : state.gameplay.xp,
+            name: 'save',
+            strength: state.gameplay.abilities.find((ability) => ability.name === 'Force').value,
+            agility: state.gameplay.abilities.find((ability) => ability.name === 'Agilité').value,
+            constitution: state.gameplay.abilities.find((ability) => ability.name === 'Constitution').value,
+            will: state.gameplay.abilities.find((ability) => ability.name === 'Volonté').value,
+            intelligence: state.gameplay.abilities.find((ability) => ability.name === 'Intelligence').value,
+            health: state.gameplay.player.playerCurrentHP,
+            money: state.gameplay.jsx,
+            xp: state.gameplay.xp,
           },
         })
           .then((res) => {
-            console.log("backup res", res);
+            console.log(res.data.backups);
+            store.dispatch(refreshUserBackups(res.data.backups));
           })
           .catch((err) => {
-            console.log("backup err", err.response.data);
+            console.log('backup impossible', err.data);
           });
-        break;
+      }
+      break;
     default:
       next(action);
   }
