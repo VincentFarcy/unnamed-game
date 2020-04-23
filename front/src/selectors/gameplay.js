@@ -3,19 +3,19 @@ import { rollDice } from '../func';
 
 // selectors
 export const findUpAbility = (state, abilityName) => (
-  state.abilities.map((ability) => {
-    if (ability.name === abilityName && ability.value < state.gameParameters.attribute_max && state.pool > 0) {
+  state.player.abilities.map((ability) => {
+    if (ability.name === abilityName && ability.value < state.gameParameters.attribute_max && state.player.pool > 0) {
       ability.value++;
-      state.pool--;
+      state.player.pool--;
     }
   })
 );
 
 export const findDownAbility = (state, abilityName) => (
-  state.abilities.map((ability) => {
-    if (ability.name === abilityName && ability.value > state.gameParameters.attribute_min && state.pool < state.gameParameters.attribute_points) {
+  state.player.abilities.map((ability) => {
+    if (ability.name === abilityName && ability.value > state.gameParameters.attribute_min && state.player.pool < state.gameParameters.attribute_points) {
       ability.value--;
-      state.pool++;
+      state.player.pool++;
     }
   })
 );

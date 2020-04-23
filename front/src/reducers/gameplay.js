@@ -41,39 +41,6 @@ const initialState = {
   isLoading: false,
   loadingErrMessage: '',
   hasError: false,
-  abilities: [
-    {
-      name: 'Force',
-      value: 1,
-      image: Force,
-      description: 'Affecte les dégâts',
-    },
-    {
-      name: 'Agilité',
-      value: 1,
-      image: Agilité,
-      description: 'Affecte le toucher, l\'initiative, l\'esquive',
-    },
-    {
-      name: 'Constitution',
-      value: 1,
-      image: Constitution,
-      description: 'Affecte les PV',
-    },
-    {
-      name: 'Volonté',
-      value: 1,
-      image: Volonté,
-      description: 'Affecte les PV, la guérison, permet de réaliser certaines actions',
-    },
-    {
-      name: 'Intelligence',
-      value: 1,
-      image: Intelligence,
-      description: 'Affecte le toucher, l\'esquive, la guérison, permet de réaliser certaines actions',
-    },
-  ],
-  pool: 0,
   phpTimer: 1,
   rewards: {
     xpRoll: 0,
@@ -81,6 +48,39 @@ const initialState = {
   },
   sequenceToTell: '',
   player: {
+    pool: 0,
+    abilities: [
+      {
+        name: 'Force',
+        value: 1,
+        image: Force,
+        description: 'Affecte les dégâts',
+      },
+      {
+        name: 'Agilité',
+        value: 1,
+        image: Agilité,
+        description: 'Affecte le toucher, l\'initiative, l\'esquive',
+      },
+      {
+        name: 'Constitution',
+        value: 1,
+        image: Constitution,
+        description: 'Affecte les PV',
+      },
+      {
+        name: 'Volonté',
+        value: 1,
+        image: Volonté,
+        description: 'Affecte les PV, la guérison, permet de réaliser certaines actions',
+      },
+      {
+        name: 'Intelligence',
+        value: 1,
+        image: Intelligence,
+        description: 'Affecte le toucher, l\'esquive, la guérison, permet de réaliser certaines actions',
+      },
+    ],
     // Total player's health point
     playerTotalHP: 0,
     // player current health point which is initialized at the same time as playerTotalHP
@@ -118,39 +118,6 @@ const gameplay = (state = initialState, action = {}) => {
         isLoading: false,
         loadingErrMessage: '',
         hasError: false,
-        abilities: [
-          {
-            name: 'Force',
-            value: 1,
-            image: Force,
-            description: 'Affecte les dégâts',
-          },
-          {
-            name: 'Agilité',
-            value: 1,
-            image: Agilité,
-            description: 'Affecte le toucher, l\'initiative, l\'esquive',
-          },
-          {
-            name: 'Constitution',
-            value: 1,
-            image: Constitution,
-            description: 'Affecte les PV',
-          },
-          {
-            name: 'Volonté',
-            value: 1,
-            image: Volonté,
-            description: 'Affecte les PV, la guérison, permet de réaliser certaines actions',
-          },
-          {
-            name: 'Intelligence',
-            value: 1,
-            image: Intelligence,
-            description: 'Affecte le toucher, l\'esquive, la guérison, permet de réaliser certaines actions',
-          },
-        ],
-        pool: 0,
         phpTimer: 1,
         rewards: {
           xpRoll: 0,
@@ -158,6 +125,39 @@ const gameplay = (state = initialState, action = {}) => {
         },
         sequenceToTell: '',
         player: {
+          pool: 0,
+          abilities: [
+            {
+              name: 'Force',
+              value: 1,
+              image: Force,
+              description: 'Affecte les dégâts',
+            },
+            {
+              name: 'Agilité',
+              value: 1,
+              image: Agilité,
+              description: 'Affecte le toucher, l\'initiative, l\'esquive',
+            },
+            {
+              name: 'Constitution',
+              value: 1,
+              image: Constitution,
+              description: 'Affecte les PV',
+            },
+            {
+              name: 'Volonté',
+              value: 1,
+              image: Volonté,
+              description: 'Affecte les PV, la guérison, permet de réaliser certaines actions',
+            },
+            {
+              name: 'Intelligence',
+              value: 1,
+              image: Intelligence,
+              description: 'Affecte le toucher, l\'esquive, la guérison, permet de réaliser certaines actions',
+            },
+          ],
           // Total player's health point
           playerTotalHP: 0,
           // player current health point which is initialized at the same time as playerTotalHP
@@ -187,7 +187,10 @@ const gameplay = (state = initialState, action = {}) => {
       return {
         ...state,
         ...action.payload,
-        pool: action.payload.gameParameters.attribute_points,
+        player: {
+          ...state.player,
+          pool: action.payload.gameParameters.attribute_points,
+        }
       };
     case GAME_DATA_ERROR:
       return {
@@ -202,14 +205,14 @@ const gameplay = (state = initialState, action = {}) => {
         ...state,
         player: {
           ...state.player,
-          playerTotalHP: ((state.abilities[3].value / 2) + (state.abilities[2].value)) * 10,
-          playerCurrentHP: ((state.abilities[3].value / 2) + (state.abilities[2].value)) * 10,
-          baseTouch: ((state.abilities[1].value) + Math.floor((state.abilities[4].value / 3))),
-          dodge: ((state.abilities[1].value) + Math.floor((state.abilities[4].value / 2))),
-          baseDamage: state.abilities[0].value,
-          baseSpeed: state.abilities[1].value,
+          playerTotalHP: ((state.player.abilities[3].value / 2) + (state.player.abilities[2].value)) * 10,
+          playerCurrentHP: ((state.player.abilities[3].value / 2) + (state.player.abilities[2].value)) * 10,
+          baseTouch: ((state.player.abilities[1].value) + Math.floor((state.player.abilities[4].value / 3))),
+          dodge: ((state.player.abilities[1].value) + Math.floor((state.player.abilities[4].value / 2))),
+          baseDamage: state.player.abilities[0].value,
+          baseSpeed: state.player.abilities[1].value,
           baseHealing: Math.floor(
-            ((state.abilities[3].value / 2) + (state.abilities[4].value / 2)),
+            ((state.player.abilities[3].value / 2) + (state.player.abilities[4].value / 2)),
           ),
         },
       };
@@ -219,13 +222,13 @@ const gameplay = (state = initialState, action = {}) => {
         ...state,
         player: {
           ...state.player,
-          playerTotalHP: ((state.abilities[3].value / 2) + (state.abilities[2].value)) * 10,
-          playerCurrentHP: ((state.abilities[3].value / 2) + (state.abilities[2].value)) * 10,
-          baseTouch: ((state.abilities[1].value) + Math.floor((state.abilities[4].value / 3))),
-          dodge: ((state.abilities[1].value) + Math.floor((state.abilities[4].value / 2))),
-          baseDamage: state.abilities[0].value,
-          baseSpeed: state.abilities[1].value,
-          baseHealing: Math.floor(((state.abilities[3].value / 2) + (state.abilities[4].value / 2))),
+          playerTotalHP: ((state.player.abilities[3].value / 2) + (state.player.abilities[2].value)) * 10,
+          playerCurrentHP: ((state.player.abilities[3].value / 2) + (state.player.abilities[2].value)) * 10,
+          baseTouch: ((state.player.abilities[1].value) + Math.floor((state.player.abilities[4].value / 3))),
+          dodge: ((state.player.abilities[1].value) + Math.floor((state.player.abilities[4].value / 2))),
+          baseDamage: state.player.abilities[0].value,
+          baseSpeed: state.player.abilities[1].value,
+          baseHealing: Math.floor(((state.player.abilities[3].value / 2) + (state.player.abilities[4].value / 2))),
         },
       };
     case FIND_OPPONENT:
