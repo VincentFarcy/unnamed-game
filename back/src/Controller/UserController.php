@@ -14,6 +14,9 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
+
 /**
  * @Route("/api/user/", name="api_user_")
  */
@@ -233,5 +236,27 @@ class UserController extends AbstractController
                "message" => "User deleted",
             ]
         );
+    }
+
+    /**
+     * @Route("email", name="email")
+     */
+    public function sendEmail(MailerInterface $mailer) 
+    {
+
+        $email = (new Email())
+            ->from('Unnamedgame.oclock@gmail.com')
+            ->to('Unnamedgame.oclock@gmail.com')
+            //->cc('cc@example.com')
+            //->bcc('bcc@example.com')
+            //->replyTo('fabien@example.com')
+            //->priority(Email::PRIORITY_HIGH)
+            ->subject('Time for Symfony Mailer!')
+            ->text('Sending emails is fun again!')
+            ->html('<p>See Twig integration for better HTML integration!</p>');
+
+        $mailer->send($email);
+
+        return $this->json("send");
     }
 }
