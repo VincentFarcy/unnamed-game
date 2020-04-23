@@ -71,12 +71,13 @@
 /* === large screen === */
 @media screen AND (min-width: 992px) {
   .main__play {
-    max-width: 900px;
-    box-shadow: inset 0em 3.5em rgba(100,255,200,0.7),
-                0 0 1em rgba(100,255,200),
-                0 0 2em rgba(100,255,200),
-                0 0 4em rgba(100,255,200),
-                0 0 8em rgb(15, 15, 15);
+    max-width: 900px;   
+    box-shadow: inset 0em 3em rgba(36, 147, 238, 0.7),
+    0 0 1em rgba(22, 134, 226, 0.7),
+    0 0 2em rgb(49, 151, 235, 0.7),
+    0 0 4em rgba(49, 151, 235, 0.7),
+    0 0 8em rgba(49, 151, 235, 0.7);
+                 
   }
 
   .game-launcher__btn:hover { 
