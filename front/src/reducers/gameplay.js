@@ -22,6 +22,7 @@ import {
   FIND_SEQUENCE,
   RESTART_NEW_GAME,
   FIND_RANDOM_REWARD,
+  ADD_OPPONNENT_REWARD,
   CHANGE_BG,
 }
   from '../actions/gamePlay';
@@ -91,6 +92,8 @@ const initialState = {
       speed: 0,
       touch: 0,
       dodge: 0,
+      xpGain: 0,
+      moneyGain: 0,
     },
   },
   bgImageCssClass: '',
@@ -151,6 +154,10 @@ const gameplay = (state = initialState, action = {}) => {
         rewards: {
           xpRoll: 0,
           jsxRoll: 0,
+        },
+        opponentRewards : {
+          xpCombatReward: 0,
+          jsxCombatReward: 0,
         },
         sequenceToTell: '',
         player: {
@@ -287,6 +294,15 @@ const gameplay = (state = initialState, action = {}) => {
         jsx: state.jsx + randomReward.jsxRoll,
         xp: state.xp + randomReward.xpRoll,
       };
+    case ADD_OPPONNENT_REWARD:
+      const opponentReward = addOpponnentReward(state);
+      console.log('rewards combat', opponentReward)
+      return {
+        ...state,
+        opponentRewards: addOpponnentReward,
+        jsx: state.jsx +  opponentReward.jsxCombatReward,
+        xp: state.xp + opponentReward.xpCombatReward,
+      }
     case CHANGE_BG:
       return {
         ...state,
@@ -381,5 +397,16 @@ export const findRandomReward = (state) => {
   return {
     xpRoll,
     jsxRoll,
+  };
+};
+
+export const addOpponnentReward = (state) => {
+  // Selector to return the Money (JSX) and XP gains from the currentOpponent combat
+  const xpCombatReward = state.combat.currentOpponent.xpGain;
+  const jsxCombatReward = state.combat.currentOpponent.moneyGain;
+  
+  return {
+    xpCombatReward,
+    jsxCombatReward,
   };
 };
