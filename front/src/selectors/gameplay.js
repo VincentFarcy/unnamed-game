@@ -83,3 +83,14 @@ export const findRandomReward = (state) => {
     jsxRoll,
   };
 };
+
+export const addOpponnentReward = (state) => {
+  // Selector to return the Money (JSX) and XP gains from the currentOpponent combat
+  const xpCombatReward = state.combat.currentOpponent.xpGain;
+  const jsxCombatReward = state.combat.currentOpponent.moneyGain;
+  
+  return {
+    xpCombatReward,
+    jsxCombatReward,
+  };
+};

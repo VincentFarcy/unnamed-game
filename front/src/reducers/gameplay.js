@@ -26,12 +26,14 @@ import {
   CHANGE_BG,
 }
   from '../actions/gamePlay';
+// import selectors
 import {
   findUpAbility,
   findDownAbility,
   findOpponentForCombat,
   findInfoForSequence,
-  findRandomReward
+  findRandomReward,
+  addOpponnentReward,
 } from '../selectors/gameplay';
 
 
@@ -312,8 +314,11 @@ const gameplay = (state = initialState, action = {}) => {
       return {
         ...state,
         opponentRewards: addOpponnentReward,
-        jsx: state.jsx +  opponentReward.jsxCombatReward,
-        xp: state.xp + opponentReward.xpCombatReward,
+        player: {
+          ...state.player,
+          jsx: state.player.jsx +  opponentReward.jsxCombatReward,
+          xp: state.player.xp + opponentReward.xpCombatReward,
+        }
       }
     case CHANGE_BG:
       return {
