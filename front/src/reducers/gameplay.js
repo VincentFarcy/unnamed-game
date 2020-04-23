@@ -15,6 +15,7 @@ import {
   INCREMENT_CREATE_CHARACTER,
   DECREMENT_CREATE_CHARACTER,
   FIND_OPPONENT,
+  COMBAT_IN_PROGRESS,
   APPLY_DAMAGE,
   NEXT_SEQUENCE,
   END_FIGHT,
@@ -82,6 +83,7 @@ const initialState = {
   },
   combat: {
     isCombatOn: true,
+    combatInProgress: false,
     // currentOponent is empty until OpponentCombatInfo is rendered
     currentOpponent: {
       opponentCurrentHP: 0,
@@ -166,6 +168,14 @@ const gameplay = (state = initialState, action = {}) => {
           },
         },
       };
+    case COMBAT_IN_PROGRESS:
+      return {
+        ...state,
+        combat: {
+          ...state.combat,
+          combatInProgress: true,
+        }
+      }
     case APPLY_DAMAGE:
       return {
         ...state,
@@ -198,6 +208,7 @@ const gameplay = (state = initialState, action = {}) => {
         combat: {
           ...state.combat,
           isCombatOn: false,
+          combatInProgress: false,
         },
       };
     case FIND_RANDOM_REWARD:

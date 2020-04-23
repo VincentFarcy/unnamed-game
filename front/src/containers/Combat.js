@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import Combat from '../components/Combat';
 import {
   findOpponent,
+  combatInProgress,
   applyDamage,
   nextSequence,
   endFight,
@@ -16,6 +17,7 @@ const mapStateToProps = (state) => ({
   player: state.gameplay.player,
   strength: state.gameplay.abilities[0].value,
   isCombatOn: state.gameplay.combat.isCombatOn,
+  isCombatInProgress: state.gameplay.combat.combatInProgress,
   gameParameters: state.gameplay.gameParameters,
 });
 
@@ -23,6 +25,9 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   findOpponent: () => {
     dispatch(findOpponent());
+  },
+  combatInProgress: () => {
+    dispatch(combatInProgress());
   },
   applyDamage: (damage) => {
     dispatch(applyDamage(damage));

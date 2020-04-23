@@ -13,12 +13,14 @@ import { rollDice } from '../../func';
 
 // == Component
 const Combat = ({
-  findOpponent,
   opponent,
   player,
   strength,
   isCombatOn,
+  isCombatInProgress,
   gameParameters,
+  findOpponent,
+  combatInProgress,
   applyDamage,
   runAway,
   endFight,
@@ -49,6 +51,10 @@ const Combat = ({
 
   // combat function
   const launchFight = () => {
+    // start the game in progress
+    combatInProgress();
+
+    // create constant to use
     const PLAYER = 'PLAYER';
     const OPPONENT = 'OPPONENT';
 
@@ -132,9 +138,9 @@ const Combat = ({
       return setTimeout(functionToExecute, delay)
     });
 
-    // to display next button
-    const functionToExecute = () => endFight();
-    setTimeout(functionToExecute, setTimeOutDelay * roundCounter);
+    // stop the game in progress and display next button
+    const endFightToExecute = () => endFight();
+    setTimeout(endFightToExecute, setTimeOutDelay * roundCounter);
   };
 
   return (
@@ -145,10 +151,10 @@ const Combat = ({
         <div className="player__container">
           <PlayerCombatInfo />
         </div>
+        <div className="combat__choices">
         {
-          isCombatOn 
-            ? (
-            <div className="combat__choices">
+          isCombatOn && !isCombatInProgress && (
+            <>
               <Button
                 className="choice"
                 variant="danger"
@@ -162,19 +168,31 @@ const Combat = ({
                 buttonName="Fuir"
                 url="/play/sequence"
                 onClick={runAway}
-              />
-            </div> 
-            )
-            : (
-            <div className="combat__choices">
-              <LinkButton
-                cssClassName="choice btn-warning"
-                buttonName="Suivant"
-                url={playerHP > 0 ? "/play/reward" : "/play/death"}
-              />
-            </div> 
-            )
+              /> 
+            </>
+          )
         }
+        {
+          isCombatOn && isCombatInProgress && (
+            <Button
+              className="choice btn-warning"
+              variant="danger"
+              disabled
+            >
+              Combat en cours
+            </Button>
+          )
+        }
+        {
+          !isCombatOn && !isCombatInProgress && (
+            <LinkButton
+              cssClassName="choice btn-warning"
+              buttonName="Suivant"
+              url={playerHP > 0 ? '/play/reward' : '/play/death'}
+            />
+          )
+        }
+        </div>
         <p className="combat__presentation">VS {opponent.name}</p>
         <div className="opponent__container">
           <OpponentCombatInfo />
@@ -194,9 +212,7 @@ Combat.propTypes = {
   player: PropTypes.shape({
     playerCurrentHP: PropTypes.number.isRequired,
   }).isRequired,
-  isCombatOn: PropTypes.bool.isRequired,
-  strength: PropTypes.number.isRequired,
-  gameParameters: PropTypes.shape({
+  isCombatOn: PropTypes.bool.isRequired,  gameParameters: PropTypes.shape({
     minTouchRoll: PropTypes.number.isRequired,
     maxTouchRoll: PropTypes.number.isRequired,
     minDamageRoll: PropTypes.number.isRequired,
@@ -204,6 +220,8 @@ Combat.propTypes = {
     minSpeedRoll: PropTypes.number.isRequired,
     maxSpeedRoll: PropTypes.number.isRequired,
   }).isRequired,
+  strength: PropTypes.number.isRequired,
+  combatInProgress: PropTypes.func.isRequired,
   applyDamage: PropTypes.func.isRequired,
   runAway: PropTypes.func.isRequired,
   endFight: PropTypes.func.isRequired,
