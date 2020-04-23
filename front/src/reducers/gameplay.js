@@ -73,6 +73,8 @@ const initialState = {
   rewards: '',
   sequenceToTell: '',
   currentEvent: '',
+  difficulty: 1,
+  playerRoll: 1,
   player: {
     // Total player's health point
     playerTotalHP: 0,
@@ -142,8 +144,8 @@ const gameplay = (state = initialState, action = {}) => {
         rewards: '',
         sequenceToTell: '',
         currentEvent: '',
-        difficulty: 0,
-        playerRoll: 0,
+        difficulty: 1,
+        playerRoll: 1,
         player: {
           playerTotalHP: 0,
           playerCurrentHP: 0,
@@ -200,6 +202,8 @@ const gameplay = (state = initialState, action = {}) => {
         rewards: '',
         sequenceToTell: '',
         currentEvent: '',
+        difficulty: 1,
+        playerRoll: 1,
         player: {
           playerTotalHP: 0,
           playerCurrentHP: 0,

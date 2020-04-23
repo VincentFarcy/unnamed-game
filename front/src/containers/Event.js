@@ -9,6 +9,7 @@ import { findEvent } from '../actions/gamePlay';
 const mapStateToProps = (state) => ({
   eventDifficulty: state.gameplay.difficulty,
   playerRoll: state.gameplay.playerRoll,
+  hacking: state.gameplay.player.hacking,
 });
 
 // actions

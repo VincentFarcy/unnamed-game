@@ -1,43 +1,42 @@
 // == Import npm
 import React, { useEffect } from 'react';
-// import PropTypes from 'prop-types';
-// import Typical from 'react-typical';
-// import Button from '../LinkButton';
+import Typical from 'react-typical';
+import PropTypes from 'prop-types';
+import Button from '../LinkButton';
 
 // == Import local
 import './style.scss';
-import { rollDice } from '../../func';
-
 
 // == Component
-const Event = ({ playerRoll, eventDifficulty, findEvent }) => {
+const Event = ({
+  playerRoll,
+  eventDifficulty,
+  findEvent,
+  hacking,
+}) => {
   useEffect(findEvent, []);
-  console.log('event / player');
-  console.log(eventDifficulty, playerRoll);
-
+  const win = (hacking + playerRoll) > eventDifficulty;
 
   return (
     <div className="main__play">
       <p className="event__title">Hackaton</p>
-      {/* {php === 1
-      ? (
-        <>
-          <Typical className="story__p" steps={[story.mainText, 1000]} wrapper="p" />
-          <div className="button__container">
-            <Button cssClassName="next__button" buttonName="Suivant" url="/play/sequence" />
-          </div>
-        </>
+      <Typical className="story__p" steps={['lol', 1000]} wrapper="p" />
+      <div className="button__container">
+        {win
+          ? <Button cssClassName="next__button" buttonName="Suivant" url="/play/sequence" />
+          : <Button cssClassName="next__button" buttonName="Suivant" url="/play/death" />}
+      </div>
       )
-      : (
-        <>
-          <Typical className="story__p" steps={[story.endText, 1000]} wrapper="p" />
-          <div className="button__container">
-            <Button cssClassName="next__button" buttonName="Fin" url="/" />
-          </div>
-        </>
-      )} */}
     </div>
   );
+};
+
+// == Props validation
+Event.propTypes = {
+  findEvent: PropTypes.func.isRequired,
+  eventDifficulty: PropTypes.number.isRequired,
+  playerRoll: PropTypes.number.isRequired,
+  hacking: PropTypes.number.isRequired,
 };
 
 // == Export
