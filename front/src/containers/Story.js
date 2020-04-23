@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 // local imports
 import Story from '../components/Story';
+import { restartNewGame } from '../actions/gamePlay';
 
 // state
 const mapStateToProps = (state) => ({
