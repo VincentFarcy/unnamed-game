@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 // local imports
 import Story from '../components/Story';
+import { restartNewGame } from '../actions/gamePlay';
 
 // state
 const mapStateToProps = (state) => ({
@@ -11,7 +12,11 @@ const mapStateToProps = (state) => ({
 });
 
 // actions
-const mapDispatchToProps = {};
+const mapDispatchToProps = (dispatch) => ({
+  restartNewGame: () => {
+    dispatch(restartNewGame());
+  },
+});
 
 
 // export

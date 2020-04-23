@@ -17,6 +17,7 @@ const Header = ({
   isLogged,
   initUserState,
   resetGame,
+  restartNewGame,
   startGame,
   isExpanded,
   toggleMenu,
@@ -29,6 +30,7 @@ const Header = ({
       toggleMenu(false);
       resetGame();
       changeBg('');
+      restartNewGame();
     }
   };
 
