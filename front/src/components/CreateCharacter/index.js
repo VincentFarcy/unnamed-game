@@ -30,7 +30,7 @@ const CreateCharacter = ({
     <div className="create-character-container">
       <div className="main__play">
         <div className="title__container">
-          <h1>Création de personnage</h1>
+          <h2 className="create__title">Création de personnage</h2>
         </div>
         <div className="ability_main__container">
           <div className="ability_pool__container">
