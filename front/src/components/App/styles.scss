@@ -5,51 +5,70 @@
   height: 100%;
   font-family: sans-serif;
   background-color: black;
-  background-image: url('../../assets/images/samuel-guerrouche-screenshot001.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;
   opacity: 1;
   z-index: 0;
 }
 
+.app::before,
 .app::after {
-  background-color: black;
   content: "";
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
   position: absolute;
-  opacity: 1;
+}
+.app::before {
+  background-image: url('../../assets/images/samuel-guerrouche-screenshot001.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
   z-index: 1;
+  animation : 10s bg-scale-app forwards;
+}
+.app::after {
+  background-color: black;
+  opacity: 1;
+  z-index: 2;
   animation : 1s bg-gradual-onset-app forwards;
 }
 
 .bg--404 {
-  background-image: url('../../assets/images/mihai-muscan-42.jpg');
+  &::before {
+    background-image: url('../../assets/images/mihai-muscan-42.jpg');
+    animation : 10s bg-scale-404 forwards;
+  }
   &::after {
     animation : 1s bg-gradual-onset-404 forwards;
   }
 }
 
 .bg--create {
-  background-image: url('../../assets/images/mihai-muscan-4.jpg');
+  &::before {
+    background-image: url('../../assets/images/mihai-muscan-4.jpg');  
+    animation : 10s bg-scale-create forwards;
+  }
   &::after {
     animation : 1s bg-gradual-onset-create forwards;
   }
 }
 
 .bg--combat {
-  background-image: url('../../assets/images/mihai-muscan-27-9.jpg');
+  &::before {
+    background-image: url('../../assets/images/mihai-muscan-27-9.jpg'); 
+    animation : 10s bg-scale-combat forwards;
+  }
   &::after {
     animation : 1s bg-gradual-onset-combat forwards;
   }
 }
 
 .bg--sequence {
-  background-image: url('../../assets/images/samuel-guerrouche-screenshot004.jpg');
+  &::before {
+    background-image: url('../../assets/images/samuel-guerrouche-screenshot004.jpg');
+    animation : 10s bg-scale-sequence forwards;
+  }
   &::after {
     animation : 1s bg-gradual-onset-sequence forwards;
   }
@@ -67,6 +86,12 @@
 @keyframes bg-gradual-onset-create   { from { opacity: 1; } to { opacity: 0; } }
 @keyframes bg-gradual-onset-combat   { from { opacity: 1; } to { opacity: 0; } }
 @keyframes bg-gradual-onset-sequence { from { opacity: 1; } to { opacity: 0; } }
+
+@keyframes bg-scale-app      { from { transform:scale(1.1); } to {transform:scale(1); } }
+@keyframes bg-scale-404      { from { transform:scale(1.1); } to {transform:scale(1); } }
+@keyframes bg-scale-create   { from { transform:scale(1.1); } to {transform:scale(1); } }
+@keyframes bg-scale-combat   { from { transform:scale(1.1); } to {transform:scale(1); } }
+@keyframes bg-scale-sequence { from { transform:scale(1.1); } to {transform:scale(1); } }
 
 .app > * { 
   min-width: 300px;
