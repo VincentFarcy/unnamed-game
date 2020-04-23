@@ -354,6 +354,15 @@ const gameplay = (state = initialState, action = {}) => {
         ...state,
         phpTimer: state.phpTimer + 1,
       };
+    case REST_ACTION:
+      return {
+        ...state,
+        phpTimer: state.phpTimer + 1,
+        player: {
+          ...state.player,
+          playerCurrentHP: (state.player.playerCurrentHP + state.player.baseHealing + rollDice(1, 4)),
+        },
+      };
     default:
       return state;
   }

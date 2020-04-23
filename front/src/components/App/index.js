@@ -26,6 +26,7 @@ import Death from '../../containers/Death';
 import Combat from '../../containers/Combat';
 import Exploration from '../../containers/Exploration';
 import Reward from '../../containers/Reward';
+import Rest from '../../containers/Rest';
 import CreateCharacter from '../../containers/CreateCharacter';
 import Event from '../../containers/Event';
 import Footer from '../Footer';
@@ -72,6 +73,9 @@ const App = ({ isGameOn }) => (
         </Route>
         <Route exact path="/play/exploration">
           { !isGameOn ? <Redirect to="/play" /> : <Exploration />}
+        </Route>
+        <Route exact path="/play/rest">
+          { !isGameOn ? <Redirect to="/play" /> : <Rest />}
         </Route>
         <Route component={NotFound} />
       </Switch>

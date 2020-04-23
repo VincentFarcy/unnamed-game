@@ -149,7 +149,7 @@ const Combat = ({
                   onClick={launchFight}
                 >
                   Combattre
-              </Button>
+                </Button>
                 {/* when you choose to runAway, you have to be redirected and add 1 to PHP */}
                 <LinkButton
                   cssClassName="choice btn-warning"
@@ -164,7 +164,7 @@ const Combat = ({
                 <LinkButton
                   cssClassName="choice btn-warning"
                   buttonName="Suivant"
-                  url={playerHP > 0 ? "/play/reward" : "/play/death"}
+                  url={playerHP > 0 ? '/play/rest' : '/play/death'}
                 />
               </div>
             )
