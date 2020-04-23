@@ -7,11 +7,8 @@ import { findEvent } from '../actions/gamePlay';
 
 // state
 const mapStateToProps = (state) => ({
-  event: state.gameplay.currentEvent,
-  strength: state.gameplay.abilities[0].value,
-  agility: state.gameplay.abilities[1].value,
-  will: state.gameplay.abilities[3].value,
-  intelligence: state.gameplay.abilities[4].value,
+  eventDifficulty: state.gameplay.difficulty,
+  playerRoll: state.gameplay.playerRoll,
 });
 
 // actions

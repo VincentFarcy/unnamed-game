@@ -10,26 +10,15 @@ import { rollDice } from '../../func';
 
 
 // == Component
-const Event = ({ }) => {
-  console.log(strength, agility, will, intelligence);
+const Event = ({ playerRoll, eventDifficulty, findEvent }) => {
   useEffect(findEvent, []);
-  const currentEvent = event.mainText;
-  const difficultyEvent = rollDice(event.minLevel, event.maxLevel);
-  console.log(currentEvent, difficultyEvent);
-  const dice = rollDice(1, 6);
-  const strengthCheck = strength + dice;
-  const agilityCheck = agility + dice;
-  const willCheck = will + dice;
-  const intelligenceCheck = intelligence + dice;
-  console.log(dice, strengthCheck, agilityCheck, willCheck, intelligenceCheck);
-
-
-
+  console.log('event / player');
+  console.log(eventDifficulty, playerRoll);
 
 
   return (
     <div className="main__play">
-      <p className="event__title">{event.mainText}</p>
+      <p className="event__title">Hackaton</p>
       {/* {php === 1
       ? (
         <>

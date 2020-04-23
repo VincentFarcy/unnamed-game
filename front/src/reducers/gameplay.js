@@ -142,8 +142,8 @@ const gameplay = (state = initialState, action = {}) => {
         rewards: '',
         sequenceToTell: '',
         currentEvent: '',
-        difficulty: '',
-        playerRoll: '',
+        difficulty: 0,
+        playerRoll: 0,
         player: {
           playerTotalHP: 0,
           playerCurrentHP: 0,

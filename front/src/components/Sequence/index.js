@@ -25,7 +25,7 @@ const Sequence = ({ sequence, findSequence }) => {
               wrapper="p"
             />
             <div className="button__container">
-              <Button cssClassName="next__button" buttonName="Suivant" url="/play/combat" />
+              <Button cssClassName="next__button" buttonName="Suivant" url="/play/event" />
             </div>
           </div>
         )}
