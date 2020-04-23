@@ -15,6 +15,7 @@ export const RESTART_NEW_GAME = 'RESTART_NEW_GAME';
 export const FIND_RANDOM_REWARD = 'FIND_RANDOM_REWARD';
 export const FIND_EVENT = 'FIND_EVENT';
 export const FIND_EXPLORATION = 'FIND_EXPLORATION';
+export const EVENT_NOTHING = 'EVENT_NOTHING';
 
 
 // == Action creators
@@ -84,4 +85,8 @@ export const findEvent = () => ({
 
 export const findExploration = () => ({
   type: FIND_EXPLORATION,
+});
+
+export const eventNothing = () => ({
+  type: EVENT_NOTHING,
 });

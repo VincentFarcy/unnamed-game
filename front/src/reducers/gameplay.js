@@ -23,6 +23,7 @@ import {
   FIND_RANDOM_REWARD,
   FIND_EVENT,
   FIND_EXPLORATION,
+  EVENT_NOTHING,
 }
   from '../actions/gamePlay';
 import { rollDice } from '../func';
@@ -346,6 +347,11 @@ const gameplay = (state = initialState, action = {}) => {
       return {
         ...state,
         exploration: findRandomExploration(state),
+      };
+    case EVENT_NOTHING:
+      return {
+        ...state,
+        phpTimer: state.phpTimer + 1,
       };
     default:
       return state;

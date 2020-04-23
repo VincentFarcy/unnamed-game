@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 // local imports
 import Exploration from '../components/Exploration';
-import { findExploration } from '../actions/gamePlay';
+import { findExploration, eventNothing } from '../actions/gamePlay';
 
 // state
 const mapStateToProps = (state) => ({
@@ -14,6 +14,9 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   findExploration: () => {
     dispatch(findExploration());
+  },
+  eventNothing: () => {
+    dispatch(eventNothing());
   },
 });
 

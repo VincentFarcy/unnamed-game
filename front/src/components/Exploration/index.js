@@ -7,18 +7,17 @@ import './style.scss';
 import Combat from '../../containers/Combat';
 import Reward from '../../containers/Reward';
 import Event from '../../containers/Event';
-import Sequence from '../../containers/Sequence';
-import Story from '../../containers/Story';
+import Nothing from './nothing';
 
 // == Component
-const Exploration = ({ findExploration, randomExploration }) => {
+const Exploration = ({ findExploration, randomExploration, eventNothing }) => {
   useEffect(findExploration, []);
   const exploration = randomExploration.type;
   console.log(exploration);
 
   return (
     <>
-      {exploration === 'nothing' ? <Story /> : ''}
+      {exploration === 'nothing' ? <Nothing eventNothing={eventNothing} /> : ''}
       {exploration === 'fight' ? <Combat /> : ''}
       {exploration === 'reward' ? <Reward /> : ''}
       {exploration === 'fight and reward' ? <Combat withReward /> : ''}
@@ -34,6 +33,7 @@ Exploration.propTypes = {
   randomExploration: PropTypes.shape({
     type: PropTypes.string,
   }).isRequired,
+  eventNothing: PropTypes.func.isRequired,
 };
 
 // == Export
