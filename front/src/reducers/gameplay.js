@@ -75,7 +75,7 @@ const initialState = {
     xpRoll: 0,
     jsxRoll: 0,
   },
-  sequenceToTell: '',
+  sequenceToTell: {},
   player: {
     // Total player's health point
     playerTotalHP: 0,
@@ -152,7 +152,7 @@ const gameplay = (state = initialState, action = {}) => {
           xpRoll: 0,
           jsxRoll: 0,
         },
-        sequenceToTell: '',
+        sequenceToTell: {},
         player: {
           // Total player's health point
           playerTotalHP: 0,
@@ -226,7 +226,7 @@ const gameplay = (state = initialState, action = {}) => {
       const opponent = findOpponentForCombat(state);
       return {
         ...state,
-        sequenceToTell: '',
+        sequenceToTell: {},
         combat: {
           ...state.combat,
           isCombatOn: true,

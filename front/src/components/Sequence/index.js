@@ -11,8 +11,9 @@ import '../Story/style.scss';;
 
 
 // == Component
-const Sequence = ({ changeBg, sequence, findSequence }) => {
+const Sequence = ({ changeBg, sequence, findSequence, gameBackup }) => {
   useEffect(findSequence, []);
+  useEffect(gameBackup, []);
   useEffect(() => {
     changeBg('bg--sequence');
   }, []);
@@ -41,12 +42,10 @@ const Sequence = ({ changeBg, sequence, findSequence }) => {
 
 // == Props validation
 Sequence.propTypes = {
-  // findSequence: PropTypes.func.isRequired,
-  // sequence: PropTypes.shape({
-  //   id: PropTypes.number.isRequired,
-  //   mainText: PropTypes.string.isRequired,
-  // }).isRequired,
+  findSequence: PropTypes.func.isRequired,
+  sequence: PropTypes.shape().isRequired,
   changeBg: PropTypes.func.isRequired,
+  gameBackup: PropTypes.func.isRequired,
 };
 
 

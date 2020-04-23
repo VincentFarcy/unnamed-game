@@ -15,6 +15,7 @@ export const FIND_SEQUENCE = 'FIND_SEQUENCE';
 export const RESTART_NEW_GAME = 'RESTART_NEW_GAME';
 export const FIND_RANDOM_REWARD = 'FIND_RANDOM_REWARD';
 export const CHANGE_BG = 'CHANGE_BG';
+export const GAME_BACKUP = 'GAME_BACKUP';
 
 // == Action creators
 export const resetGame = () => ({
@@ -84,4 +85,8 @@ export const findRandomReward = () => ({
 export const changeBg = (bgImageCssClass) => ({
   type: CHANGE_BG,
   bgImageCssClass,
+});
+
+export const gameBackup = () => ({
+  type: GAME_BACKUP,
 });

@@ -6,7 +6,7 @@ import Sequence from '../components/Sequence';
 import { findSequence } from '../actions/gamePlay';
 
 // Action Creators
-import { changeBg } from '../actions/gamePlay';
+import { changeBg, gameBackup } from '../actions/gamePlay';
 
 // state
 const mapStateToProps = (state) => ({
@@ -20,6 +20,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   changeBg: (bgImageCssClass) => {
     dispatch(changeBg(bgImageCssClass));
+  },
+  gameBackup: () => {
+    dispatch(gameBackup());
   },
 });
 
