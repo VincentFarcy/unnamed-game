@@ -25,7 +25,7 @@ const Reward = ({
       </div>
       <div className="main__play">
         <p className="reward__title"> Voici vos récompenses suite au combat</p>
-        <p className="reward__p"> {`Vous avez gagné ${jsxReward} JSX et ${xpReward} point(s) d'éxpérience`} </p>
+        <p className="reward__p"> {`Vous avez gagné ${jsxReward} JSX et ${xpReward} point(s) d'expérience`} </p>
         <div className="button__container">
           <Button
             cssClassName="next__button"

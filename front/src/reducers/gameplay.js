@@ -69,8 +69,6 @@ const initialState = {
   ],
   pool: 0,
   phpTimer: 1,
-  xp: 0,
-  jsx: 0,
   rewards: {
     xpRoll: 0,
     jsxRoll: 0,
@@ -81,6 +79,8 @@ const initialState = {
     playerTotalHP: 0,
     // player current health point which is initialized at the same time as playerTotalHP
     playerCurrentHP: 0,
+    xp: 0,
+    jsx: 0,
   },
   combat: {
     isCombatOn: true,
@@ -146,8 +146,6 @@ const gameplay = (state = initialState, action = {}) => {
         ],
         pool: 0,
         phpTimer: 1,
-        xp: 0,
-        jsx: 0,
         rewards: {
           xpRoll: 0,
           jsxRoll: 0,
@@ -158,6 +156,8 @@ const gameplay = (state = initialState, action = {}) => {
           playerTotalHP: 0,
           // player current health point which is initialized at the same time as playerTotalHP
           playerCurrentHP: 0,
+          xp: 0,
+          jsx: 0,
         },
         combat: {
           isCombatOn: true,
@@ -284,8 +284,11 @@ const gameplay = (state = initialState, action = {}) => {
       return {
         ...state,
         rewards: randomReward,
-        jsx: state.jsx + randomReward.jsxRoll,
-        xp: state.xp + randomReward.xpRoll,
+        player: {
+          ...state.player,
+          jsx: state.player.jsx + randomReward.jsxRoll,
+          xp: state.player.xp + randomReward.xpRoll,
+        }
       };
     case CHANGE_BG:
       return {
