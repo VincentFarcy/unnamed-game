@@ -1,3 +1,4 @@
+@import 'src/styles/vars';
 
 h2.combat__title {
   text-align: center;
@@ -21,6 +22,7 @@ h2.combat__title {
     margin: auto;
     display: flex;
     justify-content: center;
+    
     .choice {
       width: 100px;
       margin: 0 1rem;
@@ -28,27 +30,27 @@ h2.combat__title {
   }
 
   /* CSS for Opponent*/
-  .opponent-combat-bar .player-combat-bar {
-    border-radius: 10px;
-    box-shadow:  -4px 4px 22px #1b1b1bee, 
-              4px -4px 22px #cbced0c2;
-    border: solid 1px white;  
-  }
+  // .opponent-combat-bar .player-combat-bar {
+  //   border-radius: 10px;
+  //   box-shadow:  -4px 4px 22px $info-lower-shadow, 
+  //             4px -4px 22px $info-upper-shadow;
+  //   border: solid 1px $white-100;  
+  // }
 
   .opponent-combat-info {
     display: flex;
     align-content: center;
     flex-direction: column;
     align-items: center;
-    color: white;  
+    color: $white-100;  
     height: 120px;
     &__avatar {
       width: 90px;
     }
 
-  .opponent__progress {
-    margin-top: 10px;
-  }
+    .opponent__progress {
+      margin-top: 10px;
+    }
   }
 
   .player-combat-info {
@@ -56,7 +58,7 @@ h2.combat__title {
     align-content: center;
     flex-direction: column;
     align-items: center;
-    color: white;  
+    color: $white-100;  
     height: 120px;
 
     &__avatar {
@@ -67,7 +69,7 @@ h2.combat__title {
   .progress {
     height: 20px;
     width: 110px;  
-    background-color: rgba(184, 176, 176, 0.623);
+    background-color: $HP-progress-color;
   }
 }
 
@@ -139,7 +141,7 @@ h2.combat__title {
         width: 140px;
       }
       &__counter {
-        color: white;      
+        color: $white-100;      
         font-size: larger;
         font-weight: 600;
         padding-top: 15px;
@@ -152,7 +154,7 @@ h2.combat__title {
         width: 140px;
       }
       &__counter {
-        color: white;      
+        color: $white-100;      
         font-size: larger;
         font-weight: 600;
         padding-top: 15px;

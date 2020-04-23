@@ -3,7 +3,7 @@
 .spinner {
   width: 50px;
   height: 50px;
-  background-color: #FFF;
+  background-color: $white-100;
   margin: auto;
   animation: rotateplane 1.5s infinite ease-in-out;
 }
