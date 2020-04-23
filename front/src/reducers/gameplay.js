@@ -24,6 +24,7 @@ import {
   FIND_EVENT,
   FIND_EXPLORATION,
   EVENT_NOTHING,
+  REST_ACTION,
 }
   from '../actions/gamePlay';
 import { rollDice } from '../func';
