@@ -10,25 +10,27 @@ import './style.scss';
 import logo from '../../assets/images/Unnamed_Game_3_white.svg';
 import LinkButton from '../LinkButton';
 import AnonymousUserNav from './AnonymousUserNav';
-import ConnectedUserNav from '../../containers/ConnectedUserNav';
+import ConnectedUserNav from '../../containers/Header/ConnectedUserNav';
 
 // == Component
 const Header = ({
   isLogged,
   initUserState,
   resetGame,
+  restartNewGame,
   startGame,
   isExpanded,
   toggleMenu,
-  changeBg,
+  changeBg,  
 }) => {
   //
-  const handleClick = (evt) => {
-    if (evt.target.tagName === 'A' || evt.target.tagName === 'BUTTON') {
+  const handleClick = (evt) => {    
+    if (evt.target.tagName === 'A' || evt.target.tagName === 'BUTTON' || evt.target.tagName === 'IMG') {
       initUserState();
       toggleMenu(false);
       resetGame();
       changeBg('');
+      restartNewGame();
     }
   };
 

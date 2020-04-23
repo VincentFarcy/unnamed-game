@@ -8,7 +8,7 @@ import AdvancedInfo from 'src/components/AdvancedInfo';
 
 /* === State (données) === */
 const mapStateToProps = (state) => ({
-  abilities: state.gameplay.abilities,
+  abilities: state.gameplay.player.abilities,
   playerHp: state.gameplay.playerTotalHP,
   baseToHit: state.gameplay.player.baseTouch,
   baseAvoid: state.gameplay.player.dodge,
