@@ -10,7 +10,7 @@ import { rollDice } from '../../func';
 
 
 // == Component
-const Event = ({ event, findEvent, strength, agility, will, intelligence }) => {
+const Event = ({ }) => {
   console.log(strength, agility, will, intelligence);
   useEffect(findEvent, []);
   const currentEvent = event.mainText;

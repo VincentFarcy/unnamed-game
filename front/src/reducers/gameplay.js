@@ -142,6 +142,8 @@ const gameplay = (state = initialState, action = {}) => {
         rewards: '',
         sequenceToTell: '',
         currentEvent: '',
+        difficulty: '',
+        playerRoll: '',
         player: {
           playerTotalHP: 0,
           playerCurrentHP: 0,
@@ -234,6 +236,7 @@ const gameplay = (state = initialState, action = {}) => {
           ...state.player,
           playerTotalHP: ((state.abilities[3].value / 2) + (state.abilities[2].value)) * 10,
           playerCurrentHP: ((state.abilities[3].value / 2) + (state.abilities[2].value)) * 10,
+          hacking: ((state.abilities[4].value) + Math.floor((state.abilities[3].value / 3))),
           baseTouch: ((state.abilities[1].value) + Math.floor((state.abilities[4].value / 3))),
           dodge: ((state.abilities[1].value) + Math.floor((state.abilities[4].value / 2))),
           baseDamage: state.abilities[0].value,
@@ -251,6 +254,7 @@ const gameplay = (state = initialState, action = {}) => {
           ...state.player,
           playerTotalHP: ((state.abilities[3].value / 2) + (state.abilities[2].value)) * 10,
           playerCurrentHP: ((state.abilities[3].value / 2) + (state.abilities[2].value)) * 10,
+          hacking: ((state.abilities[4].value) + Math.floor((state.abilities[3].value / 3))),
           baseTouch: ((state.abilities[1].value) + Math.floor((state.abilities[4].value / 3))),
           dodge: ((state.abilities[1].value) + Math.floor((state.abilities[4].value / 2))),
           baseDamage: state.abilities[0].value,
@@ -317,11 +321,12 @@ const gameplay = (state = initialState, action = {}) => {
         xp: state.xp + randomReward.xpRoll,
       };
     case FIND_EVENT:
-      console.log('case FINDEVENT');
-      const event = findInfoForEvent(state);
+      // console.log('case FINDEVENT');
+      // const event = findInfoForEvent(state);
       return {
         ...state,
-        currentEvent: event,
+        difficulty: rollDice(3, 10),
+        playerRoll: rollDice(1, 6),
       };
     default:
       return state;
@@ -418,14 +423,14 @@ export const findRandomReward = (state) => {
   };
 };
 
-export const findInfoForEvent = (state) => {
-  const eventTable = state.chapters[0].randomAttributeContests;
+// export const findInfoForEvent = (state) => {
+//   const eventTable = state.chapters[0].randomAttributeContests;
 
-  const findEventId = rollDice(1, 100);
+//   const findEventId = rollDice(1, 100);
 
-  const rightEvent = eventTable.find(
-    (event) => (findEventId >= event.rollFrom && findEventId <= event.rollTo),
-  );
+//   const rightEvent = eventTable.find(
+//     (event) => (findEventId >= event.rollFrom && findEventId <= event.rollTo),
+//   );
 
-  return rightEvent;
-};
+//   return rightEvent;
+// };
