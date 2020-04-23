@@ -10,25 +10,27 @@ import './style.scss';
 
 // == Component
 const Story = ({ story, php }) => (
-  <div className="main__play">
-    <p className="story__title">{story.title}</p>
-    {php === 1
-      ? (
-        <>
-          <Typical className="story__p" steps={[story.mainText, 1000]} wrapper="p" />
-          <div className="button__container">
-            <Button cssClassName="next__button" buttonName="Suivant" url="/play/sequence" />
-          </div>
-        </>
-      )
-      : (
-        <>
-          <Typical className="story__p" steps={[story.endText, 1000]} wrapper="p" />
-          <div className="button__container">
-            <Button cssClassName="next__button" buttonName="Fin" url="/" />
-          </div>
-        </>
-      )}
+  <div className="story-container">
+    <div className="main__play">
+      <p className="story__title">{story.title}</p>
+      {php === 1
+        ? (
+          <>
+            <Typical className="story__p" steps={[story.mainText, 1000]} wrapper="p" />
+            <div className="button__container">
+              <Button cssClassName="next__button" buttonName="Suivant" url="/play/sequence" />
+            </div>
+          </>
+        )
+        : (
+          <>
+            <Typical className="story__p" steps={[story.endText, 1000]} wrapper="p" />
+            <div className="button__container">
+              <Button cssClassName="next__button" buttonName="Fin" url="/" />
+            </div>
+          </>
+        )}
+    </div>
   </div>
 );
 
