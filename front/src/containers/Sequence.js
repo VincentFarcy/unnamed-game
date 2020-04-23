@@ -5,6 +5,9 @@ import { connect } from 'react-redux';
 import Sequence from '../components/Sequence';
 import { findSequence } from '../actions/gamePlay';
 
+// Action Creators
+import { changeBg } from '../actions/gamePlay';
+
 // state
 const mapStateToProps = (state) => ({
   sequence: state.gameplay.sequenceToTell,
@@ -14,6 +17,9 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   findSequence: () => {
     dispatch(findSequence());
+  },
+  changeBg: (bgImageCssClass) => {
+    dispatch(changeBg(bgImageCssClass));
   },
 });
 
