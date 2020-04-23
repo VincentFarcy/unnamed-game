@@ -24,6 +24,7 @@ import Story from '../../containers/Story';
 import Sequence from '../../containers/Sequence';
 import Death from '../../containers/Death';
 import Combat from '../../containers/Combat';
+import Exploration from '../../containers/Exploration';
 import Reward from '../../containers/Reward';
 import CreateCharacter from '../../containers/CreateCharacter';
 import Event from '../../containers/Event';
@@ -68,6 +69,9 @@ const App = ({ isGameOn }) => (
         </Route>
         <Route exact path="/play/event">
           { !isGameOn ? <Redirect to="/play" /> : <Event />}
+        </Route>
+        <Route exact path="/play/exploration">
+          { !isGameOn ? <Redirect to="/play" /> : <Exploration />}
         </Route>
         <Route component={NotFound} />
       </Switch>

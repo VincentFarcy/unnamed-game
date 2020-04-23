@@ -22,6 +22,7 @@ import {
   RESTART_NEW_GAME,
   FIND_RANDOM_REWARD,
   FIND_EVENT,
+  FIND_EXPLORATION,
 }
   from '../actions/gamePlay';
 import { rollDice } from '../func';
@@ -73,6 +74,7 @@ const initialState = {
   rewards: '',
   sequenceToTell: '',
   currentEvent: '',
+  exploration: '',
   difficulty: 1,
   playerRoll: 1,
   player: {
@@ -146,6 +148,7 @@ const gameplay = (state = initialState, action = {}) => {
         currentEvent: '',
         difficulty: 1,
         playerRoll: 1,
+        exploration: '',
         player: {
           playerTotalHP: 0,
           playerCurrentHP: 0,
@@ -204,6 +207,7 @@ const gameplay = (state = initialState, action = {}) => {
         currentEvent: '',
         difficulty: 1,
         playerRoll: 1,
+        exploration: '',
         player: {
           playerTotalHP: 0,
           playerCurrentHP: 0,
@@ -332,6 +336,12 @@ const gameplay = (state = initialState, action = {}) => {
         difficulty: rollDice(3, 10),
         playerRoll: rollDice(1, 6),
       };
+    case FIND_EXPLORATION:
+      const randomEvent = findRandomExploration(state);
+      return {
+        ...state,
+        exploration: randomEvent,
+      };
     default:
       return state;
   }
@@ -438,3 +448,26 @@ export const findRandomReward = (state) => {
 
 //   return rightEvent;
 // };
+
+export const findRandomExploration = (state) => {
+  const RandomExplorationTable = state.chapters[0].randomEvents;
+  console.log(RandomExplorationTable);
+
+  // const findOpponentId = rollDice(1, 100);
+  // console.log(findOpponentId);
+
+  // const opponentTableId = opponentsTable.find(
+  //   (oppoRange) => (findOpponentId >= oppoRange.rollFrom && findOpponentId <= oppoRange.rollTo),
+  // );
+  // console.log(opponentTableId);
+
+  // const opponentId = opponentTableId.opponent.id;
+  // console.log(opponentId);
+
+  // const opponent = opponents.find(
+  //   (rightOpponent) => (opponentId === rightOpponent.id),
+  // );
+  // console.log(opponent);
+
+  return RandomExplorationTable;
+};
