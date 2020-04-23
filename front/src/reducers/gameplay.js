@@ -74,7 +74,9 @@ const initialState = {
   rewards: '',
   sequenceToTell: '',
   currentEvent: '',
-  exploration: '',
+  exploration: {
+    type: 'string',
+  },
   difficulty: 1,
   playerRoll: 1,
   player: {
@@ -148,7 +150,9 @@ const gameplay = (state = initialState, action = {}) => {
         currentEvent: '',
         difficulty: 1,
         playerRoll: 1,
-        exploration: '',
+        exploration: {
+          type: 'string',
+        },
         player: {
           playerTotalHP: 0,
           playerCurrentHP: 0,
@@ -207,7 +211,9 @@ const gameplay = (state = initialState, action = {}) => {
         currentEvent: '',
         difficulty: 1,
         playerRoll: 1,
-        exploration: '',
+        exploration: {
+          type: 'string',
+        },
         player: {
           playerTotalHP: 0,
           playerCurrentHP: 0,
@@ -337,10 +343,9 @@ const gameplay = (state = initialState, action = {}) => {
         playerRoll: rollDice(1, 6),
       };
     case FIND_EXPLORATION:
-      const randomEvent = findRandomExploration(state);
       return {
         ...state,
-        exploration: randomEvent,
+        exploration: findRandomExploration(state),
       };
     default:
       return state;
@@ -451,23 +456,14 @@ export const findRandomReward = (state) => {
 
 export const findRandomExploration = (state) => {
   const RandomExplorationTable = state.chapters[0].randomEvents;
-  console.log(RandomExplorationTable);
 
-  // const findOpponentId = rollDice(1, 100);
-  // console.log(findOpponentId);
+  const findExplorationTable = rollDice(1, 100);
 
-  // const opponentTableId = opponentsTable.find(
-  //   (oppoRange) => (findOpponentId >= oppoRange.rollFrom && findOpponentId <= oppoRange.rollTo),
-  // );
-  // console.log(opponentTableId);
+  const rightExplorationTable = RandomExplorationTable.find(
+    (explorationRange) => (findExplorationTable >= explorationRange.rollFrom
+      && findExplorationTable <= explorationRange.rollTo),
+  );
+  // console.log(rightExplorationTable);
 
-  // const opponentId = opponentTableId.opponent.id;
-  // console.log(opponentId);
-
-  // const opponent = opponents.find(
-  //   (rightOpponent) => (opponentId === rightOpponent.id),
-  // );
-  // console.log(opponent);
-
-  return RandomExplorationTable;
+  return rightExplorationTable;
 };

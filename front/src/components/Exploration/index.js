@@ -1,32 +1,39 @@
 // == Import npm
 import React, { useEffect } from 'react';
-import Typical from 'react-typical';
 import PropTypes from 'prop-types';
-import Button from '../LinkButton';
 
 // == Import local
 import './style.scss';
+import Combat from '../../containers/Combat';
+import Reward from '../../containers/Reward';
+import Event from '../../containers/Event';
+import Sequence from '../../containers/Sequence';
+import Story from '../../containers/Story';
 
 // == Component
 const Exploration = ({ findExploration, randomExploration }) => {
   useEffect(findExploration, []);
-  console.log(randomExploration);
+  const exploration = randomExploration.type;
+  console.log(exploration);
 
   return (
-    <div className="main__play">
-      <p className="event__title">Exploration</p>
-      <Typical className="story__p" steps={['Exploration', 1000]} wrapper="p" />
-      <div className="button__container">
-        <Button cssClassName="next__button" buttonName="Suivant" url="/play/death" />
-      </div>
-    </div>
+    <>
+      {exploration === 'nothing' ? <Story /> : ''}
+      {exploration === 'fight' ? <Combat /> : ''}
+      {exploration === 'reward' ? <Reward /> : ''}
+      {exploration === 'fight and reward' ? <Combat withReward /> : ''}
+      {exploration === 'attribute' ? <Event /> : ''}
+      {exploration === 'attribute and reward' ? <Event withReward /> : ''}
+    </>
   );
 };
 
 // == Props validation
 Exploration.propTypes = {
   findExploration: PropTypes.func.isRequired,
-  randomExploration: PropTypes.array.isRequired,
+  randomExploration: PropTypes.shape({
+    type: PropTypes.string,
+  }).isRequired,
 };
 
 // == Export
