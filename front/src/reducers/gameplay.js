@@ -22,6 +22,7 @@ import {
   FIND_SEQUENCE,
   RESTART_NEW_GAME,
   FIND_RANDOM_REWARD,
+  ADD_OPPONNENT_REWARD,
   CHANGE_BG,
 }
   from '../actions/gamePlay';
@@ -97,6 +98,8 @@ const initialState = {
       speed: 0,
       touch: 0,
       dodge: 0,
+      xpGain: 0,
+      moneyGain: 0,
     },
   },
   bgImageCssClass: '',
@@ -122,6 +125,10 @@ const gameplay = (state = initialState, action = {}) => {
         rewards: {
           xpRoll: 0,
           jsxRoll: 0,
+        },
+        opponentRewards : {
+          xpCombatReward: 0,
+          jsxCombatReward: 0,
         },
         sequenceToTell: '',
         player: {
@@ -299,6 +306,15 @@ const gameplay = (state = initialState, action = {}) => {
           xp: state.player.xp + randomReward.xpRoll,
         }
       };
+    case ADD_OPPONNENT_REWARD:
+      const opponentReward = addOpponnentReward(state);
+      console.log('rewards combat', opponentReward)
+      return {
+        ...state,
+        opponentRewards: addOpponnentReward,
+        jsx: state.jsx +  opponentReward.jsxCombatReward,
+        xp: state.xp + opponentReward.xpCombatReward,
+      }
     case CHANGE_BG:
       return {
         ...state,

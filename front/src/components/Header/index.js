@@ -21,11 +21,11 @@ const Header = ({
   startGame,
   isExpanded,
   toggleMenu,
-  changeBg,
+  changeBg,  
 }) => {
   //
-  const handleClick = (evt) => {
-    if (evt.target.tagName === 'A' || evt.target.tagName === 'BUTTON') {
+  const handleClick = (evt) => {    
+    if (evt.target.tagName === 'A' || evt.target.tagName === 'BUTTON' || evt.target.tagName === 'IMG') {
       initUserState();
       toggleMenu(false);
       resetGame();
