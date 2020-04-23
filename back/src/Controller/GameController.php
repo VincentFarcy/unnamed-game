@@ -206,6 +206,10 @@ class GameController extends AbstractController
             $hero = $newHero;
         }
 
+        // temp : delete all backups of the hero before adding a new one
+        foreach ($hero->getBackups() as $iBackup){
+            $em->remove($iBackup);
+        }
 
         // Prepare backup before add in DB
         $backup = new Backup();
