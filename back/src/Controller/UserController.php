@@ -28,8 +28,13 @@ class UserController extends AbstractController
     {
         // Get connected user
         $user = $this->GetUser();
+        // Get Heroes
+        $heroes = $user->getHeroes();
+        // Get 1st hero
+        $hero = $heroes[0];
+        $user = $this->GetUser();
         // His backups
-        $backups = $backupRepository->findBy([], ['createdAt' => 'DESC']);
+        $backups = $backupRepository->findBy(['hero' => $hero->getId()], ['createdAt' => 'DESC']);
         // Send data
         return $this->json([
             'user' => 
