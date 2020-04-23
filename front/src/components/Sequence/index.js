@@ -11,8 +11,14 @@ import './style.scss';
 
 
 // == Component
-const Sequence = ({ sequence, findSequence }) => {
+const Sequence = ({ changeBg, sequence, findSequence }) => {
   useEffect(findSequence, []);
+  useEffect(() => {
+    changeBg('bg--sequence');
+  }, []);
+  const handleClick = () => {
+    changeBg('');
+  };
   return (
     <>
       {sequence.id === 99 ? <Story />
@@ -25,7 +31,7 @@ const Sequence = ({ sequence, findSequence }) => {
               wrapper="p"
             />
             <div className="button__container">
-              <Button cssClassName="next__button" buttonName="Suivant" url="/play/combat" />
+              <Button cssClassName="next__button" buttonName="Suivant" url="/play/combat" onClick={handleClick} />
             </div>
           </div>
         )}
@@ -40,6 +46,7 @@ Sequence.propTypes = {
   //   id: PropTypes.number.isRequired,
   //   mainText: PropTypes.string.isRequired,
   // }).isRequired,
+  changeBg: PropTypes.func.isRequired,
 };
 
 

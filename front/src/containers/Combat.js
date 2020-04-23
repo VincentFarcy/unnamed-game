@@ -10,6 +10,9 @@ import {
   endFight,
 } from '../actions/gamePlay';
 
+// Action Creators
+import { changeBg } from '../actions/gamePlay';
+
 // state
 const mapStateToProps = (state) => ({
   opponent: state.gameplay.combat.currentOpponent,
@@ -32,6 +35,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   endFight: () => {
     dispatch(endFight());
+  },
+  changeBg: (bgImageCssClass) => {
+    dispatch(changeBg(bgImageCssClass));
   },
 });
 

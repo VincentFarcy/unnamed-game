@@ -1,5 +1,5 @@
 // == Import npm
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
 import LinkButton from '../LinkButton';
@@ -11,8 +11,20 @@ import Loader from '../Loader';
 import Ability from '../../containers/Ability';
 
 // == Component
-const CreateCharacter = ({ isLoading, abilities, pool }) => (
-  isLoading && <Loader />
+const CreateCharacter = ({
+  changeBg,
+  isLoading,
+  abilities,
+  pool,
+}) => {
+  useEffect(() => {
+    changeBg('bg--create');
+  }, []);
+  const handleClick = () => {
+    changeBg('');
+  };
+  return (
+    isLoading && <Loader />
   || !isLoading &&
     (
     <div className="main__play">
@@ -29,12 +41,13 @@ const CreateCharacter = ({ isLoading, abilities, pool }) => (
           ))
         }
         <div className="button__container">
-          { (pool == 0) && <LinkButton cssClassName="validate__button" buttonName="Valider" url="/play/story" /> }
+          { (pool == 0) && <LinkButton cssClassName="validate__button" buttonName="Valider" url="/play/story" onClick={handleClick} /> }
         </div>
       </div>
     </div>
     )
-);
+  );
+};
 
 // == Props validation
 CreateCharacter.propTypes = {
@@ -46,6 +59,7 @@ CreateCharacter.propTypes = {
     }),
   ).isRequired,
   pool: PropTypes.number.isRequired,
+  changeBg: PropTypes.func.isRequired,
 };
 
 
