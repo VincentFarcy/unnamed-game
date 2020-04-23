@@ -15,6 +15,7 @@ import {
   INCREMENT_CREATE_CHARACTER,
   DECREMENT_CREATE_CHARACTER,
   FIND_OPPONENT,
+  COMBAT_IN_PROGRESS,
   APPLY_DAMAGE,
   NEXT_SEQUENCE,
   END_FIGHT,
@@ -22,6 +23,7 @@ import {
   RESTART_NEW_GAME,
   FIND_RANDOM_REWARD,
   FIND_EVENT,
+  CHANGE_BG,
 }
   from '../actions/gamePlay';
 import { rollDice } from '../func';
@@ -70,7 +72,10 @@ const initialState = {
   phpTimer: 1,
   xp: 0,
   jsx: 0,
-  rewards: '',
+  rewards: {
+    xpRoll: 0,
+    jsxRoll: 0,
+  },
   sequenceToTell: '',
   currentEvent: '',
   difficulty: 1,
@@ -83,11 +88,16 @@ const initialState = {
   },
   combat: {
     isCombatOn: true,
+    combatInProgress: false,
     // currentOponent is empty until OpponentCombatInfo is rendered
     currentOpponent: {
       opponentCurrentHP: 0,
+      speed: 0,
+      touch: 0,
+      dodge: 0,
     },
   },
+  bgImageCssClass: '',
 };
 
 // == Reducer
@@ -141,7 +151,10 @@ const gameplay = (state = initialState, action = {}) => {
         phpTimer: 1,
         xp: 0,
         jsx: 0,
-        rewards: '',
+        rewards: {
+          xpRoll: 0,
+          jsxRoll: 0,
+        },
         sequenceToTell: '',
         currentEvent: '',
         difficulty: 1,
@@ -152,10 +165,16 @@ const gameplay = (state = initialState, action = {}) => {
         },
         combat: {
           isCombatOn: true,
+          combatInProgress: false,
+          // currentOponent is empty until OpponentCombatInfo is rendered
           currentOpponent: {
             opponentCurrentHP: 0,
+            speed: 0,
+            touch: 0,
+            dodge: 0,
           },
         },
+        bgImageCssClass: '',
       };
     case CHANGE_GAME_STATUS:
       return {
@@ -220,10 +239,6 @@ const gameplay = (state = initialState, action = {}) => {
         ...state,
         ...action.payload,
         pool: action.payload.gameParameters.attribute_points,
-        gameParameters: {
-          ...state.gameParameters,
-          ...action.payload.gameParameters,
-        },
       };
     case GAME_DATA_ERROR:
       return {
@@ -281,6 +296,14 @@ const gameplay = (state = initialState, action = {}) => {
           },
         },
       };
+    case COMBAT_IN_PROGRESS:
+      return {
+        ...state,
+        combat: {
+          ...state.combat,
+          combatInProgress: true,
+        }
+      }
     case APPLY_DAMAGE:
       return {
         ...state,
@@ -313,11 +336,11 @@ const gameplay = (state = initialState, action = {}) => {
         combat: {
           ...state.combat,
           isCombatOn: false,
+          combatInProgress: false,
         },
       };
     case FIND_RANDOM_REWARD:
       const randomReward = findRandomReward(state);
-      console.log('get random rewards', randomReward);
       return {
         ...state,
         rewards: randomReward,
@@ -331,6 +354,10 @@ const gameplay = (state = initialState, action = {}) => {
         ...state,
         difficulty: rollDice(3, 10),
         playerRoll: rollDice(1, 6),
+    case CHANGE_BG:
+      return {
+        ...state,
+        bgImageCssClass: action.bgImageCssClass,
       };
     default:
       return state;

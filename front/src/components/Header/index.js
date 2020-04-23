@@ -17,9 +17,11 @@ const Header = ({
   isLogged,
   initUserState,
   resetGame,
+  restartNewGame,
   startGame,
   isExpanded,
   toggleMenu,
+  changeBg,
 }) => {
   //
   const handleClick = (evt) => {
@@ -27,6 +29,8 @@ const Header = ({
       initUserState();
       toggleMenu(false);
       resetGame();
+      changeBg('');
+      restartNewGame();
     }
   };
 
@@ -109,6 +113,7 @@ Header.propTypes = {
   startGame: PropTypes.func.isRequired,
   isExpanded: PropTypes.bool.isRequired,
   toggleMenu: PropTypes.func.isRequired,
+  changeBg: PropTypes.func.isRequired,
 };
 
 // == Export

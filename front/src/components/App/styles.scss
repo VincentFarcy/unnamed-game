@@ -11,6 +11,26 @@
   background-attachment: fixed;
 }
 
+.bg--404 {
+  background-image: url('../../assets/images/mihai-muscan-42.jpg');
+}
+
+.bg--create {
+  background-image: url('../../assets/images/mihai-muscan-4.jpg');
+}
+
+.bg--combat {
+  background-image: url('../../assets/images/mihai-muscan-27-9.jpg');
+}
+
+.bg--sequence {
+  background-image: url('../../assets/images/samuel-guerrouche-screenshot004.jpg');
+}
+
+.bg--hidden {
+  background-image: url('../../assets/images/mihai-muscan-42.jpg');
+}
+
 .app > * { 
   min-width: 300px;
 }

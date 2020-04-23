@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import CreateCharacter from 'src/components/CreateCharacter';
 
 // Action Creators
+import { changeBg } from '../actions/gamePlay';
 
 /* === State (données) === */
 const mapStateToProps = (state) => ({
@@ -14,7 +15,11 @@ const mapStateToProps = (state) => ({
 });
 
 /* === Actions === */
-const mapDispatchToProps = {};
+const mapDispatchToProps = (dispatch) => ({
+  changeBg: (bgImageCssClass) => {
+    dispatch(changeBg(bgImageCssClass));
+  },
+});
 
 // Container
 const CreateCharacterContainer = connect(
