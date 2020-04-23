@@ -15,6 +15,7 @@ export const FIND_SEQUENCE = 'FIND_SEQUENCE';
 export const RESTART_NEW_GAME = 'RESTART_NEW_GAME';
 export const FIND_RANDOM_REWARD = 'FIND_RANDOM_REWARD';
 export const FIND_EVENT = 'FIND_EVENT';
+export const ADD_OPPONNENT_REWARD = 'ADD_OPPONNENT_REWARD';
 export const CHANGE_BG = 'CHANGE_BG';
 
 // == Action creators
@@ -83,7 +84,12 @@ export const findRandomReward = () => ({
 });
 
 export const findEvent = () => ({
-  type: FIND_EVENT, 
+  type: FIND_EVENT,
+});
+
+export const addOpponnentReward = ()=> ({
+  type: ADD_OPPONNENT_REWARD,
+  front-bonus
 });
 
 export const changeBg = (bgImageCssClass) => ({

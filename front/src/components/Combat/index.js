@@ -6,8 +6,8 @@ import { Button } from 'react-bootstrap';
 // == Import local
 import './style.scss';
 import AdvancedInfo from '../../containers/AdvancedInfo';
-import PlayerCombatInfo from '../../containers/PlayerCombatInfo';
-import OpponentCombatInfo from '../../containers/OpponentCombatInfo';
+import PlayerCombatInfo from '../../containers/Combat/PlayerCombatInfo';
+import OpponentCombatInfo from '../../containers/Combat/OpponentCombatInfo';
 import LinkButton from '../LinkButton';
 import { rollDice } from '../../func';
 
