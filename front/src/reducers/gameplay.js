@@ -148,19 +148,29 @@ const gameplay = (state = initialState, action = {}) => {
         phpTimer: 1,
         xp: 0,
         jsx: 0,
-        rewards: '',
+        rewards: {
+          xpRoll: 0,
+          jsxRoll: 0,
+        },
         sequenceToTell: '',
-        currentEvent: '',
         player: {
+          // Total player's health point
           playerTotalHP: 0,
+          // player current health point which is initialized at the same time as playerTotalHP
           playerCurrentHP: 0,
         },
         combat: {
           isCombatOn: true,
+          combatInProgress: false,
+          // currentOponent is empty until OpponentCombatInfo is rendered
           currentOpponent: {
             opponentCurrentHP: 0,
+            speed: 0,
+            touch: 0,
+            dodge: 0,
           },
         },
+        bgImageCssClass: '',
       };
     case CHANGE_GAME_STATUS:
       return {
