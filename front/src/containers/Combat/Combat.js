@@ -2,17 +2,17 @@
 import { connect } from 'react-redux';
 
 // local imports
-import Combat from '../components/Combat';
+import Combat from '../../components/Combat';
 import {
   findOpponent,
   combatInProgress,
   applyDamage,
   nextSequence,
   endFight,
-} from '../actions/gamePlay';
+} from '../../actions/gamePlay';
 
 // Action Creators
-import { changeBg } from '../actions/gamePlay';
+import { changeBg } from '../../actions/gamePlay';
 
 // state
 const mapStateToProps = (state) => ({

@@ -6,7 +6,7 @@ import { Switch, Route, Redirect, useParams } from 'react-router-dom';
 // == Import local
 // == Import Website Components
 import './styles.scss';
-import Header from '../../containers/Header';
+import Header from '../../containers/Header/Header';
 import MainSite from '../../containers/MainSite';
 import Team from '../Team';
 import Acknowledgements from '../Acknowledgements';
@@ -22,9 +22,9 @@ import MainPlay from '../../containers/MainPlay';
 import Story from '../../containers/Story';
 import Sequence from '../../containers/Sequence';
 import Death from '../../containers/Death';
-import Combat from '../../containers/Combat';
+import Combat from '../../containers/Combat/Combat';
 import Reward from '../../containers/Reward';
-import CreateCharacter from '../../containers/CreateCharacter';
+import CreateCharacter from '../../containers/CreateCharacter/CreateCharacter';
 import Footer from '../Footer';
 
 const temp= "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque illo vitae et? Est eius beatae at, sed autem nulla ratione fugit natus officia aspernatur exercitationem non aliquam quam accusamus quasi?";
