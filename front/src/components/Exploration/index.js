@@ -14,6 +14,7 @@ const Exploration = ({ findExploration, randomExploration, eventNothing }) => {
   useEffect(findExploration, []);
   const exploration = randomExploration.type;
 
+
   return (
     <>
       {exploration === 'nothing' ? <Nothing eventNothing={eventNothing} /> : ''}

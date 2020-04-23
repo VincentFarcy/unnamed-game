@@ -17,6 +17,8 @@ export const FIND_EVENT = 'FIND_EVENT';
 export const FIND_EXPLORATION = 'FIND_EXPLORATION';
 export const EVENT_NOTHING = 'EVENT_NOTHING';
 export const REST_ACTION = 'REST_ACTION';
+export const MEDIC_ACTION = 'MEDIC_ACTION';
+export const MEDIC_FAIL = 'MEDIC_FAIL';
 
 
 // == Action creators
@@ -94,4 +96,12 @@ export const eventNothing = () => ({
 
 export const actionRest = () => ({
   type: REST_ACTION,
+});
+
+export const actionMedic = () => ({
+  type: MEDIC_ACTION,
+});
+
+export const actionMedicFail = () => ({
+  type: MEDIC_FAIL,
 });

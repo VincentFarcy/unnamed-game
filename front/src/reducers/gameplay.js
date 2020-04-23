@@ -25,6 +25,8 @@ import {
   FIND_EXPLORATION,
   EVENT_NOTHING,
   REST_ACTION,
+  MEDIC_ACTION,
+  MEDIC_FAIL,
 }
   from '../actions/gamePlay';
 import { rollDice } from '../func';
@@ -72,7 +74,7 @@ const initialState = {
   pool: 0,
   phpTimer: 1,
   xp: 0,
-  jsx: 0,
+  jsx: 10,
   rewards: '',
   sequenceToTell: '',
   currentEvent: '',
@@ -146,7 +148,7 @@ const gameplay = (state = initialState, action = {}) => {
         pool: 0,
         phpTimer: 1,
         xp: 0,
-        jsx: 0,
+        jsx: 10,
         rewards: '',
         sequenceToTell: '',
         currentEvent: '',
@@ -207,7 +209,7 @@ const gameplay = (state = initialState, action = {}) => {
         pool: 0,
         phpTimer: 1,
         xp: 0,
-        jsx: 0,
+        jsx: 10,
         rewards: '',
         sequenceToTell: '',
         currentEvent: '',
@@ -360,8 +362,23 @@ const gameplay = (state = initialState, action = {}) => {
         phpTimer: state.phpTimer + 1,
         player: {
           ...state.player,
-          playerCurrentHP: (state.player.playerCurrentHP + state.player.baseHealing + rollDice(1, 4)),
+          playerCurrentHP: (state.player.playerCurrentHP + state.player.baseHealing + rollDice(1, 2)),
         },
+      };
+    case MEDIC_ACTION:
+      return {
+        ...state,
+        phpTimer: state.phpTimer + 1,
+        jsx: state.jsx - 10,
+        player: {
+          ...state.player,
+          playerCurrentHP: state.player.playerTotalHP,
+        },
+      };
+    case MEDIC_FAIL:
+      return {
+        ...state,
+        phpTimer: state.phpTimer + 1,
       };
     default:
       return state;

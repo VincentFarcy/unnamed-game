@@ -164,7 +164,7 @@ const Combat = ({
                 <LinkButton
                   cssClassName="choice btn-warning"
                   buttonName="Suivant"
-                  url={playerHP > 0 ? '/play/rest' : '/play/death'}
+                  url={playerHP > 0 ? '/play/medic' : '/play/death'}
                 />
               </div>
             )
