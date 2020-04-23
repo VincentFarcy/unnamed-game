@@ -36,6 +36,8 @@ import {
   findRandomReward,
   addOpponnentReward,
 } from '../selectors/gameplay';
+// import functions
+import { rollDice } from '../func';
 
 
 // == State

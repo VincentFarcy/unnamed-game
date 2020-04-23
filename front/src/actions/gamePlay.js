@@ -89,7 +89,6 @@ export const findEvent = () => ({
 
 export const addOpponnentReward = ()=> ({
   type: ADD_OPPONNENT_REWARD,
-  front-bonus
 });
 
 export const changeBg = (bgImageCssClass) => ({
