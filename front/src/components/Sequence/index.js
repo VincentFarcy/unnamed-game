@@ -7,29 +7,35 @@ import Story from '../../containers/Story';
 import Hal from './halInfo';
 
 // == Import local
-import './style.scss';
+import '../Story/style.scss';;
 
 
 // == Component
-const Sequence = ({ sequence, findSequence }) => {
+const Sequence = ({ changeBg, sequence, findSequence }) => {
   useEffect(findSequence, []);
+  useEffect(() => {
+    changeBg('bg--sequence');
+  }, []);
+  const handleClick = () => {
+    changeBg('');
+  };
   return (
-    <>
+    <div className="story-container">
       {sequence.id === 99 ? <Story />
         : (
           <div className="main__play">
-            <p className="sequence__title">{sequence.title}</p>
+            <p className="story__title">{sequence.title}</p>
             <Typical
-              className="sequence__p"
+              className="story__p"
               steps={[sequence.mainText, 1000]}
               wrapper="p"
             />
             <div className="button__container">
-              <Button cssClassName="next__button" buttonName="Suivant" url="/play/combat" />
+              <Button cssClassName="next__button" buttonName="Suivant" url="/play/combat" onClick={handleClick} />
             </div>
           </div>
         )}
-    </>
+    </div>
   );
 };
 
@@ -40,6 +46,7 @@ Sequence.propTypes = {
   //   id: PropTypes.number.isRequired,
   //   mainText: PropTypes.string.isRequired,
   // }).isRequired,
+  changeBg: PropTypes.func.isRequired,
 };
 
 

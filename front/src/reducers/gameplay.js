@@ -22,6 +22,7 @@ import {
   FIND_SEQUENCE,
   RESTART_NEW_GAME,
   FIND_RANDOM_REWARD,
+  CHANGE_BG,
 }
   from '../actions/gamePlay';
 import { rollDice } from '../func';
@@ -92,6 +93,7 @@ const initialState = {
       dodge: 0,
     },
   },
+  bgImageCssClass: '',
 };
 
 // == Reducer
@@ -275,6 +277,12 @@ const gameplay = (state = initialState, action = {}) => {
         rewards: randomReward,
         jsx: state.jsx + randomReward.jsxRoll,
         xp: state.xp + randomReward.xpRoll,
+      };
+    case CHANGE_BG:
+      console.log("test");
+      return {
+        ...state,
+        bgImageCssClass: action.bgImageCssClass,
       };
     default:
       return state;

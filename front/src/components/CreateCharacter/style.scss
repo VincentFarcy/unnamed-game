@@ -1,187 +1,197 @@
-.title__container { // all class
-  margin-bottom: 1rem;
-}
+.create-character-container {
 
-.main__play__title {
-  font-size: 1.8em;
-  text-align: center;
-}
+  .title__container {
+    margin-bottom: 1rem;
+  }
 
-/* === Ability pool === */
-.ability_pool__container {
-  width: 100%;
-  font-size: 1.3em;
-  font-weight: 700;
-  padding-left: 1em;
-  border-radius: 5px;
-  max-width: 450px; //vf
-  margin-bottom: 1rem; //vf
-}
+  .main__play__title {
+    font-size: 1.8em;
+    text-align: center;
+  }
 
-.ability_main__container p {  //vf all class
-  margin-bottom: 0;
-}
+  /* === Ability pool === */
+  .ability_pool__container {
+    width: 100%;
+    font-size: 1.3em;
+    font-weight: 700;
+    padding-left: 1em;
+    border-radius: 5px;
+    max-width: 450px; //vf
+    margin-bottom: 1rem; //vf
+  }
 
-.ability_pool__text {   // vf all class
-  text-align: center;
-  color: orange;
-}
+  .ability_main__container p {  //vf all class
+    margin-bottom: 0;
+  }
 
-.ability_main__container {   // vf all class
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+  .ability_pool__text {   // vf all class
+    text-align: center;
+    color: orange;
+  }
 
-/* === Ability container === */
-.ability__container {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  min-width: 300px;
-  max-width: 450px;
-  margin: 0.5em 0;
-  font-size: 1.2em;
-  align-items: center;
-}
+  .ability_main__container {   // vf all class
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 
-.ability__button{
-  display: flex;
-  margin: 0 1em;
-  width: 1.2em;
-  height: 1.2em;
-  border-radius: 50%;
-  justify-content: center;
-  border: none;
-  line-height: 100%;
-}
+  /* === Ability container === */
+  .ability__container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    min-width: 300px;
+    max-width: 450px;
+    margin: 0.5em 0;
+    font-size: 1.2em;
+    align-items: center;
+  }
 
-.ability__button:focus{
-  outline: none !important;
-  outline-offset: none !important;
-}
+  .ability__button{
+    display: flex;
+    margin: 0 1em;
+    width: 1.2em;
+    height: 1.2em;
+    border-radius: 50%;
+    justify-content: center;
+    border: none;
+    line-height: 100%;
+  }
 
-.ability__value, .ability_pool__value {
-  padding-left: 1em;
-  width: 5%;
-}
+  .ability__button:focus{
+    outline: none !important;
+    outline-offset: none !important;
+  }
 
-.ability {
-  width: 40%;
-  padding-left: 1em;
-}
+  .ability__value, .ability_pool__value {
+    padding-left: 1em;
+    width: 5%;
+  }
 
-.ability__image {
-  width: 1.2em;
-  height: 1.2em;
-}
+  .ability {
+    width: 40%;
+    padding-left: 1em;
+  }
 
-/* === Validate button === */
-.button__container {
-  width: 30%;
-  min-width: 140px;
-  margin: 1rem 0;
-}
+  .ability__image {
+    width: 1.2em;
+    height: 1.2em;
+  }
 
-.validate__button {
-  width: 100%;
-  margin: auto;
-  padding: 0.25em 0;
-  background: rgba(238, 236, 236, 0.4);
-  border-radius: 10px;
-  border-color: rgba(238, 236, 236, 0.4);
-  color: rgb(248, 250, 250); 
-  box-shadow:  -4px 4px 16px #2f3030, 
-  4px -4px 16px #b4b7b9;
+  /* === Validate button === */
+  .main__play  .button__container {
+    width: 30%;
+    min-width: 140px;
+    margin: 1rem 0;
+  }
+
+  .validate__button {
+    width: 100%;
+    margin: auto;
+    padding: 0.25em 0;
+    background: rgba(238, 236, 236, 0.4);
+    border-radius: 10px;
+    border-color: rgba(238, 236, 236, 0.4);
+    color: rgb(248, 250, 250); 
+    box-shadow:  -4px 4px 16px #2f3030, 
+    4px -4px 16px #b4b7b9;
+  }
 }
 
 /* === medium screen === */
 @media screen AND (min-width: 768px) {
 
-  .title__container { 
-    margin-bottom: 1.6rem;
-  }
+  .create-character-container {
 
-  .main__play__title {
-    font-size: 2em;
-  }
+    .title__container { 
+      margin-bottom: 1.6rem;
+    }
 
-  .ability_pool__container {
-    max-width: none;
-    font-size: 1.8em;
-    border-radius: 5px;
-    margin-bottom: 0;
-  }
+    .main__play__title {
+      font-size: 2em;
+    }
 
-  .ability__container {
-    min-width: 590px;
-    font-size: 1.8em;
-    margin: 1rem auto 0 auto;
-  }
+    .ability_pool__container {
+      max-width: none;
+      font-size: 1.8em;
+      border-radius: 5px;
+      margin-bottom: 0;
+    }
 
-  .ability__button {
-    width: 1.4em;
-    height: 1.4em;
-    border-radius: 50%;
-  }
+    .ability__container {
+      min-width: 590px;
+      font-size: 1.8em;
+      margin: 1rem auto 0 auto;
+    }
 
-  .ability__image {
-    width: 2em;
-    height: 2em;
-  }
+    .ability__button {
+      width: 1.4em;
+      height: 1.4em;
+      border-radius: 50%;
+    }
 
-  .button__container {
-    min-width: 200px;
-    margin: 1.6rem 0;
-  }
+    .ability__image {
+      width: 2em;
+      height: 2em;
+    }
 
-  .validate__button {
-    font-size: 1.8em;
+    .button__container {
+      min-width: 200px;
+      margin: 1.6rem 0;
+    }
+
+    .validate__button {
+      font-size: 1.8em;
+    }
   }
 }
 
 
 /* === large screen / desktop === */
 @media screen AND (min-width: 992px) {
-  .main__play__title {
-    font-size: 2.5em;
-  }
 
-  .ability_pool__container {
-    font-size: 2.2em;
-  }
+  .create-character-container {
 
-  .ability__container {
-    min-width: 760px;
-    font-size: 2.2em;
-   }
+    .main__play__title {
+      font-size: 2.5em;
+    }
 
-  .ability__button {
-    width: 1.2em;
-    height: 1.2em;
-    border-radius: 50%;
-    transition-duration: 0.3s;
-    transition-property: background-color, color, transform ;
-  }
+    .ability_pool__container {
+      font-size: 2.2em;
+    }
 
-  .ability__button:hover{
-    background-color: grey;
-    color: white;
-    transform: scale(1.4);
-  }
- 
-  .validate__button {
-    font-size: 2.5em;
-    transition-duration: 0.3s;
-    transition-property: border-color, background-color, box-shadow, color;
-  }
+    .ability__container {
+      min-width: 760px;
+      font-size: 2.2em;
+    }
 
-  .validate__button:hover {
-    background-color: rgba(238, 236, 236, 0.4);
-    color: rgb(248, 250, 250); 
-    box-shadow:  -4px 4px 16px #2f3030, 
-                 4px -4px 16px #9abbcb;
+    .ability__button {
+      width: 1.2em;
+      height: 1.2em;
+      border-radius: 50%;
+      transition-duration: 0.3s;
+      transition-property: background-color, color, transform ;
+    }
+
+    .ability__button:hover{
+      background-color: grey;
+      color: white;
+      transform: scale(1.4);
+    }
+  
+    .validate__button {
+      font-size: 2.5em;
+      transition-duration: 0.3s;
+      transition-property: border-color, background-color, box-shadow, color;
+    }
+
+    .validate__button:hover {
+      background-color: rgba(238, 236, 236, 0.4);
+      color: rgb(248, 250, 250); 
+      box-shadow:  -4px 4px 16px #2f3030, 
+                  4px -4px 16px #9abbcb;
+    }
   }
 }
 
