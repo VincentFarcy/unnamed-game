@@ -271,7 +271,6 @@ const gameplay = (state = initialState, action = {}) => {
       };
     case FIND_RANDOM_REWARD:
       const randomReward = findRandomReward(state);
-      console.log('get random rewards', randomReward);
       return {
         ...state,
         rewards: randomReward,
@@ -279,7 +278,6 @@ const gameplay = (state = initialState, action = {}) => {
         xp: state.xp + randomReward.xpRoll,
       };
     case CHANGE_BG:
-      console.log("test");
       return {
         ...state,
         bgImageCssClass: action.bgImageCssClass,
