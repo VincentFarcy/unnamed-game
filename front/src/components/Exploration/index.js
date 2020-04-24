@@ -13,7 +13,6 @@ import Nothing from './nothing';
 const Exploration = ({ findExploration, randomExploration, eventNothing }) => {
   useEffect(findExploration, []);
   const exploration = randomExploration.type;
-  console.log(exploration);
 
   return (
     <>

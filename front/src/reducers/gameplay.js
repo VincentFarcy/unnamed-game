@@ -25,6 +25,7 @@ import {
   FIND_EVENT,
   FIND_EXPLORATION,
   EVENT_NOTHING,
+  REST_ACTION,
   ADD_OPPONNENT_REWARD,
   CHANGE_BG,
 }
@@ -430,6 +431,15 @@ const gameplay = (state = initialState, action = {}) => {
         ...state,
         bgImageCssClass: action.bgImageCssClass,
 
+      };
+    case REST_ACTION:
+      return {
+        ...state,
+        phpTimer: state.phpTimer + 1,
+        player: {
+          ...state.player,
+          playerCurrentHP: (state.player.playerCurrentHP + state.player.baseHealing + rollDice(1, 4)),
+        },
       };
     default:
       return state;
