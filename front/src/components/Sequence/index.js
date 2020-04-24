@@ -31,7 +31,7 @@ const Sequence = ({ changeBg, sequence, findSequence }) => {
               wrapper="p"
             />
             <div className="button__container">
-              <Button cssClassName="next__button" buttonName="Suivant" url="/play/event" onClick={handleClick} />
+              <Button cssClassName="next__button" buttonName="Suivant" url="/play/exploration" onClick={handleClick} />
             </div>
           </div>
         )}

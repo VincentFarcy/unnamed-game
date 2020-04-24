@@ -23,6 +23,8 @@ import {
   RESTART_NEW_GAME,
   FIND_RANDOM_REWARD,
   FIND_EVENT,
+  FIND_EXPLORATION,
+  EVENT_NOTHING,
   ADD_OPPONNENT_REWARD,
   CHANGE_BG,
 }
@@ -54,6 +56,9 @@ const initialState = {
   },
   sequenceToTell: '',
   currentEvent: '',
+  exploration: {
+    type: 'string',
+  },
   difficulty: 1,
   playerRoll: 1,
   player: {
@@ -141,6 +146,9 @@ const gameplay = (state = initialState, action = {}) => {
         currentEvent: '',
         difficulty: 1,
         playerRoll: 1,
+        exploration: {
+          type: 'string',
+        },
         player: {
           pool: 0,
           abilities: [
@@ -213,6 +221,9 @@ const gameplay = (state = initialState, action = {}) => {
         currentEvent: '',
         difficulty: 1,
         playerRoll: 1,
+        exploration: {
+          type: 'string',
+        },
         player: {
           pool: 0,
           abilities: [
@@ -392,6 +403,16 @@ const gameplay = (state = initialState, action = {}) => {
         difficulty: rollDice(3, 10),
         playerRoll: rollDice(1, 6),
       };
+
+    case FIND_EXPLORATION:
+      return {
+        ...state,
+        exploration: findRandomExploration(state),
+      };
+    case EVENT_NOTHING:
+      return {
+        ...state,
+
     case ADD_OPPONNENT_REWARD:
       const opponentReward = addOpponnentReward(state);
       console.log('rewards combat', opponentReward)
@@ -408,6 +429,7 @@ const gameplay = (state = initialState, action = {}) => {
       return {
         ...state,
         bgImageCssClass: action.bgImageCssClass,
+
       };
     default:
       return state;
@@ -418,3 +440,18 @@ const gameplay = (state = initialState, action = {}) => {
 
 // == Export
 export default gameplay;
+
+
+export const findRandomExploration = (state) => {
+  const RandomExplorationTable = state.chapters[0].randomEvents;
+
+  const findExplorationTable = rollDice(1, 100);
+
+  const rightExplorationTable = RandomExplorationTable.find(
+    (explorationRange) => (findExplorationTable >= explorationRange.rollFrom
+      && findExplorationTable <= explorationRange.rollTo),
+  );
+  // console.log(rightExplorationTable);
+
+  return rightExplorationTable;
+};
