@@ -357,6 +357,7 @@ const gameplay = (state = initialState, action = {}) => {
           baseHealing: Math.floor(
             ((action.backups[0].will / 2) + (action.backups[0].intelligence / 2)),
           ),
+          hacking: ((action.backups[0].intelligence) + Math.floor((action.backups[0].will / 3))),
           abilities: [
             {
               ...state.player.abilities[0],
