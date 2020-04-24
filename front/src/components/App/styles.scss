@@ -132,6 +132,17 @@ main > div {
   z-index:10;
 }
 
+/* === generic components === */
+.generic-button {
+  background: $generic-button-background;
+  border-radius: 10px;
+  border-color: $generic-button-background;
+  color: $generic-button-color; 
+  box-shadow:  -4px 4px 16px $generic-button-lower-shadow, 
+  4px -4px 16px $generic-button-upper-shadow;
+  font-weight: 900;
+}
+
 /* === large screen === */
 @media screen AND (min-width: 992px) {
   .header {

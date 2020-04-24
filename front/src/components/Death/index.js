@@ -23,7 +23,7 @@ const Death = ({ restartNewGame }) => {
       <Image className="death__image" src={loose} rounded />
       <div className="button__container">
         <Button
-          cssClassName="replay__button"
+          cssClassName="generic-button replay__button"
           buttonName="Recommencer"
           url="/play"
           onClick={restartNewGame}

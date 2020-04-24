@@ -42,7 +42,7 @@ const CreateCharacter = ({
             ))
           }
           <div className="button__container">
-            { (pool == 0) && <LinkButton cssClassName="validate__button" buttonName="Valider" url="/play/story" onClick={handleClick} /> }
+            { (pool == 0) && <LinkButton cssClassName="generic-button validate__button" buttonName="Valider" url="/play/story" onClick={handleClick} /> }
           </div>
         </div>
       </div>
