@@ -94,3 +94,15 @@ export const addOpponnentReward = (state) => {
     jsxCombatReward,
   };
 };
+
+// export const findInfoForEvent = (state) => {
+//   const eventTable = state.chapters[0].randomAttributeContests;
+
+//   const findEventId = rollDice(1, 100);
+
+//   const rightEvent = eventTable.find(
+//     (event) => (findEventId >= event.rollFrom && findEventId <= event.rollTo),
+//   );
+
+//   return rightEvent;
+// };

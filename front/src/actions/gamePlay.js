@@ -14,6 +14,12 @@ export const NEXT_SEQUENCE = 'NEXT_SEQUENCE';
 export const FIND_SEQUENCE = 'FIND_SEQUENCE';
 export const RESTART_NEW_GAME = 'RESTART_NEW_GAME';
 export const FIND_RANDOM_REWARD = 'FIND_RANDOM_REWARD';
+export const FIND_EVENT = 'FIND_EVENT';
+export const FIND_EXPLORATION = 'FIND_EXPLORATION';
+export const EVENT_NOTHING = 'EVENT_NOTHING';
+export const REST_ACTION = 'REST_ACTION';
+export const MEDIC_ACTION = 'MEDIC_ACTION';
+export const MEDIC_FAIL = 'MEDIC_FAIL';
 export const ADD_OPPONNENT_REWARD = 'ADD_OPPONNENT_REWARD';
 export const CHANGE_BG = 'CHANGE_BG';
 export const GAME_BACKUP = 'GAME_BACKUP';
@@ -84,6 +90,31 @@ export const restartNewGame = () => ({
 
 export const findRandomReward = () => ({
   type: FIND_RANDOM_REWARD,
+});
+
+export const findEvent = () => ({
+  type: FIND_EVENT,
+});
+
+export const findExploration = () => ({
+  type: FIND_EXPLORATION,
+});
+
+export const eventNothing = () => ({
+  type: EVENT_NOTHING,
+});
+
+
+export const actionRest = () => ({
+  type: REST_ACTION,
+});
+
+export const actionMedic = () => ({
+  type: MEDIC_ACTION,
+});
+
+export const actionMedicFail = () => ({
+  type: MEDIC_FAIL,
 });
 
 export const addOpponnentReward = ()=> ({
