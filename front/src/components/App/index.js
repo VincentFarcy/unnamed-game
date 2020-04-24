@@ -1,12 +1,12 @@
 // == Import npm
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route, Redirect, useParams } from 'react-router-dom';
 
 // == Import local
 // == Import Website Components
 import './styles.scss';
-import Header from '../../containers/Header';
+import Header from '../../containers/Header/Header';
 import MainSite from '../../containers/MainSite';
 import Team from '../Team';
 import Acknowledgements from '../Acknowledgements';
@@ -15,25 +15,24 @@ import SignUp from '../../containers/SignUp';
 import SignIn from '../../containers/SignIn';
 import UserPage from '../../containers/UserPage';
 import Legal from '../Legal';
-import NotFound from '../NotFound';
-
+import NotFound from '../../containers/NotFound';
 
 // == Import Gameplay Components
 import MainPlay from '../../containers/MainPlay';
 import Story from '../../containers/Story';
 import Sequence from '../../containers/Sequence';
 import Death from '../../containers/Death';
-import Combat from '../../containers/Combat';
+import Combat from '../../containers/Combat/Combat';
 import Exploration from '../../containers/Exploration';
 import Reward from '../../containers/Reward';
-import CreateCharacter from '../../containers/CreateCharacter';
+import CreateCharacter from '../../containers/CreateCharacter/CreateCharacter';
 import Event from '../../containers/Event';
 import Footer from '../Footer';
 
 // == Component
-
-const App = ({ isGameOn }) => (
-  <div className="app">
+const App = ({ isGameOn, bgImageCssClass }) => (
+  <div className={`app ${bgImageCssClass}`}>
+    <div hidden className="bg--hidden" />
     <Header />
     <main className="main">
       <Switch>
@@ -82,8 +81,9 @@ const App = ({ isGameOn }) => (
 );
 
 // == Props validation
-App.porpTypes = {
+App.propTypes = {
   isGameOn: PropTypes.bool.isRequired,
+  bgImageCssClass: PropTypes.string.isRequired,
 };
 
 // == Export

@@ -1,56 +1,79 @@
-/* === Combat === */
-.reward__p {
-  padding: 1em;
-  justify-content: flex-start;
-}
+.reward__container {
 
-.main {
-  flex-wrap: wrap;
-}
+  .player-bar {
+    margin-bottom: 60px;
+  }
 
-/* === Next button === */
-.next__button {
-  width: 25%;
-  max-width: 220px;
-  min-width: 140px;
-  padding: 0.25em 0;
-  background: rgba(238, 236, 236, 0.4);
-  border-radius: 10px;
-  border-color: rgba(238, 236, 236, 0.4);
-  color: rgb(248, 250, 250); 
-  box-shadow:  -4px 4px 16px #2f3030, 
-  4px -4px 16px #b4b7b9;
-  align-content: center;
-  margin: 0 auto;
-}
+  .progress {
+      margin-top: 40px;
+  }
 
+  .reward__title {
+    text-align: center;
+    font-size: 1.6rem;
+    padding-top: 0.5rem;
+    margin: 0;
+  }
+
+  /* === Combat === */
+  .reward__p {
+    padding: 1em;
+    justify-content: flex-start;
+  }
+
+  .main {
+    flex-wrap: wrap;
+  }
+
+  .main__play {
+    padding-bottom: 1rem;
+  }
+
+  /* === Next button === */
+  .next__button {
+    width: 25%;
+    max-width: 220px;
+    min-width: 140px;
+    padding: 0.25em 0;
+    background: rgba(238, 236, 236, 0.4);
+    border-radius: 10px;
+    border-color: rgba(238, 236, 236, 0.4);
+    color: rgb(248, 250, 250); 
+    box-shadow:  -4px 4px 16px #2f3030, 
+    4px -4px 16px #b4b7b9;
+    align-content: center;
+  }
+}
 
 /* === medium screen === */
 @media screen AND (min-width: 768px) {
-  .reward__p {
-    padding-top: 2em;
-    font-size: 1.6em;
+  .reward__container {
+    .reward__p {
+      padding-top: 2em;
+      font-size: 1.6em;
+    }
   }
 }
 
 /* === large screen === */
 @media screen AND (min-width: 992px) {
 
-  .reward__p {
-    padding: 2em;
-    font-size: 1.8em;
-  }
+  .reward__container {
+      .reward__p {
+      padding: 2em;
+      font-size: 1.8em;
+    }
 
-  .next__button {
-    transition-duration: 0.35s;
-    transition-property: border-color, background-color, box-shadow, color;
-  }
+    .next__button {
+      transition-duration: 0.35s;
+      transition-property: border-color, background-color, box-shadow, color;
+    }
 
-  .next__button:hover { 
-    background: rgba(238, 236, 236, 0.4);
-    color: rgb(248, 250, 250); 
-    box-shadow:  -4px 4px 16px #2f3030, 
-                 4px -4px 16px #9abbcb;
+    .next__button:hover { 
+      background: rgba(238, 236, 236, 0.4);
+      color: rgb(248, 250, 250); 
+      box-shadow:  -4px 4px 16px #2f3030, 
+                  4px -4px 16px #9abbcb;
+    }
   }
-
 }
