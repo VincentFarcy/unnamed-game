@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import Ability from 'src/components/CreateCharacter/Ability';
 
 // Action Creators
-import { increment, decrement } from '../actions/gamePlay';
+import { increment, decrement } from '../../actions/gamePlay';
 
 /* === State (données) === */
 const mapStateToProps = null;

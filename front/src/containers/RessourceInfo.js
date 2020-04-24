@@ -9,8 +9,8 @@ import RessourceInfo from 'src/components/RessourceInfo';
 /* === State (données) === */
 const mapStateToProps = (state) => ({
   mainCounter: state.gameplay.phpTimer,
-  experience: state.gameplay.xp,
-  money: state.gameplay.jsx,
+  experience: state.gameplay.player.xp,
+  money: state.gameplay.player.jsx,
 });
 
 /* === Actions === */

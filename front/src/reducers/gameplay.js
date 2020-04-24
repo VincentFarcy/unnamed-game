@@ -15,6 +15,7 @@ import {
   INCREMENT_CREATE_CHARACTER,
   DECREMENT_CREATE_CHARACTER,
   FIND_OPPONENT,
+  COMBAT_IN_PROGRESS,
   APPLY_DAMAGE,
   NEXT_SEQUENCE,
   END_FIGHT,
@@ -27,8 +28,20 @@ import {
   REST_ACTION,
   MEDIC_ACTION,
   MEDIC_FAIL,
+  ADD_OPPONNENT_REWARD,
+  CHANGE_BG,
 }
   from '../actions/gamePlay';
+// import selectors
+import {
+  findUpAbility,
+  findDownAbility,
+  findOpponentForCombat,
+  findInfoForSequence,
+  findRandomReward,
+  addOpponnentReward,
+} from '../selectors/gameplay';
+// import functions
 import { rollDice } from '../func';
 
 
@@ -39,43 +52,11 @@ const initialState = {
   isLoading: false,
   loadingErrMessage: '',
   hasError: false,
-  abilities: [
-    {
-      name: 'Force',
-      value: 1,
-      image: Force,
-      description: 'Affecte les dégâts',
-    },
-    {
-      name: 'Agilité',
-      value: 1,
-      image: Agilité,
-      description: 'Affecte le toucher, l\'initiative, l\'esquive',
-    },
-    {
-      name: 'Constitution',
-      value: 1,
-      image: Constitution,
-      description: 'Affecte les PV',
-    },
-    {
-      name: 'Volonté',
-      value: 1,
-      image: Volonté,
-      description: 'Affecte les PV, la guérison, permet de réaliser certaines actions',
-    },
-    {
-      name: 'Intelligence',
-      value: 1,
-      image: Intelligence,
-      description: 'Affecte le toucher, l\'esquive, la guérison, permet de réaliser certaines actions',
-    },
-  ],
-  pool: 0,
   phpTimer: 1,
-  xp: 0,
-  jsx: 10,
-  rewards: '',
+  rewards: {
+    xpRoll: 0,
+    jsxRoll: 0,
+  },
   sequenceToTell: '',
   currentEvent: '',
   exploration: {
@@ -84,18 +65,60 @@ const initialState = {
   difficulty: 1,
   playerRoll: 1,
   player: {
+    pool: 0,
+    abilities: [
+      {
+        name: 'Force',
+        value: 1,
+        image: Force,
+        description: 'Affecte les dégâts',
+      },
+      {
+        name: 'Agilité',
+        value: 1,
+        image: Agilité,
+        description: 'Affecte le toucher, l\'initiative, l\'esquive',
+      },
+      {
+        name: 'Constitution',
+        value: 1,
+        image: Constitution,
+        description: 'Affecte les PV',
+      },
+      {
+        name: 'Volonté',
+        value: 1,
+        image: Volonté,
+        description: 'Affecte les PV, la guérison, permet de réaliser certaines actions',
+      },
+      {
+        name: 'Intelligence',
+        value: 1,
+        image: Intelligence,
+        description: 'Affecte le toucher, l\'esquive, la guérison, permet de réaliser certaines actions',
+      },
+    ],
     // Total player's health point
     playerTotalHP: 0,
     // player current health point which is initialized at the same time as playerTotalHP
     playerCurrentHP: 0,
+    xp: 0,
+    jsx: 0,
   },
   combat: {
     isCombatOn: true,
+    combatInProgress: false,
     // currentOponent is empty until OpponentCombatInfo is rendered
     currentOpponent: {
       opponentCurrentHP: 0,
+      speed: 0,
+      touch: 0,
+      dodge: 0,
+      xpGain: 0,
+      moneyGain: 0,
     },
   },
+  bgImageCssClass: '',
 };
 
 // == Reducer
@@ -113,43 +136,15 @@ const gameplay = (state = initialState, action = {}) => {
         isLoading: false,
         loadingErrMessage: '',
         hasError: false,
-        abilities: [
-          {
-            name: 'Force',
-            value: 1,
-            image: Force,
-            description: 'Affecte les dégâts',
-          },
-          {
-            name: 'Agilité',
-            value: 1,
-            image: Agilité,
-            description: 'Affecte le toucher, l\'initiative, l\'esquive',
-          },
-          {
-            name: 'Constitution',
-            value: 1,
-            image: Constitution,
-            description: 'Affecte les PV',
-          },
-          {
-            name: 'Volonté',
-            value: 1,
-            image: Volonté,
-            description: 'Affecte les PV, la guérison, permet de réaliser certaines actions',
-          },
-          {
-            name: 'Intelligence',
-            value: 1,
-            image: Intelligence,
-            description: 'Affecte le toucher, l\'esquive, la guérison, permet de réaliser certaines actions',
-          },
-        ],
-        pool: 0,
         phpTimer: 1,
-        xp: 0,
-        jsx: 10,
-        rewards: '',
+        rewards: {
+          xpRoll: 0,
+          jsxRoll: 0,
+        },
+        opponentRewards : {
+          xpCombatReward: 0,
+          jsxCombatReward: 0,
+        },
         sequenceToTell: '',
         currentEvent: '',
         difficulty: 1,
@@ -158,15 +153,57 @@ const gameplay = (state = initialState, action = {}) => {
           type: 'string',
         },
         player: {
+          pool: 0,
+          abilities: [
+            {
+              name: 'Force',
+              value: 1,
+              image: Force,
+              description: 'Affecte les dégâts',
+            },
+            {
+              name: 'Agilité',
+              value: 1,
+              image: Agilité,
+              description: 'Affecte le toucher, l\'initiative, l\'esquive',
+            },
+            {
+              name: 'Constitution',
+              value: 1,
+              image: Constitution,
+              description: 'Affecte les PV',
+            },
+            {
+              name: 'Volonté',
+              value: 1,
+              image: Volonté,
+              description: 'Affecte les PV, la guérison, permet de réaliser certaines actions',
+            },
+            {
+              name: 'Intelligence',
+              value: 1,
+              image: Intelligence,
+              description: 'Affecte le toucher, l\'esquive, la guérison, permet de réaliser certaines actions',
+            },
+          ],
+          // Total player's health point
           playerTotalHP: 0,
           playerCurrentHP: 0,
+          xp: 0,
+          jsx: 0,
         },
         combat: {
           isCombatOn: true,
+          combatInProgress: false,
+          // currentOponent is empty until OpponentCombatInfo is rendered
           currentOpponent: {
             opponentCurrentHP: 0,
+            speed: 0,
+            touch: 0,
+            dodge: 0,
           },
         },
+        bgImageCssClass: '',
       };
     case CHANGE_GAME_STATUS:
       return {
@@ -174,43 +211,15 @@ const gameplay = (state = initialState, action = {}) => {
         isLoading: false,
         loadingErrMessage: '',
         hasError: false,
-        abilities: [
-          {
-            name: 'Force',
-            value: 1,
-            image: Force,
-            description: 'Affecte les dégâts',
-          },
-          {
-            name: 'Agilité',
-            value: 1,
-            image: Agilité,
-            description: 'Affecte le toucher, l\'initiative, l\'esquive',
-          },
-          {
-            name: 'Constitution',
-            value: 1,
-            image: Constitution,
-            description: 'Affecte les PV',
-          },
-          {
-            name: 'Volonté',
-            value: 1,
-            image: Volonté,
-            description: 'Affecte les PV, la guérison, permet de réaliser certaines actions',
-          },
-          {
-            name: 'Intelligence',
-            value: 1,
-            image: Intelligence,
-            description: 'Affecte le toucher, l\'esquive, la guérison, permet de réaliser certaines actions',
-          },
-        ],
-        pool: 0,
         phpTimer: 1,
-        xp: 0,
-        jsx: 10,
-        rewards: '',
+        rewards: {
+          xpRoll: 0,
+          jsxRoll: 0,
+        },
+        opponentRewards : {
+          xpCombatReward: 0,
+          jsxCombatReward: 0,
+        },
         sequenceToTell: '',
         currentEvent: '',
         difficulty: 1,
@@ -219,25 +228,66 @@ const gameplay = (state = initialState, action = {}) => {
           type: 'string',
         },
         player: {
+          pool: 0,
+          abilities: [
+            {
+              name: 'Force',
+              value: 1,
+              image: Force,
+              description: 'Affecte les dégâts',
+            },
+            {
+              name: 'Agilité',
+              value: 1,
+              image: Agilité,
+              description: 'Affecte le toucher, l\'initiative, l\'esquive',
+            },
+            {
+              name: 'Constitution',
+              value: 1,
+              image: Constitution,
+              description: 'Affecte les PV',
+            },
+            {
+              name: 'Volonté',
+              value: 1,
+              image: Volonté,
+              description: 'Affecte les PV, la guérison, permet de réaliser certaines actions',
+            },
+            {
+              name: 'Intelligence',
+              value: 1,
+              image: Intelligence,
+              description: 'Affecte le toucher, l\'esquive, la guérison, permet de réaliser certaines actions',
+            },
+          ],
+          // Total player's health point
           playerTotalHP: 0,
           playerCurrentHP: 0,
+          xp: 0,
+          jsx: 0,
         },
         combat: {
           isCombatOn: true,
+          combatInProgress: false,
+          // currentOponent is empty until OpponentCombatInfo is rendered
           currentOpponent: {
             opponentCurrentHP: 0,
+            speed: 0,
+            touch: 0,
+            dodge: 0,
           },
         },
+        bgImageCssClass: '',
       };
     case GAME_DATA_SUCCESS:
       return {
         ...state,
         ...action.payload,
-        pool: action.payload.gameParameters.attribute_points,
-        gameParameters: {
-          ...state.gameParameters,
-          ...action.payload.gameParameters,
-        },
+        player: {
+          ...state.player,
+          pool: action.payload.gameParameters.attribute_points,
+        }
       };
     case GAME_DATA_ERROR:
       return {
@@ -252,15 +302,15 @@ const gameplay = (state = initialState, action = {}) => {
         ...state,
         player: {
           ...state.player,
-          playerTotalHP: ((state.abilities[3].value / 2) + (state.abilities[2].value)) * 10,
-          playerCurrentHP: ((state.abilities[3].value / 2) + (state.abilities[2].value)) * 10,
-          hacking: ((state.abilities[4].value) + Math.floor((state.abilities[3].value / 3))),
-          baseTouch: ((state.abilities[1].value) + Math.floor((state.abilities[4].value / 3))),
-          dodge: ((state.abilities[1].value) + Math.floor((state.abilities[4].value / 2))),
-          baseDamage: state.abilities[0].value,
-          baseSpeed: state.abilities[1].value,
+          playerTotalHP: ((state.player.abilities[3].value / 2) + (state.player.abilities[2].value)) * 10,
+          playerCurrentHP: ((state.player.abilities[3].value / 2) + (state.player.abilities[2].value)) * 10,
+          hacking: ((state.player.abilities[4].value) + Math.floor((state.player.abilities[3].value / 3))),
+          baseTouch: ((state.player.abilities[1].value) + Math.floor((state.player.abilities[4].value / 3))),
+          dodge: ((state.player.abilities[1].value) + Math.floor((state.player.abilities[4].value / 2))),
+          baseDamage: state.player.abilities[0].value,
+          baseSpeed: state.player.abilities[1].value,
           baseHealing: Math.floor(
-            ((state.abilities[3].value / 2) + (state.abilities[4].value / 2)),
+            ((state.player.abilities[3].value / 2) + (state.player.abilities[4].value / 2)),
           ),
         },
       };
@@ -270,15 +320,14 @@ const gameplay = (state = initialState, action = {}) => {
         ...state,
         player: {
           ...state.player,
-          playerTotalHP: ((state.abilities[3].value / 2) + (state.abilities[2].value)) * 10,
-          playerCurrentHP: ((state.abilities[3].value / 2) + (state.abilities[2].value)) * 10,
-          hacking: ((state.abilities[4].value) + Math.floor((state.abilities[3].value / 3))),
-          baseTouch: ((state.abilities[1].value) + Math.floor((state.abilities[4].value / 3))),
-          dodge: ((state.abilities[1].value) + Math.floor((state.abilities[4].value / 2))),
-          baseDamage: state.abilities[0].value,
-          baseSpeed: state.abilities[1].value,
-          baseHealing: Math.floor(((state.abilities[3].value / 2)
-            + (state.abilities[4].value / 2))),
+          playerTotalHP: ((state.player.abilities[3].value / 2) + (state.player.abilities[2].value)) * 10,
+          playerCurrentHP: ((state.player.abilities[3].value / 2) + (state.player.abilities[2].value)) * 10,     
+          hacking: ((state.player.abilities[4].value) + Math.floor((state.player.abilities[3].value / 3))),
+          baseTouch: ((state.player.abilities[1].value) + Math.floor((state.player.abilities[4].value / 3))),
+          dodge: ((state.player.abilities[1].value) + Math.floor((state.player.abilities[4].value / 2))),
+          baseDamage: state.player.abilities[0].value,
+          baseSpeed: state.player.abilities[1].value,
+          baseHealing: Math.floor(((state.player.abilities[3].value / 2) + (state.player.abilities[4].value / 2))),
         },
       };
     case FIND_OPPONENT:
@@ -295,6 +344,14 @@ const gameplay = (state = initialState, action = {}) => {
           },
         },
       };
+    case COMBAT_IN_PROGRESS:
+      return {
+        ...state,
+        combat: {
+          ...state.combat,
+          combatInProgress: true,
+        }
+      }
     case APPLY_DAMAGE:
       return {
         ...state,
@@ -327,16 +384,19 @@ const gameplay = (state = initialState, action = {}) => {
         combat: {
           ...state.combat,
           isCombatOn: false,
+          combatInProgress: false,
         },
       };
     case FIND_RANDOM_REWARD:
       const randomReward = findRandomReward(state);
-      console.log('get random rewards', randomReward);
       return {
         ...state,
         rewards: randomReward,
-        jsx: state.jsx + randomReward.jsxRoll,
-        xp: state.xp + randomReward.xpRoll,
+        player: {
+          ...state.player,
+          jsx: state.player.jsx + randomReward.jsxRoll,
+          xp: state.player.xp + randomReward.xpRoll,
+        },
       };
     case FIND_EVENT:
       // console.log('case FINDEVENT');
@@ -346,6 +406,7 @@ const gameplay = (state = initialState, action = {}) => {
         difficulty: rollDice(3, 10),
         playerRoll: rollDice(1, 6),
       };
+
     case FIND_EXPLORATION:
       return {
         ...state,
@@ -354,7 +415,24 @@ const gameplay = (state = initialState, action = {}) => {
     case EVENT_NOTHING:
       return {
         ...state,
-        phpTimer: state.phpTimer + 1,
+      };
+
+    case ADD_OPPONNENT_REWARD:
+      const opponentReward = addOpponnentReward(state);
+      return {
+        ...state,
+        opponentRewards: addOpponnentReward,
+        player: {
+          ...state.player,
+          jsx: state.player.jsx + opponentReward.jsxCombatReward,
+          xp: state.player.xp + opponentReward.xpCombatReward,
+        },
+      };
+    case CHANGE_BG:
+      return {
+        ...state,
+        bgImageCssClass: action.bgImageCssClass,
+
       };
     case REST_ACTION:
       return {
@@ -390,102 +468,6 @@ const gameplay = (state = initialState, action = {}) => {
 // == Export
 export default gameplay;
 
-// == Selector
-export const findUpAbility = (state, abilityName) => (
-  state.abilities.map((ability) => {
-    if (ability.name === abilityName && ability.value < state.gameParameters.attribute_max
-      && state.pool > 0) {
-      ability.value++;
-      state.pool--;
-    }
-  })
-);
-
-export const findDownAbility = (state, abilityName) => (
-  state.abilities.map((ability) => {
-    if (ability.name === abilityName && ability.value > state.gameParameters.attribute_min
-      && state.pool < state.gameParameters.attribute_points) {
-      ability.value--;
-      state.pool++;
-    }
-  })
-);
-
-export const findOpponentForCombat = (state) => {
-  // console.log(state);
-
-  const { opponents } = state;
-  const opponentsTable = state.chapters[0].randomFightContests;
-  // console.log(opponentsTable, opponents);
-
-  const findOpponentId = rollDice(1, 100);
-  // console.log(findOpponentId);
-
-  const opponentTableId = opponentsTable.find(
-    (oppoRange) => (findOpponentId >= oppoRange.rollFrom && findOpponentId <= oppoRange.rollTo),
-  );
-  // console.log(opponentTableId);
-
-  const opponentId = opponentTableId.opponent.id;
-  // console.log(opponentId);
-
-  const opponent = opponents.find(
-    (rightOpponent) => (opponentId === rightOpponent.id),
-  );
-  // console.log(opponent);
-
-  return opponent;
-};
-
-export const findInfoForSequence = (state) => {
-  const sequenceList = state.chapters[0].sequences;
-  const timing = state.phpTimer;
-
-  const sequenceTable = sequenceList.find(
-    (sequence) => (timing === sequence.id),
-  );
-
-  if (timing > sequenceList.length) {
-    return {
-      id: 99,
-      mainText: 'end',
-    };
-  }
-  return sequenceTable;
-};
-
-export const findRandomReward = (state) => {
-  const rewardTable = state.chapters[0].randomRewards;
-  // == Dice Roll to manage the Random Loot Table
-  const rollDiceReward = rollDice(1, 100);
-
-  // == Here we find in the database which Loot Table to pick the rewards from
-  const rollRange = rewardTable.find(
-    (reward) => (rollDiceReward >= reward.rollFrom && rollDiceReward <= reward.rollTo),
-  );
-
-  // == Here we determine from the Loot Table above the amount of moneyu (JSX)
-  // and Experience (XP) the player wins
-  const xpRoll = rollDice(rollRange.minXp, rollRange.maxXp);
-  const jsxRoll = rollDice(rollRange.minMoney, rollRange.maxMoney);
-
-  return {
-    xpRoll,
-    jsxRoll,
-  };
-};
-
-// export const findInfoForEvent = (state) => {
-//   const eventTable = state.chapters[0].randomAttributeContests;
-
-//   const findEventId = rollDice(1, 100);
-
-//   const rightEvent = eventTable.find(
-//     (event) => (findEventId >= event.rollFrom && findEventId <= event.rollTo),
-//   );
-
-//   return rightEvent;
-// };
 
 export const findRandomExploration = (state) => {
   const RandomExplorationTable = state.chapters[0].randomEvents;
