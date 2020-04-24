@@ -9,15 +9,16 @@ import Story from '../../containers/Story';
 import '../Story/style.scss';
 import MainHub from '../../containers/MainHub';
 
-
 // == Component
 const Sequence = ({
   changeBg,
   sequence,
   findSequence,
   php,
+  gameBackup,
 }) => {
   useEffect(findSequence, []);
+  useEffect(gameBackup, []);
   useEffect(() => {
     changeBg('bg--sequence');
   }, []);
@@ -47,12 +48,13 @@ const Sequence = ({
 
 // == Props validation
 Sequence.propTypes = {
-  findSequence: PropTypes.func.isRequired,
+  changeBg: PropTypes.func.isRequired,
   sequence: PropTypes.shape({
     id: PropTypes.number.isRequired,
     mainText: PropTypes.string.isRequired,
   }).isRequired,
-  changeBg: PropTypes.func.isRequired,
+  findSequence: PropTypes.func.isRequired,
+  gameBackup: PropTypes.func.isRequired,
   php: PropTypes.number.isRequired,
 };
 
