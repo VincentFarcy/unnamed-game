@@ -28,6 +28,9 @@ import {
   MEDIC_ACTION,
   ADD_OPPONNENT_REWARD,
   CHANGE_BG,
+  LOAD_BACKUP_DATA,
+  START_BACKUP_LOADING,
+  END_BACKUP_LOADING,
   UPDATE_TIMER,
   EVENT_WIN,
   FIND_EVENT,
@@ -59,7 +62,10 @@ const initialState = {
     xpRoll: 0,
     jsxRoll: 0,
   },
-  sequenceToTell: '',
+  sequenceToTell: {
+    id: 0,
+    mainText: '',
+  },
   currentEvent: '',
   exploration: {
     type: 'string',
@@ -121,6 +127,8 @@ const initialState = {
     },
   },
   bgImageCssClass: '',
+  hero: {},
+  backupIsLoading : false,
 };
 
 // == Reducer
@@ -147,7 +155,10 @@ const gameplay = (state = initialState, action = {}) => {
           xpCombatReward: 0,
           jsxCombatReward: 0,
         },
-        sequenceToTell: '',
+        sequenceToTell: {
+          id: 0,
+          mainText: '',
+        },
         currentEvent: '',
         difficulty: 1,
         playerRoll: 1,
@@ -206,6 +217,8 @@ const gameplay = (state = initialState, action = {}) => {
           },
         },
         bgImageCssClass: '',
+        hero: {},
+        backupIsLoading: false,
       };
     case CHANGE_GAME_STATUS:
       return {
@@ -222,7 +235,10 @@ const gameplay = (state = initialState, action = {}) => {
           xpCombatReward: 0,
           jsxCombatReward: 0,
         },
-        sequenceToTell: '',
+        sequenceToTell: {
+          id: 0,
+          mainText: '',
+        },
         currentEvent: '',
         difficulty: 1,
         playerRoll: 1,
@@ -281,6 +297,7 @@ const gameplay = (state = initialState, action = {}) => {
           },
         },
         bgImageCssClass: '',
+        backupIsLoading : false,
       };
     case GAME_DATA_SUCCESS:
       return {
@@ -289,7 +306,7 @@ const gameplay = (state = initialState, action = {}) => {
         player: {
           ...state.player,
           pool: action.payload.gameParameters.attribute_points,
-        }
+        },
       };
     case GAME_DATA_ERROR:
       return {
@@ -336,7 +353,10 @@ const gameplay = (state = initialState, action = {}) => {
       const opponent = findOpponentForCombat(state);
       return {
         ...state,
-        sequenceToTell: '',
+        sequenceToTell: {
+          id: 0,
+          mainText: '',
+        },
         combat: {
           ...state.combat,
           isCombatOn: true,
@@ -406,7 +426,6 @@ const gameplay = (state = initialState, action = {}) => {
         difficulty: rollDice(3, 10),
         playerRoll: rollDice(1, 6),
       };
-
     case FIND_EXPLORATION:
       return {
         ...state,
@@ -415,10 +434,12 @@ const gameplay = (state = initialState, action = {}) => {
     case EVENT_NOTHING:
       return {
         ...state,
-        sequenceToTell: '',
+        sequenceToTell: {
+          id: 0,
+          mainText: '',
+        },
         phpTimer: state.phpTimer + 1,
       };
-
     case ADD_OPPONNENT_REWARD:
       const opponentReward = addOpponnentReward(state);
       return {
@@ -440,17 +461,25 @@ const gameplay = (state = initialState, action = {}) => {
       return {
         ...state,
         phpTimer: state.phpTimer + 1,
-        sequenceToTell: '',
+        sequenceToTell: {
+          id: 0,
+          mainText: '',
+        },
         player: {
           ...state.player,
-          playerCurrentHP: (state.player.playerCurrentHP + state.player.baseHealing + rollDice(1, 2)),
+          playerCurrentHP:
+            (state.player.playerCurrentHP + state.player.baseHealing + rollDice(1, 2)) < state.player.playerTotalHP ?
+              state.player.playerCurrentHP + state.player.baseHealing + rollDice(1, 2) : state.player.playerTotalHP,
         },
       };
     case MEDIC_ACTION:
       return {
         ...state,
         phpTimer: state.phpTimer + 1,
-        sequenceToTell: '',
+        sequenceToTell: {
+          id: 0,
+          mainText: '',
+        },
         player: {
           ...state.player,
           jsx: state.player.jsx - 10,
@@ -467,13 +496,17 @@ const gameplay = (state = initialState, action = {}) => {
       return {
         ...state,
         phpTimer: state.phpTimer + 1,
-        sequenceToTell: '',
+        sequenceToTell: {
+          id: 0,
+          mainText: '',
+        },
         player: {
           ...state.player,
           jsx: state.player.jsx + rollDice(1, 3),
           xp: state.player.xp + rollDice(2, 4),
         },
       };
+
     case INCREMENT_ABILITY:
       findTrainAbility(state, action.payload);
       return {
@@ -484,6 +517,62 @@ const gameplay = (state = initialState, action = {}) => {
           xp: state.player.xp - state.gameParameters.train_xp_cost,
         },
       };
+
+    case LOAD_BACKUP_DATA:
+      const sequenceId = action.backups[0].sequence.id;
+      const phpTimer = state.chapters[0].sequences.find((sequence) => sequence.id === sequenceId).orderBy;
+      return {
+        ...state,
+        phpTimer: phpTimer,
+        player: {
+          ...state.player,
+          playerCurrentHP: action.backups[0].health,
+          playerTotalHP: ((action.backups[0].will / 2) + (action.backups[0].constitution)) * 10,
+          baseTouch:((action.backups[0].agility) + Math.floor((action.backups[0].intelligence / 3))),
+          dodge: ((action.backups[0].agility) + Math.floor((action.backups[0].intelligence / 2))),
+          baseDamage: action.backups[0].strength,
+          baseSpeed: action.backups[0].agility,
+          baseHealing: Math.floor(
+            ((action.backups[0].will / 2) + (action.backups[0].intelligence / 2)),
+          ),
+          hacking: ((action.backups[0].intelligence) + Math.floor((action.backups[0].will / 3))),
+          abilities: [
+            {
+              ...state.player.abilities[0],
+              value: action.backups[0].strength,
+            },
+            {
+              ...state.player.abilities[1],
+              value: action.backups[0].agility,
+            },
+            {
+              ...state.player.abilities[2],
+              value: action.backups[0].constitution,
+            },
+            {
+              ...state.player.abilities[3],
+              value: action.backups[0].will,
+            },
+            {
+              ...state.player.abilities[4],
+              value: action.backups[0].intelligence,
+            },
+          ],
+          xp: action.backups[0].xp,
+          jsx: action.backups[0].money,
+        },
+      };
+    case START_BACKUP_LOADING:
+      return {
+        ...state,
+        backupIsLoading: true,
+      };
+    case END_BACKUP_LOADING:
+      return {
+        ...state,
+        backupIsLoading: false,
+      };
+
     default:
       return state;
   }

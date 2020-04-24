@@ -10,6 +10,7 @@ import {
   EDIT_USER,
   DELETE_USER,
   INIT_USER_STATE,
+  REFRESH_USER_BACKUPS,
 } from '../actions/user';
 
 
@@ -147,6 +148,12 @@ const user = (state = initialState, action = {}) => {
           deleteMode: false,
         },
         errorMessages: [],
+      };
+    case REFRESH_USER_BACKUPS:
+      // console.log(REFRESH_USER_BACKUPS, action.backups);
+      return {
+        ...state,
+        backups: action.backups,
       };
     default:
       return state;

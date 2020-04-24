@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import Sequence from '../components/Sequence';
 
 // Action Creators
-import { findSequence, changeBg } from '../actions/gamePlay';
+import { findSequence, changeBg, gameBackup } from '../actions/gamePlay';
 
 // state
 const mapStateToProps = (state) => ({
@@ -20,6 +20,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   changeBg: (bgImageCssClass) => {
     dispatch(changeBg(bgImageCssClass));
+  },
+  gameBackup: () => {
+    dispatch(gameBackup());
   },
 });
 

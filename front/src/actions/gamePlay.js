@@ -24,6 +24,11 @@ export const MEDIC_ACTION = 'MEDIC_ACTION';
 export const UPDATE_TIMER = 'UPDATE_TIMER';
 export const ADD_OPPONNENT_REWARD = 'ADD_OPPONNENT_REWARD';
 export const INCREMENT_ABILITY = 'INCREMENT_ABILITY';
+export const GAME_BACKUP = 'GAME_BACKUP';
+export const LOAD_BACKUP_DATA = 'LOAD_BACKUP_DATA';
+export const START_BACKUP_LOADING = 'START_BACKUP_LOADING';
+export const END_BACKUP_LOADING = 'END_BACKUP_LOADING';
+
 
 // == Action creators
 export const resetGame = () => ({
@@ -122,6 +127,23 @@ export const addOpponnentReward = ()=> ({
 export const changeBg = (bgImageCssClass) => ({
   type: CHANGE_BG,
   bgImageCssClass,
+});
+
+export const gameBackup = () => ({
+  type: GAME_BACKUP,
+});
+
+export const loadBackupData = (backups) => ({
+  type: LOAD_BACKUP_DATA,
+  backups,
+});
+
+export const startBackupLoading = () => ({
+  type: START_BACKUP_LOADING,
+});
+
+export const endBackupLoading = () => ({
+  type: END_BACKUP_LOADING,
 });
 
 export const eventWin = () => ({
