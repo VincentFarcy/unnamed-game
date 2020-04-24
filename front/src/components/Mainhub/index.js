@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '../LinkButton';
 import { rollDice } from '../../func';
+import PlayerInfo from '../../containers/PlayerInfo';
 
 // == Import local
 import './style.scss';
@@ -16,6 +17,7 @@ const Mainhub = ({ medicAccess, trainAccess, vendingAccess }) => {
   return (
     <div className="story-container">
       <div className="main__play">
+        <PlayerInfo />
         <p className="story__title">Que voulez-vous faire ?</p>
         <div className="button__container">
           <Button cssClassName="next__button" buttonName="Se reposer" url="/play/rest" />

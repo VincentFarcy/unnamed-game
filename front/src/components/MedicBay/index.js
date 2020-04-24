@@ -11,8 +11,8 @@ const Medic = ({ actionMedic, actionMedicFail, jsx }) => (
   <div className="main__play">
     <p className="medic__title">Medic Bay</p>
     <div className="button__container">
-      {jsx >= 10 ? <Button cssClassName="next__button" buttonName="Se soigner" url="/play/sequence" onClick={actionMedic} />
-        : <Button cssClassName="next__button" buttonName="Sortir" url="/play/sequence" onClick={actionMedicFail} />}
+      {jsx >= 10 && <Button cssClassName="next__button" buttonName="Se soigner" url="/play/sequence" onClick={actionMedic} />}
+      <Button cssClassName="next__button" buttonName="Sortir" url="/play/mainhub" />
     </div>
   </div>
 );
