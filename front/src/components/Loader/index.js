@@ -5,5 +5,7 @@ import './style.scss';
 
 // export
 export default () => (
-  <div className="spinner"></div>
+  <div id="preloader">
+    <div id="loader"></div>
+  </div>
 );
