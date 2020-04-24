@@ -27,7 +27,6 @@ import Exploration from '../../containers/Exploration';
 import Reward from '../../containers/Reward';
 import Rest from '../../containers/Rest';
 import Medic from '../../containers/MedicBay';
-import CreateCharacter from '../../containers/CreateCharacter';
 import CreateCharacter from '../../containers/CreateCharacter/CreateCharacter';
 import Event from '../../containers/Event';
 import Footer from '../Footer';
