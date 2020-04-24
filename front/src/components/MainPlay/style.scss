@@ -17,10 +17,6 @@
 }
 
 .game-launcher__btn {
-  background: $generic-button-background;
-  border-radius: 10px;
-  border-color: $generic-button-background;
-  color: $generic-button-background; 
   box-shadow:  -4px 4px 16px $game-launcher-lower-shadow, 
   4px -4px 16px $generic-button-upper-shadow;
   min-width: 258px;
