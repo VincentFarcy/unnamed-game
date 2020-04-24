@@ -19,9 +19,6 @@ const Mainhub = ({
 }) => {
   const RollForMedicAccess = rollDice(1, 100);
   const RollForTrainAccess = rollDice(1, 100);
-  console.log(RollForTrainAccess);
-  console.log(trainAccess);
-  console.log(xp, xpCost);
   const RollForVendingAccess = rollDice(1, 100);
 
   return (

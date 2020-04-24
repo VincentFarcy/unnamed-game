@@ -59,7 +59,10 @@ const initialState = {
     xpRoll: 0,
     jsxRoll: 0,
   },
-  sequenceToTell: '',
+  sequenceToTell: {
+    id: 0,
+    mainText: '',
+  },
   currentEvent: '',
   exploration: {
     type: 'string',
@@ -147,7 +150,10 @@ const gameplay = (state = initialState, action = {}) => {
           xpCombatReward: 0,
           jsxCombatReward: 0,
         },
-        sequenceToTell: '',
+        sequenceToTell: {
+          id: 0,
+          mainText: '',
+        },
         currentEvent: '',
         difficulty: 1,
         playerRoll: 1,
@@ -222,7 +228,10 @@ const gameplay = (state = initialState, action = {}) => {
           xpCombatReward: 0,
           jsxCombatReward: 0,
         },
-        sequenceToTell: '',
+        sequenceToTell: {
+          id: 0,
+          mainText: '',
+        },
         currentEvent: '',
         difficulty: 1,
         playerRoll: 1,
@@ -336,7 +345,10 @@ const gameplay = (state = initialState, action = {}) => {
       const opponent = findOpponentForCombat(state);
       return {
         ...state,
-        sequenceToTell: '',
+        sequenceToTell: {
+          id: 0,
+          mainText: '',
+        },
         combat: {
           ...state.combat,
           isCombatOn: true,
@@ -415,7 +427,10 @@ const gameplay = (state = initialState, action = {}) => {
     case EVENT_NOTHING:
       return {
         ...state,
-        sequenceToTell: '',
+        sequenceToTell: {
+          id: 0,
+          mainText: '',
+        },
         phpTimer: state.phpTimer + 1,
       };
 
@@ -440,7 +455,10 @@ const gameplay = (state = initialState, action = {}) => {
       return {
         ...state,
         phpTimer: state.phpTimer + 1,
-        sequenceToTell: '',
+        sequenceToTell: {
+          id: 0,
+          mainText: '',
+        },
         player: {
           ...state.player,
           playerCurrentHP: (state.player.playerCurrentHP + state.player.baseHealing + rollDice(1, 2)),
@@ -450,7 +468,10 @@ const gameplay = (state = initialState, action = {}) => {
       return {
         ...state,
         phpTimer: state.phpTimer + 1,
-        sequenceToTell: '',
+        sequenceToTell: {
+          id: 0,
+          mainText: '',
+        },
         player: {
           ...state.player,
           jsx: state.player.jsx - 10,
@@ -461,13 +482,19 @@ const gameplay = (state = initialState, action = {}) => {
       return {
         ...state,
         phpTimer: state.phpTimer + 1,
-        sequenceToTell: '',
+        sequenceToTell: {
+          id: 0,
+          mainText: '',
+        },
       };
     case EVENT_WIN:
       return {
         ...state,
         phpTimer: state.phpTimer + 1,
-        sequenceToTell: '',
+        sequenceToTell: {
+          id: 0,
+          mainText: '',
+        },
         player: {
           ...state.player,
           jsx: state.player.jsx + rollDice(1, 3),

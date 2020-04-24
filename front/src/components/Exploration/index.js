@@ -20,7 +20,7 @@ const Exploration = ({ findExploration, randomExploration, eventNothing }) => {
     <>
       {exploration === 'nothing' ? <Nothing eventNothing={eventNothing} /> : ''}
       {exploration === 'fight' ? <Combat /> : ''}
-      {exploration === 'reward' ? <Event /> : ''}
+      {exploration === 'reward' ? <Reward /> : ''}
       {exploration === 'fight and reward' ? <Combat withReward /> : ''}
       {exploration === 'attribute' ? <Event /> : ''}
       {exploration === 'attribute and reward' ? <Event withReward /> : ''}

@@ -11,7 +11,12 @@ import MainHub from '../../containers/MainHub';
 
 
 // == Component
-const Sequence = ({ changeBg, sequence, findSequence, php }) => {
+const Sequence = ({
+  changeBg,
+  sequence,
+  findSequence,
+  php,
+}) => {
   useEffect(findSequence, []);
   useEffect(() => {
     changeBg('bg--sequence');
@@ -42,12 +47,13 @@ const Sequence = ({ changeBg, sequence, findSequence, php }) => {
 
 // == Props validation
 Sequence.propTypes = {
-  // findSequence: PropTypes.func.isRequired,
-  // sequence: PropTypes.shape({
-  //   id: PropTypes.number.isRequired,
-  //   mainText: PropTypes.string.isRequired,
-  // }).isRequired,
+  findSequence: PropTypes.func.isRequired,
+  sequence: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    mainText: PropTypes.string.isRequired,
+  }).isRequired,
   changeBg: PropTypes.func.isRequired,
+  php: PropTypes.number.isRequired,
 };
 
 

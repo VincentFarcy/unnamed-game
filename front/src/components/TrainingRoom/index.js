@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '../LinkButton';
 import { rollDice } from '../../func';
+import PlayerInfo from '../../containers/PlayerInfo';
 
 // == Import local
 import './style.scss';
@@ -24,6 +25,7 @@ const Train = ({
   return (
     <div className="main__play">
       <p className="train__title">Salle de gym</p>
+      <PlayerInfo />
       <div className="button__container">
         {(rollFullAccess <= fullAccess || strengthTrainAccess <= roomAccess) && <Button cssClassName="strength__button" buttonName="Force" url="/play/sequence" onClick={() => (incrementAbility('Force'))} />}
         {(rollFullAccess <= fullAccess || agilityTrainAccess <= roomAccess) && <Button cssClassName="agility__button" buttonName="Agilité" url="/play/sequence" onClick={() => (incrementAbility('Agilité'))} />}
