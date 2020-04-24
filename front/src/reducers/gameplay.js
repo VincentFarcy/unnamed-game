@@ -57,7 +57,10 @@ const initialState = {
     xpRoll: 0,
     jsxRoll: 0,
   },
-  sequenceToTell: '',
+  sequenceToTell: {
+    id: 0,
+    mainText: '',
+  },
   currentEvent: '',
   exploration: {
     type: 'string',
@@ -141,11 +144,14 @@ const gameplay = (state = initialState, action = {}) => {
           xpRoll: 0,
           jsxRoll: 0,
         },
-        opponentRewards : {
+        opponentRewards: {
           xpCombatReward: 0,
           jsxCombatReward: 0,
         },
-        sequenceToTell: '',
+        sequenceToTell: {
+          id: 0,
+          mainText: '',
+        },
         currentEvent: '',
         difficulty: 1,
         playerRoll: 1,
@@ -220,7 +226,10 @@ const gameplay = (state = initialState, action = {}) => {
           xpCombatReward: 0,
           jsxCombatReward: 0,
         },
-        sequenceToTell: '',
+        sequenceToTell: {
+          id: 0,
+          mainText: '',
+        },
         currentEvent: '',
         difficulty: 1,
         playerRoll: 1,
@@ -287,7 +296,7 @@ const gameplay = (state = initialState, action = {}) => {
         player: {
           ...state.player,
           pool: action.payload.gameParameters.attribute_points,
-        }
+        },
       };
     case GAME_DATA_ERROR:
       return {
@@ -334,7 +343,10 @@ const gameplay = (state = initialState, action = {}) => {
       const opponent = findOpponentForCombat(state);
       return {
         ...state,
-        sequenceToTell: '',
+        sequenceToTell: {
+          id: 0,
+          mainText: '',
+        },
         combat: {
           ...state.combat,
           isCombatOn: true,
@@ -350,8 +362,8 @@ const gameplay = (state = initialState, action = {}) => {
         combat: {
           ...state.combat,
           combatInProgress: true,
-        }
-      }
+        },
+      };
     case APPLY_DAMAGE:
       return {
         ...state,
@@ -406,7 +418,6 @@ const gameplay = (state = initialState, action = {}) => {
         difficulty: rollDice(3, 10),
         playerRoll: rollDice(1, 6),
       };
-
     case FIND_EXPLORATION:
       return {
         ...state,
@@ -416,7 +427,6 @@ const gameplay = (state = initialState, action = {}) => {
       return {
         ...state,
       };
-
     case ADD_OPPONNENT_REWARD:
       const opponentReward = addOpponnentReward(state);
       return {
