@@ -15,9 +15,11 @@ const RessourceInfo = ({ mainCounter, experience, money }) => (
       placement="top"
       delay={{ show: 300, hide: 300 }}
       overlay={
-        <Tooltip id={`tooltip`}>
-          Le temps passe...
+        (
+          <Tooltip id="tooltip">
+            Le temps passe...
           </Tooltip>
+        )
       }
     >
       <p className="ressource-info__counter"> {`PHP:${mainCounter}`} </p>
@@ -26,9 +28,11 @@ const RessourceInfo = ({ mainCounter, experience, money }) => (
       placement="top"
       delay={{ show: 300, hide: 300 }}
       overlay={
-        <Tooltip id={`tooltip`}>
-          C'est en forgeant tout ça, tout ça...
+        (
+          <Tooltip id="tooltip">
+            C'est en forgeant tout ça, tout ça...
           </Tooltip>
+        )
       }
     >
       <p className="ressource-info__experience"> {`XP:${experience}`} </p>
@@ -37,9 +41,11 @@ const RessourceInfo = ({ mainCounter, experience, money }) => (
       placement="top"
       delay={{ show: 300, hide: 300 }}
       overlay={
-        <Tooltip id={`tooltip`}>
-          ARGENT ! J'en veux plus !
+        (
+          <Tooltip id="tooltip">
+            ARGENT ! J'en veux plus !
           </Tooltip>
+        )
       }
     >
       <p className="ressource-info__money"> {`JSX:${money}`} </p>

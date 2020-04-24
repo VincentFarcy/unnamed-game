@@ -10,7 +10,15 @@ import './style.scss';
 
 
 // == Component
-const AdvancedInfo = ({ abilities, baseToHit, baseAvoid, baseDamage, baseInitiative, healing }) => (
+const AdvancedInfo = ({
+  abilities,
+  baseToHit,
+  baseAvoid,
+  baseDamage,
+  baseInitiative,
+  healing,
+  hacking,
+}) => (
   <div className="AdvancedInfo__container">
     <div className="MainAbilities__container">
       {
@@ -26,10 +34,12 @@ const AdvancedInfo = ({ abilities, baseToHit, baseAvoid, baseDamage, baseInitiat
         placement="top"
         delay={{ show: 300, hide: 300 }}
         overlay={
-          <Tooltip id={`tooltip`}>
-            Si le toucher de votre ennemi est plus grand que votre esquive, ca va piquer...
-          </Tooltip>
-        }
+          (
+            <Tooltip id="tooltip">
+              Si le toucher de votre ennemi est plus grand que votre esquive, ca va piquer...
+            </Tooltip>
+        )
+          }
       >
         <span>Esquive: {baseAvoid}</span>
       </OverlayTrigger>
@@ -37,10 +47,12 @@ const AdvancedInfo = ({ abilities, baseToHit, baseAvoid, baseDamage, baseInitiat
         placement="top"
         delay={{ show: 300, hide: 300 }}
         overlay={
-          <Tooltip id={`tooltip`}>
-            Celui qui a la plus grosse, tappe avant !
-          </Tooltip>
-        }
+          (
+            <Tooltip id="tooltip">
+              Celui qui a la plus grosse, tappe avant !
+            </Tooltip>
+          )
+          }
       >
         <span>Initiative: {baseInitiative + 1} - {baseInitiative + 10}</span>
       </OverlayTrigger>
@@ -48,9 +60,11 @@ const AdvancedInfo = ({ abilities, baseToHit, baseAvoid, baseDamage, baseInitiat
         placement="top"
         delay={{ show: 300, hide: 300 }}
         overlay={
-          <Tooltip id={`tooltip`}>
-            Opposé à l'esquive de votre ennemi !
-          </Tooltip>
+          (
+            <Tooltip id="tooltip">
+              Opposé à l'esquive de votre ennemi !
+            </Tooltip>
+          )
         }
       >
         <span>Toucher: {baseToHit + 1} - {baseToHit + 6}</span>
@@ -59,9 +73,11 @@ const AdvancedInfo = ({ abilities, baseToHit, baseAvoid, baseDamage, baseInitiat
         placement="top"
         delay={{ show: 300, hide: 300 }}
         overlay={
-          <Tooltip id={`tooltip`}>
-            Si vous avez touché, c'est le nombre de PV que va perdre votre adversaire
-          </Tooltip>
+          (
+            <Tooltip id="tooltip">
+              Si vous avez touché, c'est le nombre de PV que va perdre votre adversaire
+            </Tooltip>
+          )
         }
       >
         <span>Dégâts: {baseDamage + 1} - {baseDamage + 4}</span>
@@ -70,12 +86,27 @@ const AdvancedInfo = ({ abilities, baseToHit, baseAvoid, baseDamage, baseInitiat
         placement="top"
         delay={{ show: 300, hide: 300 }}
         overlay={
-          <Tooltip id={`tooltip`}>
-            Nombre de PV regagné lors d'un repos
-          </Tooltip>
+          (
+            <Tooltip id="tooltip">
+              Nombre de PV regagné lors d'un repos
+            </Tooltip>
+          )
         }
       >
         <span>Guérison: {healing}</span>
+      </OverlayTrigger>
+      <OverlayTrigger
+        placement="top"
+        delay={{ show: 300, hide: 300 }}
+        overlay={
+          (
+            <Tooltip id="tooltip">
+              Capacité à enfoncer les portes
+            </Tooltip>
+          )
+        }
+      >
+        <span>Hacking: {hacking}</span>
       </OverlayTrigger>
     </div>
   </div>
@@ -89,12 +120,12 @@ AdvancedInfo.propTypes = {
       value: PropTypes.number.isRequired,
     }),
   ).isRequired,
-  // playerHp: PropTypes.number.isRequired,
-  // baseToHit: PropTypes.number.isRequired,
-  // baseAvoid: PropTypes.number.isRequired,
-  // baseDamage: PropTypes.number.isRequired,
-  // baseInitiative: PropTypes.number.isRequired,
-  // healing: PropTypes.number.isRequired, 
+  hacking: PropTypes.number.isRequired,
+  baseToHit: PropTypes.number.isRequired,
+  baseAvoid: PropTypes.number.isRequired,
+  baseDamage: PropTypes.number.isRequired,
+  baseInitiative: PropTypes.number.isRequired,
+  healing: PropTypes.number.isRequired,
 };
 
 

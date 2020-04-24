@@ -14,6 +14,7 @@ export const NEXT_SEQUENCE = 'NEXT_SEQUENCE';
 export const FIND_SEQUENCE = 'FIND_SEQUENCE';
 export const RESTART_NEW_GAME = 'RESTART_NEW_GAME';
 export const FIND_RANDOM_REWARD = 'FIND_RANDOM_REWARD';
+export const FIND_EVENT = 'FIND_EVENT';
 export const ADD_OPPONNENT_REWARD = 'ADD_OPPONNENT_REWARD';
 export const CHANGE_BG = 'CHANGE_BG';
 
@@ -80,6 +81,10 @@ export const restartNewGame = () => ({
 
 export const findRandomReward = () => ({
   type: FIND_RANDOM_REWARD,
+});
+
+export const findEvent = () => ({
+  type: FIND_EVENT,
 });
 
 export const addOpponnentReward = ()=> ({

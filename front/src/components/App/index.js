@@ -25,10 +25,10 @@ import Death from '../../containers/Death';
 import Combat from '../../containers/Combat/Combat';
 import Reward from '../../containers/Reward';
 import CreateCharacter from '../../containers/CreateCharacter/CreateCharacter';
+import Event from '../../containers/Event';
 import Footer from '../Footer';
 
-const temp= "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque illo vitae et? Est eius beatae at, sed autem nulla ratione fugit natus officia aspernatur exercitationem non aliquam quam accusamus quasi?";
-
+// == Component
 const App = ({ isGameOn, bgImageCssClass }) => (
   <div className={`app ${bgImageCssClass}`}>
     <div hidden className="bg--hidden" />
@@ -65,9 +65,9 @@ const App = ({ isGameOn, bgImageCssClass }) => (
         <Route exact path="/play/death">
           { !isGameOn ? <Redirect to="/play" /> : <Death />}
         </Route>
-        {/* <Route exact path="/play/dialogue">
-          { !isGameOn ? <Redirect to="/play/dialogue" /> : <Dialog />}
-        </Route> */}
+        <Route exact path="/play/event">
+          { !isGameOn ? <Redirect to="/play" /> : <Event />}
+        </Route>
         <Route component={NotFound} />
       </Switch>
 

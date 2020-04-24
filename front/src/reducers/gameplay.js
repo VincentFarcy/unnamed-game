@@ -22,6 +22,7 @@ import {
   FIND_SEQUENCE,
   RESTART_NEW_GAME,
   FIND_RANDOM_REWARD,
+  FIND_EVENT,
   ADD_OPPONNENT_REWARD,
   CHANGE_BG,
 }
@@ -35,6 +36,8 @@ import {
   findRandomReward,
   addOpponnentReward,
 } from '../selectors/gameplay';
+// import functions
+import { rollDice } from '../func';
 
 
 // == State
@@ -50,6 +53,9 @@ const initialState = {
     jsxRoll: 0,
   },
   sequenceToTell: '',
+  currentEvent: '',
+  difficulty: 1,
+  playerRoll: 1,
   player: {
     pool: 0,
     abilities: [
@@ -118,7 +124,6 @@ const gameplay = (state = initialState, action = {}) => {
       };
     case RESTART_NEW_GAME:
       return {
-        initialState,
         gameOn: false,
         isLoading: false,
         loadingErrMessage: '',
@@ -133,6 +138,9 @@ const gameplay = (state = initialState, action = {}) => {
           jsxCombatReward: 0,
         },
         sequenceToTell: '',
+        currentEvent: '',
+        difficulty: 1,
+        playerRoll: 1,
         player: {
           pool: 0,
           abilities: [
@@ -169,7 +177,6 @@ const gameplay = (state = initialState, action = {}) => {
           ],
           // Total player's health point
           playerTotalHP: 0,
-          // player current health point which is initialized at the same time as playerTotalHP
           playerCurrentHP: 0,
           xp: 0,
           jsx: 0,
@@ -189,8 +196,75 @@ const gameplay = (state = initialState, action = {}) => {
       };
     case CHANGE_GAME_STATUS:
       return {
-        ...state,
         gameOn: true,
+        isLoading: false,
+        loadingErrMessage: '',
+        hasError: false,
+        phpTimer: 1,
+        rewards: {
+          xpRoll: 0,
+          jsxRoll: 0,
+        },
+        opponentRewards : {
+          xpCombatReward: 0,
+          jsxCombatReward: 0,
+        },
+        sequenceToTell: '',
+        currentEvent: '',
+        difficulty: 1,
+        playerRoll: 1,
+        player: {
+          pool: 0,
+          abilities: [
+            {
+              name: 'Force',
+              value: 1,
+              image: Force,
+              description: 'Affecte les dégâts',
+            },
+            {
+              name: 'Agilité',
+              value: 1,
+              image: Agilité,
+              description: 'Affecte le toucher, l\'initiative, l\'esquive',
+            },
+            {
+              name: 'Constitution',
+              value: 1,
+              image: Constitution,
+              description: 'Affecte les PV',
+            },
+            {
+              name: 'Volonté',
+              value: 1,
+              image: Volonté,
+              description: 'Affecte les PV, la guérison, permet de réaliser certaines actions',
+            },
+            {
+              name: 'Intelligence',
+              value: 1,
+              image: Intelligence,
+              description: 'Affecte le toucher, l\'esquive, la guérison, permet de réaliser certaines actions',
+            },
+          ],
+          // Total player's health point
+          playerTotalHP: 0,
+          playerCurrentHP: 0,
+          xp: 0,
+          jsx: 0,
+        },
+        combat: {
+          isCombatOn: true,
+          combatInProgress: false,
+          // currentOponent is empty until OpponentCombatInfo is rendered
+          currentOpponent: {
+            opponentCurrentHP: 0,
+            speed: 0,
+            touch: 0,
+            dodge: 0,
+          },
+        },
+        bgImageCssClass: '',
       };
     case GAME_DATA_SUCCESS:
       return {
@@ -216,6 +290,7 @@ const gameplay = (state = initialState, action = {}) => {
           ...state.player,
           playerTotalHP: ((state.player.abilities[3].value / 2) + (state.player.abilities[2].value)) * 10,
           playerCurrentHP: ((state.player.abilities[3].value / 2) + (state.player.abilities[2].value)) * 10,
+          hacking: ((state.player.abilities[4].value) + Math.floor((state.player.abilities[3].value / 3))),
           baseTouch: ((state.player.abilities[1].value) + Math.floor((state.player.abilities[4].value / 3))),
           dodge: ((state.player.abilities[1].value) + Math.floor((state.player.abilities[4].value / 2))),
           baseDamage: state.player.abilities[0].value,
@@ -232,7 +307,8 @@ const gameplay = (state = initialState, action = {}) => {
         player: {
           ...state.player,
           playerTotalHP: ((state.player.abilities[3].value / 2) + (state.player.abilities[2].value)) * 10,
-          playerCurrentHP: ((state.player.abilities[3].value / 2) + (state.player.abilities[2].value)) * 10,
+          playerCurrentHP: ((state.player.abilities[3].value / 2) + (state.player.abilities[2].value)) * 10,     
+          hacking: ((state.player.abilities[4].value) + Math.floor((state.player.abilities[3].value / 3))),
           baseTouch: ((state.player.abilities[1].value) + Math.floor((state.player.abilities[4].value / 3))),
           dodge: ((state.player.abilities[1].value) + Math.floor((state.player.abilities[4].value / 2))),
           baseDamage: state.player.abilities[0].value,
@@ -308,6 +384,14 @@ const gameplay = (state = initialState, action = {}) => {
           xp: state.player.xp + randomReward.xpRoll,
         }
       };
+    case FIND_EVENT:
+      // console.log('case FINDEVENT');
+      // const event = findInfoForEvent(state);
+      return {
+        ...state,
+        difficulty: rollDice(3, 10),
+        playerRoll: rollDice(1, 6),
+      };
     case ADD_OPPONNENT_REWARD:
       const opponentReward = addOpponnentReward(state);
       console.log('rewards combat', opponentReward)
@@ -328,6 +412,7 @@ const gameplay = (state = initialState, action = {}) => {
     default:
       return state;
   }
+
 };
 
 
