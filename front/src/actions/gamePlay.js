@@ -14,6 +14,7 @@ export const NEXT_SEQUENCE = 'NEXT_SEQUENCE';
 export const FIND_SEQUENCE = 'FIND_SEQUENCE';
 export const RESTART_NEW_GAME = 'RESTART_NEW_GAME';
 export const FIND_RANDOM_REWARD = 'FIND_RANDOM_REWARD';
+export const ADD_OPPONNENT_REWARD = 'ADD_OPPONNENT_REWARD';
 export const CHANGE_BG = 'CHANGE_BG';
 export const GAME_BACKUP = 'GAME_BACKUP';
 export const LOAD_BACKUP_DATA = 'LOAD_BACKUP_DATA';
@@ -83,6 +84,10 @@ export const restartNewGame = () => ({
 
 export const findRandomReward = () => ({
   type: FIND_RANDOM_REWARD,
+});
+
+export const addOpponnentReward = ()=> ({
+  type: ADD_OPPONNENT_REWARD,
 });
 
 export const changeBg = (bgImageCssClass) => ({

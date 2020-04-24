@@ -8,7 +8,7 @@ import LinkButton from '../LinkButton';
 // == Import local
 import './style.scss';
 import Loader from '../Loader';
-import Ability from '../../containers/Ability';
+import Ability from '../../containers/CreateCharacter/Ability';
 
 // == Component
 const CreateCharacter = ({
@@ -34,7 +34,6 @@ const CreateCharacter = ({
     (
     <div className="create-character-container">
       <div className="main__play">
-
         {!backupIsLoading ? (
           <div>
             <div className="title__container">

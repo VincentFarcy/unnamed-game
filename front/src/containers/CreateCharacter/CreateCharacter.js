@@ -10,8 +10,8 @@ import { changeBg, endBackupLoading } from '../actions/gamePlay';
 /* === State (données) === */
 const mapStateToProps = (state) => ({
   isLoading: state.gameplay.isLoading,
-  abilities: state.gameplay.abilities,
-  pool: state.gameplay.pool,
+  abilities: state.gameplay.player.abilities,
+  pool: state.gameplay.player.pool,
   backupLoaded: (state.gameplay.player.playerCurrentHP !== 0),
   backupIsLoading: state.gameplay.backupIsLoading,
 });

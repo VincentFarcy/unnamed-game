@@ -7,7 +7,7 @@ import Story from '../../containers/Story';
 import Hal from './halInfo';
 
 // == Import local
-import '../Story/style.scss';;
+import '../Story/style.scss';
 
 
 // == Component
@@ -42,9 +42,12 @@ const Sequence = ({ changeBg, sequence, findSequence, gameBackup }) => {
 
 // == Props validation
 Sequence.propTypes = {
-  findSequence: PropTypes.func.isRequired,
-  sequence: PropTypes.shape().isRequired,
   changeBg: PropTypes.func.isRequired,
+  sequence: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    mainText: PropTypes.string.isRequired,
+  }).isRequired,
+  findSequence: PropTypes.func.isRequired,
   gameBackup: PropTypes.func.isRequired,
 };
 
