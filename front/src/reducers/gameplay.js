@@ -447,7 +447,7 @@ const gameplay = (state = initialState, action = {}) => {
       return {
         ...state,
         phpTimer: state.phpTimer + 1,
-        jsx: state.jsx - 10,
+        jsx: state.player.jsx - 10,
         player: {
           ...state.player,
           playerCurrentHP: state.player.playerTotalHP,

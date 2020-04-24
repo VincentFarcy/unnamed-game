@@ -4,10 +4,9 @@ import PropTypes from 'prop-types';
 import Typical from 'react-typical';
 import Button from '../LinkButton';
 import Story from '../../containers/Story';
-import Hal from './halInfo';
 
 // == Import local
-import '../Story/style.scss';;
+import '../Story/style.scss';
 
 
 // == Component
@@ -31,7 +30,7 @@ const Sequence = ({ changeBg, sequence, findSequence }) => {
               wrapper="p"
             />
             <div className="button__container">
-              <Button cssClassName="next__button" buttonName="Suivant" url="/play/combat" onClick={handleClick}/>
+              <Button cssClassName="next__button" buttonName="Suivant" url="/play/mainhub" onClick={handleClick} />
             </div>
           </div>
         )}

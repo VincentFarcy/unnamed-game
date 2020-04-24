@@ -7,7 +7,7 @@ import { actionMedic, actionMedicFail } from '../actions/gamePlay';
 
 // state
 const mapStateToProps = (state) => ({
-  jsx: state.gameplay.jsx,
+  jsx: state.gameplay.player.jsx,
 });
 
 // actions
