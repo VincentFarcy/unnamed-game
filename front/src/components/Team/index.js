@@ -2,11 +2,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
-import CardDeck from 'react-bootstrap/CardDeck';
-import Button from 'react-bootstrap/Button';
+
 
 // == Import local
 import './style.scss';
+import '../../vanilla-tilt';
 
 // == Team Images Import
 import VincentM from '../../assets/images/team/VincentM.jpg';
