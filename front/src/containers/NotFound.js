@@ -2,9 +2,10 @@
 import { connect } from 'react-redux';
 
 // == Import : local
-import App from 'src/components/App';
+import NotFound from 'src/components/NotFound';
 
 // Action Creators
+import { changeBg } from '../actions/gamePlay';
 
 /* === State (données) === */
 const mapStateToProps = (state) => ({
@@ -13,13 +14,17 @@ const mapStateToProps = (state) => ({
 });
 
 /* === Actions === */
-const mapDispatchToProps = {};
+const mapDispatchToProps = (dispatch) => ({
+  changeBg: (bgImageCssClass) => {
+    dispatch(changeBg(bgImageCssClass));
+  },
+});
 
 // Container
-const AppContainer = connect(
+const NotFoundContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(App);
+)(NotFound);
 
 // == Export
-export default AppContainer;
+export default NotFoundContainer;

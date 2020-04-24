@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 // == Import local
 import './style.scss';
-import Combat from '../../containers/Combat';
+import Combat from '../../containers/Combat/Combat';
 import Reward from '../../containers/Reward';
 import Event from '../../containers/Event';
 import Nothing from './nothing';
