@@ -96,6 +96,7 @@ export const findExploration = () => ({
 
 export const eventNothing = () => ({
   type: EVENT_NOTHING,
+});
 
 export const addOpponnentReward = ()=> ({
   type: ADD_OPPONNENT_REWARD,

@@ -393,7 +393,7 @@ const gameplay = (state = initialState, action = {}) => {
           ...state.player,
           jsx: state.player.jsx + randomReward.jsxRoll,
           xp: state.player.xp + randomReward.xpRoll,
-        }
+        },
       };
     case FIND_EVENT:
       // console.log('case FINDEVENT');
@@ -412,19 +412,19 @@ const gameplay = (state = initialState, action = {}) => {
     case EVENT_NOTHING:
       return {
         ...state,
+      };
 
     case ADD_OPPONNENT_REWARD:
       const opponentReward = addOpponnentReward(state);
-      console.log('rewards combat', opponentReward)
       return {
         ...state,
         opponentRewards: addOpponnentReward,
         player: {
           ...state.player,
-          jsx: state.player.jsx +  opponentReward.jsxCombatReward,
+          jsx: state.player.jsx + opponentReward.jsxCombatReward,
           xp: state.player.xp + opponentReward.xpCombatReward,
-        }
-      }
+        },
+      };
     case CHANGE_BG:
       return {
         ...state,
