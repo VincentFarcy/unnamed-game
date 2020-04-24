@@ -23,6 +23,7 @@ export const REST_ACTION = 'REST_ACTION';
 export const MEDIC_ACTION = 'MEDIC_ACTION';
 export const UPDATE_TIMER = 'UPDATE_TIMER';
 export const ADD_OPPONNENT_REWARD = 'ADD_OPPONNENT_REWARD';
+export const INCREMENT_ABILITY = 'INCREMENT_ABILITY';
 
 // == Action creators
 export const resetGame = () => ({
@@ -125,4 +126,9 @@ export const changeBg = (bgImageCssClass) => ({
 
 export const eventWin = () => ({
   type: EVENT_WIN,
+});
+
+export const incrementAbility = (payload) => ({
+  type: INCREMENT_ABILITY,
+  payload,
 });

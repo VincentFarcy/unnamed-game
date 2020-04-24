@@ -5,8 +5,16 @@ import { rollDice } from '../func';
 export const findUpAbility = (state, abilityName) => (
   state.player.abilities.map((ability) => {
     if (ability.name === abilityName && ability.value < state.gameParameters.attribute_max && state.player.pool > 0) {
-      ability.value++;
+      ability.value += 1;
       state.player.pool--;
+    }
+  })
+);
+
+export const findTrainAbility = (state, abilityName) => (
+  state.player.abilities.map((ability) => {
+    if (ability.name === abilityName) {
+      ability.value += 1;
     }
   })
 );

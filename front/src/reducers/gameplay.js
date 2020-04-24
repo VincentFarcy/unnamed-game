@@ -31,6 +31,7 @@ import {
   UPDATE_TIMER,
   EVENT_WIN,
   FIND_EVENT,
+  INCREMENT_ABILITY,
 }
   from '../actions/gamePlay';
 // import selectors
@@ -41,11 +42,10 @@ import {
   findInfoForSequence,
   findRandomReward,
   addOpponnentReward,
+  findTrainAbility,
 } from '../selectors/gameplay';
 // import functions
 import { rollDice } from '../func';
-import { StaticRouter } from 'react-router';
-
 
 // == State
 
@@ -472,6 +472,16 @@ const gameplay = (state = initialState, action = {}) => {
           ...state.player,
           jsx: state.player.jsx + rollDice(1, 3),
           xp: state.player.xp + rollDice(2, 4),
+        },
+      };
+    case INCREMENT_ABILITY:
+      findTrainAbility(state, action.payload);
+      return {
+        ...state,
+        phpTimer: state.phpTimer + 1,
+        player: {
+          ...state.player,
+          xp: state.player.xp - state.gameParameters.train_xp_cost,
         },
       };
     default:
