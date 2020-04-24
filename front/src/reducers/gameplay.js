@@ -357,32 +357,31 @@ const gameplay = (state = initialState, action = {}) => {
           baseHealing: Math.floor(
             ((action.backups[0].will / 2) + (action.backups[0].intelligence / 2)),
           ),
+          abilities: [
+            {
+              ...state.player.abilities[0],
+              value: action.backups[0].strength,
+            },
+            {
+              ...state.player.abilities[1],
+              value: action.backups[0].agility,
+            },
+            {
+              ...state.player.abilities[2],
+              value: action.backups[0].constitution,
+            },
+            {
+              ...state.player.abilities[3],
+              value: action.backups[0].will,
+            },
+            {
+              ...state.player.abilities[4],
+              value: action.backups[0].intelligence,
+            },
+          ],
+          xp: action.backups[0].xp,
+          jsx: action.backups[0].money,
         },
-        abilities: [
-          {
-            ...state.abilities[0],
-            value: action.backups[0].strength,
-          },
-          {
-            ...state.abilities[1],
-            value: action.backups[0].agility,
-          },
-          {
-            ...state.abilities[2],
-            value: action.backups[0].constitution,
-          },
-          {
-            ...state.abilities[3],
-            value: action.backups[0].will,
-          },
-          {
-            ...state.abilities[4],
-            value: action.backups[0].intelligence,
-          },
-        ],
-
-        xp: action.backups[0].xp,
-        jsx: action.backups[0].money,
       };
     case START_BACKUP_LOADING:
       return {

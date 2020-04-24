@@ -35,7 +35,7 @@ const apiMiddleware = (store) => (next) => (action) => {
             store.dispatch(loadBackupData(store.getState().user.backups));
           }
         })
-        .catch(() => {
+        .catch((err) => {
           store.getState().gameplay.hasError = true;
           store.dispatch(gameDataError());
         });
@@ -63,14 +63,14 @@ const apiMiddleware = (store) => (next) => (action) => {
               gender: 'm',
             },
             name: 'save',
-            strength: state.gameplay.abilities.find((ability) => ability.name === 'Force').value,
-            agility: state.gameplay.abilities.find((ability) => ability.name === 'Agilité').value,
-            constitution: state.gameplay.abilities.find((ability) => ability.name === 'Constitution').value,
-            will: state.gameplay.abilities.find((ability) => ability.name === 'Volonté').value,
-            intelligence: state.gameplay.abilities.find((ability) => ability.name === 'Intelligence').value,
+            strength: state.gameplay.player.abilities.find((ability) => ability.name === 'Force').value,
+            agility: state.gameplay.player.abilities.find((ability) => ability.name === 'Agilité').value,
+            constitution: state.gameplay.player.abilities.find((ability) => ability.name === 'Constitution').value,
+            will: state.gameplay.player.abilities.find((ability) => ability.name === 'Volonté').value,
+            intelligence: state.gameplay.player.abilities.find((ability) => ability.name === 'Intelligence').value,
             health: state.gameplay.player.playerCurrentHP,
-            money: state.gameplay.jsx,
-            xp: state.gameplay.xp,
+            money: state.gameplay.player.jsx,
+            xp: state.gameplay.player.xp,
           },
         })
           .then((res) => {
