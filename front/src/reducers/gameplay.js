@@ -22,7 +22,6 @@ import {
   FIND_SEQUENCE,
   RESTART_NEW_GAME,
   FIND_RANDOM_REWARD,
-  FIND_EVENT,
   FIND_EXPLORATION,
   EVENT_NOTHING,
   REST_ACTION,
@@ -30,6 +29,8 @@ import {
   ADD_OPPONNENT_REWARD,
   CHANGE_BG,
   UPDATE_TIMER,
+  EVENT_WIN,
+  FIND_EVENT,
 }
   from '../actions/gamePlay';
 // import selectors
@@ -43,6 +44,7 @@ import {
 } from '../selectors/gameplay';
 // import functions
 import { rollDice } from '../func';
+import { StaticRouter } from 'react-router';
 
 
 // == State
@@ -448,10 +450,10 @@ const gameplay = (state = initialState, action = {}) => {
       return {
         ...state,
         phpTimer: state.phpTimer + 1,
-        jsx: state.player.jsx - 10,
         sequenceToTell: '',
         player: {
           ...state.player,
+          jsx: state.player.jsx - 10,
           playerCurrentHP: state.player.playerTotalHP,
         },
       };
@@ -460,6 +462,17 @@ const gameplay = (state = initialState, action = {}) => {
         ...state,
         phpTimer: state.phpTimer + 1,
         sequenceToTell: '',
+      };
+    case EVENT_WIN:
+      return {
+        ...state,
+        phpTimer: state.phpTimer + 1,
+        sequenceToTell: '',
+        player: {
+          ...state.player,
+          jsx: state.player.jsx + rollDice(1, 3),
+          xp: state.player.xp + rollDice(2, 4),
+        },
       };
     default:
       return state;

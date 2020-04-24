@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 // local imports
 import Medic from '../components/MedicBay';
-import { actionMedic, actionMedicFail } from '../actions/gamePlay';
+import { actionMedic } from '../actions/gamePlay';
 
 // state
 const mapStateToProps = (state) => ({
@@ -14,9 +14,6 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   actionMedic: () => {
     dispatch(actionMedic());
-  },
-  actionMedicFail: () => {
-    dispatch(actionMedicFail());
   },
 });
 

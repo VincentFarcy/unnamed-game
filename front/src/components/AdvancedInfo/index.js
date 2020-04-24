@@ -21,7 +21,7 @@ const AdvancedInfo = ({
 }) => (
   <div className="AdvancedInfo__container">
     <div className="MainAbilities__container">
-    {/* == Map handling the display of the basic characteristics like Strength, Agility, etc.*/}
+    { /* == Map handling the display of the basic characteristics like Strength, Agility, etc.*/ }
       {
         abilities.map((ability) => (
           <span key={uuidv4()}>
