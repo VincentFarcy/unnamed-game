@@ -26,6 +26,8 @@ import {
   FIND_EXPLORATION,
   EVENT_NOTHING,
   REST_ACTION,
+  MEDIC_ACTION,
+  MEDIC_FAIL,
   ADD_OPPONNENT_REWARD,
   CHANGE_BG,
 }
@@ -438,8 +440,23 @@ const gameplay = (state = initialState, action = {}) => {
         phpTimer: state.phpTimer + 1,
         player: {
           ...state.player,
-          playerCurrentHP: (state.player.playerCurrentHP + state.player.baseHealing + rollDice(1, 4)),
+          playerCurrentHP: (state.player.playerCurrentHP + state.player.baseHealing + rollDice(1, 2)),
         },
+      };
+    case MEDIC_ACTION:
+      return {
+        ...state,
+        phpTimer: state.phpTimer + 1,
+        jsx: state.jsx - 10,
+        player: {
+          ...state.player,
+          playerCurrentHP: state.player.playerTotalHP,
+        },
+      };
+    case MEDIC_FAIL:
+      return {
+        ...state,
+        phpTimer: state.phpTimer + 1,
       };
     default:
       return state;
