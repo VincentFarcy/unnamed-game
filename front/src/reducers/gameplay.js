@@ -27,9 +27,9 @@ import {
   EVENT_NOTHING,
   REST_ACTION,
   MEDIC_ACTION,
-  MEDIC_FAIL,
   ADD_OPPONNENT_REWARD,
   CHANGE_BG,
+  UPDATE_TIMER,
 }
   from '../actions/gamePlay';
 // import selectors
@@ -141,7 +141,7 @@ const gameplay = (state = initialState, action = {}) => {
           xpRoll: 0,
           jsxRoll: 0,
         },
-        opponentRewards : {
+        opponentRewards: {
           xpCombatReward: 0,
           jsxCombatReward: 0,
         },
@@ -216,7 +216,7 @@ const gameplay = (state = initialState, action = {}) => {
           xpRoll: 0,
           jsxRoll: 0,
         },
-        opponentRewards : {
+        opponentRewards: {
           xpCombatReward: 0,
           jsxCombatReward: 0,
         },
@@ -350,8 +350,8 @@ const gameplay = (state = initialState, action = {}) => {
         combat: {
           ...state.combat,
           combatInProgress: true,
-        }
-      }
+        },
+      };
     case APPLY_DAMAGE:
       return {
         ...state,
@@ -399,8 +399,6 @@ const gameplay = (state = initialState, action = {}) => {
         },
       };
     case FIND_EVENT:
-      // console.log('case FINDEVENT');
-      // const event = findInfoForEvent(state);
       return {
         ...state,
         difficulty: rollDice(3, 10),
@@ -415,6 +413,8 @@ const gameplay = (state = initialState, action = {}) => {
     case EVENT_NOTHING:
       return {
         ...state,
+        sequenceToTell: '',
+        phpTimer: state.phpTimer + 1,
       };
 
     case ADD_OPPONNENT_REWARD:
@@ -438,6 +438,7 @@ const gameplay = (state = initialState, action = {}) => {
       return {
         ...state,
         phpTimer: state.phpTimer + 1,
+        sequenceToTell: '',
         player: {
           ...state.player,
           playerCurrentHP: (state.player.playerCurrentHP + state.player.baseHealing + rollDice(1, 2)),
@@ -448,15 +449,17 @@ const gameplay = (state = initialState, action = {}) => {
         ...state,
         phpTimer: state.phpTimer + 1,
         jsx: state.player.jsx - 10,
+        sequenceToTell: '',
         player: {
           ...state.player,
           playerCurrentHP: state.player.playerTotalHP,
         },
       };
-    case MEDIC_FAIL:
+    case UPDATE_TIMER:
       return {
         ...state,
         phpTimer: state.phpTimer + 1,
+        sequenceToTell: '',
       };
     default:
       return state;
@@ -478,7 +481,6 @@ export const findRandomExploration = (state) => {
     (explorationRange) => (findExplorationTable >= explorationRange.rollFrom
       && findExplorationTable <= explorationRange.rollTo),
   );
-  // console.log(rightExplorationTable);
 
   return rightExplorationTable;
 };

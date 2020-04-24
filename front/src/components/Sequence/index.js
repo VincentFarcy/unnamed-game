@@ -7,10 +7,11 @@ import Story from '../../containers/Story';
 
 // == Import local
 import '../Story/style.scss';
+import MainHub from '../../containers/MainHub';
 
 
 // == Component
-const Sequence = ({ changeBg, sequence, findSequence }) => {
+const Sequence = ({ changeBg, sequence, findSequence, php }) => {
   useEffect(findSequence, []);
   useEffect(() => {
     changeBg('bg--sequence');
@@ -20,7 +21,8 @@ const Sequence = ({ changeBg, sequence, findSequence }) => {
   };
   return (
     <div className="story-container">
-      {sequence.id === 99 ? <Story />
+      {php === 25 && <Story />}
+      {sequence.id === 99 ? <MainHub />
         : (
           <div className="main__play">
             <p className="story__title">{sequence.title}</p>

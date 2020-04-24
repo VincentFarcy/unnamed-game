@@ -9,7 +9,12 @@ import PlayerInfo from '../../containers/PlayerInfo';
 import './style.scss';
 
 // == Component
-const Mainhub = ({ medicAccess, trainAccess, vendingAccess }) => {
+const Mainhub = ({
+  medicAccess,
+  trainAccess,
+  vendingAccess,
+  jsx,
+}) => {
   const RollForMedicAccess = rollDice(1, 100);
   const RollForTrainAccess = rollDice(1, 100);
   const RollForVendingAccess = rollDice(1, 100);
@@ -25,7 +30,7 @@ const Mainhub = ({ medicAccess, trainAccess, vendingAccess }) => {
         <div className="button__container">
           <Button cssClassName="next__button" buttonName="Exploration" url="/play/exploration" />
         </div>
-        {medicAccess >= RollForMedicAccess
+        {(medicAccess >= RollForMedicAccess) && (jsx >= 10)
           && (
             <div className="button__container">
               <Button cssClassName="next__button" buttonName="Hôpital" url="/play/medic" />
@@ -53,6 +58,7 @@ Mainhub.propTypes = {
   medicAccess: PropTypes.number.isRequired,
   trainAccess: PropTypes.number.isRequired,
   vendingAccess: PropTypes.number.isRequired,
+  jsx: PropTypes.number.isRequired,
 };
 
 

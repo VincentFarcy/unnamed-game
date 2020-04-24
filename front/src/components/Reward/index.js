@@ -34,7 +34,7 @@ const Reward = ({
         <div className="button__container">
           <Button
             cssClassName="next__button"
-            url="/play/medic"
+            url="/play/sequence"
             buttonName="Suivant"
             onClick={nextSequence}
           />

@@ -1,5 +1,5 @@
 // == Import npm
-import React, { useEffect } from 'react';
+import React from 'react';
 import Typical from 'react-typical';
 import PropTypes from 'prop-types';
 import Button from '../LinkButton';
@@ -11,10 +11,9 @@ import './style.scss';
 const Event = ({
   playerRoll,
   eventDifficulty,
-  findEvent,
+  updateTimer,
   hacking,
 }) => {
-  useEffect(findEvent, []);
   const win = (hacking + playerRoll) > eventDifficulty;
 
   return (
@@ -23,17 +22,16 @@ const Event = ({
       <Typical className="story__p" steps={['lol', 1000]} wrapper="p" />
       <div className="button__container">
         {win
-          ? <Button cssClassName="next__button" buttonName="Suivant" url="/play/sequence" />
-          : <Button cssClassName="next__button" buttonName="Suivant" url="/play/death" />}
+          ? <Button cssClassName="next__button" buttonName="Suivant" url="/play/sequence" onClick={updateTimer} />
+          : <Button cssClassName="next__button" buttonName="Suivant" url="/play/sequence" onClick={updateTimer} />}
       </div>
-      )
     </div>
   );
 };
 
 // == Props validation
 Event.propTypes = {
-  findEvent: PropTypes.func.isRequired,
+  updateTimer: PropTypes.func.isRequired,
   eventDifficulty: PropTypes.number.isRequired,
   playerRoll: PropTypes.number.isRequired,
   hacking: PropTypes.number.isRequired,

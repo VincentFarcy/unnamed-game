@@ -11,7 +11,7 @@ const Rest = ({ actionRest }) => (
   <div className="main__play">
     <p className="rest__title">Vous décidez de vous reposer</p>
     <div className="button__container">
-      <Button cssClassName="next__button" buttonName="Se reposer" url="/play/mainhub" onClick={actionRest} />
+      <Button cssClassName="next__button" buttonName="Se reposer" url="/play/sequence" onClick={actionRest} />
     </div>
     <div className="button__container">
       <Button cssClassName="next__button" buttonName="Sortir" url="/play/mainhub" />
