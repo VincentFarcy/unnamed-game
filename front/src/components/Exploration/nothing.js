@@ -13,7 +13,7 @@ const Nothing = ({ eventNothing }) => (
     <p className="nothing__text"> Il ne se passe rien</p>
 
     <div className="button__container">
-      <Button cssClassName="next__button" buttonName="Suivant" url="/play/mainhub" onClick={eventNothing} />
+      <Button cssClassName="next__button" buttonName="Suivant" url="/play/sequence" onClick={eventNothing} />
     </div>
   </div>
 );

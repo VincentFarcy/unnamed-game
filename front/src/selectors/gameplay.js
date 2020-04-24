@@ -51,10 +51,10 @@ export const findInfoForSequence = (state) => {
   const timing = state.phpTimer;
 
   const sequenceTable = sequenceList.find(
-    (sequence) => (timing === sequence.id),
+    (sequence) => (timing === sequence.orderBy),
   );
 
-  if (timing > sequenceList.length) {
+  if ((sequenceTable == null) || (timing > sequenceList.length)) {
     return {
       id: 99,
       mainText: 'end',
@@ -88,7 +88,6 @@ export const addOpponnentReward = (state) => {
   // Selector to return the Money (JSX) and XP gains from the currentOpponent combat
   const xpCombatReward = state.combat.currentOpponent.xpGain;
   const jsxCombatReward = state.combat.currentOpponent.moneyGain;
-  
   return {
     xpCombatReward,
     jsxCombatReward,

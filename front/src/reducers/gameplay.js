@@ -370,10 +370,9 @@ const gameplay = (state = initialState, action = {}) => {
         },
       };
     case FIND_SEQUENCE:
-      const sequence = findInfoForSequence(state);
       return {
         ...state,
-        sequenceToTell: sequence,
+        sequenceToTell: findInfoForSequence(state),
       };
     case NEXT_SEQUENCE:
       return {
