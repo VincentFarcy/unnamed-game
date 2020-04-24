@@ -297,6 +297,7 @@ const gameplay = (state = initialState, action = {}) => {
           },
         },
         bgImageCssClass: '',
+        backupIsLoading : false,
       };
     case GAME_DATA_SUCCESS:
       return {
@@ -433,7 +434,10 @@ const gameplay = (state = initialState, action = {}) => {
     case EVENT_NOTHING:
       return {
         ...state,
-        sequenceToTell: '',
+        sequenceToTell: {
+          id: 0,
+          mainText: '',
+        },
         phpTimer: state.phpTimer + 1,
       };
     case ADD_OPPONNENT_REWARD:
@@ -472,7 +476,10 @@ const gameplay = (state = initialState, action = {}) => {
       return {
         ...state,
         phpTimer: state.phpTimer + 1,
-        sequenceToTell: '',
+        sequenceToTell: {
+          id: 0,
+          mainText: '',
+        },
         player: {
           ...state.player,
           jsx: state.player.jsx - 10,
@@ -489,7 +496,10 @@ const gameplay = (state = initialState, action = {}) => {
       return {
         ...state,
         phpTimer: state.phpTimer + 1,
-        sequenceToTell: '',
+        sequenceToTell: {
+          id: 0,
+          mainText: '',
+        },
         player: {
           ...state.player,
           jsx: state.player.jsx + rollDice(1, 3),

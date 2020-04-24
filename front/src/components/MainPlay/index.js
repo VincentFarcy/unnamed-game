@@ -27,6 +27,7 @@ const MainPlay = ({
   const handleContinueClick = (evt) => {
     fetchInitialeGameData();
     startBackupLoading();
+    console.log("test");
   };
 
   return (
