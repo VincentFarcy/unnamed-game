@@ -21,10 +21,11 @@ const AdvancedInfo = ({
 }) => (
   <div className="AdvancedInfo__container">
     <div className="MainAbilities__container">
+    {/* == Map handling the display of the basic characteristics like Strength, Agility, etc.*/}
       {
         abilities.map((ability) => (
           <span key={uuidv4()}>
-            {ability.name}:{ability.value}
+            {ability.name} : {ability.value}
           </span>
         ))
       }
@@ -41,7 +42,7 @@ const AdvancedInfo = ({
         )
           }
       >
-        <span>Esquive: {baseAvoid}</span>
+        <span>Esquive : {baseAvoid}</span>
       </OverlayTrigger>
       <OverlayTrigger
         placement="top"
@@ -54,7 +55,7 @@ const AdvancedInfo = ({
           )
           }
       >
-        <span>Initiative: {baseInitiative + 1} - {baseInitiative + 10}</span>
+        <span>Initiative : {baseInitiative + 1} - {baseInitiative + 10}</span>
       </OverlayTrigger>
       <OverlayTrigger
         placement="top"
@@ -67,7 +68,7 @@ const AdvancedInfo = ({
           )
         }
       >
-        <span>Toucher: {baseToHit + 1} - {baseToHit + 6}</span>
+        <span>Toucher : {baseToHit + 1} - {baseToHit + 6}</span>
       </OverlayTrigger>
       <OverlayTrigger
         placement="top"
@@ -80,7 +81,7 @@ const AdvancedInfo = ({
           )
         }
       >
-        <span>Dégâts: {baseDamage + 1} - {baseDamage + 4}</span>
+        <span>Dégâts : {baseDamage + 1} - {baseDamage + 4}</span>
       </OverlayTrigger>
       <OverlayTrigger
         placement="top"
@@ -93,7 +94,7 @@ const AdvancedInfo = ({
           )
         }
       >
-        <span>Guérison: {healing}</span>
+        <span>Guérison : {healing}</span>
       </OverlayTrigger>
       <OverlayTrigger
         placement="top"

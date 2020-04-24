@@ -20,11 +20,11 @@ h2.combat__title {
   .combat__choices {
     margin: auto;
     display: flex;
-    justify-content: space-evenly;
-  }
-
-  .choice {
-    width: 100px;
+    justify-content: center;
+    .choice {
+      width: 100px;
+      margin: 0 1rem;
+    }
   }
 
   /* CSS for Opponent*/
@@ -83,10 +83,9 @@ h2.combat__title {
 
     .combat__choices {
       width: 60%;
-    }
-
-    .choice {
-      width: 200px;
+      .choice {
+        width: 200px;
+      }
     }
 
     .progress {
