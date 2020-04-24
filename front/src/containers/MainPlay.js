@@ -1,6 +1,10 @@
 // npm imports
 import { connect } from 'react-redux';
-import { changeGameStatus, fetchInitialeGameData } from '../actions/gamePlay';
+import {
+  changeGameStatus,
+  fetchInitialeGameData,
+  startBackupLoading,
+} from '../actions/gamePlay';
 
 // local imports
 import MainPlay from '../components/MainPlay';
@@ -9,6 +13,7 @@ import MainPlay from '../components/MainPlay';
 const mapStateToProps = (state) => ({
   hasError: state.gameplay.hasError,
   gameOn: state.gameplay.gameOn,
+  hasBackup: (state.user.backups) ? state.user.backups.length > 0 : false,
 });
 
 // actions
@@ -18,6 +23,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   fetchInitialeGameData: () => {
     dispatch(fetchInitialeGameData());
+  },
+  startBackupLoading: () => {
+    dispatch(startBackupLoading());
   },
 });
 

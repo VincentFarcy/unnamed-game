@@ -3,14 +3,14 @@ import { connect } from 'react-redux';
 
 // local imports
 import Sequence from '../components/Sequence';
-import { findSequence } from '../actions/gamePlay';
 
 // Action Creators
-import { changeBg } from '../actions/gamePlay';
+import { findSequence, changeBg, gameBackup } from '../actions/gamePlay';
 
 // state
 const mapStateToProps = (state) => ({
   sequence: state.gameplay.sequenceToTell,
+  php: state.gameplay.phpTimer,
 });
 
 // actions
@@ -20,6 +20,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   changeBg: (bgImageCssClass) => {
     dispatch(changeBg(bgImageCssClass));
+  },
+  gameBackup: () => {
+    dispatch(gameBackup());
   },
 });
 

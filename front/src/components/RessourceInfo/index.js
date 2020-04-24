@@ -15,9 +15,11 @@ const RessourceInfo = ({ mainCounter, experience, money }) => (
       placement="top"
       delay={{ show: 300, hide: 300 }}
       overlay={
-        <Tooltip id={`tooltip`}>
-          Personnal Hours Protocol - Le temps galactique
+        (
+          <Tooltip id={`tooltip`}>
+            Personnal Hours Protocol - Le temps galactique
           </Tooltip>
+        )
       }
     >
       <p className="ressource-info__counter"> {`PHP:${mainCounter}`} </p>
@@ -26,9 +28,11 @@ const RessourceInfo = ({ mainCounter, experience, money }) => (
       placement="top"
       delay={{ show: 300, hide: 300 }}
       overlay={
-        <Tooltip id={`tooltip`}>
-          Toute cette expérience accumulée doit bien servir à quelque chose !
+        (
+          <Tooltip id={`tooltip`}>
+            Toute cette expérience accumulée doit bien servir à quelque chose !
           </Tooltip>
+        )
       }
     >
       <p className="ressource-info__experience"> {`XP:${experience}`} </p>
@@ -37,9 +41,11 @@ const RessourceInfo = ({ mainCounter, experience, money }) => (
       placement="top"
       delay={{ show: 300, hide: 300 }}
       overlay={
-        <Tooltip id={`tooltip`}>
-          Le nom de la monnaie galactique
+        (
+          <Tooltip id={`tooltip`}>
+            Le nom de la monnaie galactique
           </Tooltip>
+        )
       }
     >
       <p className="ressource-info__money"> {`JSX:${money}`} </p>
