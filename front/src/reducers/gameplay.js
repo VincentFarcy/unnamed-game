@@ -59,7 +59,10 @@ const initialState = {
     xpRoll: 0,
     jsxRoll: 0,
   },
-  sequenceToTell: '',
+  sequenceToTell: {
+    id: 0,
+    mainText: '',
+  },
   currentEvent: '',
   exploration: {
     type: 'string',
@@ -147,7 +150,10 @@ const gameplay = (state = initialState, action = {}) => {
           xpCombatReward: 0,
           jsxCombatReward: 0,
         },
-        sequenceToTell: '',
+        sequenceToTell: {
+          id: 0,
+          mainText: '',
+        },
         currentEvent: '',
         difficulty: 1,
         playerRoll: 1,
@@ -222,7 +228,10 @@ const gameplay = (state = initialState, action = {}) => {
           xpCombatReward: 0,
           jsxCombatReward: 0,
         },
-        sequenceToTell: '',
+        sequenceToTell: {
+          id: 0,
+          mainText: '',
+        },
         currentEvent: '',
         difficulty: 1,
         playerRoll: 1,
@@ -289,7 +298,7 @@ const gameplay = (state = initialState, action = {}) => {
         player: {
           ...state.player,
           pool: action.payload.gameParameters.attribute_points,
-        }
+        },
       };
     case GAME_DATA_ERROR:
       return {
@@ -336,7 +345,10 @@ const gameplay = (state = initialState, action = {}) => {
       const opponent = findOpponentForCombat(state);
       return {
         ...state,
-        sequenceToTell: '',
+        sequenceToTell: {
+          id: 0,
+          mainText: '',
+        },
         combat: {
           ...state.combat,
           isCombatOn: true,
@@ -406,7 +418,6 @@ const gameplay = (state = initialState, action = {}) => {
         difficulty: rollDice(3, 10),
         playerRoll: rollDice(1, 6),
       };
-
     case FIND_EXPLORATION:
       return {
         ...state,
@@ -418,7 +429,6 @@ const gameplay = (state = initialState, action = {}) => {
         sequenceToTell: '',
         phpTimer: state.phpTimer + 1,
       };
-
     case ADD_OPPONNENT_REWARD:
       const opponentReward = addOpponnentReward(state);
       return {
@@ -440,10 +450,15 @@ const gameplay = (state = initialState, action = {}) => {
       return {
         ...state,
         phpTimer: state.phpTimer + 1,
-        sequenceToTell: '',
+        sequenceToTell: {
+          id: 0,
+          mainText: '',
+        },
         player: {
           ...state.player,
-          playerCurrentHP: (state.player.playerCurrentHP + state.player.baseHealing + rollDice(1, 2)),
+          playerCurrentHP:
+            (state.player.playerCurrentHP + state.player.baseHealing + rollDice(1, 2)) < state.player.playerTotalHP ?
+              state.player.playerCurrentHP + state.player.baseHealing + rollDice(1, 2) : state.player.playerTotalHP,
         },
       };
     case MEDIC_ACTION:

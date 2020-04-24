@@ -48,12 +48,10 @@ const AdvancedInfo = ({
         placement="top"
         delay={{ show: 300, hide: 300 }}
         overlay={
-          (
-            <Tooltip id="tooltip">
-              Celui qui a la plus grosse, tappe avant !
-            </Tooltip>
-          )
-          }
+          <Tooltip id={`tooltip`}>
+            Celui qui a la plus grosse, tape avant !
+          </Tooltip>
+        }
       >
         <span>Initiative : {baseInitiative + 1} - {baseInitiative + 10}</span>
       </OverlayTrigger>
