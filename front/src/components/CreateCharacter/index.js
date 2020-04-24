@@ -2,8 +2,8 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
+import Typical from 'react-typical';
 import LinkButton from '../LinkButton';
-
 
 // == Import local
 import './style.scss';
@@ -57,11 +57,12 @@ const CreateCharacter = ({
         ) : (
           <div>
             <div className="title__container">
-              <h1>Continuer la partie</h1>
+              <h1>Sauvegarde chargée</h1>
             </div>
-            <div className="ability_main__container">
+            <div className="continue_main__container">
+              <Typical className="continue_text" steps={['Prêt à reprendre l\'aventure ?', 1000]} wrapper="p" /> 
               <div className="button__container">
-                <LinkButton cssClassName="validate__button" buttonName="Continuer" url="/play/sequence" onClick={handleClick} />
+                <LinkButton cssClassName="validate__button" buttonName="OK" url="/play/sequence" onClick={handleClick} />
               </div>
             </div>
           </div>
