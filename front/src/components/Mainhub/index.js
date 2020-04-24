@@ -45,7 +45,7 @@ const Mainhub = ({
         {vendingAccess >= RollForVendingAccess
           && (
             <div className="button__container">
-              <Button cssClassName="next__button" buttonName="Magasin" url="/play/death" />
+              <Button cssClassName="next__button" buttonName="Magasin" url="/play/vendor" />
             </div>
           )}
       </div>

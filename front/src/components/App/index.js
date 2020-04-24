@@ -25,6 +25,7 @@ import Death from '../../containers/Death';
 import Combat from '../../containers/Combat/Combat';
 import Exploration from '../../containers/Exploration';
 import Reward from '../../containers/Reward';
+import Vendor from '../../containers/Vendor';
 import Rest from '../../containers/Rest';
 import Medic from '../../containers/MedicBay';
 import Mainhub from '../../containers/MainHub';
@@ -83,6 +84,9 @@ const App = ({ isGameOn, bgImageCssClass }) => (
         </Route>
         <Route exact path="/play/mainhub">
           { !isGameOn ? <Redirect to="/play" /> : <Mainhub />}
+        </Route>
+        <Route exact path="/play/vendor">
+          { !isGameOn ? <Redirect to="/play" /> : <Vendor />}
         </Route>
         <Route component={NotFound} />
       </Switch>
