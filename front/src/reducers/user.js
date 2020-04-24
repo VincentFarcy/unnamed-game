@@ -150,6 +150,7 @@ const user = (state = initialState, action = {}) => {
         errorMessages: [],
       };
     case REFRESH_USER_BACKUPS:
+      // console.log(REFRESH_USER_BACKUPS, action.backups);
       return {
         ...state,
         backups: action.backups,

@@ -16,6 +16,9 @@ export const RESTART_NEW_GAME = 'RESTART_NEW_GAME';
 export const FIND_RANDOM_REWARD = 'FIND_RANDOM_REWARD';
 export const CHANGE_BG = 'CHANGE_BG';
 export const GAME_BACKUP = 'GAME_BACKUP';
+export const LOAD_BACKUP_DATA = 'LOAD_BACKUP_DATA';
+export const START_BACKUP_LOADING = 'START_BACKUP_LOADING';
+export const END_BACKUP_LOADING = 'END_BACKUP_LOADING';
 
 // == Action creators
 export const resetGame = () => ({
@@ -89,4 +92,17 @@ export const changeBg = (bgImageCssClass) => ({
 
 export const gameBackup = () => ({
   type: GAME_BACKUP,
+});
+
+export const loadBackupData = (backups) => ({
+  type: LOAD_BACKUP_DATA,
+  backups,
+});
+
+export const startBackupLoading = () => ({
+  type: START_BACKUP_LOADING,
+});
+
+export const endBackupLoading = () => ({
+  type: END_BACKUP_LOADING,
 });

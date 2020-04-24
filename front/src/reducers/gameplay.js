@@ -23,6 +23,9 @@ import {
   RESTART_NEW_GAME,
   FIND_RANDOM_REWARD,
   CHANGE_BG,
+  LOAD_BACKUP_DATA,
+  START_BACKUP_LOADING,
+  END_BACKUP_LOADING,
 }
   from '../actions/gamePlay';
 import { rollDice } from '../func';
@@ -95,6 +98,7 @@ const initialState = {
   },
   bgImageCssClass: '',
   hero: {},
+  backupIsLoading : false,
 };
 
 // == Reducer
@@ -108,7 +112,7 @@ const gameplay = (state = initialState, action = {}) => {
       };
     case RESTART_NEW_GAME:
       return {
-        initialState,
+        // initialState,
         gameOn: false,
         isLoading: false,
         loadingErrMessage: '',
@@ -172,6 +176,8 @@ const gameplay = (state = initialState, action = {}) => {
           },
         },
         bgImageCssClass: '',
+        hero: {},
+        backupIsLoading: false,
       };
     case CHANGE_GAME_STATUS:
       return {
@@ -292,6 +298,60 @@ const gameplay = (state = initialState, action = {}) => {
       return {
         ...state,
         bgImageCssClass: action.bgImageCssClass,
+      };
+    case LOAD_BACKUP_DATA:
+      const sequenceId = action.backups[0].sequence.id;
+      const phpTimer = state.chapters[0].sequences.find((sequence) => sequence.id === sequenceId).orderBy;
+      return {
+        ...state,
+        phpTimer: phpTimer,
+        player: {
+          ...state.player,
+          playerCurrentHP: action.backups[0].health,
+          playerTotalHP: ((action.backups[0].will / 2) + (action.backups[0].constitution)) * 10,
+          baseTouch:((action.backups[0].agility) + Math.floor((action.backups[0].intelligence / 3))),
+          dodge: ((action.backups[0].agility) + Math.floor((action.backups[0].intelligence / 2))),
+          baseDamage: action.backups[0].strength,
+          baseSpeed: action.backups[0].agility,
+          baseHealing: Math.floor(
+            ((action.backups[0].will / 2) + (action.backups[0].intelligence / 2)),
+          ),
+        },
+        abilities: [
+          {
+            ...state.abilities[0],
+            value: action.backups[0].strength,
+          },
+          {
+            ...state.abilities[1],
+            value: action.backups[0].agility,
+          },
+          {
+            ...state.abilities[2],
+            value: action.backups[0].constitution,
+          },
+          {
+            ...state.abilities[3],
+            value: action.backups[0].will,
+          },
+          {
+            ...state.abilities[4],
+            value: action.backups[0].intelligence,
+          },
+        ],
+
+        xp: action.backups[0].xp,
+        jsx: action.backups[0].money,
+      };
+    case START_BACKUP_LOADING:
+      return {
+        ...state,
+        backupIsLoading: true,
+      };
+    case END_BACKUP_LOADING:
+      return {
+        ...state,
+        backupIsLoading: false,
       };
     default:
       return state;

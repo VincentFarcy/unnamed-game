@@ -15,14 +15,21 @@ const MainPlay = ({
   hasError,
   gameOn,
   startGame,
-  fetchInitialeGameData 
+  fetchInitialeGameData,
+  hasBackup,
+  startBackupLoading,
 }) => {
   // https://fr.reactjs.org/docs/hooks-effect.html#example-using-hooks-1
   // voir les useEffect avec nettoyage
   !hasError && useEffect(startGame, []);
   // console.log(hasError);
 
-  return ( 
+  const handleContinueClick = (evt) => {
+    fetchInitialeGameData();
+    startBackupLoading();
+  };
+
+  return (
     hasError && <ErrorMessage />
     // if we have to put this solution in action it will require the creation of the route in App
     // hasError && <Redirect to="/error" />
@@ -45,6 +52,19 @@ const MainPlay = ({
           <Image className="play-images" src={savedGameIcon} />
           <p className="play-text"> Continuer la partie</p>
         </NavLink> */}
+        {
+          hasBackup && (
+            <NavLink
+              exact
+              to="/play/create-player"
+              className="nav-link play-button game-launcher__btn"
+              onClick={handleContinueClick}
+            >
+              <Image className="play-images" src={savedGameIcon} />
+              <p className="play-text">Continuer la partie</p>
+            </NavLink>
+          )
+        }
       </section>
     </div>
     )
@@ -56,6 +76,8 @@ MainPlay.propTypes = {
   hasError: PropTypes.bool.isRequired,
   startGame: PropTypes.func.isRequired,
   fetchInitialeGameData: PropTypes.func.isRequired,
+  hasBackup: PropTypes.bool.isRequired,
+  startBackupLoading: PropTypes.func.isRequired,
 };
 
 // == Export

@@ -7,6 +7,7 @@ import {
   GAME_BACKUP,
   gameDataSuccess,
   gameDataError,
+  loadBackupData,
 } from '../actions/gamePlay';
 import {
   refreshUserBackups,
@@ -28,6 +29,11 @@ const apiMiddleware = (store) => (next) => (action) => {
         .then((res) => {
           store.getState().gameplay.isLoading = false;
           store.dispatch(gameDataSuccess(res.data));
+
+          // Load backups
+          if (store.getState().gameplay.backupIsLoading) {
+            store.dispatch(loadBackupData(store.getState().user.backups));
+          }
         })
         .catch(() => {
           store.getState().gameplay.hasError = true;
@@ -36,7 +42,7 @@ const apiMiddleware = (store) => (next) => (action) => {
       break;
     case GAME_BACKUP:
       // Check if token JWT exist
-      if (state.user.tokenJWT !== '') {
+      if (state.user.tokenJWT !== '' && state.gameplay.sequenceToTell.id !== 99) {
         // HeroId if exists
         let heroId = null;
         if (state.user.backups.length > 0) {
@@ -68,7 +74,6 @@ const apiMiddleware = (store) => (next) => (action) => {
           },
         })
           .then((res) => {
-            console.log(res.data.backups);
             store.dispatch(refreshUserBackups(res.data.backups));
           })
           .catch((err) => {
