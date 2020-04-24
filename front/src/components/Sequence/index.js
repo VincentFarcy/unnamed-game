@@ -4,14 +4,13 @@ import PropTypes from 'prop-types';
 import Typical from 'react-typical';
 import Button from '../LinkButton';
 import Story from '../../containers/Story';
-import Hal from './halInfo';
 
 // == Import local
 import '../Story/style.scss';
-
+import MainHub from '../../containers/MainHub';
 
 // == Component
-const Sequence = ({ changeBg, sequence, findSequence, gameBackup }) => {
+const Sequence = ({ changeBg, sequence, findSequence, gameBackup, php }) => {
   useEffect(findSequence, []);
   useEffect(gameBackup, []);
   useEffect(() => {
@@ -22,7 +21,8 @@ const Sequence = ({ changeBg, sequence, findSequence, gameBackup }) => {
   };
   return (
     <div className="story-container">
-      {sequence.id === 99 ? <Story />
+      {php === 25 && <Story />}
+      {sequence.id === 99 ? <MainHub />
         : (
           <div className="main__play">
             <p className="story__title">{sequence.title}</p>
@@ -32,7 +32,7 @@ const Sequence = ({ changeBg, sequence, findSequence, gameBackup }) => {
               wrapper="p"
             />
             <div className="button__container">
-              <Button cssClassName="next__button" buttonName="Suivant" url="/play/combat" onClick={handleClick}/>
+              <Button cssClassName="next__button" buttonName="Suivant" url="/play/mainhub" onClick={handleClick} />
             </div>
           </div>
         )}

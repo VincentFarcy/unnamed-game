@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 // local imports
 import Event from '../components/Event';
-import { findEvent } from '../actions/gamePlay';
+import { updateTimer, eventWin, findEvent } from '../actions/gamePlay';
 
 // state
 const mapStateToProps = (state) => ({
@@ -14,6 +14,12 @@ const mapStateToProps = (state) => ({
 
 // actions
 const mapDispatchToProps = (dispatch) => ({
+  updateTimer: () => {
+    dispatch(updateTimer());
+  },
+  eventWin: () => {
+    dispatch(eventWin());
+  },
   findEvent: () => {
     dispatch(findEvent());
   },
