@@ -1,6 +1,5 @@
 // == Import npm
 import React, { useEffect } from 'react';
-import Typical from 'react-typical';
 import PropTypes from 'prop-types';
 import Button from '../LinkButton';
 
@@ -11,22 +10,32 @@ import './style.scss';
 const Event = ({
   playerRoll,
   eventDifficulty,
-  findEvent,
+  updateTimer,
   hacking,
+  eventWin,
+  findEvent,
 }) => {
   useEffect(findEvent, []);
   const win = (hacking + playerRoll) > eventDifficulty;
 
   return (
     <div className="main__play">
-      <p className="event__title">Hackaton</p>
-      <Typical className="story__p" steps={['lol', 1000]} wrapper="p" />
-      <div className="button__container">
-        {win
-          ? <Button cssClassName="next__button" buttonName="Suivant" url="/play/sequence" />
-          : <Button cssClassName="next__button" buttonName="Suivant" url="/play/death" />}
-      </div>
-      )
+      <p className="event__title">Exploration</p>
+      {win ? (
+        <>
+          <p className="event__win__text">Bravo tu as gagné, ton xp & ton jsx sont mis à jour</p>
+          <div className="button__container">
+            <Button cssClassName="next__button" buttonName="Suivant" url="/play/sequence" onClick={eventWin} />
+          </div>
+        </>
+      ) : (
+        <>
+          <p className="event__fail__text">Tu as perdu</p>
+          <div className="button__container">
+            <Button cssClassName="next__button" buttonName="Suivant" url="/play/sequence" onClick={updateTimer} />
+          </div>
+        </>
+      )}
     </div>
   );
 };
@@ -34,6 +43,8 @@ const Event = ({
 // == Props validation
 Event.propTypes = {
   findEvent: PropTypes.func.isRequired,
+  updateTimer: PropTypes.func.isRequired,
+  eventWin: PropTypes.func.isRequired,
   eventDifficulty: PropTypes.number.isRequired,
   playerRoll: PropTypes.number.isRequired,
   hacking: PropTypes.number.isRequired,

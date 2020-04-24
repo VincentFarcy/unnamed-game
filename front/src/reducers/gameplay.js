@@ -22,14 +22,15 @@ import {
   FIND_SEQUENCE,
   RESTART_NEW_GAME,
   FIND_RANDOM_REWARD,
-  FIND_EVENT,
   FIND_EXPLORATION,
   EVENT_NOTHING,
   REST_ACTION,
   MEDIC_ACTION,
-  MEDIC_FAIL,
   ADD_OPPONNENT_REWARD,
   CHANGE_BG,
+  UPDATE_TIMER,
+  EVENT_WIN,
+  FIND_EVENT,
 }
   from '../actions/gamePlay';
 // import selectors
@@ -43,6 +44,7 @@ import {
 } from '../selectors/gameplay';
 // import functions
 import { rollDice } from '../func';
+import { StaticRouter } from 'react-router';
 
 
 // == State
@@ -222,7 +224,7 @@ const gameplay = (state = initialState, action = {}) => {
           xpRoll: 0,
           jsxRoll: 0,
         },
-        opponentRewards : {
+        opponentRewards: {
           xpCombatReward: 0,
           jsxCombatReward: 0,
         },
@@ -411,8 +413,6 @@ const gameplay = (state = initialState, action = {}) => {
         },
       };
     case FIND_EVENT:
-      // console.log('case FINDEVENT');
-      // const event = findInfoForEvent(state);
       return {
         ...state,
         difficulty: rollDice(3, 10),
@@ -426,6 +426,8 @@ const gameplay = (state = initialState, action = {}) => {
     case EVENT_NOTHING:
       return {
         ...state,
+        sequenceToTell: '',
+        phpTimer: state.phpTimer + 1,
       };
     case ADD_OPPONNENT_REWARD:
       const opponentReward = addOpponnentReward(state);
@@ -463,16 +465,29 @@ const gameplay = (state = initialState, action = {}) => {
       return {
         ...state,
         phpTimer: state.phpTimer + 1,
-        jsx: state.jsx - 10,
+        sequenceToTell: '',
         player: {
           ...state.player,
+          jsx: state.player.jsx - 10,
           playerCurrentHP: state.player.playerTotalHP,
         },
       };
-    case MEDIC_FAIL:
+    case UPDATE_TIMER:
       return {
         ...state,
         phpTimer: state.phpTimer + 1,
+        sequenceToTell: '',
+      };
+    case EVENT_WIN:
+      return {
+        ...state,
+        phpTimer: state.phpTimer + 1,
+        sequenceToTell: '',
+        player: {
+          ...state.player,
+          jsx: state.player.jsx + rollDice(1, 3),
+          xp: state.player.xp + rollDice(2, 4),
+        },
       };
     default:
       return state;
@@ -494,7 +509,6 @@ export const findRandomExploration = (state) => {
     (explorationRange) => (findExplorationTable >= explorationRange.rollFrom
       && findExplorationTable <= explorationRange.rollTo),
   );
-  // console.log(rightExplorationTable);
 
   return rightExplorationTable;
 };
