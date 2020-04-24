@@ -17,7 +17,7 @@ const Team = () => (
 
   <div>
     <section>
-    <Card className= "team-intro">
+      <Card className= "team-intro">
         <Card.Img className= "team-intro__img" variant="top" src={logo} />
         <Card.Body>
           <Card.Title className="introduction__title">L'équipe derrière Unnamed.Game</Card.Title>
@@ -27,87 +27,71 @@ const Team = () => (
         </Card.Body>
       </Card>
     </section>
-    
-    <section className="team-players">
-    <CardDeck>
-    <Card className="team-players__card">
-    <Card.Img className="team-players__img" variant="top" src={VincentM} />
-    <Card.Body>
-      <Card.Title className="team-players__title">Vincent M.</Card.Title>
-      <Card.Text className="team-players__text">
-        This is a wider card with supporting text below as a natural lead-in to
-        additional content. This content is a little bit longer.
-      </Card.Text>
-    </Card.Body>
-    <Card.Footer className="team-players__footer">
-      <small className="text-muted">
-        <Button href="https://www.linkedin.com/in/vincent-moulin-10020/" variant="link">LinkedIn</Button>
-      </small>
-    </Card.Footer>
-  </Card>
-  <Card className="team-players__card">
-    <Card.Img className="team-players__img" variant="top" src={VincentM} />
-    <Card.Body>
-      <Card.Title className="team-players__title">Vincent M.</Card.Title>
-      <Card.Text className="team-players__text">
-        This is a wider card with supporting text below as a natural lead-in to
-        additional content. This content is a little bit longer.
-      </Card.Text>
-    </Card.Body>
-    <Card.Footer className="team-players__footer">
-      <small className="text-muted">
-        <Button href="https://www.linkedin.com/in/vincent-moulin-10020/" variant="link">LinkedIn</Button>
-      </small>
-    </Card.Footer>
-  </Card>
-  <Card className="team-players__card">
-    <Card.Img className="team-players__img" variant="top" src={VincentM} />
-    <Card.Body>
-      <Card.Title className="team-players__title">Vincent M.</Card.Title>
-      <Card.Text className="team-players__text">
-        This is a wider card with supporting text below as a natural lead-in to
-        additional content. This content is a little bit longer.
-      </Card.Text>
-    </Card.Body>
-    <Card.Footer className="team-players__footer">
-      <small className="text-muted">
-        <Button href="https://www.linkedin.com/in/vincent-moulin-10020/" variant="link">LinkedIn</Button>
-      </small>
-    </Card.Footer>
-  </Card>
-  <Card className="team-players__card">
-    <Card.Img className="team-players__img" variant="top" src={VincentM} />
-    <Card.Body>
-      <Card.Title className="team-players__title">Vincent M.</Card.Title>
-      <Card.Text className="team-players__text">
-        This is a wider card with supporting text below as a natural lead-in to
-        additional content. This content is a little bit longer.
-      </Card.Text>
-    </Card.Body>
-    <Card.Footer className="team-players__footer">
-      <small className="text-muted">
-        <Button href="https://www.linkedin.com/in/vincent-moulin-10020/" variant="link">LinkedIn</Button>
-      </small>
-    </Card.Footer>
-  </Card>
-  <Card className="team-players__card">
-    <Card.Img className="team-players__img" variant="top" src={VincentM} />
-    <Card.Body>
-      <Card.Title className="team-players__title">Vincent M.</Card.Title>
-      <Card.Text className="team-players__text">
-        This is a wider card with supporting text below as a natural lead-in to
-        additional content. This content is a little bit longer.
-      </Card.Text>
-    </Card.Body>
-    <Card.Footer className="team-players__footer">
-      <small className="text-muted">
-        <Button href="https://www.linkedin.com/in/vincent-moulin-10020/" variant="link">LinkedIn</Button>
-      </small>
-    </Card.Footer>
-  </Card>
-</CardDeck>
 
-    </section>    
+    <section className="team-players">
+
+
+      <div className="container">
+        <div className="box">
+          <div className="imgBx">
+            <img className="imgBx__img" src={VincentM} alt={VincentM} />
+          </div>
+          <div className="contentBx">
+            <h3 className="contentBx__title">Vincent M. | Scrum Master </h3>
+            <p className="contentBx__content"> Bla bla bla bla bla blablablabl blablabla Lorem Blabla</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="container">
+        <div className="box">
+          <div className="imgBx">
+            <img className="imgBx__img" src={VincentM} alt={VincentM} />
+          </div>
+          <div className="contentBx">
+            <h3>Vincent M. | Scrum Master </h3>
+            <p> Bla bla bla bla bla blablablabl blablabla Lorem Blabla</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="container">
+        <div className="box">
+          <div className="imgBx">
+            <img className="imgBx__img" src={VincentM} alt={VincentM} />
+          </div>
+          <div className="contentBx">
+            <h3>Vincent M. | Scrum Master </h3>
+            <p> Bla bla bla bla bla blablablabl blablabla Lorem Blabla</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="container">
+        <div className="box">
+          <div className="imgBx">
+            <img className="imgBx__img" src={VincentM} alt={VincentM} />
+          </div>
+          <div className="contentBx">
+            <h3>Vincent M. | Scrum Master </h3>
+            <p> Bla bla bla bla bla blablablabl blablabla Lorem Blabla</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="container">
+        <div className="box">
+          <div className="imgBx">
+            <img className="imgBx__img" src={VincentM} alt={VincentM} />
+          </div>
+          <div className="contentBx">
+            <h3>Vincent M. | Scrum Master </h3>
+            <p> Bla bla bla bla bla blablablabl blablabla Lorem Blabla</p>
+          </div>
+        </div>
+      </div>
+
+    </section>
   </div>
 
 );
