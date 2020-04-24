@@ -19,7 +19,7 @@ const PlayerInfo = ({ playerTotalHP, playerCurrentHP }) => (
       <AdvancedInfo />
     </div>
     <div className="player-info__avatar-container">
-      <Image className="player-info__avatar" src={avatar} rounded />
+      <Image className="player-info__avatar" src={avatar} />
     </div>
     <div className="player-info__bar-container">
       <ProgressBar variant="success" min={0} max={playerTotalHP} now={playerCurrentHP} label={`HP: ${playerCurrentHP} / ${playerTotalHP}`} />

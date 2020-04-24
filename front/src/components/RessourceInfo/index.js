@@ -16,7 +16,7 @@ const RessourceInfo = ({ mainCounter, experience, money }) => (
       delay={{ show: 300, hide: 300 }}
       overlay={
         <Tooltip id={`tooltip`}>
-          Le temps passe...
+          Personnal Hours Protocol - Le temps galactique
           </Tooltip>
       }
     >
@@ -27,7 +27,7 @@ const RessourceInfo = ({ mainCounter, experience, money }) => (
       delay={{ show: 300, hide: 300 }}
       overlay={
         <Tooltip id={`tooltip`}>
-          C'est en forgeant tout ça, tout ça...
+          Toute cette expérience accumulée doit bien servir à quelque chose !
           </Tooltip>
       }
     >
@@ -38,7 +38,7 @@ const RessourceInfo = ({ mainCounter, experience, money }) => (
       delay={{ show: 300, hide: 300 }}
       overlay={
         <Tooltip id={`tooltip`}>
-          ARGENT ! J'en veux plus !
+          Le nom de la monnaie galactique
           </Tooltip>
       }
     >
