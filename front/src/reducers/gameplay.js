@@ -49,7 +49,10 @@ const initialState = {
     xpRoll: 0,
     jsxRoll: 0,
   },
-  sequenceToTell: '',
+  sequenceToTell: {
+    id: 0,
+    mainText: '',
+  },
   player: {
     pool: 0,
     abilities: [
@@ -132,7 +135,10 @@ const gameplay = (state = initialState, action = {}) => {
           xpCombatReward: 0,
           jsxCombatReward: 0,
         },
-        sequenceToTell: '',
+        sequenceToTell: {
+          id: 0,
+          mainText: '',
+        },
         player: {
           pool: 0,
           abilities: [
@@ -244,7 +250,10 @@ const gameplay = (state = initialState, action = {}) => {
       const opponent = findOpponentForCombat(state);
       return {
         ...state,
-        sequenceToTell: '',
+        sequenceToTell: {
+          id: 0,
+          mainText: '',
+        },
         combat: {
           ...state.combat,
           isCombatOn: true,
