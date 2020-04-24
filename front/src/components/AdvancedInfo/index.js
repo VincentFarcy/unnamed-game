@@ -39,7 +39,7 @@ const AdvancedInfo = ({ abilities, baseToHit, baseAvoid, baseDamage, baseInitiat
         delay={{ show: 300, hide: 300 }}
         overlay={
           <Tooltip id={`tooltip`}>
-            Celui qui a la plus grosse, tappe avant !
+            Celui qui a la plus grosse, tape avant !
           </Tooltip>
         }
       >
