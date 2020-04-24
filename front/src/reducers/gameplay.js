@@ -131,7 +131,7 @@ const gameplay = (state = initialState, action = {}) => {
           xpRoll: 0,
           jsxRoll: 0,
         },
-        opponentRewards : {
+        opponentRewards: {
           xpCombatReward: 0,
           jsxCombatReward: 0,
         },
@@ -205,7 +205,7 @@ const gameplay = (state = initialState, action = {}) => {
         player: {
           ...state.player,
           pool: action.payload.gameParameters.attribute_points,
-        }
+        },
       };
     case GAME_DATA_ERROR:
       return {
@@ -269,8 +269,8 @@ const gameplay = (state = initialState, action = {}) => {
         combat: {
           ...state.combat,
           combatInProgress: true,
-        }
-      }
+        },
+      };
     case APPLY_DAMAGE:
       return {
         ...state,
@@ -315,20 +315,19 @@ const gameplay = (state = initialState, action = {}) => {
           ...state.player,
           jsx: state.player.jsx + randomReward.jsxRoll,
           xp: state.player.xp + randomReward.xpRoll,
-        }
+        },
       };
     case ADD_OPPONNENT_REWARD:
       const opponentReward = addOpponnentReward(state);
-      console.log('rewards combat', opponentReward)
       return {
         ...state,
         opponentRewards: addOpponnentReward,
         player: {
           ...state.player,
-          jsx: state.player.jsx +  opponentReward.jsxCombatReward,
+          jsx: state.player.jsx + opponentReward.jsxCombatReward,
           xp: state.player.xp + opponentReward.xpCombatReward,
-        }
-      }
+        },
+      };
     case CHANGE_BG:
       return {
         ...state,
