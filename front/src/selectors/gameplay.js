@@ -114,3 +114,16 @@ export const addOpponnentReward = (state) => {
 
 //   return rightEvent;
 // };
+
+export const findRandomExploration = (state) => {
+  const RandomExplorationTable = state.chapters[0].randomEvents;
+
+  const findExplorationTable = rollDice(1, 100);
+
+  const rightExplorationTable = RandomExplorationTable.find(
+    (explorationRange) => (findExplorationTable >= explorationRange.rollFrom
+      && findExplorationTable <= explorationRange.rollTo),
+  );
+
+  return rightExplorationTable;
+};

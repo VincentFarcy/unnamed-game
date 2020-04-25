@@ -46,6 +46,7 @@ import {
   findRandomReward,
   addOpponnentReward,
   findTrainAbility,
+  findRandomExploration,
 } from '../selectors/gameplay';
 // import functions
 import { rollDice } from '../func';
@@ -589,17 +590,3 @@ const gameplay = (state = initialState, action = {}) => {
 
 // == Export
 export default gameplay;
-
-
-export const findRandomExploration = (state) => {
-  const RandomExplorationTable = state.chapters[0].randomEvents;
-
-  const findExplorationTable = rollDice(1, 100);
-
-  const rightExplorationTable = RandomExplorationTable.find(
-    (explorationRange) => (findExplorationTable >= explorationRange.rollFrom
-      && findExplorationTable <= explorationRange.rollTo),
-  );
-
-  return rightExplorationTable;
-};
