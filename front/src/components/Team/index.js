@@ -3,20 +3,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCoffee, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-
+import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 
 // == Import local
 import './style.scss';
-import '../../vanilla-tilt';
 
-// == Team Images Import
-import VincentM from '../../assets/images/team/VincentM.jpg';
+// == Image Import
 import logo from '../../assets/images/Unnamed_Game_3_white.svg';
 
 // == Component
-const Team = () => (
+const Team = ({ team }) => (
 
   <div>
     <section>
@@ -33,77 +30,23 @@ const Team = () => (
 
     <section className="team-players">
 
-
-      <div className="container">
-        <div className="box">
-          <div className="imgBx">
-            <img className="imgBx__img" src={VincentM} alt={VincentM} />
+      {
+        team.map((member) => (
+          <div className="container" key={member.id}>
+            <div className="box">
+              <div className="imgBx">
+                <img className="imgBx__img" src={member.img} alt={member.name} />
+              </div>
+              <div className="contentBx">
+                <h3 className="contentBx__title1">{member.name} </h3>
+                <h3 className="contentBx__title2">{member.title} </h3>
+                <p className="contentBx__content">{member.description}</p>
+                <FontAwesomeIcon icon={faLinkedin} size="lg" /><a className="contentBx__link" href={member.linkedIn} alt={`LinkedIn ${member.name}`}>LinkedIn</a>
+              </div>
+            </div>
           </div>
-          <div className="contentBx">
-            <h3 className="contentBx__title1">Vincent Moulin </h3>
-            <h3 className="contentBx__title2">Scrum Master | React Dev </h3>
-            <p className="contentBx__content"> Bla bla bla bla bla blablablabl blablabla Lorem Blabla</p>
-            <FontAwesomeIcon icon={faLinkedin} size="lg" /><a className="contentBx__link" href="https://www.linkedin.com/in/vincent-moulin-10020/" alt="linkedIn Vincent Moulin">LinkedIn</a>
-          </div>
-        </div>
-      </div>
-
-      <div className="container">
-        <div className="box">
-          <div className="imgBx">
-            <img className="imgBx__img" src={VincentM} alt={VincentM} />
-          </div>
-          <div className="contentBx">
-            <h3 className="contentBx__title1">Vincent Moulin </h3>
-            <h3 className="contentBx__title2">Scrum Master | React Dev </h3>
-            <p className="contentBx__content"> Bla bla bla bla bla blablablabl blablabla Lorem Blabla</p>
-            <FontAwesomeIcon icon={faLinkedin} size="lg" /><a className="contentBx__link" href="https://www.linkedin.com/in/vincent-moulin-10020/" alt="linkedIn Vincent Moulin">LinkedIn</a>
-          </div>
-        </div>
-      </div>
-
-      <div className="container">
-        <div className="box">
-          <div className="imgBx">
-            <img className="imgBx__img" src={VincentM} alt={VincentM} />
-          </div>
-          <div className="contentBx">
-            <h3 className="contentBx__title1">Vincent Moulin </h3>
-            <h3 className="contentBx__title2">Scrum Master | React Dev </h3>
-            <p className="contentBx__content"> Bla bla bla bla bla blablablabl blablabla Lorem Blabla</p>
-            <FontAwesomeIcon icon={faLinkedin} size="lg" /><a className="contentBx__link" href="https://www.linkedin.com/in/vincent-moulin-10020/" alt="linkedIn Vincent Moulin">LinkedIn</a>
-          </div>
-        </div>
-      </div>
-
-      <div className="container">
-        <div className="box">
-          <div className="imgBx">
-            <img className="imgBx__img" src={VincentM} alt={VincentM} />
-          </div>
-          <div className="contentBx">
-            <h3 className="contentBx__title1">Vincent Moulin </h3>
-            <h3 className="contentBx__title2">Scrum Master | React Dev </h3>
-            <p className="contentBx__content"> Bla bla bla bla bla blablablabl blablabla Lorem Blabla</p>
-            <FontAwesomeIcon icon={faLinkedin} size="lg" /><a className="contentBx__link" href="https://www.linkedin.com/in/vincent-moulin-10020/" alt="linkedIn Vincent Moulin">LinkedIn</a>
-          </div>
-        </div>
-      </div>
-
-      <div className="container">
-        <div className="box">
-          <div className="imgBx">
-            <img className="imgBx__img" src={VincentM} alt={VincentM} />
-          </div>
-          <div className="contentBx">
-            <h3 className="contentBx__title1">Vincent Moulin </h3>
-            <h3 className="contentBx__title2">Scrum Master | React Dev </h3>
-            <p className="contentBx__content"> Bla bla bla bla bla blablablabl blablabla Lorem Blabla</p>
-            <FontAwesomeIcon icon={faLinkedin} size="lg" /><a className="contentBx__link" href="https://www.linkedin.com/in/vincent-moulin-10020/" alt="linkedIn Vincent Moulin">LinkedIn</a>
-          </div>
-        </div>
-      </div>
-
+        ))
+      }
     </section>
   </div>
 

@@ -135,11 +135,14 @@
   4px -4px 16px #b4b7b9;
 
   &__title {
-    margin-bottom: 0.5em;
-    font-size: 1em;
-    font-weight: bold;
-    text-align: center;
-  }
+      margin-bottom: 0.5em;
+      font-size: 1.1em;
+      font-weight: bold;
+      text-align: center;      
+    }
+  &__content {
+      font-size: 0.9em;
+    }
   
   &__img {
     width: 70px;
@@ -256,9 +259,12 @@
 
   &__title {
     margin-bottom: 0.5em;
-    font-size: 1em;
+    font-size: 1.2em;
     font-weight: bold;
-    text-align: center;
+    text-align: center;      
+  }
+  &__content {
+    font-size: 1em;
   }
   
   &__img {
@@ -374,9 +380,12 @@
 
     &__title {
       margin-bottom: 0.5em;
-      font-size: 1.5em;
+      font-size: 1.4em;
       font-weight: bold;
-      text-align: center;
+      text-align: center;      
+    }
+    &__content {
+      font-size: 1.1em;
     }
     
     &__img {
