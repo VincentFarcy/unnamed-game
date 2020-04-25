@@ -2,6 +2,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCoffee, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+
 
 
 // == Import local
@@ -17,12 +20,12 @@ const Team = () => (
 
   <div>
     <section>
-      <Card className= "team-intro">
-        <Card.Img className= "team-intro__img" variant="top" src={logo} />
-        <Card.Body>
-          <Card.Title className="introduction__title">L'équipe derrière Unnamed.Game</Card.Title>
-          <Card.Text className="introduction__content">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pharetra, lectus tempor imperdiet maximus, arcu tortor tincidunt purus, ut consequat tellus risus sed lectus. Donec cursus ex erat, sed feugiat magna ullamcorper sit amet. Suspendisse ultrices metus ac porttitor faucibus. Sed nec metus eget arcu rutrum consectetur. Donec nec justo ac diam facilisis lobortis. Phasellus et nulla mi. 
+      <Card className="team-intro">
+        <Card.Img className="team-intro__img" variant="top" src={logo} />
+        <Card.Body className="team-intro__body">
+          <Card.Title className="team-intro__title">L'équipe derrière Unnamed.Game</Card.Title>
+          <Card.Text className="team-intro__content">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pharetra, lectus tempor imperdiet maximus, arcu tortor tincidunt purus, ut consequat tellus risus sed lectus.
           </Card.Text>
         </Card.Body>
       </Card>
@@ -37,8 +40,10 @@ const Team = () => (
             <img className="imgBx__img" src={VincentM} alt={VincentM} />
           </div>
           <div className="contentBx">
-            <h3 className="contentBx__title">Vincent M. | Scrum Master </h3>
+            <h3 className="contentBx__title1">Vincent Moulin </h3>
+            <h3 className="contentBx__title2">Scrum Master | React Dev </h3>
             <p className="contentBx__content"> Bla bla bla bla bla blablablabl blablabla Lorem Blabla</p>
+            <FontAwesomeIcon icon={faLinkedin} size="lg" /><a className="contentBx__link" href="https://www.linkedin.com/in/vincent-moulin-10020/" alt="linkedIn Vincent Moulin">LinkedIn</a>
           </div>
         </div>
       </div>
@@ -49,8 +54,10 @@ const Team = () => (
             <img className="imgBx__img" src={VincentM} alt={VincentM} />
           </div>
           <div className="contentBx">
-            <h3>Vincent M. | Scrum Master </h3>
-            <p> Bla bla bla bla bla blablablabl blablabla Lorem Blabla</p>
+            <h3 className="contentBx__title1">Vincent Moulin </h3>
+            <h3 className="contentBx__title2">Scrum Master | React Dev </h3>
+            <p className="contentBx__content"> Bla bla bla bla bla blablablabl blablabla Lorem Blabla</p>
+            <FontAwesomeIcon icon={faLinkedin} size="lg" /><a className="contentBx__link" href="https://www.linkedin.com/in/vincent-moulin-10020/" alt="linkedIn Vincent Moulin">LinkedIn</a>
           </div>
         </div>
       </div>
@@ -61,8 +68,10 @@ const Team = () => (
             <img className="imgBx__img" src={VincentM} alt={VincentM} />
           </div>
           <div className="contentBx">
-            <h3>Vincent M. | Scrum Master </h3>
-            <p> Bla bla bla bla bla blablablabl blablabla Lorem Blabla</p>
+            <h3 className="contentBx__title1">Vincent Moulin </h3>
+            <h3 className="contentBx__title2">Scrum Master | React Dev </h3>
+            <p className="contentBx__content"> Bla bla bla bla bla blablablabl blablabla Lorem Blabla</p>
+            <FontAwesomeIcon icon={faLinkedin} size="lg" /><a className="contentBx__link" href="https://www.linkedin.com/in/vincent-moulin-10020/" alt="linkedIn Vincent Moulin">LinkedIn</a>
           </div>
         </div>
       </div>
@@ -73,8 +82,10 @@ const Team = () => (
             <img className="imgBx__img" src={VincentM} alt={VincentM} />
           </div>
           <div className="contentBx">
-            <h3>Vincent M. | Scrum Master </h3>
-            <p> Bla bla bla bla bla blablablabl blablabla Lorem Blabla</p>
+            <h3 className="contentBx__title1">Vincent Moulin </h3>
+            <h3 className="contentBx__title2">Scrum Master | React Dev </h3>
+            <p className="contentBx__content"> Bla bla bla bla bla blablablabl blablabla Lorem Blabla</p>
+            <FontAwesomeIcon icon={faLinkedin} size="lg" /><a className="contentBx__link" href="https://www.linkedin.com/in/vincent-moulin-10020/" alt="linkedIn Vincent Moulin">LinkedIn</a>
           </div>
         </div>
       </div>
@@ -85,8 +96,10 @@ const Team = () => (
             <img className="imgBx__img" src={VincentM} alt={VincentM} />
           </div>
           <div className="contentBx">
-            <h3>Vincent M. | Scrum Master </h3>
-            <p> Bla bla bla bla bla blablablabl blablabla Lorem Blabla</p>
+            <h3 className="contentBx__title1">Vincent Moulin </h3>
+            <h3 className="contentBx__title2">Scrum Master | React Dev </h3>
+            <p className="contentBx__content"> Bla bla bla bla bla blablablabl blablabla Lorem Blabla</p>
+            <FontAwesomeIcon icon={faLinkedin} size="lg" /><a className="contentBx__link" href="https://www.linkedin.com/in/vincent-moulin-10020/" alt="linkedIn Vincent Moulin">LinkedIn</a>
           </div>
         </div>
       </div>
