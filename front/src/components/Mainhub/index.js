@@ -2,6 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '../LinkButton';
+import Link from 'react-router-dom';
 import { rollDice } from '../../func';
 import PlayerInfo from '../../containers/PlayerInfo';
 
@@ -26,7 +27,7 @@ const Mainhub = ({
         <PlayerInfo />
         <p className="story__title">Que voulez-vous faire ?</p>
         <div className="button__container">
-          <Button cssClassName="generic-button next__button" buttonName="Se reposer" url="/play/mainhub" onClick={actionRest} />
+          <Button cssClassName="next__button inactive" buttonName="Se reposer" url="/play/mainhub" onClick={actionRest} />
         </div>
         <div className="button__container">
           <Button cssClassName="next__button" buttonName="Exploration" url="/play/exploration" />
