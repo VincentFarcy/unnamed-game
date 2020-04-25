@@ -14,6 +14,8 @@ const Mainhub = ({
   trainAccess,
   vendingAccess,
   jsx,
+  hasRested,
+  actionRest,
 }) => {
   const RollForMedicAccess = rollDice(1, 100);
   const RollForTrainAccess = rollDice(1, 100);
@@ -25,7 +27,10 @@ const Mainhub = ({
         <PlayerInfo />
         <p className="story__title">Que voulez-vous faire ?</p>
         <div className="button__container">
-          <Button cssClassName="next__button" buttonName="Se reposer" url="/play/rest" />
+          {
+            !hasRested &&
+              <Button cssClassName="generic-button next__button" buttonName="Se reposer" url="/play/mainhub" onClick={actionRest} />
+          }
         </div>
         <div className="button__container">
           <Button cssClassName="next__button" buttonName="Exploration" url="/play/exploration" />
@@ -59,6 +64,8 @@ Mainhub.propTypes = {
   trainAccess: PropTypes.number.isRequired,
   vendingAccess: PropTypes.number.isRequired,
   jsx: PropTypes.number.isRequired,
+  rest: PropTypes.bool.isRequired,
+  actionRest: PropTypes.func.isRequired,
 };
 
 
