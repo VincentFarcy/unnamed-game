@@ -5,6 +5,7 @@ import Button from '../LinkButton';
 
 // == Import local
 import './style.scss';
+import WonEvent from '../../containers/WonEvent';
 
 // == Component
 const Event = ({
@@ -12,7 +13,6 @@ const Event = ({
   eventDifficulty,
   updateTimer,
   hacking,
-  eventWin,
   findEvent,
 }) => {
   useEffect(findEvent, []);
@@ -23,14 +23,11 @@ const Event = ({
       <p className="event__title">Exploration</p>
       {win ? (
         <>
-          <p className="event__win__text">Bravo tu as gagné, ton xp & ton jsx sont mis à jour</p>
-          <div className="button__container">
-            <Button cssClassName="next__button" buttonName="Suivant" url="/play/sequence" onClick={eventWin} />
-          </div>
+          <WonEvent />
         </>
       ) : (
         <>
-          <p className="event__fail__text">Tu as perdu</p>
+          <p className="event__fail__text">Tu as perdu l'évenement aléatoire</p>
           <div className="button__container">
             <Button cssClassName="next__button" buttonName="Suivant" url="/play/sequence" onClick={updateTimer} />
           </div>
@@ -44,7 +41,6 @@ const Event = ({
 Event.propTypes = {
   findEvent: PropTypes.func.isRequired,
   updateTimer: PropTypes.func.isRequired,
-  eventWin: PropTypes.func.isRequired,
   eventDifficulty: PropTypes.number.isRequired,
   playerRoll: PropTypes.number.isRequired,
   hacking: PropTypes.number.isRequired,

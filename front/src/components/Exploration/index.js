@@ -13,14 +13,12 @@ import Nothing from './nothing';
 const Exploration = ({ findExploration, randomExploration, eventNothing }) => {
   useEffect(findExploration, []);
   const exploration = randomExploration.type;
-  console.log(exploration);
-
 
   return (
     <>
       {exploration === 'nothing' ? <Nothing eventNothing={eventNothing} /> : ''}
       {exploration === 'fight' ? <Combat /> : ''}
-      {exploration === 'reward' ? <Event /> : ''}
+      {exploration === 'reward' ? <Reward /> : ''}
       {exploration === 'fight and reward' ? <Combat withReward /> : ''}
       {exploration === 'attribute' ? <Event /> : ''}
       {exploration === 'attribute and reward' ? <Event withReward /> : ''}
