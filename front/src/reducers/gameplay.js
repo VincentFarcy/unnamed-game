@@ -112,7 +112,6 @@ const initialState = {
     playerCurrentHP: 0,
     xp: 0,
     jsx: 0,
-    rest: false,
   },
   combat: {
     isCombatOn: true,
@@ -205,7 +204,6 @@ const gameplay = (state = initialState, action = {}) => {
           playerCurrentHP: 0,
           xp: 0,
           jsx: 0,
-          rest: false,
         },
         combat: {
           isCombatOn: true,
@@ -286,7 +284,6 @@ const gameplay = (state = initialState, action = {}) => {
           playerCurrentHP: 0,
           xp: 0,
           jsx: 0,
-          rest: false,
         },
         combat: {
           isCombatOn: true,
@@ -404,7 +401,6 @@ const gameplay = (state = initialState, action = {}) => {
         phpTimer: state.phpTimer + 1,
         player: {
           ...state.player,
-          rest: false,
         },
       };
     case END_FIGHT:
@@ -436,10 +432,6 @@ const gameplay = (state = initialState, action = {}) => {
     case FIND_EXPLORATION:
       return {
         ...state,
-        player: {
-          ...state.player,
-          rest: false,
-        },
         exploration: findRandomExploration(state),
       };
     case EVENT_NOTHING:
@@ -481,7 +473,6 @@ const gameplay = (state = initialState, action = {}) => {
           playerCurrentHP:
             (state.player.playerCurrentHP + state.player.baseHealing + rollDice(1, 2)) < state.player.playerTotalHP ?
               state.player.playerCurrentHP + state.player.baseHealing + rollDice(1, 2) : state.player.playerTotalHP,
-          rest: true,
         },
       };
     case MEDIC_ACTION:

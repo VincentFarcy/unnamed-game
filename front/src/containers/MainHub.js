@@ -11,7 +11,6 @@ const mapStateToProps = (state) => ({
   trainAccess: state.gameplay.gameParameters.train_access_probability,
   vendingAccess: state.gameplay.gameParameters.vending_access_probability,
   jsx: state.gameplay.player.jsx,
-  hasRested: state.gameplay.player.rest,
 });
 
 // actions
