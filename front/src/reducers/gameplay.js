@@ -214,6 +214,8 @@ const gameplay = (state = initialState, action = {}) => {
             speed: 0,
             touch: 0,
             dodge: 0,
+            xpGain: 0,
+            moneyGain: 0,
           },
         },
         bgImageCssClass: '',
@@ -294,6 +296,8 @@ const gameplay = (state = initialState, action = {}) => {
             speed: 0,
             touch: 0,
             dodge: 0,
+            xpGain: 0,
+            moneyGain: 0,
           },
         },
         bgImageCssClass: '',
@@ -361,8 +365,8 @@ const gameplay = (state = initialState, action = {}) => {
           ...state.combat,
           isCombatOn: true,
           currentOpponent: {
-            opponentCurrentHP: opponent.health,
             ...opponent,
+            opponentCurrentHP: opponent.health,
           },
         },
       };
