@@ -60,6 +60,14 @@ const initialState = {
     xpRoll: 0,
     jsxRoll: 0,
   },
+  eventRewards: {
+    xp: null,
+    jsx: null,
+  },
+  opponentRewards: {
+    xpCombatReward: 0,
+    jsxCombatReward: 0,
+  },
   sequenceToTell: {
     id: 0,
     mainText: '',
@@ -149,6 +157,10 @@ const gameplay = (state = initialState, action = {}) => {
           xpRoll: 0,
           jsxRoll: 0,
         },
+        eventRewards: {
+          xp: null,
+          jsx: null,
+        },
         opponentRewards: {
           xpCombatReward: 0,
           jsxCombatReward: 0,
@@ -230,6 +242,10 @@ const gameplay = (state = initialState, action = {}) => {
         rewards: {
           xpRoll: 0,
           jsxRoll: 0,
+        },
+        eventRewards: {
+          xp: null,
+          jsx: null,
         },
         opponentRewards: {
           xpCombatReward: 0,
@@ -418,8 +434,8 @@ const gameplay = (state = initialState, action = {}) => {
         rewards: randomReward,
         player: {
           ...state.player,
-          jsx: state.player.jsx + randomReward.jsxRoll,
-          xp: state.player.xp + randomReward.xpRoll,
+          jsx: state.player.jsx + (state.eventRewards.jsx !== null ? state.eventRewards.jsx : randomReward.jsxRoll),
+          xp: state.player.xp + (state.eventRewards.xp !== null ? state.eventRewards.xp : randomReward.xpRoll),
         },
       };
     case FIND_EVENT:
@@ -505,11 +521,15 @@ const gameplay = (state = initialState, action = {}) => {
           id: 0,
           mainText: '',
         },
-        player: {
-          ...state.player,
-          jsx: state.player.jsx + rollDice(1, 3),
+        eventRewards: {
           xp: state.player.xp + rollDice(2, 4),
+          jsx: state.player.jsx + rollDice(1, 3),
         },
+        // player: {
+        //   ...state.player,
+        //   jsx: state.player.jsx + rollDice(1, 3),
+        //   xp: state.player.xp + rollDice(2, 4),
+        // },
       };
     case LOAD_BACKUP_DATA:
       const sequenceId = action.backups[0].sequence.id;

@@ -8,8 +8,8 @@ import './style.scss';
 
 // == Component
 const WonEvent = ({
-  playerXp,
-  playerJsx,
+  eventRewardXp,
+  eventRewardJsx,
   eventWin,
 }) => {
   useEffect(eventWin, []);
@@ -17,9 +17,8 @@ const WonEvent = ({
   return (
     <>
       <p className="event__win__text">Votre capacité à "hack" les systèmes de sécurité, vous permez d'ouvrir cette porte. Ou alors est-ce le mot de passe admin Compote23 ? </p>
-      <p className="event__win__text">Bravo, tu as gagné ! Tu as désormais {playerXp} xp & {playerJsx} jsx.</p>
       <div className="button__container">
-        <Button cssClassName="next__button" buttonName="PHP Suivant" url="/play/sequence" />
+        <Button cssClassName="next__button" buttonName="Suivant" url="/play/reward" />
       </div>
     </>
   );
@@ -27,8 +26,8 @@ const WonEvent = ({
 
 // == Props validation
 WonEvent.propTypes = {
-  playerXp: PropTypes.number.isRequired,
-  playerJsx: PropTypes.number.isRequired,
+  eventRewardXp: PropTypes.number,
+  eventRewardJsx: PropTypes.number,
   eventWin: PropTypes.func.isRequired,
 };
 

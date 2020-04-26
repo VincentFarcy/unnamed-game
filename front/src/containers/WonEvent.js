@@ -7,8 +7,8 @@ import { eventWin } from '../actions/gamePlay';
 
 // state
 const mapStateToProps = (state) => ({
-  playerXp: state.gameplay.player.xp,
-  playerJsx: state.gameplay.player.jsx,
+  eventRewardXp: state.gameplay.eventRewards.xp,
+  eventRewardJsx: state.gameplay.eventRewards.jsx,
 });
 
 // actions

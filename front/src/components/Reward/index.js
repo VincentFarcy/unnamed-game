@@ -13,6 +13,8 @@ import './style.scss';
 const Reward = ({
   xpReward,
   jsxReward,
+  eventRewardXp,
+  eventRewardJsx,
   findRandomReward,
   addOpponnentReward,
   nextSequence,
@@ -30,7 +32,7 @@ const Reward = ({
       </div>
       <div className="main__play">
         <p className="reward__title"> Voici vos récompenses</p>
-        <p className="reward__p"> {`Vous avez gagné ${jsxReward + jsxCombatReward} JSX et ${xpReward + xpCombatReward} point(s) d'éxpérience`} </p>
+        <p className="reward__p"> {`Vous avez gagné ${(eventRewardJsx !== null ? eventRewardJsx : jsxReward) + jsxCombatReward} JSX et ${(eventRewardXp !== null ? eventRewardXp : xpReward) + xpCombatReward} point(s) d'éxpérience`} </p>
         <div className="button__container">
           <Button
             cssClassName="next__button"
@@ -48,6 +50,8 @@ const Reward = ({
 Reward.propTypes = {
   xpReward: PropTypes.number.isRequired,
   jsxReward: PropTypes.number.isRequired,
+  eventRewardXp: PropTypes.number,
+  eventRewardJsx: PropTypes.number,
   xpCombatReward: PropTypes.number.isRequired,
   jsxCombatReward: PropTypes.number.isRequired,
   nextSequence: PropTypes.func.isRequired,
