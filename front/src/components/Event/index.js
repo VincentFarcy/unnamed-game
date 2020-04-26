@@ -29,7 +29,7 @@ const Event = ({
         <>
           <p className="event__fail__text">Malheureusement vous restez dans l'incapacité d'outre-passer le firewall. Vous vous sentez comme un dev junior qui découvre React-Redux pour la 1ère fois.</p>
           <div className="button__container">
-            <Button cssClassName="next__button" buttonName="Suivant" url="/play/sequence" onClick={updateTimer} />
+            <Button cssClassName="next__button" buttonName="PHP Suivant" url="/play/sequence" onClick={updateTimer} />
           </div>
         </>
       )}

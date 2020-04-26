@@ -18,10 +18,8 @@ const Exploration = ({ findExploration, randomExploration }) => {
     <>
       {exploration === 'nothing' ? <Nothing /> : ''}
       {exploration === 'fight' ? <Combat /> : ''}
-      {exploration === 'fight and reward' ? <Combat /> : ''}
       {exploration === 'reward' ? <Reward /> : ''}
       {exploration === 'attribute' ? <Event /> : ''}
-      {exploration === 'attribute and reward' ? <Event /> : ''}
     </>
   );
 };
