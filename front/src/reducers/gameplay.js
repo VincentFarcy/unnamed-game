@@ -74,7 +74,9 @@ const initialState = {
   },
   currentEvent: '',
   exploration: {
-    type: 'string',
+    rollFrom: 0,
+    follTo: 0,
+    type: '',
   },
   difficulty: 1,
   playerRoll: 1,
@@ -173,7 +175,9 @@ const gameplay = (state = initialState, action = {}) => {
         difficulty: 1,
         playerRoll: 1,
         exploration: {
-          type: 'string',
+          rollFrom: 0,
+          follTo: 0,
+          type: '',
         },
         player: {
           pool: 0,
@@ -259,7 +263,9 @@ const gameplay = (state = initialState, action = {}) => {
         difficulty: 1,
         playerRoll: 1,
         exploration: {
-          type: 'string',
+          rollFrom: 0,
+          follTo: 0,
+          type: '',
         },
         player: {
           pool: 0,
@@ -420,6 +426,11 @@ const gameplay = (state = initialState, action = {}) => {
         sequenceToTell: {
           id: 0,
           mainText: '',
+        },
+        exploration: {
+          rollFrom: 0,
+          follTo: 0,
+          type: '',
         },
       };
     case END_FIGHT:
