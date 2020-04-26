@@ -9,7 +9,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 // == Import : local
 import './styles/index.scss';
-import './vanilla-tilt';
 import App from 'src/containers/App';
 import store from 'src/store';
 

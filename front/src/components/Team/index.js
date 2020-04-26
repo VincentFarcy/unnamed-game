@@ -54,5 +54,19 @@ const Team = ({ team }) => (
 
 // == Props validation
 
+Team.propTypes = {
+  team: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      img: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      linkedIn: PropTypes.string.isRequired,
+    }).isRequired,
+  ).isRequired,
+
+};
+
+
 // == Export
 export default Team;
