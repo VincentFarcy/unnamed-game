@@ -34,7 +34,7 @@ const Train = ({
         {(rollFullAccess <= fullAccess || intelligenceTrainAccess <= roomAccess) && <Button cssClassName="intelligence__button" buttonName="Intelligence" url="/play/sequence" onClick={() => (incrementAbility('Intelligence'))} />}
       </div>
       <div className="button__container">
-        <Button cssClassName="next__button" buttonName="Suivant" url="/play/sequence" />
+        <Button cssClassName="next__button" buttonName="PHP Suivant" url="/play/sequence" />
       </div>
     </div>
   );

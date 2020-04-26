@@ -524,6 +524,10 @@ const gameplay = (state = initialState, action = {}) => {
       return {
         ...state,
         phpTimer: state.phpTimer + 1,
+        sequenceToTell: {
+          id: 0,
+          mainText: '',
+        },
         player: {
           ...state.player,
           xp: state.player.xp - state.gameParameters.train_xp_cost,
