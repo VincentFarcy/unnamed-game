@@ -417,6 +417,10 @@ const gameplay = (state = initialState, action = {}) => {
       return {
         ...state,
         phpTimer: state.phpTimer + 1,
+        sequenceToTell: {
+          id: 0,
+          mainText: '',
+        },
       };
     case END_FIGHT:
       return {
