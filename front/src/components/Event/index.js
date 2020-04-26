@@ -38,7 +38,7 @@ const Event = ({
           <p className="event__win__text">Votre capacité à "hack" les systèmes de sécurité, vous permez d'ouvrir cette porte. Ou alors est-ce le mot de passe admin Compote23 ? </p>
           {php !== 1 && <p className="event__win__text2">Quoi qu'il en soit, vous trouvez de quoi augmenter vos stocks de JSX & d'XP </p>}
           <div className="button__container">
-            <Button cssClassName="next__button" buttonName="Suivant" url="/play/sequence" onClick={eventWin} />
+            <Button cssClassName="next__button" buttonName="Suivant" url={php !== 30 ? '/play/sequence' : '/play/story'} onClick={eventWin} />
           </div>
         </>
       ) : (
