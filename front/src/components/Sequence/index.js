@@ -28,20 +28,18 @@ const Sequence = ({
   return (
     <div className="story-container">
       {php === 25 && <Story />}
-      {sequence.id === 99 ? <MainHub />
-        : (
-          <div className="main__play">
-            <p className="story__title">{sequence.title}</p>
-            <Typical
-              className="story__p"
-              steps={[sequence.mainText, 1000]}
-              wrapper="p"
-            />
-            <div className="button__container">
-              <Button cssClassName="next__button" buttonName="Suivant" url="/play/mainhub" onClick={handleClick} />
-            </div>
-          </div>
-        )}
+      {sequence.id === 99 && <MainHub />}
+      <div className="main__play">
+        <p className="story__title">{sequence.title}</p>
+        <Typical
+          className="story__p"
+          steps={[sequence.mainText, 1000]}
+          wrapper="p"
+        />
+        <div className="button__container">
+          <Button cssClassName="next__button" buttonName="Suivant" url="/play/event" onClick={handleClick} />
+        </div>
+      </div>
     </div>
   );
 };
