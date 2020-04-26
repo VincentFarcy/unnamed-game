@@ -39,6 +39,9 @@ export const findOpponentForCombat = (state) => {
   if (state.phpTimer === 2) {
     findOpponentId = 101;
   }
+  if (state.phpTimer === 30) {
+    findOpponentId = 102;
+  }
   // console.log(findOpponentId);
 
   const opponentTableId = opponentsTable.find(
