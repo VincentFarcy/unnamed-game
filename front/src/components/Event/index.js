@@ -9,10 +9,10 @@ import WonEvent from '../../containers/WonEvent';
 
 // == Component
 const Event = ({
-  playerRoll,
   eventDifficulty,
-  updateTimer,
+  playerRoll,
   hacking,
+  updateTimer,
   findEvent,
 }) => {
   useEffect(findEvent, []);
