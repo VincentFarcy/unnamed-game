@@ -35,7 +35,10 @@ export const findOpponentForCombat = (state) => {
   const opponentsTable = state.chapters[0].randomFightContests;
   // console.log(opponentsTable, opponents);
 
-  const findOpponentId = rollDice(1, 100);
+  let findOpponentId = rollDice(1, 100);
+  if (state.phpTimer === 2) {
+    findOpponentId = 101;
+  }
   // console.log(findOpponentId);
 
   const opponentTableId = opponentsTable.find(

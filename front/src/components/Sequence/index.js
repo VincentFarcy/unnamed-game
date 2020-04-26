@@ -37,7 +37,9 @@ const Sequence = ({
           wrapper="p"
         />
         <div className="button__container">
-          <Button cssClassName="next__button" buttonName="Suivant" url="/play/event" onClick={handleClick} />
+          {php === 1 && <Button cssClassName="next__button" buttonName="Suivant" url="/play/event" onClick={handleClick} />}
+          {php === 2 && <Button cssClassName="next__button" buttonName="Suivant" url="/play/combat" onClick={handleClick} />}
+          {php > 2 && <Button cssClassName="next__button" buttonName="Suivant" url="/play/mainhub" onClick={handleClick} />}
         </div>
       </div>
     </div>
