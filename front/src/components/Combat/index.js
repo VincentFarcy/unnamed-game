@@ -25,6 +25,7 @@ const Combat = ({
   runAway,
   endFight,
   changeBg,
+  php,
 }) => {
   useEffect(findOpponent, []);
   useEffect(() => {
@@ -167,12 +168,14 @@ const Combat = ({
                   Combattre
                 </Button>
                 {/* when you choose to runAway, you have to be redirected and add 1 to PHP */}
-                <LinkButton
-                  cssClassName="choice btn-warning"
-                  buttonName="Fuir"
-                  url="/play/sequence"
-                  onClick={runAway}
-                />
+                {php > 2 && (
+                  <LinkButton
+                    cssClassName="choice btn-warning"
+                    buttonName="Fuir"
+                    url="/play/sequence"
+                    onClick={runAway}
+                  />
+                )}
               </>
             )
           }
@@ -238,6 +241,7 @@ Combat.propTypes = {
   runAway: PropTypes.func.isRequired,
   endFight: PropTypes.func.isRequired,
   changeBg: PropTypes.func.isRequired,
+  php: PropTypes.number.isRequired,
 };
 
 // == Export
