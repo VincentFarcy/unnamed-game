@@ -13,6 +13,7 @@ const mapStateToProps = (state) => ({
   jsx: state.gameplay.player.jsx,
   xp: state.gameplay.player.xp,
   xpCost: state.gameplay.gameParameters.train_xp_cost,
+  jsxCost: state.gameplay.gameParameters.train_money_cost,
   php: state.gameplay.phpTimer,
 });
 

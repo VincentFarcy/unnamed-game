@@ -10,7 +10,7 @@ import Event from '../../containers/Event';
 import Nothing from './nothing';
 
 // == Component
-const Exploration = ({ findExploration, randomExploration, eventNothing }) => {
+const Exploration = ({ findExploration, randomExploration }) => {
   useEffect(findExploration, []);
   const exploration = randomExploration.type;
 
@@ -20,9 +20,7 @@ const Exploration = ({ findExploration, randomExploration, eventNothing }) => {
       {exploration === 'nothing' ? <Nothing /> : ''}
       {exploration === 'fight' ? <Combat /> : ''}
       {exploration === 'reward' ? <Reward /> : ''}
-      {exploration === 'fight and reward' ? <Combat /> : ''}
       {exploration === 'attribute' ? <Event /> : ''}
-      {exploration === 'attribute and reward' ? <Event /> : ''}
     </>
   );
 };
@@ -33,7 +31,6 @@ Exploration.propTypes = {
   randomExploration: PropTypes.shape({
     type: PropTypes.string,
   }).isRequired,
-  eventNothing: PropTypes.func.isRequired,
 };
 
 // == Export

@@ -13,6 +13,7 @@ const Mainhub = ({
   medicAccess,
   trainAccess,
   jsx,
+  jsxCost,
   xp,
   xpCost,
   php,
@@ -26,19 +27,23 @@ const Mainhub = ({
       <div className="main__play">
         <PlayerInfo />
         <p className="story__title">Que voulez-vous faire ?</p>
-        <div className="button__container">
-          <Button cssClassName="next__button" buttonName="Se reposer" url="/play/rest" />
-        </div>
+        {php < 30 && (
+          <div className="button__container">
+            <Button cssClassName="next__button" buttonName="Se reposer" url="/play/rest" />
+          </div>
+        )}
+        {php < 30 && (
         <div className="button__container">
           <Button cssClassName="next__button" buttonName="Exploration" url="/play/exploration" />
         </div>
-        {(medicAccess >= RollForMedicAccess) && (jsx >= 10)
+        )}
+        {(medicAccess >= RollForMedicAccess) && (jsx >= 10) && (php < 30)
           && (
             <div className="button__container">
               <Button cssClassName="next__button" buttonName="Hôpital" url="/play/medic" />
             </div>
           )}
-        {(trainAccess >= RollForTrainAccess) && (xp >= xpCost) && (php > 5)
+        {(trainAccess >= RollForTrainAccess) && (xp >= xpCost) && (php > 5) && (php < 30) && (jsx >= jsxCost)
           && (
             <div className="button__container">
               <Button cssClassName="next__button" buttonName="Entrainement" url="/play/train" />
@@ -60,6 +65,7 @@ Mainhub.propTypes = {
   medicAccess: PropTypes.number.isRequired,
   trainAccess: PropTypes.number.isRequired,
   jsx: PropTypes.number.isRequired,
+  jsxCost: PropTypes.number.isRequired,
   xp: PropTypes.number.isRequired,
   xpCost: PropTypes.number.isRequired,
   php: PropTypes.number.isRequired,

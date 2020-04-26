@@ -1,5 +1,5 @@
 // == Import npm
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Button from '../LinkButton';
 import { rollDice } from '../../func';
@@ -13,7 +13,7 @@ const Train = ({
   fullAccess,
   roomAccess,
   incrementAbility,
-
+  nextSequence,
 }) => {
   const rollFullAccess = rollDice(1, 100);
   const strengthTrainAccess = rollDice(1, 100);
@@ -22,6 +22,7 @@ const Train = ({
   const willTrainAccess = rollDice(1, 100);
   const intelligenceTrainAccess = rollDice(1, 100);
 
+  useEffect(nextSequence, []);
   return (
     <div className="main__play">
       <p className="train__title">Salle de gym</p>
@@ -45,6 +46,7 @@ Train.propTypes = {
   fullAccess: PropTypes.number.isRequired,
   roomAccess: PropTypes.number.isRequired,
   incrementAbility: PropTypes.func.isRequired,
+  nextSequence: PropTypes.func.isRequired,
 };
 
 

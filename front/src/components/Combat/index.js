@@ -168,7 +168,7 @@ const Combat = ({
                   Combattre
                 </Button>
                 {/* when you choose to runAway, you have to be redirected and add 1 to PHP */}
-                {php > 2 && (
+                {php > 2 && php < 30 && (
                   <LinkButton
                     cssClassName="choice btn-warning"
                     buttonName="Fuir"
@@ -191,11 +191,20 @@ const Combat = ({
             )
           }
           {
-            !isCombatOn && !isCombatInProgress && (
+            !isCombatOn && !isCombatInProgress && php < 30 && (
               <LinkButton
                 cssClassName="choice btn-warning"
                 buttonName="Suivant"
                 url={playerHP > 0 ? '/play/reward' : '/play/death'}
+              />
+            )
+          }
+          {
+            !isCombatOn && !isCombatInProgress && php >= 30 && (
+              <LinkButton
+                cssClassName="choice btn-warning"
+                buttonName="Fin"
+                url={playerHP > 0 ? '/play/ending' : '/play/death'}
               />
             )
           }

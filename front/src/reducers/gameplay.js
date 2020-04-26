@@ -528,6 +528,7 @@ const gameplay = (state = initialState, action = {}) => {
         player: {
           ...state.player,
           xp: state.player.xp - state.gameParameters.train_xp_cost,
+          jsx: state.player.jsx - state.gameParameters.train_money_cost,
           playerTotalHP: ((state.player.abilities[3].value / 2) + (state.player.abilities[2].value)) * 10,
           playerCurrentHP: ((state.player.abilities[3].value / 2) + (state.player.abilities[2].value)) * 10,
           hacking: ((state.player.abilities[4].value) + Math.floor((state.player.abilities[3].value / 3))),

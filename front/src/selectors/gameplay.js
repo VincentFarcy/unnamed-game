@@ -39,7 +39,7 @@ export const findOpponentForCombat = (state) => {
   if (state.phpTimer === 2) {
     findOpponentId = 101;
   }
-  if (state.phpTimer === 30) {
+  if (state.phpTimer > 29) {
     findOpponentId = 102;
   }
   // console.log(findOpponentId);
