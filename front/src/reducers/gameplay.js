@@ -47,11 +47,9 @@ import {
 } from '../selectors/gameplay';
 // import functions
 import { rollDice } from '../func';
-import { StaticRouter } from 'react-router';
 
 
 // == State
-
 const initialState = {
   gameOn: false,
   isLoading: false,
@@ -494,7 +492,10 @@ const gameplay = (state = initialState, action = {}) => {
       return {
         ...state,
         phpTimer: state.phpTimer + 1,
-        sequenceToTell: '',
+        sequenceToTell: {
+          id: 0,
+          mainText: '',
+        },
       };
     case EVENT_WIN:
       return {
