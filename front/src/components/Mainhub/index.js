@@ -12,14 +12,14 @@ import './style.scss';
 const Mainhub = ({
   medicAccess,
   trainAccess,
-  vendingAccess,
   jsx,
   xp,
   xpCost,
+  php,
+  startMission,
 }) => {
   const RollForMedicAccess = rollDice(1, 100);
   const RollForTrainAccess = rollDice(1, 100);
-  const RollForVendingAccess = rollDice(1, 100);
 
   return (
     <div className="story-container">
@@ -38,16 +38,16 @@ const Mainhub = ({
               <Button cssClassName="next__button" buttonName="Hôpital" url="/play/medic" />
             </div>
           )}
-        {(trainAccess >= RollForTrainAccess) && (xp >= xpCost)
+        {(trainAccess >= RollForTrainAccess) && (xp >= xpCost) && (php > 5)
           && (
             <div className="button__container">
               <Button cssClassName="next__button" buttonName="Entrainement" url="/play/train" />
             </div>
           )}
-        {vendingAccess >= RollForVendingAccess
+        {(php > 9)
           && (
             <div className="button__container">
-              <Button cssClassName="next__button" buttonName="Magasin" url="/play/death" />
+              <Button cssClassName="next__button" buttonName="Mission" url="/play/event" onClick={startMission} />
             </div>
           )}
       </div>
@@ -59,10 +59,11 @@ const Mainhub = ({
 Mainhub.propTypes = {
   medicAccess: PropTypes.number.isRequired,
   trainAccess: PropTypes.number.isRequired,
-  vendingAccess: PropTypes.number.isRequired,
   jsx: PropTypes.number.isRequired,
   xp: PropTypes.number.isRequired,
   xpCost: PropTypes.number.isRequired,
+  php: PropTypes.number.isRequired,
+  startMission: PropTypes.func.isRequired,
 };
 
 // == Export

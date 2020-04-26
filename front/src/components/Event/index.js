@@ -21,6 +21,10 @@ const Event = ({
   if (php !== 1) {
     realDifficulty = eventDifficulty;
   }
+  if (php === 30) {
+    realDifficulty = 8;
+  }
+
   const win = (hacking + playerRoll) > realDifficulty;
 
   return (
@@ -41,7 +45,7 @@ const Event = ({
         <>
           <p className="event__fail__text">Malheuresement vous restez dans l'incapacité d'outre-passer le firewall. Vous vous sentez comme un dev junior qui découvre React-Redux pour la 1ère fois.</p>
           <div className="button__container">
-            <Button cssClassName="next__button" buttonName="Suivant" url="/play/sequence" onClick={updateTimer} />
+            <Button cssClassName="next__button" buttonName="Suivant" url={php !== 30 ? '/play/sequence' : '/play/story'} onClick={updateTimer} />
           </div>
         </>
       )}

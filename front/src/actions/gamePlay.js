@@ -28,6 +28,7 @@ export const GAME_BACKUP = 'GAME_BACKUP';
 export const LOAD_BACKUP_DATA = 'LOAD_BACKUP_DATA';
 export const START_BACKUP_LOADING = 'START_BACKUP_LOADING';
 export const END_BACKUP_LOADING = 'END_BACKUP_LOADING';
+export const START_MISSION = 'START_MISSION';
 
 
 // == Action creators
@@ -153,4 +154,8 @@ export const eventWin = () => ({
 export const incrementAbility = (payload) => ({
   type: INCREMENT_ABILITY,
   payload,
+});
+
+export const startMission = () => ({
+  type: START_MISSION,
 });
