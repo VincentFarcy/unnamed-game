@@ -240,6 +240,9 @@ const gameplay = (state = initialState, action = {}) => {
         bgImageCssClass: '',
         hero: {},
         backupIsLoading: false,
+        gameParameters: {
+          ...state.gameParameters,
+        },
       };
     case CHANGE_GAME_STATUS:
       return {
@@ -328,6 +331,9 @@ const gameplay = (state = initialState, action = {}) => {
         },
         bgImageCssClass: '',
         backupIsLoading: false,
+        gameParameters: {
+          ...state.gameParameters,
+        },
       };
     case GAME_DATA_SUCCESS:
       return {
