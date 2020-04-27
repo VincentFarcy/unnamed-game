@@ -33,7 +33,7 @@ const Reward = ({
         <p className="reward__p"> {`Vous avez gagné ${jsxReward + jsxCombatReward} JSX et ${xpReward + xpCombatReward} point(s) d'éxpérience`} </p>
         <div className="button__container">
           <Button
-            cssClassName="next__button"
+            cssClassName="generic-button next__button"
             url="/play/sequence"
             buttonName="Suivant"
             onClick={nextSequence}
