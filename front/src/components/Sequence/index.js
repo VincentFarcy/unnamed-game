@@ -10,7 +10,13 @@ import '../Story/style.scss';
 import MainHub from '../../containers/MainHub';
 
 // == Component
-const Sequence = ({ changeBg, sequence, findSequence, gameBackup, php }) => {
+const Sequence = ({
+  changeBg,
+  sequence,
+  findSequence,
+  php,
+  gameBackup,
+}) => {
   useEffect(findSequence, []);
   useEffect(gameBackup, []);
   useEffect(() => {
@@ -32,7 +38,7 @@ const Sequence = ({ changeBg, sequence, findSequence, gameBackup, php }) => {
               wrapper="p"
             />
             <div className="button__container">
-              <Button cssClassName="generic-button next__button" buttonName="Suivant" url="/play/combat" onClick={handleClick} />
+              <Button cssClassName="generic-button next__button" buttonName="Suivant" url="/play/mainhub" onClick={handleClick} />
             </div>
           </div>
         )}
@@ -49,6 +55,7 @@ Sequence.propTypes = {
   }).isRequired,
   findSequence: PropTypes.func.isRequired,
   gameBackup: PropTypes.func.isRequired,
+  php: PropTypes.number.isRequired,
 };
 
 

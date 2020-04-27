@@ -5,8 +5,16 @@ import { rollDice } from '../func';
 export const findUpAbility = (state, abilityName) => (
   state.player.abilities.map((ability) => {
     if (ability.name === abilityName && ability.value < state.gameParameters.attribute_max && state.player.pool > 0) {
-      ability.value++;
+      ability.value += 1;
       state.player.pool--;
+    }
+  })
+);
+
+export const findTrainAbility = (state, abilityName) => (
+  state.player.abilities.map((ability) => {
+    if (ability.name === abilityName) {
+      ability.value += 1;
     }
   })
 );
@@ -106,3 +114,16 @@ export const addOpponnentReward = (state) => {
 
 //   return rightEvent;
 // };
+
+export const findRandomExploration = (state) => {
+  const RandomExplorationTable = state.chapters[0].randomEvents;
+
+  const findExplorationTable = rollDice(1, 100);
+
+  const rightExplorationTable = RandomExplorationTable.find(
+    (explorationRange) => (findExplorationTable >= explorationRange.rollFrom
+      && findExplorationTable <= explorationRange.rollTo),
+  );
+
+  return rightExplorationTable;
+};
