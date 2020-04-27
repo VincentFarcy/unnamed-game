@@ -31,6 +31,7 @@ import Medic from '../../containers/MedicBay';
 import Mainhub from '../../containers/MainHub';
 import CreateCharacter from '../../containers/CreateCharacter/CreateCharacter';
 import Event from '../../containers/Event';
+import Ending from '../Ending';
 import Footer from '../Footer';
 
 // == Component
@@ -87,6 +88,9 @@ const App = ({ isGameOn, bgImageCssClass }) => (
         </Route>
         <Route exact path="/play/train">
           { !isGameOn ? <Redirect to="/play" /> : <Train />}
+        </Route>
+        <Route exact path="/play/ending">
+          { !isGameOn ? <Redirect to="/play" /> : <Ending />}
         </Route>
         <Route component={NotFound} />
       </Switch>

@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 
 // local imports
 import MainHub from '../components/Mainhub';
-import { actionRest } from '../actions/gamePlay';
+import { actionRest, startMission } from '../actions/gamePlay';
+
 
 // state
 const mapStateToProps = (state) => ({
@@ -13,12 +14,17 @@ const mapStateToProps = (state) => ({
   jsx: state.gameplay.player.jsx,
   xp: state.gameplay.player.xp,
   xpCost: state.gameplay.gameParameters.train_xp_cost,
+  jsxCost: state.gameplay.gameParameters.train_money_cost,
+  php: state.gameplay.phpTimer,
 });
 
 // actions
 const mapDispatchToProps = (dispatch) => ({
   actionRest: () => {
     dispatch(actionRest());
+  },
+  startMission: () => {
+    dispatch(startMission());
   },
 });
 

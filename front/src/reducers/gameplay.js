@@ -35,6 +35,7 @@ import {
   EVENT_WIN,
   FIND_EVENT,
   INCREMENT_ABILITY,
+  START_MISSION,
 }
   from '../actions/gamePlay';
 // import selectors
@@ -561,6 +562,15 @@ const gameplay = (state = initialState, action = {}) => {
         player: {
           ...state.player,
           xp: state.player.xp - state.gameParameters.train_xp_cost,
+          jsx: state.player.jsx - state.gameParameters.train_money_cost,
+          playerTotalHP: ((state.player.abilities[3].value / 2) + (state.player.abilities[2].value)) * 10,
+          playerCurrentHP: ((state.player.abilities[3].value / 2) + (state.player.abilities[2].value)) * 10,
+          hacking: ((state.player.abilities[4].value) + Math.floor((state.player.abilities[3].value / 3))),
+          baseTouch: ((state.player.abilities[1].value) + Math.floor((state.player.abilities[4].value / 3))),
+          dodge: ((state.player.abilities[1].value) + Math.floor((state.player.abilities[4].value / 2))),
+          baseDamage: state.player.abilities[0].value,
+          baseSpeed: state.player.abilities[1].value,
+          baseHealing: Math.floor(((state.player.abilities[3].value / 2) + (state.player.abilities[4].value / 2))),
         },
       };
 
@@ -618,7 +628,11 @@ const gameplay = (state = initialState, action = {}) => {
         ...state,
         backupIsLoading: false,
       };
-
+    case START_MISSION:
+      return {
+        ...state,
+        phpTimer: 30,
+      };
     default:
       return state;
   }

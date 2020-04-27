@@ -3,12 +3,11 @@ import { connect } from 'react-redux';
 
 // local imports
 import Training from '../components/TrainingRoom';
-import { incrementAbility } from '../actions/gamePlay';
+import { incrementAbility, nextSequence } from '../actions/gamePlay';
 
 
 // state
 const mapStateToProps = (state) => ({
-  xp: state.gameplay.player.xp,
   fullAccess: state.gameplay.gameParameters.train_full_access_probability,
   trainGain: state.gameplay.gameParameters.train_gain,
   roomAccess: state.gameplay.gameParameters.train_room_access_probability,
@@ -18,6 +17,9 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   incrementAbility: (ability) => {
     dispatch(incrementAbility(ability));
+  },
+  nextSequence: () => {
+    dispatch(nextSequence());
   },
 });
 

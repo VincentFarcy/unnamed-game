@@ -10,6 +10,7 @@ const mapStateToProps = (state) => ({
   eventDifficulty: state.gameplay.difficulty,
   playerRoll: state.gameplay.playerRoll,
   hacking: state.gameplay.player.hacking,
+  php: state.gameplay.phpTimer,
 });
 
 // actions

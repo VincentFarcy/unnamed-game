@@ -14,48 +14,60 @@ import { rollDice } from '../../func';
 const Mainhub = ({
   medicAccess,
   trainAccess,
-  vendingAccess,
   jsx,
+  jsxCost,
   xp,
   xpCost,
   actionRest,
+  php,
+  startMission,
 }) => {
   const RollForMedicAccess = rollDice(1, 100);
   const RollForTrainAccess = rollDice(1, 100);
-  const RollForVendingAccess = rollDice(1, 100);
 
   return (
     <div className="story-container">
       <div className="main__play">
         <PlayerInfo />
         <p className="story__title">Que voulez-vous faire ?</p>
-        <div className="button__container">
-          <OverlayTrigger
-            placement="top"
-            delay={{ show: 300, hide: 300 }}
-            trigger='hover'
-            overlay={(
-              <Tooltip id="rest-tooltip">
-                En cliquant ici, vous récupérez des HP et passer au PHP suivant.
-              </Tooltip>
-            )}
-          >
-            <button className="next__button rest" onClick={actionRest} >Se reposer</button>
-          </OverlayTrigger>
-          <Button cssClassName="next__button" buttonName="Exploration" url="/play/exploration" />
-        {(medicAccess >= RollForMedicAccess) && (jsx >= 10)
-          && (
-            <Button cssClassName="next__button" buttonName="Hôpital" url="/play/medic" />
+          {php < 30 && (
+            <div className="button__container">
+              <OverlayTrigger
+                placement="top"
+                delay={{ show: 300, hide: 300 }}
+                trigger='hover'
+                overlay={(
+                  <Tooltip id="rest-tooltip">
+                    En cliquant ici, vous récupérez des HP et passer au PHP suivant.
+                  </Tooltip>
+                )}
+              >
+                <button className="next__button rest" onClick={actionRest} >Se reposer</button>
+              </OverlayTrigger>
+            </div>
           )}
-        {(trainAccess >= RollForTrainAccess) && (xp >= xpCost)
+        {php < 30 && (
+          <div className="button__container">
+            <Button cssClassName="next__button" buttonName="Exploration" url="/play/exploration" />
+          </div>
+        )}
+        {(medicAccess >= RollForMedicAccess) && (jsx >= 10) && (php < 30)
+          && (
+            <div className="button__container">
+              <Button cssClassName="next__button" buttonName="Hôpital" url="/play/medic" />
+            </div>
+          )}
+        {(trainAccess >= RollForTrainAccess) && (xp >= xpCost) && (php > 5) && (php < 30) && (jsx >= jsxCost)
           && (
             <div className="button__container">
               <Button cssClassName="next__button" buttonName="Entrainement" url="/play/train" />
             </div>
           )}
-        {vendingAccess >= RollForVendingAccess
+        {(php > 9)
           && (
-            <Button cssClassName="next__button" buttonName="Magasin" url="/play/death" />
+            <div className="button__container">
+              <Button cssClassName="next__button" buttonName="Mission" url="/play/event" onClick={startMission} />
+            </div>
           )}
         </div>
       </div>
@@ -67,11 +79,13 @@ const Mainhub = ({
 Mainhub.propTypes = {
   medicAccess: PropTypes.number.isRequired,
   trainAccess: PropTypes.number.isRequired,
-  vendingAccess: PropTypes.number.isRequired,
   jsx: PropTypes.number.isRequired,
+  jsxCost: PropTypes.number.isRequired,
   xp: PropTypes.number.isRequired,
   xpCost: PropTypes.number.isRequired,
   actionRest: PropTypes.func.isRequired,
+  php: PropTypes.number.isRequired,
+  startMission: PropTypes.func.isRequired,
 };
 
 // == Export

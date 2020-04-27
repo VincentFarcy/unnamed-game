@@ -22,6 +22,7 @@ const mapStateToProps = (state) => ({
   isCombatOn: state.gameplay.combat.isCombatOn,
   isCombatInProgress: state.gameplay.combat.combatInProgress,
   gameParameters: state.gameplay.gameParameters,
+  php: state.gameplay.phpTimer,
 });
 
 // actions

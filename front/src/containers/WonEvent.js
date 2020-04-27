@@ -9,6 +9,7 @@ import { eventWin } from '../actions/gamePlay';
 const mapStateToProps = (state) => ({
   eventRewardXp: state.gameplay.eventRewards.xp,
   eventRewardJsx: state.gameplay.eventRewards.jsx,
+  php: state.gameplay.phpTimer,
 });
 
 // actions

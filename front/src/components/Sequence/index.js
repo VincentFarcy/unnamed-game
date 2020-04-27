@@ -3,7 +3,6 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Typical from 'react-typical';
 import Button from '../LinkButton';
-import Story from '../../containers/Story';
 
 // == Import local
 import '../Story/style.scss';
@@ -26,23 +25,26 @@ const Sequence = ({
     changeBg('');
   };
   return (
-    <div className="story-container">
-      {php === 25 && <Story />}
+    <>
       {sequence.id === 99 ? <MainHub />
         : (
-          <div className="main__play">
-            <p className="story__title">{sequence.title}</p>
-            <Typical
-              className="story__p"
-              steps={[sequence.mainText, 1000]}
-              wrapper="p"
-            />
-            <div className="button__container">
-              <Button cssClassName="generic-button next__button" buttonName="Suivant" url="/play/mainhub" onClick={handleClick} />
+          <div className="story-container">
+            <div className="main__play">
+              <p className="story__title">{sequence.title}</p>
+              <Typical
+                className="story__p"
+                steps={[sequence.mainText, 1000]}
+                wrapper="p"
+              />
+              <div className="button__container">
+                {php === 1 && <Button cssClassName="next__button" buttonName="Suivant" url="/play/event" onClick={handleClick} />}
+                {php === 2 && <Button cssClassName="next__button" buttonName="Suivant" url="/play/combat" onClick={handleClick} />}
+                {php > 2 && <Button cssClassName="next__button" buttonName="Suivant" url="/play/mainhub" onClick={handleClick} />}
+              </div>
             </div>
           </div>
-        )}
-    </div>
+        )};
+    </>
   );
 };
 
@@ -50,6 +52,7 @@ const Sequence = ({
 Sequence.propTypes = {
   changeBg: PropTypes.func.isRequired,
   sequence: PropTypes.shape({
+    title: PropTypes.string.isRequired,
     id: PropTypes.number.isRequired,
     mainText: PropTypes.string.isRequired,
   }).isRequired,

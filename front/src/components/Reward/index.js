@@ -24,7 +24,7 @@ const Reward = ({
   // == Updates the state to get the xpReward and the jsxReward
   useEffect(addOpponnentReward, []);
   useEffect(findRandomReward, []);
-  
+
   return (
     <div className="reward__container">
       <div className="player-bar">
