@@ -24,7 +24,7 @@ const Header = ({
   changeBg,  
 }) => {
   //
-  const handleClick = (evt) => {    
+  const handleClick = (evt) => {
     if (evt.target.tagName === 'A' || evt.target.tagName === 'BUTTON' || evt.target.tagName === 'IMG') {
       initUserState();
       toggleMenu(false);

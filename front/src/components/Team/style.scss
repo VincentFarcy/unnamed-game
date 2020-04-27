@@ -74,7 +74,7 @@
   
   .container .box .contentBx {
       position: absolute;
-      top: 48%;
+      top: 30%;
       left: 3%;
       right: 3%;      
       width: auto;
@@ -92,17 +92,18 @@
       &__title2 {
         font-size: 0.8em;
         font-weight: bold;
+        font-style: italic;
       }
   
       &__content {
         font-size: 0.6rem;
-        font-weight: 400;
+        font-weight: bold;
       }
   
       &__link {
-        font-size: 0.8rem;
+        font-size: 0.6rem;
         text-decoration: none;
-        margin-left: 5px;
+        margin: 0 5px;
         font-weight: bolder;
         color: rgb(90, 71, 209);
       }
@@ -215,11 +216,12 @@
     &__title2 {
       font-size: 1rem;
       font-weight: bold;
+      font-style: italic;
     }
 
     &__content {
       font-size: 0.9rem;
-      font-weight: 400;
+      font-weight: bold;
     }
 
     &__link {
@@ -338,11 +340,12 @@
     &__title2 {
       font-size: 1rem;
       font-weight: bold;
+      font-style: italic;
     }
 
     &__content {
       font-size: 0.9rem;
-      font-weight: 400;
+      font-weight: bold;
     }
 
     &__link {
@@ -459,11 +462,12 @@
       &__title2 {
         font-size: 1rem;
         font-weight: bold;
+        font-style: italic;
       }
 
       &__content {
         font-size: 0.9rem;
-        font-weight: 400;
+        font-weight: bold;
       }
 
       &__link {
