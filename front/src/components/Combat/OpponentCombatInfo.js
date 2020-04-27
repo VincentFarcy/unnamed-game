@@ -25,16 +25,17 @@ const OpponentCombatInfo = ({ currentOpponent }) => {
 
   return (
     <div className="opponent-combat-info">
-      {findImage == 'drone' ? <Image className="opponent-combat-info__avatar" src={drone} rounded alt="drone" /> : ''}
-      {findImage == 'bat' ? <Image className="opponent-combat-info__avatar" src={bat} rounded alt="bat" /> : ''}
-      {findImage == 'goblin' ? <Image className="opponent-combat-info__avatar" src={goblin} rounded alt="goblin" /> : ''}
-      {findImage == 'wolf' ? <Image className="opponent-combat-info__avatar" src={wolf} rounded alt="wolf" /> : ''}
-      {findImage == 'rat' ? <Image className="opponent-combat-info__avatar" src={rat} rounded alt="rat" /> : ''}
-      {findImage == 'robotMonowheel' ? <Image className="opponent-combat-info__avatar" src={robotMonowheel} rounded alt="robot1" /> : ''}
-      {findImage == 'robotVintage' ? <Image className="opponent-combat-info__avatar" src={robotVintage} rounded alt="robot2" /> : ''}
-      {findImage == 'sabine' ? <Image className="opponent-combat-info__avatar" src={sabine} rounded alt="sabine" /> : ''}
-      {findImage == 'slime' ? <Image className="opponent-combat-info__avatar" src={slime} rounded alt="slime" /> : ''}
-      {findImage == 'spider' ? <Image className="opponent-combat-info__avatar" src={spider} rounded alt="spider" /> : ''}
+      {findImage === 'drone' ? <Image className="opponent-combat-info__avatar" src={drone} rounded alt="drone" /> : ''}
+      {findImage === 'bat' ? <Image className="opponent-combat-info__avatar" src={bat} rounded alt="bat" /> : ''}
+      {findImage === 'goblin' ? <Image className="opponent-combat-info__avatar" src={goblin} rounded alt="goblin" /> : ''}
+      {findImage === 'wolf' ? <Image className="opponent-combat-info__avatar" src={wolf} rounded alt="wolf" /> : ''}
+      {findImage === 'souris' ? <Image className="opponent-combat-info__avatar" src={rat} rounded alt="souris" /> : ''}
+      {findImage === 'rat' ? <Image className="opponent-combat-info__avatar" src={rat} rounded alt="rat" /> : ''}
+      {findImage === 'robotMonowheel' ? <Image className="opponent-combat-info__avatar" src={robotMonowheel} rounded alt="robot1" /> : ''}
+      {findImage === 'robotVintage' ? <Image className="opponent-combat-info__avatar" src={robotVintage} rounded alt="robot2" /> : ''}
+      {findImage === 'sabine' ? <Image className="opponent-combat-info__avatar" src={sabine} rounded alt="sabine" /> : ''}
+      {findImage === 'slime' ? <Image className="opponent-combat-info__avatar" src={slime} rounded alt="slime" /> : ''}
+      {findImage === 'spider' ? <Image className="opponent-combat-info__avatar" src={spider} rounded alt="spider" /> : ''}
 
       <ProgressBar className="opponent__progress" variant="success" min={0} max={currentOpponent.health} now={now} label={`HP: ${now}/${currentOpponent.health}`} />
     </div>

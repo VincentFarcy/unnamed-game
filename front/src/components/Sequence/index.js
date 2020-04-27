@@ -30,9 +30,9 @@ const Sequence = ({
         : (
           <div className="story-container">
             <div className="main__play">
-              <p className="story__title">{sequence.title}</p>
+              <p className="sequence__title">{sequence.title}</p>
               <Typical
-                className="story__p"
+                className="sequence__p"
                 steps={[sequence.mainText, 1000]}
                 wrapper="p"
               />

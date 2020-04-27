@@ -72,6 +72,7 @@ const initialState = {
     jsxCombatReward: 0,
   },
   sequenceToTell: {
+    title: '',
     id: 0,
     mainText: '',
   },
@@ -171,6 +172,7 @@ const gameplay = (state = initialState, action = {}) => {
           jsxCombatReward: 0,
         },
         sequenceToTell: {
+          title: '',
           id: 0,
           mainText: '',
         },
@@ -259,6 +261,7 @@ const gameplay = (state = initialState, action = {}) => {
           jsxCombatReward: 0,
         },
         sequenceToTell: {
+          title: '',
           id: 0,
           mainText: '',
         },
@@ -381,6 +384,7 @@ const gameplay = (state = initialState, action = {}) => {
       return {
         ...state,
         sequenceToTell: {
+          title: '',
           id: 0,
           mainText: '',
         },
@@ -439,6 +443,7 @@ const gameplay = (state = initialState, action = {}) => {
           jsxCombatReward: 0,
         },
         sequenceToTell: {
+          title: '',
           id: 0,
           mainText: '',
         },
@@ -495,6 +500,7 @@ const gameplay = (state = initialState, action = {}) => {
       return {
         ...state,
         sequenceToTell: {
+          title: '',
           id: 0,
           mainText: '',
         },
@@ -522,6 +528,7 @@ const gameplay = (state = initialState, action = {}) => {
         ...state,
         phpTimer: state.phpTimer + 1,
         sequenceToTell: {
+          title: '',
           id: 0,
           mainText: '',
         },
@@ -537,6 +544,7 @@ const gameplay = (state = initialState, action = {}) => {
         ...state,
         phpTimer: state.phpTimer + 1,
         sequenceToTell: {
+          title: '',
           id: 0,
           mainText: '',
         },
@@ -563,6 +571,7 @@ const gameplay = (state = initialState, action = {}) => {
           jsxCombatReward: 0,
         },
         sequenceToTell: {
+          title: '',
           id: 0,
           mainText: '',
         },
@@ -583,6 +592,7 @@ const gameplay = (state = initialState, action = {}) => {
       return {
         ...state,
         sequenceToTell: {
+          title: '',
           id: 0,
           mainText: '',
         },
@@ -598,6 +608,7 @@ const gameplay = (state = initialState, action = {}) => {
         ...state,
         phpTimer: state.phpTimer + 1,
         sequenceToTell: {
+          title: '',
           id: 0,
           mainText: '',
         },
