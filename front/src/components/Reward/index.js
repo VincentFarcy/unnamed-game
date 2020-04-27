@@ -35,7 +35,7 @@ const Reward = ({
         <p className="reward__p"> {`Vous avez gagné ${(eventRewardJsx !== null ? eventRewardJsx : jsxReward) + jsxCombatReward} JSX et ${(eventRewardXp !== null ? eventRewardXp : xpReward) + xpCombatReward} point(s) d'éxpérience`} </p>
         <div className="button__container">
           <Button
-            cssClassName="next__button"
+            cssClassName="generic-button next__button"
             url="/play/sequence"
             buttonName="PHP Suivant"
             onClick={nextSequence}

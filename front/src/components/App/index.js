@@ -8,7 +8,7 @@ import { Switch, Route, Redirect, useParams } from 'react-router-dom';
 import './styles.scss';
 import Header from '../../containers/Header/Header';
 import MainSite from '../../containers/MainSite';
-import Team from '../Team';
+import Team from '../../containers/Team';
 import Acknowledgements from '../Acknowledgements';
 import Rules from '../Rules';
 import SignUp from '../../containers/SignUp';

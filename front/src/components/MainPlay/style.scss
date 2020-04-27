@@ -1,12 +1,14 @@
+@import 'src/styles/vars';
+
 .main__play {
   margin: auto;
   justify-content: space-between;
-  background: rgba(0,0,0,0.6);
+  background: $black-60;
   border-radius: 15px;
   min-width: 300px;
   max-width: 900px;
   width: 100%;
-  color: white;
+  color: $white-100;
   padding: 1em;
 
   .button__container a {
@@ -20,8 +22,8 @@
   border-radius: 10px;
   border-color: rgba(238, 236, 236, 0.4);
   color: rgb(248, 250, 250); 
-  box-shadow:  -4px 4px 16px #1b1b1b, 
-  4px -4px 16px #b4b7b9;
+  box-shadow:  -4px 4px 16px $game-launcher-lower-shadow, 
+  4px -4px 16px $generic-button-upper-shadow;
   min-width: 258px;
   width: fit-content;  
   font-size: 0.7rem;
@@ -45,8 +47,8 @@
   border-radius: 10px;
   height: 50px;
   margin-right: 15px;
-  box-shadow:  -4px 5px 10px #1b1b1b, 
-  4px -4px 10px #b4b7b9;  
+  box-shadow:  -4px 5px 10px $game-launcher-lower-shadow, 
+  4px -4px 10px $generic-button-upper-shadow;  
 }
 
 .play-text {
@@ -59,11 +61,11 @@
 @media screen AND (min-width: 768px) {
   .main__play {
     width: 80%;
-    box-shadow: inset 0em 3em rgba(100,255,200,0.7),
-                0 0 1em rgba(100,255,200),
-                0 0 2em rgba(100,255,200),
-                0 0 4em rgba(100,255,200),
-                0 0 8em rgba(100,255,200);
+    box-shadow: inset 0em 3em $play-inset,
+                0 0 1em $play-halo,
+                0 0 2em $play-halo,
+                0 0 4em $play-halo,
+                0 0 8em $play-halo;
     padding:0;
   }
 }
@@ -71,24 +73,23 @@
 /* === large screen === */
 @media screen AND (min-width: 992px) {
   .main__play {
-    max-width: 900px;   
-    box-shadow: inset 0em 3em rgba(36, 147, 238, 0.7),
-    0 0 1em rgba(22, 134, 226, 0.7),
-    0 0 2em rgb(49, 151, 235, 0.7),
-    0 0 4em rgba(49, 151, 235, 0.7),
-    0 0 8em rgba(49, 151, 235, 0.7);
-                 
+    max-width: 900px;
+    box-shadow: inset 0em 3.5em $play-inset,
+                0 0 1em $play-lower-halo,
+                0 0 2em $play-halo,
+                0 0 4em $play-halo,
+                0 0 8em $play-halo;
   }
 
   .game-launcher__btn:hover { 
-    background: rgba(238, 236, 236, 0.4);
+    background: $generic-button-background;
     border-radius: 10px;
-    border-color: rgba(238, 236, 236, 0.4);
-    color: rgb(248, 250, 250);
+    border-color: $generic-button-background;
+    color: $generic-button-background;
     font-size: 0.7rem;
     font-weight: 900;  
-    box-shadow:  -4px 4px 16px #1b1b1b, 
-               4px -4px 16px #9abbcb;
+    box-shadow:  -4px 4px 16px $game-launcher-lower-shadow, 
+               4px -4px 16px $generic-button-upper-shadow-hover;
     position: relative;
     text-align: center;
   }
