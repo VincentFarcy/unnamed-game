@@ -25,7 +25,7 @@ const Sequence = ({
     changeBg('');
   };
   return (
-    <>
+    <div className="story-container">
       {sequence.id === 99 ? <Redirect to="/play/mainhub" />
         : (
           <div className="story-container">
@@ -44,7 +44,7 @@ const Sequence = ({
             </div>
           </div>
         )};
-    </>
+    </div>
   );
 };
 

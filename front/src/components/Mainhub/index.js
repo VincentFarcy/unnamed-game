@@ -1,8 +1,6 @@
 // == Import npm
 import React from 'react';
 import PropTypes from 'prop-types';
-import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
-import Tooltip from 'react-bootstrap/Tooltip';
 
 // == Import local
 import './style.scss';
