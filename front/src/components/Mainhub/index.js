@@ -1,13 +1,14 @@
 // == Import npm
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from '../LinkButton';
-import Link from 'react-router-dom';
-import { rollDice } from '../../func';
-import PlayerInfo from '../../containers/PlayerInfo';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
 
 // == Import local
 import './style.scss';
+import PlayerInfo from '../../containers/PlayerInfo';
+import Button from '../LinkButton';
+import { rollDice } from '../../func';
 
 // == Component
 const Mainhub = ({
@@ -27,29 +28,32 @@ const Mainhub = ({
         <PlayerInfo />
         <p className="story__title">Que voulez-vous faire ?</p>
         <div className="button__container">
-          <Button cssClassName="next__button inactive" buttonName="Se reposer" url="/play/mainhub" onClick={actionRest} />
-        </div>
-        <div className="button__container">
+          <OverlayTrigger
+            placement="top"
+            delay={{ show: 300, hide: 300 }}
+            trigger='hover'
+            overlay={(
+              <Tooltip id="rest-tooltip">
+                En cliquant ici, vous récupérez des HP et passer au PHP suivant.
+              </Tooltip>
+            )}
+          >
+            <button className="next__button rest" onClick={actionRest} >Se reposer</button>
+          </OverlayTrigger>
           <Button cssClassName="next__button" buttonName="Exploration" url="/play/exploration" />
-        </div>
         {(medicAccess >= RollForMedicAccess) && (jsx >= 10)
           && (
-            <div className="button__container">
-              <Button cssClassName="next__button" buttonName="Hôpital" url="/play/medic" />
-            </div>
+            <Button cssClassName="next__button" buttonName="Hôpital" url="/play/medic" />
           )}
         {trainAccess >= RollForTrainAccess
           && (
-            <div className="button__container">
-              <Button cssClassName="next__button" buttonName="Entrainement" url="/play/death" />
-            </div>
+            <Button cssClassName="next__button" buttonName="Entrainement" url="/play/death" />
           )}
         {vendingAccess >= RollForVendingAccess
           && (
-            <div className="button__container">
-              <Button cssClassName="next__button" buttonName="Magasin" url="/play/death" />
-            </div>
+            <Button cssClassName="next__button" buttonName="Magasin" url="/play/death" />
           )}
+        </div>
       </div>
     </div>
   );
