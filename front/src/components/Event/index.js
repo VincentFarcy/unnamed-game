@@ -21,8 +21,8 @@ const Event = ({
   return (
     <div className="main__play">
       <p className="event__title">Exploration - Hacking</p>
-      <p className="event__text">Vos déambulations sur le vaisseau prennent du temps. Ce vaisseau vous semble sans fin... malgré tout vous finissez par arrivée devant une nouvelle porte fermée.</p>
-      <p className="event__text2">Sur l'écran est afficher l'éditeur du firewall et sa version. O'clock {eventDifficulty}</p>
+      <p className="event__text">Vos déambulations sur le vaisseau prennent du temps. Ce vaisseau vous semble sans fin... malgré tout vous finissez par arriver devant une nouvelle porte fermée.</p>
+      <p className="event__text2">Sur l'écran est affiché l'éditeur du firewall et sa version : O'clock V.{eventDifficulty}</p>
       {win ? (
         <>
           <WonEvent />
