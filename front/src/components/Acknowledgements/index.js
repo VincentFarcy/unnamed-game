@@ -25,7 +25,7 @@ const Acknowledgements = ({ artists, changeBg }) => {
             <Card.Title className="thanks-intro__title">Remerciements particuliers</Card.Title>
             <Card.Text className="thanks-intro__content">
             Merci aux trois artistes qui nous ont permis d'utiliser leurs visuels fantastiques pour ce projet de fin d'études !
-            Vous trouverez plus d'information sur leur travail formidable en suivant les liens ci-après.
+            Vous trouverez plus d'information sur leur travail formidable en suivant les liens sur leurs photos.
             </Card.Text>
           </Card.Body>
         </Card>
