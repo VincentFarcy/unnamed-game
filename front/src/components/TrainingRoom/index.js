@@ -7,6 +7,7 @@ import PlayerInfo from '../../containers/PlayerInfo';
 
 // == Import local
 import './style.scss';
+import '../../components/App/dialog.scss';
 import '../../components/App/player-action.scss';
 
 // == Component
@@ -29,8 +30,8 @@ const Train = ({
       <div className="player-bar">
         <PlayerInfo />
       </div>
-      <div className="main__play">
-        <h2 className="main__play__title">Salle d'augmentation cybernétique</h2>
+      <div className="dialog">
+        <h2 className="dialog__title">Salle d'augmentation cybernétique</h2>
         <div className="train__button-container">
           {(rollFullAccess <= fullAccess || strengthTrainAccess <= roomAccess) && <Button cssClassName="generic-button train__button" buttonName="Force" url="/play/sequence" onClick={() => (incrementAbility('Force'))} />}
           {(rollFullAccess <= fullAccess || agilityTrainAccess <= roomAccess) && <Button cssClassName="generic-button train__button" buttonName="Agilité" url="/play/sequence" onClick={() => (incrementAbility('Agilité'))} />}
