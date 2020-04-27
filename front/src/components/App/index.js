@@ -9,7 +9,7 @@ import './styles.scss';
 import Header from '../../containers/Header/Header';
 import MainSite from '../../containers/MainSite';
 import Team from '../../containers/Team';
-import Acknowledgements from '../Acknowledgements';
+import Acknowledgements from '../../containers/Acknowledgements';
 import Rules from '../Rules';
 import SignUp from '../../containers/SignUp';
 import SignIn from '../../containers/SignIn';
