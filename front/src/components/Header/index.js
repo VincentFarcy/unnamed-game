@@ -16,19 +16,17 @@ import ConnectedUserNav from '../../containers/Header/ConnectedUserNav';
 const Header = ({
   isLogged,
   initUserState,
-  resetGame,
   restartNewGame,
   startGame,
   isExpanded,
   toggleMenu,
-  changeBg,  
+  changeBg,
 }) => {
   //
   const handleClick = (evt) => {
     if (evt.target.tagName === 'A' || evt.target.tagName === 'BUTTON' || evt.target.tagName === 'IMG') {
       initUserState();
       toggleMenu(false);
-      resetGame();
       changeBg('');
       restartNewGame();
     }
@@ -109,7 +107,7 @@ const Header = ({
 Header.propTypes = {
   isLogged: PropTypes.bool.isRequired,
   initUserState: PropTypes.func.isRequired,
-  resetGame: PropTypes.func.isRequired,
+  restartNewGame: PropTypes.func.isRequired,
   startGame: PropTypes.func.isRequired,
   isExpanded: PropTypes.bool.isRequired,
   toggleMenu: PropTypes.func.isRequired,
