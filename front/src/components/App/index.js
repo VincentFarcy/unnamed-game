@@ -76,9 +76,6 @@ const App = ({ isGameOn, bgImageCssClass }) => (
         <Route exact path="/play/exploration">
           { !isGameOn ? <Redirect to="/play" /> : <Exploration />}
         </Route>
-        <Route exact path="/play/rest">
-          { !isGameOn ? <Redirect to="/play" /> : <Rest />}
-        </Route>
         <Route exact path="/play/medic">
           { !isGameOn ? <Redirect to="/play" /> : <Medic />}
         </Route>

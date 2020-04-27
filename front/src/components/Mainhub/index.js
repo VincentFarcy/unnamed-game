@@ -14,7 +14,6 @@ import { rollDice } from '../../func';
 const Mainhub = ({
   medicAccess,
   trainAccess,
-  vendingAccess,
   jsx,
   xp,
   xpCost,
@@ -22,7 +21,6 @@ const Mainhub = ({
 }) => {
   const RollForMedicAccess = rollDice(1, 100);
   const RollForTrainAccess = rollDice(1, 100);
-  const RollForVendingAccess = rollDice(1, 100);
 
   return (
     <div className="story-container">
@@ -53,10 +51,6 @@ const Mainhub = ({
               <Button cssClassName="next__button" buttonName="Entrainement" url="/play/train" />
             </div>
           )}
-        {vendingAccess >= RollForVendingAccess
-          && (
-            <Button cssClassName="next__button" buttonName="Magasin" url="/play/death" />
-          )}
         </div>
       </div>
     </div>
@@ -67,7 +61,6 @@ const Mainhub = ({
 Mainhub.propTypes = {
   medicAccess: PropTypes.number.isRequired,
   trainAccess: PropTypes.number.isRequired,
-  vendingAccess: PropTypes.number.isRequired,
   jsx: PropTypes.number.isRequired,
   xp: PropTypes.number.isRequired,
   xpCost: PropTypes.number.isRequired,
