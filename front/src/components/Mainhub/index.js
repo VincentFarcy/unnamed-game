@@ -16,6 +16,8 @@ const Mainhub = ({
   trainAccess,
   vendingAccess,
   jsx,
+  xp,
+  xpCost,
   actionRest,
 }) => {
   const RollForMedicAccess = rollDice(1, 100);
@@ -45,9 +47,11 @@ const Mainhub = ({
           && (
             <Button cssClassName="next__button" buttonName="Hôpital" url="/play/medic" />
           )}
-        {trainAccess >= RollForTrainAccess
+        {(trainAccess >= RollForTrainAccess) && (xp >= xpCost)
           && (
-            <Button cssClassName="next__button" buttonName="Entrainement" url="/play/death" />
+            <div className="button__container">
+              <Button cssClassName="next__button" buttonName="Entrainement" url="/play/train" />
+            </div>
           )}
         {vendingAccess >= RollForVendingAccess
           && (
@@ -65,9 +69,10 @@ Mainhub.propTypes = {
   trainAccess: PropTypes.number.isRequired,
   vendingAccess: PropTypes.number.isRequired,
   jsx: PropTypes.number.isRequired,
+  xp: PropTypes.number.isRequired,
+  xpCost: PropTypes.number.isRequired,
   actionRest: PropTypes.func.isRequired,
 };
-
 
 // == Export
 export default Mainhub;

@@ -34,6 +34,7 @@ import {
   UPDATE_TIMER,
   EVENT_WIN,
   FIND_EVENT,
+  INCREMENT_ABILITY,
 }
   from '../actions/gamePlay';
 // import selectors
@@ -44,10 +45,11 @@ import {
   findInfoForSequence,
   findRandomReward,
   addOpponnentReward,
+  findTrainAbility,
+  findRandomExploration,
 } from '../selectors/gameplay';
 // import functions
 import { rollDice } from '../func';
-
 
 // == State
 const initialState = {
@@ -546,6 +548,22 @@ const gameplay = (state = initialState, action = {}) => {
         //   xp: state.player.xp + rollDice(2, 4),
         // },
       };
+
+    case INCREMENT_ABILITY:
+      findTrainAbility(state, action.payload);
+      return {
+        ...state,
+        phpTimer: state.phpTimer + 1,
+        sequenceToTell: {
+          id: 0,
+          mainText: '',
+        },
+        player: {
+          ...state.player,
+          xp: state.player.xp - state.gameParameters.train_xp_cost,
+        },
+      };
+
     case LOAD_BACKUP_DATA:
       const sequenceId = action.backups[0].sequence.id;
       const phpTimer = state.chapters[0].sequences.find((sequence) => sequence.id === sequenceId).orderBy;
@@ -600,6 +618,7 @@ const gameplay = (state = initialState, action = {}) => {
         ...state,
         backupIsLoading: false,
       };
+
     default:
       return state;
   }
@@ -609,17 +628,3 @@ const gameplay = (state = initialState, action = {}) => {
 
 // == Export
 export default gameplay;
-
-
-export const findRandomExploration = (state) => {
-  const RandomExplorationTable = state.chapters[0].randomEvents;
-
-  const findExplorationTable = rollDice(1, 100);
-
-  const rightExplorationTable = RandomExplorationTable.find(
-    (explorationRange) => (findExplorationTable >= explorationRange.rollFrom
-      && findExplorationTable <= explorationRange.rollTo),
-  );
-
-  return rightExplorationTable;
-};

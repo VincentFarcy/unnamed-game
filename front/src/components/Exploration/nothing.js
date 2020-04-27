@@ -11,7 +11,6 @@ const Nothing = ({ eventNothing }) => (
   <div className="main__play">
     <p className="nothing__title">Le temps passe...</p>
     <p className="nothing__text">Ce vaisseau est immense, son immensité en devient ridicule... Vous avez l'impression d'être déjà passé ici... et pourtant vous êtes bien loin de votre point de départ... Des couloirs et des embranchements à perte de vue... il vous semble préférable de rebrousser chemin avant de vous perdre définitivement.</p>
-
     <div className="button__container">
       <Button cssClassName="next__button" buttonName="PHP Suivant" url="/play/mainhub" onClick={eventNothing} />
     </div>
