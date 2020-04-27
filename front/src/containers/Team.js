@@ -29,7 +29,7 @@ const mapStateToProps = () => ({
       name: 'Vincent Farcy',
       img: VincentF,
       title: 'Lead Dev Back',
-      description: 'Même les deux paires de bras et les trois yeux d\'un Froghemoth ne rivalisent pas avec les jets de rapidité et d\'initiative de ce robot.',
+      description: 'Même les deux paires de bras et les trois yeux d\'un Froghemoth ne rivalisent pas avec les jets de rapidité et d\'initiative de ce cyborg.',
       linkedIn: 'https://gph.is/2yCodpl',
       gitHub: 'https://github.com/VincentFarcy',
     },
