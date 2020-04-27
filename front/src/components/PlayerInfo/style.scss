@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: row;
   width: 100%;
-  padding: .8rem;
+  padding: .2rem;
   color: $white-100;
 }
 .player-info__avatar-container {
@@ -20,8 +20,11 @@
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  max-width: 400px;
   padding: .8rem;
+}
+.player-info__bar-container>div {
+  max-width: 320px;
+  margin: auto;
 }
 
 .MainAbilities__container,
@@ -36,6 +39,7 @@
 
 
 .player-bar {
+  min-width: 280px;
   max-width: 900px;
   margin: 0 auto;
   border-radius: 10px;
@@ -93,6 +97,7 @@
 
 /* === Tablets === */
 @media screen AND (min-width: 768px) {
+
   .progress {
     height: 30px;
   }
@@ -104,7 +109,9 @@
   .player-info__bar-container {
     width: 50%;
   }
-
+  .player-info__info-container {
+    padding: .8rem;
+  }
   .player-info {
     flex-direction: row;
     flex-wrap: nowrap;

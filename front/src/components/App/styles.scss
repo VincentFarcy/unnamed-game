@@ -129,7 +129,7 @@ main > div {
   width: 100%;
   overflow-y: auto;
   display: flex;
-  padding: 1em;
+  padding: .4rem;
   justify-content: center;
   align-items: flex-start;
   z-index: 5;
@@ -153,6 +153,12 @@ main > div {
   4px -4px 16px $generic-button-upper-shadow;
   font-weight: 900;
 }
+
+/* === small screen === */
+@media (min-width: 576px) {
+  .main {
+    padding: 1rem;
+  }}
 
 /* === large screen === */
 @media screen AND (min-width: 992px) {

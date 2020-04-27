@@ -5,7 +5,7 @@
   justify-content: space-between;
   background: $black-60;
   border-radius: 15px;
-  min-width: 300px;
+  min-width: 280px;
   max-width: 900px;
   width: 100%;
   color: $white-100;
@@ -61,7 +61,7 @@
                 0 0 2em $play-halo,
                 0 0 4em $play-halo,
                 0 0 8em $play-halo;
-    padding:0;
+    padding: 0 1em 1em;
   }
 }
 

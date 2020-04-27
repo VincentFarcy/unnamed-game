@@ -13,7 +13,7 @@ import loose from 'src/assets/images/death.svg';
 // == Component
 const Death = ({ restartNewGame }) => {
   return (
-    <div className="main__play">
+    <div className="main__play death-window">
       <p className="death__title">The end...</p>
       <Typical
         className="death__p"
