@@ -22,8 +22,8 @@ const MainSite = ({ introTitle, introContent, warningContent, startGame }) => (
       />
     </section>
     <section className="introduction">
-      <Card>
-        <Card.Img className="intro-image" variant="top" src={intro} />
+      <Card className= "intro-cards">
+        <Card.Img className= "intro-cards__img" variant="top" src={intro} />
         <Card.Body>
           <Card.Title className="introduction__title">{introTitle}</Card.Title>
           <Card.Text className="introduction__content">
@@ -31,13 +31,12 @@ const MainSite = ({ introTitle, introContent, warningContent, startGame }) => (
           </Card.Text>
         </Card.Body>
       </Card>
-
     </section>
     <section className="warning">
-      <Card>
-        <Card.Img variant="top" src={warning} />
+    <Card className= "intro-cards">
+        <Card.Img className= "intro-cards__img" variant="top" src={warning} />
         <Card.Body>
-          <Card.Title>Avertissement au public</Card.Title>
+          <Card.Title className="intro-cards__title">Avertissement au public</Card.Title>
           <Card.Text>
             {warningContent}
           </Card.Text>

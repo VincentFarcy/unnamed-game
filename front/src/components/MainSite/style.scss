@@ -23,7 +23,7 @@
                4px -4px 16px $generic-button-upper-shadow-hover;
 }
 
-.card {
+.intro-cards {
   margin: auto;
   padding: 1em;
   background: $main-card-background;
@@ -31,9 +31,27 @@
   border-radius: 10px;
   box-shadow:  -4px 4px 16px $game-launcher-lower-shadow, 
   4px -4px 16px $generic-button-upper-shadow;
+
+  &__title {
+    margin-bottom: 0.5em;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  &__img {
+    width: 105px;
+    height: 105px;
+    align-self: center;
+    margin-top: 5px;
+    padding: 5px;
+    border-radius: 59px;  
+    box-shadow:  -4px 4px 16px #1b1b1b, 
+    4px -4px 16px #b4b7b9;
+  }
 }
 
-.card:hover {
+.intro-cards:hover {
   margin: auto;
   background: $main-card-background;
   color: $generic-button-color;
@@ -53,12 +71,7 @@
   4px -4px 16px $generic-button-upper-shadow;
 }
 
-.card-title {
-  margin-bottom: 0.5em;
-  font-size: 1.5em;
-  font-weight: bold;
-  text-align: center;
-}
+
 
 /* === Main === */
 /* == Home == */
