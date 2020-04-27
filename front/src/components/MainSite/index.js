@@ -33,14 +33,14 @@ const MainSite = ({ introTitle, introContent, warningContent, startGame }) => (
       </Card>
     </section>
     <section className="warning">
-    <Card className= "intro-cards">
-        <Card.Img className= "intro-cards__img" variant="top" src={warning} />
-        <Card.Body>
-          <Card.Title className="intro-cards__title">Avertissement au public</Card.Title>
-          <Card.Text>
-            {warningContent}
-          </Card.Text>
-        </Card.Body>
+      <Card className= "intro-cards">
+          <Card.Img className= "intro-cards__img" variant="top" src={warning} />
+          <Card.Body>
+            <Card.Title className="intro-cards__title">Avertissement au public</Card.Title>
+            <Card.Text>
+              {warningContent}
+            </Card.Text>
+          </Card.Body>
       </Card>
     </section>
   </div>

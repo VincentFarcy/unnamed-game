@@ -34,18 +34,18 @@ const Mainhub = ({
             trigger='hover'
             overlay={(
               <Tooltip id="rest-tooltip">
-                En cliquant ici, vous récupérez des HP et passer au PHP suivant.
+                En cliquant ici, vous récupérez des HP et passez au PHP suivant.
               </Tooltip>
             )}
           >
             <button className="next__button rest" onClick={actionRest} >Se reposer</button>
           </OverlayTrigger>
           <Button cssClassName="next__button" buttonName="Exploration" url="/play/exploration" />
-        {(medicAccess >= RollForMedicAccess) && (jsx >= 10)
+          {(medicAccess >= RollForMedicAccess) && (jsx >= 10)
           && (
             <Button cssClassName="next__button" buttonName="Hôpital" url="/play/medic" />
           )}
-        {(trainAccess >= RollForTrainAccess) && (xp >= xpCost)
+          {(trainAccess >= RollForTrainAccess) && (xp >= xpCost)
           && (
             <div className="button__container">
               <Button cssClassName="next__button" buttonName="Entrainement" url="/play/train" />

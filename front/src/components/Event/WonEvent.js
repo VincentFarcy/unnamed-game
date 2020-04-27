@@ -16,7 +16,7 @@ const WonEvent = ({
 
   return (
     <>
-      <p className="event__win__text">Votre capacité à "hack" les systèmes de sécurité, vous permez d'ouvrir cette porte. Ou alors est-ce le mot de passe admin Compote23 ? </p>
+      <p className="event__win__text">Votre capacité à "hack" les systèmes de sécurité, vous permet d'ouvrir cette porte. Ou alors est-ce le mot de passe admin Compote23 ? </p>
       <div className="button__container">
         <Button cssClassName="next__button" buttonName="Suivant" url="/play/reward" />
       </div>
