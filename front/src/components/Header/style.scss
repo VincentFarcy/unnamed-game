@@ -1,6 +1,5 @@
 // import scss variables
 @import 'src/styles/vars';
-// items not to be displayed on small screen
 
 .desktop {
   display: none;
@@ -9,7 +8,7 @@
 .header .nav-container {
   flex-basis: auto;
   width: 100%;
-  background-color: rgba(0,0,0,0.8);
+  background-color: $black-80;
   box-shadow: 0px 1px 2px grey;
 }
 
@@ -22,7 +21,7 @@
   height: 100vh;
   display: flex;
   justify-content: center;
-  background-color: rgba(0,0,0,0.9);
+  background-color: $black-90;
 }
 
 .header .navbar-collapse {
@@ -66,9 +65,11 @@
   height: 60px;
 }
 
-.header .nav-link {
-  font-size: 1.4em;
-  padding: 2vh 0;
+.header .nav-link,
+.header .greeting-user {
+  font-size: 1.4rem;
+  padding: 2vh 1rem;
+  text-align: center;
 }
 
 .header .play-button {
@@ -76,29 +77,37 @@
 }
 
 .header .auth {
-  width: 98%;
-  max-width: 400px;
+  width: 100%;
+  max-width: 500px;
   margin:auto;
 }
 
-.header .anonymous-user {
-  width: 100%;
-}
-
+.header .anonymous-user,
 .header .connected-user {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
+  &>* {
+    width: 100%;
+  }
 }
 
 .header .greeting-user {
-  animation: 2s shake, 2s changeColor both;
-  color: orange;
+  animation: 2s shake, 2s changeColor backwards;
+  color: $white-70;
   margin-bottom: 0;
+  text-align: center;
+  word-break: break-all;
+}
+.header .greeting-user:hover {
+  color: $white-90;
+  text-decoration: none;
 }
 @keyframes changeColor {
   from { color: orange }
-    to { color: white }
+    to { color: $white-70 }
 }
 @keyframes shake {
   from,
@@ -120,6 +129,20 @@
   }
 }
 
+/* === small screen === */
+@media screen AND (min-width: 576px) {
+  .header .anonymous-user,
+  .header .connected-user {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header .auth {
+    width: 100%;
+  }
+}
+
 /* === large screen === */
 @media screen AND (min-width: 992px) {
   // items not to be displayed on large screen
@@ -132,8 +155,8 @@
     display: block;
   }
 
-  // only displayed on screen >1250px
-  .header .nav-link[href="/"] {
+  // only displayed on screen >1200px
+  .header .nav-link--home {
     display:none;
   }
 
@@ -155,7 +178,7 @@
   }
 
   .header .navbar-brand {
-    margin-right: .9vw;
+    margin-right: .8vw;
   }
 
   .header .navbar-brand img {
@@ -166,7 +189,7 @@
 
   .header .nav-link {
     padding: 0;
-    font-size: 1em;
+    font-size: 1rem;
     text-align: center;
     margin-right: .9vw;
   }
@@ -178,10 +201,10 @@
 
   .header .auth {
     width: 100%;
-    min-width: 240px;
-    max-width: 240px;
+    min-width: 255px;
+    max-width: 255px;
     padding: 0.5em 0;
-    overflow: hidden;
+    font-size: 0.9rem;
   }
 
   .header .auth .nav-link {
@@ -190,15 +213,16 @@
     border: 1px solid grey !important;
   }
 
-  .header .auth .anonymous-user .nav-link {
-    width: 50%;
-  }
-
   .header .greeting-user {
-    margin-right: 1em;
+    line-height: 100%;
     text-align: center;
+    font-size: 0.9rem;
+    padding: 2vh .2vw;
   }
 
+  .header .connected-user {
+    height: 44px;
+  }
 }
 
 /* === extra large screen === */
@@ -209,23 +233,28 @@
   }
 
   .header .nav-link {
-    font-size: 1.1em;
+    font-size: 1.1rem;
     margin-right: 1.4vw;
   }
 
   .header .auth .nav-link {
-    margin-right: 0;
+    padding-right: 0;
   }
 
   .header .auth {
-    min-width: 280px;
-    max-width: 280px;
+    font-size: 1rem;
+    min-width: 290px;
+    max-width: 290px;
+  }
+
+  .header .greeting-user {
+    font-size: 1rem;
   }
 }
 
 /* === extra large screen === */
 @media screen AND (min-width: 1200px) {
-  .header .nav-link[href="/"] {
+  .header .nav-link--home {
     display:inline;
   }
 }

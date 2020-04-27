@@ -15,7 +15,7 @@ const MainSite = ({ introTitle, introContent, warningContent, startGame }) => (
   <div>
     <section className="start-game">
       <LinkButton
-        cssClassName="play-button-main"
+        cssClassName="generic-button play-button-main"
         buttonName="Jouer"
         url="/play"
         onClick={startGame}

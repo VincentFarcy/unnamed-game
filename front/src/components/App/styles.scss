@@ -4,7 +4,7 @@
 .app {
   height: 100%;
   font-family: sans-serif;
-  background-color: black;
+  background-color: $black-100;
   opacity: 1;
   z-index: 0;
 }
@@ -141,6 +141,17 @@ main > div {
   bottom: 0;
   width: 100%;
   z-index:10;
+}
+
+/* === generic components === */
+.generic-button {
+  background: $generic-button-background;
+  border-radius: 10px;
+  border-color: $generic-button-background;
+  color: $generic-button-color; 
+  box-shadow:  -4px 4px 16px $generic-button-lower-shadow, 
+  4px -4px 16px $generic-button-upper-shadow;
+  font-weight: 900;
 }
 
 /* === large screen === */

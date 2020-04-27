@@ -1,5 +1,7 @@
+@import 'src/styles/vars';
+
 .AdvancedInfo__container {
-  color: white;
+  color: $white-100;
   width: 100%;
   min-width: 300px;
   max-width: 400px;
