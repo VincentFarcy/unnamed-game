@@ -425,6 +425,18 @@ const gameplay = (state = initialState, action = {}) => {
       return {
         ...state,
         phpTimer: state.phpTimer + 1,
+        rewards: {
+          xpRoll: 0,
+          jsxRoll: 0,
+        },
+        eventRewards: {
+          xp: null,
+          jsx: null,
+        },
+        opponentRewards: {
+          xpCombatReward: 0,
+          jsxCombatReward: 0,
+        },
         sequenceToTell: {
           id: 0,
           mainText: '',
@@ -525,6 +537,18 @@ const gameplay = (state = initialState, action = {}) => {
       return {
         ...state,
         phpTimer: state.phpTimer + 1,
+        rewards: {
+          xpRoll: 0,
+          jsxRoll: 0,
+        },
+        eventRewards: {
+          xp: null,
+          jsx: null,
+        },
+        opponentRewards: {
+          xpCombatReward: 0,
+          jsxCombatReward: 0,
+        },
         sequenceToTell: {
           id: 0,
           mainText: '',
@@ -539,14 +563,9 @@ const gameplay = (state = initialState, action = {}) => {
           mainText: '',
         },
         eventRewards: {
-          xp: state.player.xp + rollDice(2, 4),
-          jsx: state.player.jsx + rollDice(1, 3),
+          xp: rollDice(2, 4),
+          jsx: rollDice(1, 3),
         },
-        // player: {
-        //   ...state.player,
-        //   jsx: state.player.jsx + rollDice(1, 3),
-        //   xp: state.player.xp + rollDice(2, 4),
-        // },
       };
 
     case INCREMENT_ABILITY:
