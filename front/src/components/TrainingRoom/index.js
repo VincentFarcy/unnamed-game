@@ -24,10 +24,12 @@ const Train = ({
 
   useEffect(nextSequence, []);
   return (
-    <div className="main__play">
-      <h2 className="main__play__title">Salle d'augmentation cybernétique</h2>
-      <div className="train__container">
+    <div className="reward__container">
+      <div className="player-bar">
         <PlayerInfo />
+      </div>
+      <div className="main__play">
+        <h2 className="main__play__title">Salle d'augmentation cybernétique</h2>
         <div className="train__button-container">
           {(rollFullAccess <= fullAccess || strengthTrainAccess <= roomAccess) && <Button cssClassName="generic-button train__button" buttonName="Force" url="/play/sequence" onClick={() => (incrementAbility('Force'))} />}
           {(rollFullAccess <= fullAccess || agilityTrainAccess <= roomAccess) && <Button cssClassName="generic-button train__button" buttonName="Agilité" url="/play/sequence" onClick={() => (incrementAbility('Agilité'))} />}

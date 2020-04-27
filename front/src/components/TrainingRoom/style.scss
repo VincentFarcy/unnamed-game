@@ -15,14 +15,20 @@
   }
 }
 
+@media screen AND (min-width: 768) {
+
+  .train {
+
+    &__button-container {
+      padding: 1em;
+    }
+  }
+}
+
 /* === large screen === */
 @media screen AND (min-width: 992px) {
 
   .train {
-
-    &__container {
-      padding: 1em;
-    }
 
     &__button-container {
       flex-direction: row;
@@ -35,5 +41,4 @@
       width: 40%;
     }
   }
-
 }

@@ -19,8 +19,9 @@
     font-size: 1.5rem;
     font-weight: 500;
     line-height: 1.2;
-    margin-bottom: .5rem;
+    margin-bottom: 1.5rem;
     margin-left: 1rem;
+    text-align: center;
   }
 }
 
@@ -75,6 +76,11 @@
                 0 0 4em $play-halo,
                 0 0 8em $play-halo;
     padding:0;
+
+    &__title {
+      font-size: 1.8rem;
+      padding-top: .3rem;
+    }
   }
 }
 
@@ -89,7 +95,7 @@
                 0 0 8em $play-halo;
 
     &__title {
-      font-size: 2.5rem;
+      font-size: 2rem;
     }
   }
 
