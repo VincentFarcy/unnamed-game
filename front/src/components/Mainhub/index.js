@@ -43,7 +43,7 @@ const Mainhub = ({
             <Button cssClassName="next__button" buttonName="Exploration" url="/play/exploration" />
           </div>
         )}
-        {(medicAccess >= RollForMedicAccess) && (jsx >= 10) && (php < 30)
+        {(medicAccess >= RollForMedicAccess) && (jsx >= 10) && (php > 4) && (php < 30)
           && (
             <div className="button__container">
               <Button cssClassName="next__button" buttonName="Hôpital" url="/play/medic" />
@@ -55,7 +55,7 @@ const Mainhub = ({
               <Button cssClassName="next__button" buttonName="Entrainement" url="/play/train" />
             </div>
           )}
-        {(php > 9)
+        {(php > 12)
           && (
             <div className="button__container">
               <Button cssClassName="next__button" buttonName="Mission" url="/play/event" onClick={startMission} />
