@@ -139,7 +139,7 @@ const initialState = {
   },
   bgImageCssClass: '',
   hero: {},
-  backupIsLoading : false,
+  backupIsLoading: false,
 };
 
 // == Reducer
@@ -324,7 +324,7 @@ const gameplay = (state = initialState, action = {}) => {
           },
         },
         bgImageCssClass: '',
-        backupIsLoading : false,
+        backupIsLoading: false,
       };
     case GAME_DATA_SUCCESS:
       return {
@@ -426,6 +426,18 @@ const gameplay = (state = initialState, action = {}) => {
       return {
         ...state,
         phpTimer: state.phpTimer + 1,
+        rewards: {
+          xpRoll: 0,
+          jsxRoll: 0,
+        },
+        eventRewards: {
+          xp: null,
+          jsx: null,
+        },
+        opponentRewards: {
+          xpCombatReward: 0,
+          jsxCombatReward: 0,
+        },
         sequenceToTell: {
           id: 0,
           mainText: '',
@@ -434,6 +446,18 @@ const gameplay = (state = initialState, action = {}) => {
           rollFrom: 0,
           follTo: 0,
           type: '',
+        },
+        combat: {
+          ...state.combat,
+          // currentOponent is empty until OpponentCombatInfo is rendered
+          currentOpponent: {
+            opponentCurrentHP: 0,
+            speed: 0,
+            touch: 0,
+            dodge: 0,
+            xpGain: 0,
+            moneyGain: 0,
+          },
         },
       };
     case END_FIGHT:
@@ -526,22 +550,45 @@ const gameplay = (state = initialState, action = {}) => {
       return {
         ...state,
         phpTimer: state.phpTimer + 1,
+        rewards: {
+          xpRoll: 0,
+          jsxRoll: 0,
+        },
+        eventRewards: {
+          xp: null,
+          jsx: null,
+        },
+        opponentRewards: {
+          xpCombatReward: 0,
+          jsxCombatReward: 0,
+        },
         sequenceToTell: {
           id: 0,
           mainText: '',
+        },
+        combat: {
+          ...state.combat,
+          // currentOponent is empty until OpponentCombatInfo is rendered
+          currentOpponent: {
+            opponentCurrentHP: 0,
+            speed: 0,
+            touch: 0,
+            dodge: 0,
+            xpGain: 0,
+            moneyGain: 0,
+          },
         },
       };
     case EVENT_WIN:
       return {
         ...state,
-        phpTimer: state.phpTimer + 1,
         sequenceToTell: {
           id: 0,
           mainText: '',
         },
         eventRewards: {
-          xp: state.player.xp + rollDice(2, 4),
-          jsx: state.player.jsx + rollDice(1, 3),
+          xp: rollDice(2, 4),
+          jsx: rollDice(1, 3),
         },
         // player: {
         //   ...state.player,

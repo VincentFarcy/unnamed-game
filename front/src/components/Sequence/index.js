@@ -2,11 +2,11 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Typical from 'react-typical';
-import Button from '../LinkButton';
+import { Redirect } from 'react-router-dom';
 
 // == Import local
 import '../Story/style.scss';
-import MainHub from '../../containers/MainHub';
+import Button from '../LinkButton';
 
 // == Component
 const Sequence = ({
@@ -26,7 +26,7 @@ const Sequence = ({
   };
   return (
     <>
-      {sequence.id === 99 ? <MainHub />
+      {sequence.id === 99 ? <Redirect to="/play/mainhub" />
         : (
           <div className="story-container">
             <div className="main__play">

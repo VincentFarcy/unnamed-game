@@ -30,22 +30,16 @@ const Mainhub = ({
       <div className="main__play">
         <PlayerInfo />
         <p className="story__title">Que voulez-vous faire ?</p>
-          {php < 30 && (
-            <div className="button__container">
-              <OverlayTrigger
-                placement="top"
-                delay={{ show: 300, hide: 300 }}
-                trigger='hover'
-                overlay={(
-                  <Tooltip id="rest-tooltip">
-                    En cliquant ici, vous récupérez des HP et passer au PHP suivant.
-                  </Tooltip>
-                )}
-              >
-                <button className="next__button rest" onClick={actionRest} >Se reposer</button>
-              </OverlayTrigger>
-            </div>
-          )}
+        {php < 30 && (
+          <div className="button__container">
+            <Button
+              cssClassName="next__button"
+              buttonName="Se reposer"
+              url="/play/sequence"
+              onClick={actionRest}
+            />
+          </div>
+        )}
         {php < 30 && (
           <div className="button__container">
             <Button cssClassName="next__button" buttonName="Exploration" url="/play/exploration" />
@@ -69,7 +63,6 @@ const Mainhub = ({
               <Button cssClassName="next__button" buttonName="Mission" url="/play/event" onClick={startMission} />
             </div>
           )}
-        </div>
       </div>
     </div>
   );

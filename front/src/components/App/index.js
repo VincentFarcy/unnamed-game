@@ -26,7 +26,6 @@ import Combat from '../../containers/Combat/Combat';
 import Exploration from '../../containers/Exploration';
 import Reward from '../../containers/Reward';
 import Train from '../../containers/TrainingRoom';
-import Rest from '../../containers/Rest';
 import Medic from '../../containers/MedicBay';
 import Mainhub from '../../containers/MainHub';
 import CreateCharacter from '../../containers/CreateCharacter/CreateCharacter';
@@ -76,9 +75,6 @@ const App = ({ isGameOn, bgImageCssClass }) => (
         </Route>
         <Route exact path="/play/exploration">
           { !isGameOn ? <Redirect to="/play" /> : <Exploration />}
-        </Route>
-        <Route exact path="/play/rest">
-          { !isGameOn ? <Redirect to="/play" /> : <Rest />}
         </Route>
         <Route exact path="/play/medic">
           { !isGameOn ? <Redirect to="/play" /> : <Medic />}
