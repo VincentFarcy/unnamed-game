@@ -25,17 +25,17 @@ const Train = ({
   useEffect(nextSequence, []);
   return (
     <div className="main__play">
-      <p className="train__title">Salle d'augmentation cybernétique</p>
-      <PlayerInfo />
-      <div className="button__container">
-        {(rollFullAccess <= fullAccess || strengthTrainAccess <= roomAccess) && <Button cssClassName="strength__button" buttonName="Force" url="/play/sequence" onClick={() => (incrementAbility('Force'))} />}
-        {(rollFullAccess <= fullAccess || agilityTrainAccess <= roomAccess) && <Button cssClassName="agility__button" buttonName="Agilité" url="/play/sequence" onClick={() => (incrementAbility('Agilité'))} />}
-        {(rollFullAccess <= fullAccess || enduranceTrainAccess <= roomAccess) && <Button cssClassName="endurance__button" buttonName="Constitution" url="/play/sequence" onClick={() => (incrementAbility('Constitution'))} />}
-        {(rollFullAccess <= fullAccess || willTrainAccess <= roomAccess) && <Button cssClassName="will__button" buttonName="Volonté" url="/play/sequence" onClick={() => (incrementAbility('Volonté'))} />}
-        {(rollFullAccess <= fullAccess || intelligenceTrainAccess <= roomAccess) && <Button cssClassName="intelligence__button" buttonName="Intelligence" url="/play/sequence" onClick={() => (incrementAbility('Intelligence'))} />}
-      </div>
-      <div className="button__container">
-        <Button cssClassName="next__button" buttonName="PHP Suivant" url="/play/sequence" />
+      <h2 className="main__play__title">Salle d'augmentation cybernétique</h2>
+      <div className="train__container">
+        <PlayerInfo />
+        <div className="train__button-container">
+          {(rollFullAccess <= fullAccess || strengthTrainAccess <= roomAccess) && <Button cssClassName="generic-button train__button" buttonName="Force" url="/play/sequence" onClick={() => (incrementAbility('Force'))} />}
+          {(rollFullAccess <= fullAccess || agilityTrainAccess <= roomAccess) && <Button cssClassName="generic-button train__button" buttonName="Agilité" url="/play/sequence" onClick={() => (incrementAbility('Agilité'))} />}
+          {(rollFullAccess <= fullAccess || enduranceTrainAccess <= roomAccess) && <Button cssClassName="generic-button train__button" buttonName="Constitution" url="/play/sequence" onClick={() => (incrementAbility('Constitution'))} />}
+          {(rollFullAccess <= fullAccess || willTrainAccess <= roomAccess) && <Button cssClassName="generic-button train__button" buttonName="Volonté" url="/play/sequence" onClick={() => (incrementAbility('Volonté'))} />}
+          {(rollFullAccess <= fullAccess || intelligenceTrainAccess <= roomAccess) && <Button cssClassName="generic-button train__button" buttonName="Intelligence" url="/play/sequence" onClick={() => (incrementAbility('Intelligence'))} />}
+          <Button cssClassName="generic-button train__button" buttonName="PHP Suivant" url="/play/sequence" />
+        </div>
       </div>
     </div>
   );

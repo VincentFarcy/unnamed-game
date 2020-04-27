@@ -40,7 +40,7 @@ const Mainhub = ({
         )}
         {php < 30 && (
           <div className="button__container">
-            <Button cssClassName="next__button" buttonName="Exploration" url="/play/exploration" />
+            <Button cssClassName="next__button" buttonName="Changement en train pour l'instant" url="/play/train" />
           </div>
         )}
         {(medicAccess >= RollForMedicAccess) && (jsx >= 10) && (php < 30)
