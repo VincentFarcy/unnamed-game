@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 // local imports
 import MainHub from '../components/Mainhub';
+import { actionRest } from '../actions/gamePlay';
 
 // state
 const mapStateToProps = (state) => ({
@@ -14,6 +15,9 @@ const mapStateToProps = (state) => ({
 
 // actions
 const mapDispatchToProps = (dispatch) => ({
+  actionRest: () => {
+    dispatch(actionRest());
+  },
 });
 
 

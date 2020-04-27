@@ -399,6 +399,9 @@ const gameplay = (state = initialState, action = {}) => {
       return {
         ...state,
         phpTimer: state.phpTimer + 1,
+        player: {
+          ...state.player,
+        },
       };
     case END_FIGHT:
       return {
