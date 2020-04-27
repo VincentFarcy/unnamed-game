@@ -9,20 +9,29 @@
   max-width: 900px;
   width: 100%;
   color: $white-100;
-  padding: 1em;
-
-  // for next__button
-  // .button__container a {
-  //   margin: 0 2rem 0 auto;
-  // }
+  padding: 1rem;
 
   &__title {
     font-size: 1.5rem;
     font-weight: 500;
     line-height: 1.2;
     margin-bottom: 1.5rem;
-    margin-left: 1rem;
     text-align: center;
+  }
+
+  &__p {
+    margin: 0;
+    text-align: justify;
+  }
+
+  /* === Next button === */
+  & .next-button-container {
+    display: flex;
+    justify-content: flex-end;
+    & .next-button {
+      margin-top: 1rem;
+      display: inline-block;
+    }
   }
 }
 
@@ -35,11 +44,15 @@
                 0 0 2em $play-halo,
                 0 0 4em $play-halo,
                 0 0 8em $play-halo;
-    padding:0;
+    padding: 0.4rem 1.4rem 1.4rem;
 
     &__title {
       font-size: 1.8rem;
-      padding-top: .3rem;
+    }
+
+    &__p {
+      font-size: 1.6rem;
+      justify-content: flex-start;
     }
   }
 }
@@ -53,9 +66,15 @@
                 0 0 2em $play-halo,
                 0 0 4em $play-halo,
                 0 0 8em $play-halo;
+    padding: 0.5rem 2rem 2rem;
 
     &__title {
       font-size: 2rem;
+    }
+
+    &__p {
+      font-size: 1.8rem;
+      justify-content: flex-start;
     }
   }
 }

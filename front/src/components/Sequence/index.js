@@ -25,23 +25,25 @@ const Sequence = ({
     changeBg('');
   };
   return (
-    <div className="main__play">
-      {sequence.id === 99 ? <Redirect to="/play/mainhub" />
-        : (
-          <div className="sequence__container">
-            <p className="sequence__title">{sequence.title}</p>
-            <Typical
-              className="sequence__p"
-              steps={[sequence.mainText, 1000]}
-              wrapper="p"
-            />
-            <div className="button__container">
-              {php === 1 && <Button cssClassName="next__button" buttonName="Suivant" url="/play/event" onClick={handleClick} />}
-              {php === 2 && <Button cssClassName="next__button" buttonName="Suivant" url="/play/combat" onClick={handleClick} />}
-              {php > 2 && <Button cssClassName="next__button" buttonName="Suivant" url="/play/mainhub" onClick={handleClick} />}
+    <div className="sequence__container">
+      <div className="dialog">
+        {sequence.id === 99 ? <Redirect to="/play/mainhub" />
+          : (
+            <div>
+              <p className="dialog__title">{sequence.title}</p>
+              <Typical
+                className="dialog__p"
+                steps={[sequence.mainText, 1000]}
+                wrapper="p"
+              />
+              <div className="next-button-container">
+                {php === 1 && <Button cssClassName="generic-button next-button" buttonName="Suivant" url="/play/event" onClick={handleClick} />}
+                {php === 2 && <Button cssClassName="generic-button next-button" buttonName="Suivant" url="/play/combat" onClick={handleClick} />}
+                {php > 2 && <Button cssClassName="generic-button next-button" buttonName="Suivant" url="/play/mainhub" onClick={handleClick} />}
+              </div>
             </div>
-          </div>
-        )}
+          )}
+      </div>
     </div>
   );
 };

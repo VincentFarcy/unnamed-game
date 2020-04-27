@@ -7,8 +7,6 @@ import PlayerInfo from '../../containers/PlayerInfo';
 
 // == Import local
 import './style.scss';
-import '../../components/App/dialog.scss';
-import '../../components/App/player-action.scss';
 
 // == Component
 const Train = ({

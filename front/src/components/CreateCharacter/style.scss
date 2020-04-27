@@ -76,7 +76,6 @@
     width: 1.2em;
     height: 1.2em;
   }
-
 }
 
 /* === medium screen === */
@@ -96,7 +95,7 @@
     }
 
     .ability__container {
-      min-width: 620px;
+      min-width: 560px;
       font-size: 1.8em;
       margin: 1rem auto 0 auto;
     }
@@ -117,7 +116,6 @@
     }
   }
 }
-
 
 /* === large screen / desktop === */
 @media screen AND (min-width: 992px) {

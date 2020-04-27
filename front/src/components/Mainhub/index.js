@@ -24,43 +24,37 @@ const Mainhub = ({
   const RollForTrainAccess = rollDice(1, 100);
 
   return (
-    <div className="story-container">
-      <div className="main__play">
+    <div className="player-action__container">
+      <div className="player-bar">
         <PlayerInfo />
-        <p className="story__title">Que voulez-vous faire ?</p>
-        {php < 30 && (
-          <div className="button__container">
+      </div>
+      <div className="dialog">
+        <p className="dialog__title">Que voulez-vous faire ?</p>
+        <div className="hub__button-container">
+          {php < 30 && (
             <Button
-              cssClassName="next__button"
+              cssClassName="generic-button hub__button"
               buttonName="Se reposer"
               url="/play/sequence"
               onClick={actionRest}
             />
-          </div>
-        )}
-        {php < 30 && (
-          <div className="button__container">
-            <Button cssClassName="next__button" buttonName="Exploration" url="/play/train" />
-          </div>
-        )}
-        {(medicAccess >= RollForMedicAccess) && (jsx >= 10) && (php < 30)
-          && (
-            <div className="button__container">
-              <Button cssClassName="next__button" buttonName="Hôpital" url="/play/medic" />
-            </div>
           )}
-        {(trainAccess >= RollForTrainAccess) && (xp >= xpCost) && (php > 5) && (php < 30) && (jsx >= jsxCost)
-          && (
-            <div className="button__container">
-              <Button cssClassName="next__button" buttonName="Entrainement" url="/play/train" />
-            </div>
+          {php < 30 && (
+            <Button cssClassName="generic-button hub__button" buttonName="Exploration" url="/play/exploration" />
           )}
-        {(php > 9)
-          && (
-            <div className="button__container">
-              <Button cssClassName="next__button" buttonName="Mission" url="/play/event" onClick={startMission} />
-            </div>
-          )}
+          {(medicAccess >= RollForMedicAccess) && (jsx >= 10) && (php < 30)
+            && (
+              <Button cssClassName="generic-button hub__button" buttonName="Hôpital" url="/play/medic" />
+            )}
+          {(trainAccess >= RollForTrainAccess) && (xp >= xpCost) && (php > 5) && (php < 30) && (jsx >= jsxCost)
+            && (
+              <Button cssClassName="generic-button hub__button" buttonName="Entrainement" url="/play/train" />
+            )}
+          {(php > 9)
+            && (
+              <Button cssClassName="generic-button hub__button" buttonName="Mission" url="/play/event" onClick={startMission} />
+            )}
+        </div>
       </div>
     </div>
   );

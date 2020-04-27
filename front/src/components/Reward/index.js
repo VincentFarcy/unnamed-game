@@ -30,12 +30,12 @@ const Reward = ({
       <div className="player-bar">
         <PlayerInfo />
       </div>
-      <div className="main__play">
-        <p className="reward__title"> Voici vos récompenses</p>
-        <p className="reward__p"> {`Vous avez gagné ${(eventRewardJsx !== null ? eventRewardJsx : jsxReward) + jsxCombatReward} JSX et ${(eventRewardXp !== null ? eventRewardXp : xpReward) + xpCombatReward} point(s) d'éxpérience`} </p>
-        <div className="button__container">
+      <div className="dialog">
+        <p className="dialog__title"> Voici vos récompenses</p>
+        <p className="dialog__p"> {`Vous avez gagné ${(eventRewardJsx !== null ? eventRewardJsx : jsxReward) + jsxCombatReward} JSX et ${(eventRewardXp !== null ? eventRewardXp : xpReward) + xpCombatReward} point(s) d'éxpérience`} </p>
+        <div className="next-button-container">
           <Button
-            cssClassName="generic-button next__button"
+            cssClassName="generic-button next-button"
             url="/play/sequence"
             buttonName="PHP Suivant"
             onClick={nextSequence}
