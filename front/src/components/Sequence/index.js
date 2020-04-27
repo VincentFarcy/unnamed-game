@@ -2,12 +2,11 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Typical from 'react-typical';
-import Button from '../LinkButton';
-import Story from '../../containers/Story';
+import { Redirect } from 'react-router-dom';
 
 // == Import local
 import '../Story/style.scss';
-import MainHub from '../../containers/MainHub';
+import Button from '../LinkButton';
 
 // == Component
 const Sequence = ({
@@ -27,8 +26,8 @@ const Sequence = ({
   };
   return (
     <div className="story-container">
-      {php === 25 && <Story />}
-      {sequence.id === 99 ? <MainHub />
+      {php === 25 && <Redirect to="/play/story" />}
+      {sequence.id === 99 ? <Redirect to="/play/mainhub" />
         : (
           <div className="main__play">
             <p className="story__title">{sequence.title}</p>
