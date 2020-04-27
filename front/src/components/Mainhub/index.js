@@ -69,7 +69,6 @@ const Mainhub = ({
               <Button cssClassName="next__button" buttonName="Mission" url="/play/event" onClick={startMission} />
             </div>
           )}
-        </div>
       </div>
     </div>
   );
