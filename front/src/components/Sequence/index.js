@@ -32,7 +32,7 @@ const Sequence = ({ changeBg, sequence, findSequence, gameBackup, php }) => {
               wrapper="p"
             />
             <div className="button__container">
-              <Button cssClassName="next__button" buttonName="Suivant" url="/play/mainhub" onClick={handleClick} />
+              <Button cssClassName="generic-button next__button" buttonName="Suivant" url="/play/combat" onClick={handleClick} />
             </div>
           </div>
         )}
