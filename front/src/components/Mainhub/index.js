@@ -1,8 +1,6 @@
 // == Import npm
 import React from 'react';
 import PropTypes from 'prop-types';
-import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
-import Tooltip from 'react-bootstrap/Tooltip';
 
 // == Import local
 import './style.scss';
@@ -28,18 +26,12 @@ const Mainhub = ({
         <PlayerInfo />
         <p className="story__title">Que voulez-vous faire ?</p>
         <div className="button__container">
-          <OverlayTrigger
-            placement="top"
-            delay={{ show: 300, hide: 300 }}
-            trigger='hover'
-            overlay={(
-              <Tooltip id="rest-tooltip">
-                En cliquant ici, vous récupérez des HP et passez au PHP suivant.
-              </Tooltip>
-            )}
-          >
-            <button className="next__button rest" onClick={actionRest} >Se reposer</button>
-          </OverlayTrigger>
+            <Button
+              cssClassName="next__button"
+              buttonName="Se reposer"
+              url="/play/sequence"
+              onClick={actionRest}
+            />
           <Button cssClassName="next__button" buttonName="Exploration" url="/play/exploration" />
           {(medicAccess >= RollForMedicAccess) && (jsx >= 10)
           && (
