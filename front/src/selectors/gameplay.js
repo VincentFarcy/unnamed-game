@@ -70,6 +70,7 @@ export const findInfoForSequence = (state) => {
 
   if (timing > sequenceList.length) {
     return {
+      title: '',
       id: 99,
       mainText: 'end',
     };

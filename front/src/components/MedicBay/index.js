@@ -10,9 +10,9 @@ import './style.scss';
 const Medic = ({ actionMedic }) => (
   <div className="main__play">
     <p className="medic__title">Medic Bay</p>
-    <p className="event__text">Te soigner te coûte 10 JSX et 1 PHP.</p>
+    <p className="medic__p">Te faire soigner t'as coûté 10 JSX. Cependant l'efficacité du système es surprenante</p>
     <div className="button__container">
-      <Button cssClassName="next__button" buttonName="Se soigner et passer au PHP suivant" url="/play/sequence" onClick={actionMedic} />
+      <Button cssClassName="next__button" buttonName="PHP suivant" url="/play/sequence" onClick={actionMedic} />
     </div>
   </div>
 );
