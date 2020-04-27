@@ -590,14 +590,6 @@ const gameplay = (state = initialState, action = {}) => {
           xp: rollDice(2, 4),
           jsx: rollDice(1, 3),
         },
-<<<<<<< HEAD
-        // player: {
-        //   ...state.player,
-        //   jsx: state.player.jsx + rollDice(1, 3),
-        //   xp: state.player.xp + rollDice(2, 4),
-        // },
-=======
->>>>>>> front-bonus
       };
 
     case INCREMENT_ABILITY:
