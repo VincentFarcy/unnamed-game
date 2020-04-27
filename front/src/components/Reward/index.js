@@ -13,6 +13,8 @@ import './style.scss';
 const Reward = ({
   xpReward,
   jsxReward,
+  eventRewardXp,
+  eventRewardJsx,
   findRandomReward,
   addOpponnentReward,
   nextSequence,
@@ -29,13 +31,13 @@ const Reward = ({
         <PlayerInfo />
       </div>
       <div className="main__play">
-        <p className="reward__title"> Voici vos récompenses suite au combat</p>
-        <p className="reward__p"> {`Vous avez gagné ${jsxReward + jsxCombatReward} JSX et ${xpReward + xpCombatReward} point(s) d'éxpérience`} </p>
+        <p className="reward__title"> Voici vos récompenses</p>
+        <p className="reward__p"> {`Vous avez gagné ${(eventRewardJsx !== null ? eventRewardJsx : jsxReward) + jsxCombatReward} JSX et ${(eventRewardXp !== null ? eventRewardXp : xpReward) + xpCombatReward} point(s) d'éxpérience`} </p>
         <div className="button__container">
           <Button
             cssClassName="generic-button next__button"
             url="/play/sequence"
-            buttonName="Suivant"
+            buttonName="PHP Suivant"
             onClick={nextSequence}
           />
         </div>
@@ -48,6 +50,8 @@ const Reward = ({
 Reward.propTypes = {
   xpReward: PropTypes.number.isRequired,
   jsxReward: PropTypes.number.isRequired,
+  eventRewardXp: PropTypes.number,
+  eventRewardJsx: PropTypes.number,
   xpCombatReward: PropTypes.number.isRequired,
   jsxCombatReward: PropTypes.number.isRequired,
   nextSequence: PropTypes.func.isRequired,

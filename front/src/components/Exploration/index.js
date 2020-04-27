@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 
 // == Import local
 import './style.scss';
+import Nothing from '../../containers/Nothing';
 import Combat from '../../containers/Combat/Combat';
 import Reward from '../../containers/Reward';
 import Event from '../../containers/Event';
-import Nothing from './nothing';
 
 // == Component
 const Exploration = ({ findExploration, randomExploration }) => {
@@ -20,7 +20,6 @@ const Exploration = ({ findExploration, randomExploration }) => {
       {exploration === 'fight' ? <Combat /> : ''}
       {exploration === 'reward' ? <Reward /> : ''}
       {exploration === 'attribute' ? <Event /> : ''}
-
     </>
   );
 };
