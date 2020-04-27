@@ -446,6 +446,18 @@ const gameplay = (state = initialState, action = {}) => {
           follTo: 0,
           type: '',
         },
+        combat: {
+          ...state.combat,
+          // currentOponent is empty until OpponentCombatInfo is rendered
+          currentOpponent: {
+            opponentCurrentHP: 0,
+            speed: 0,
+            touch: 0,
+            dodge: 0,
+            xpGain: 0,
+            moneyGain: 0,
+          },
+        },
       };
     case END_FIGHT:
       return {
@@ -552,6 +564,18 @@ const gameplay = (state = initialState, action = {}) => {
         sequenceToTell: {
           id: 0,
           mainText: '',
+        },
+        combat: {
+          ...state.combat,
+          // currentOponent is empty until OpponentCombatInfo is rendered
+          currentOpponent: {
+            opponentCurrentHP: 0,
+            speed: 0,
+            touch: 0,
+            dodge: 0,
+            xpGain: 0,
+            moneyGain: 0,
+          },
         },
       };
     case EVENT_WIN:
