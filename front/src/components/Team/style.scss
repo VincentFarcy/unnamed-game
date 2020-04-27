@@ -1,4 +1,6 @@
 
+  .team-container{
+
   .team-intro {
     padding: 5px;
     background: rgba(238, 236, 236, 0.336);
@@ -120,13 +122,14 @@
       transform-origin: top;
       transition: 0.5s;
   }
+}
 
 
 
 /* === Laptop screen === */
 @media screen AND (min-width: 768px) {
 
-
+.team-container{
   .team-intro {
   padding: 1em;
   background: rgba(238, 236, 236, 0.23);
@@ -245,12 +248,12 @@
 }
 
 }
- 
+ }
 
 /* === Laptop screen === */
 @media screen AND (min-width: 1024px) {
 
-
+.team-container {
   .team-intro {
   padding: 1em;
   background: rgba(238, 236, 236, 0.23);
@@ -369,10 +372,12 @@
 }
 
 }
+}
 
 /* === Large Laptop screens === */
 @media screen AND (min-width: 1440px) {
 
+  .team-container{ 
   .team-intro {
     padding: 1em;
     background: rgba(238, 236, 236, 0.23);
@@ -489,4 +494,5 @@
       transform-origin: top;
       transition: 0.5s;
   }
+}
 }

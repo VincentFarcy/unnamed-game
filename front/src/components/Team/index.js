@@ -18,7 +18,7 @@ const Team = ({ team, changeBg }) => {
     changeBg('bg--team');
   }, []);
   return (
-    <div>
+    <div className="team-container">
       <section>
         <Card className="team-intro">
           <Card.Img className="team-intro__img" variant="top" src={logo} />
