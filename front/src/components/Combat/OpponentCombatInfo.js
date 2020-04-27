@@ -13,6 +13,8 @@ import robotVintage from '../../assets/images/robotVintage.svg';
 import sabine from '../../assets/images/sabine.svg';
 import slime from '../../assets/images/slime.svg';
 import spider from '../../assets/images/spider.svg';
+import mouse from '../../assets/images/mouse.svg';
+import megabot from '../../assets/images/megabot.svg';
 
 // == Import local
 import './style.scss';
@@ -29,7 +31,8 @@ const OpponentCombatInfo = ({ currentOpponent }) => {
       {findImage === 'bat' ? <Image className="opponent-combat-info__avatar" src={bat} rounded alt="bat" /> : ''}
       {findImage === 'goblin' ? <Image className="opponent-combat-info__avatar" src={goblin} rounded alt="goblin" /> : ''}
       {findImage === 'wolf' ? <Image className="opponent-combat-info__avatar" src={wolf} rounded alt="wolf" /> : ''}
-      {findImage === 'souris' ? <Image className="opponent-combat-info__avatar" src={rat} rounded alt="souris" /> : ''}
+      {findImage === 'souris' ? <Image className="opponent-combat-info__avatar" src={mouse} rounded alt="mouse" /> : ''}
+      {findImage === 'megabot' ? <Image className="opponent-combat-info__avatar" src={megabot} rounded alt="megabot" /> : ''}
       {findImage === 'rat' ? <Image className="opponent-combat-info__avatar" src={rat} rounded alt="rat" /> : ''}
       {findImage === 'robotMonowheel' ? <Image className="opponent-combat-info__avatar" src={robotMonowheel} rounded alt="robot1" /> : ''}
       {findImage === 'robotVintage' ? <Image className="opponent-combat-info__avatar" src={robotVintage} rounded alt="robot2" /> : ''}

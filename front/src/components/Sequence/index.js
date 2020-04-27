@@ -5,7 +5,7 @@ import Typical from 'react-typical';
 import { Redirect } from 'react-router-dom';
 
 // == Import local
-import '../Story/style.scss';
+import './style.scss';
 import Button from '../LinkButton';
 
 // == Component
@@ -25,25 +25,23 @@ const Sequence = ({
     changeBg('');
   };
   return (
-    <div className="story-container">
+    <div className="main__play">
       {sequence.id === 99 ? <Redirect to="/play/mainhub" />
         : (
-          <div className="story-container">
-            <div className="main__play">
-              <p className="sequence__title">{sequence.title}</p>
-              <Typical
-                className="sequence__p"
-                steps={[sequence.mainText, 1000]}
-                wrapper="p"
-              />
-              <div className="button__container">
-                {php === 1 && <Button cssClassName="next__button" buttonName="Suivant" url="/play/event" onClick={handleClick} />}
-                {php === 2 && <Button cssClassName="next__button" buttonName="Suivant" url="/play/combat" onClick={handleClick} />}
-                {php > 2 && <Button cssClassName="next__button" buttonName="Suivant" url="/play/mainhub" onClick={handleClick} />}
-              </div>
+          <div className="sequence__container">
+            <p className="sequence__title">{sequence.title}</p>
+            <Typical
+              className="sequence__p"
+              steps={[sequence.mainText, 1000]}
+              wrapper="p"
+            />
+            <div className="button__container">
+              {php === 1 && <Button cssClassName="next__button" buttonName="Suivant" url="/play/event" onClick={handleClick} />}
+              {php === 2 && <Button cssClassName="next__button" buttonName="Suivant" url="/play/combat" onClick={handleClick} />}
+              {php > 2 && <Button cssClassName="next__button" buttonName="Suivant" url="/play/mainhub" onClick={handleClick} />}
             </div>
           </div>
-        )};
+        )}
     </div>
   );
 };
