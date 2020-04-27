@@ -166,6 +166,14 @@ const Combat = ({
                 >
                   Combattre
                 </Button>
+                <Button
+                className="choice btn-warning"
+                variant="danger"
+                disabled
+              >
+                Combat en cours
+              </Button>
+
                 {/* when you choose to runAway, you have to be redirected and add 1 to PHP */}
                 <LinkButton
                   cssClassName="choice btn-warning"

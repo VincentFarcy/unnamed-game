@@ -23,13 +23,7 @@ const ConnectedUserNav = ({
       >
       Bienvenue {pseudo}
       </Link>
-      <Link
-        className="btn btn-outline-light"
-        to="/"
-        onClick={handleClick}
-      >
-      Se deconnecter
-      </Link>
+      <LinkButton cssClassName="" buttonName="Se deconnecter" url="/" onClick={handleClick} />
     </div>
   );
 };

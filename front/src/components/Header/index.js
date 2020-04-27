@@ -69,7 +69,7 @@ const Header = ({
           <Navbar.Collapse id="basic-navbar-nav">
             {/* Pages */}
             <Nav className="mr-auto">
-              <NavLink exact to="/" className="nav-link">
+              <NavLink exact to="/" className="nav-link nav-link--home">
                 Accueil
               </NavLink>
               <NavLink exact to="/rules" className="nav-link">
