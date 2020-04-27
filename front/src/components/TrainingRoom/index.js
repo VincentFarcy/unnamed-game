@@ -24,7 +24,7 @@ const Train = ({
 
   return (
     <div className="main__play">
-      <p className="train__title">Salle de gym</p>
+      <p className="train__title">Salle d'augmentation cybernétique</p>
       <PlayerInfo />
       <div className="button__container">
         {(rollFullAccess <= fullAccess || strengthTrainAccess <= roomAccess) && <Button cssClassName="strength__button" buttonName="Force" url="/play/sequence" onClick={() => (incrementAbility('Force'))} />}
