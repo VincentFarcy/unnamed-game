@@ -11,7 +11,7 @@ import './style.scss';
 const Story = ({ story, php, restartNewGame }) => (
   <div className="story-container">
     <div className="main__play">
-      <p className="story__title">{story.title}</p>
+      <p className="main__play__title">{story.title}</p>
       {php === 1
         ? (
           <>

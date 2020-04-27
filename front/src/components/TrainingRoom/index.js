@@ -7,6 +7,7 @@ import PlayerInfo from '../../containers/PlayerInfo';
 
 // == Import local
 import './style.scss';
+import '../../components/App/player-action.scss';
 
 // == Component
 const Train = ({
@@ -24,7 +25,7 @@ const Train = ({
 
   useEffect(nextSequence, []);
   return (
-    <div className="reward__container">
+    <div className="player-action__container">
       <div className="player-bar">
         <PlayerInfo />
       </div>
