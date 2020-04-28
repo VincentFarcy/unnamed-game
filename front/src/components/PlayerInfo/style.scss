@@ -85,8 +85,24 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  P {
-    margin: .5rem;
+  padding: 0.5rem;
+  &>div {
+    display: flex;
+    flex-direction: row;
+    padding: 0 1.5vw;
+    svg {
+      margin: 0 1vw;
+    }
+  }
+}
+
+@media screen AND (min-width: 530px) {
+  .player-info {
+    position: relative;
+  }
+  .player-info__avatar-container {
+    position: absolute;
+    top: 18px;
   }
 }
 
@@ -97,6 +113,8 @@
   }
 
   .player-info__avatar-container {
+    position: unset;
+    top: unset;
     width: 150px;
   }
   .player-info__info-container,
@@ -105,6 +123,7 @@
   }
 
   .player-info {
+    position: unset;
     flex-direction: row;
     flex-wrap: nowrap;
     height: 150px;
@@ -114,6 +133,16 @@
       font-weight: 600;
       padding-top: 15px;
       padding-right: 15px;    
+    }
+  }
+
+  .ressource-info__container {
+    padding: .5rem 0 0;
+    &>div {
+      padding: 0 0.25rem;
+      svg {
+        margin: 0 0.2rem;
+      }
     }
   }
 }
@@ -132,6 +161,15 @@
       font-weight: 600;
       padding-top: 15px;
       padding-right: 25px;    
+    }
+  }
+
+  .ressource-info__container {
+    &>div {
+      padding: 0 0.5rem;
+      svg {
+        margin: 0 0.3rem;
+      }
     }
   }
 }

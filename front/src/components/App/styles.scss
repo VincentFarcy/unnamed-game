@@ -185,12 +185,19 @@ main > div {
 @media screen AND (min-width: 768px) {
   .generic-button {
     font-size: 1.6rem;
-    padding: 0.5rem 2rem;
+    padding: 0.3rem 1.8rem;
   }  
 }
 
 /* === large screen === */
 @media screen AND (min-width: 992px) {
+
+  .generic-button {
+    font-size: 1.8rem;
+    padding: 0.5rem 2rem;
+    transition-duration: 0.3s;
+    transition-property: border-color, background-color, box-shadow, color;
+  }  
   .header {
     height: var(--header-height-desktop);
   }
@@ -202,10 +209,5 @@ main > div {
   
   main>div {
     width:80%;
-  }
-
-  .generic-button {
-    transition-duration: 0.3s;
-    transition-property: border-color, background-color, box-shadow, color;
   }
 }

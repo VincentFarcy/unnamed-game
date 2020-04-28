@@ -105,7 +105,7 @@ const AdvancedInfo = ({
           )
         }
       >
-        <span>Hacking: {hacking}</span>
+        <span>Hacking : {hacking}</span>
       </OverlayTrigger>
     </div>
   </div>
