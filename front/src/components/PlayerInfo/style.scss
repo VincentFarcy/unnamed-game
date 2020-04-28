@@ -63,8 +63,8 @@
 }
 .progress {
   height: 20px;
-  width: 100%;  
-  align-self: center;
+  width: 60%;
+  margin: 0 auto 8px ;
   background-color: $HP-progress-color;
 }
 .ressource-info__container {
@@ -101,6 +101,9 @@
 @media screen AND (min-width: 768px) {
   .progress {
     height: 30px;
+    width: 90%;
+    max-width: 250px;
+    margin-top: 20px;
   }
 
   .player-info__avatar-container {
@@ -143,6 +146,7 @@
 @media screen AND (min-width: 1024px) {
   .progress {
     height: 40px;
+    width: 300px;
     align-self: center;
   }
 

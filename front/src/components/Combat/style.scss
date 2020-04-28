@@ -46,12 +46,13 @@
       width: 90px;  
     }
   }
-
+/*
   .progress {
     height: 20px;
     width: 110px;  
     background-color: $HP-progress-color;
   }
+*/
 }
 
 @media screen AND (min-width: 530px) {
@@ -85,12 +86,12 @@
         width: 200px;
       }
     }
-
+/*
     .progress {
       height: 30px;
       width: 200px;
     }
-
+*/
     .opponent-combat-info {
       height: 175px;    
       &__avatar {
@@ -121,12 +122,12 @@
 @media screen AND (min-width: 1024px) {
 
   .combat__container {
-
+/*
     .progress {
       height: 40px;
       width: 300px;
     }
-
+*/
     .combat__presentation {
       margin: 35px 0;
     }

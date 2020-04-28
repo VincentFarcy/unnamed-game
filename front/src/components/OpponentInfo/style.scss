@@ -35,21 +35,23 @@
     margin-bottom: 0;
   }
 }
-
+/*
 .progress {
   height: 20px;
   width: 110px;  
   align-self: center;
   background-color: $HP-progress-color;
 }
-
+*/
 /* === Tablets === */
 @media screen AND (min-width: 768px) {
+  /*
   .progress {
     height: 30px;
     width: 200px;
     align-self: center;
   }
+  */
 
   .opponent-info {    
     &__avatar {
@@ -65,11 +67,13 @@
 
 /* === Large screens === */
 @media screen AND (min-width: 1024px) {
+  /*
   .progress {
     height: 40px;
     width: 300px;
     align-self: center;
   }
+  */
 
   .opponent-info {
     height: 150px;
