@@ -32,7 +32,7 @@ const Reward = ({
       </div>
       <div className="dialog">
         <h2 className="dialog__title">Voici vos récompenses</h2>
-        <p className="dialog__p"> {`Vous avez gagné ${(eventRewardJsx !== null ? eventRewardJsx :  jsxCombatReward) + jsxReward} JSX et ${(eventRewardXp !== null ? eventRewardXp : xpCombatReward) + xpReward} point(s) d'éxpérience`} </p>
+        <p className="dialog__p"> {`Vous avez gagné ${(eventRewardJsx !== null ? eventRewardJsx : jsxCombatReward) + jsxReward} JSX et ${(eventRewardXp !== null ? eventRewardXp : xpCombatReward) + xpReward} point(s) d'expérience`} </p>
         <div className="next-button-container">
           <Button
             cssClassName="generic-button next-button"
