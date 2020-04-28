@@ -25,7 +25,7 @@ const Acknowledgements = ({ artists, changeBg }) => {
             <Card.Title className="thanks-intro__title">Remerciements particuliers</Card.Title>
             <Card.Text className="thanks-intro__content">
             Merci aux trois artistes qui nous ont permis d'utiliser leurs visuels fantastiques pour ce projet de fin d'études !
-            Vous trouverez plus d'information sur leur travail formidable en suivant les liens sur leurs photos.
+            Vous trouverez plus d'informations sur leur travail formidable en suivant les liens sur leurs photos.
             </Card.Text>
           </Card.Body>
         </Card>
@@ -44,7 +44,7 @@ const Acknowledgements = ({ artists, changeBg }) => {
                   <h3 className="contentBx__title1">{artist.name} </h3>
                   <h3 className="contentBx__title2">{artist.title} </h3>
                   <p className="contentBx__content">{artist.location}</p>
-                  <FontAwesomeIcon icon={faArtstation} size="lg" /><a className="contentBx__link" href={artist.linkedIn} alt={`LinkedIn ${artist.name}`}>ArtStation</a>
+                  <FontAwesomeIcon icon={faArtstation} size="lg" /><a target="_blank" rel="noopener noreferrer" className="contentBx__link" href={artist.artStation} alt={`ArtStation ${artist.name}`}>ArtStation</a>
                 </div>
               </div>
             </div>
