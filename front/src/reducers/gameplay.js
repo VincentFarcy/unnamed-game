@@ -154,7 +154,7 @@ const gameplay = (state = initialState, action = {}) => {
       };
     case RESTART_NEW_GAME:
       return {
-        gameOn: false,
+        gameOn: true,
         isLoading: false,
         loadingErrMessage: '',
         hasError: false,
