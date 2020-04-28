@@ -84,12 +84,23 @@
   }
 }
 
+.bg--thanks {
+  &::before {
+    background-image: url('../../assets/images/taha-mousavi-modular-scifi-corridor-05.jpg');
+    animation : 10s bg-scale-sequence forwards;
+  }
+  &::after {
+    animation : 1s bg-gradual-onset-sequence forwards;
+  }
+}
+
 .bg--hidden {
   background-image: url('../../assets/images/mihai-muscan-42.jpg');
   background-image: url('../../assets/images/mihai-muscan-4.jpg');
   background-image: url('../../assets/images/mihai-muscan-27-9.jpg');
   background-image: url('../../assets/images/samuel-guerrouche-screenshot004.jpg');
   background-image: url('../../assets/images/taha-mousavi-modular-scifi-corridor-06.jpg');
+  background-image: url('../../assets/images/taha-mousavi-modular-scifi-corridor-05.jpg');
 }
 
 @keyframes bg-gradual-onset-app      { from { opacity: 1; } to { opacity: 0; } }
