@@ -16,7 +16,7 @@ const Death = ({ restartNewGame }) => (
     <h2 className="dialog__title">The end...</h2>
     <Typical
       className="dialog__p"
-      steps={['avec un peu de chance votre mort fut rapide...', 1000]}
+      steps={['Avec un peu de chance votre mort fut rapide...', 1000]}
       wrapper="p"
     />
     <Image className="death__image" src={loose} rounded />

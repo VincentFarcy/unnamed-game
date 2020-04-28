@@ -21,7 +21,7 @@ const AdvancedInfo = ({
 }) => (
   <div className="AdvancedInfo__container">
     <div className="MainAbilities__container">
-    { /* == Map handling the display of the basic characteristics like Strength, Agility, etc.*/ }
+      {/* == Map handling the display of the basic characteristics like Strength, Agility, etc. */ }
       {
         abilities.map((ability) => (
           <span key={uuidv4()}>
@@ -37,7 +37,7 @@ const AdvancedInfo = ({
         overlay={
           (
             <Tooltip id="tooltip">
-              Si le toucher de votre ennemi est plus grand que votre esquive, ca va piquer...
+              Opposé au touché de votre ennemi !
             </Tooltip>
         )
           }
@@ -48,9 +48,11 @@ const AdvancedInfo = ({
         placement="top"
         delay={{ show: 300, hide: 300 }}
         overlay={
-          <Tooltip id={`tooltip`}>
-            Celui qui a la plus grosse, tape avant !
-          </Tooltip>
+          (
+            <Tooltip id="tooltip">
+              Celui qui a la plus grosse, tape avant !
+            </Tooltip>
+          )
         }
       >
         <span>Initiative : {baseInitiative + 1} - {baseInitiative + 10}</span>
@@ -100,12 +102,12 @@ const AdvancedInfo = ({
         overlay={
           (
             <Tooltip id="tooltip">
-              Capacité à enfoncer les portes
+              Capacité à pirater les portes
             </Tooltip>
           )
         }
       >
-        <span>Hacking: {hacking}</span>
+        <span>Piratage : {hacking}</span>
       </OverlayTrigger>
     </div>
   </div>

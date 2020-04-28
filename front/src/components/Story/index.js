@@ -17,7 +17,7 @@ const Story = ({ story, php, restartNewGame }) => (
           <>
             <Typical className="dialog__p" steps={[story.mainText, 1000]} wrapper="p" />
             <div className="next-button-container">
-              <Button cssClassName="generic-button next-button" buttonName="Suivant" url="/play/ending" />
+              <Button cssClassName="generic-button next-button" buttonName="Suivant" url="/play/sequence" />
             </div>
           </>
         )
