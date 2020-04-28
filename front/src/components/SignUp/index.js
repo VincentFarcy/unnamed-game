@@ -26,7 +26,7 @@ const SignUp = ({
     const inputErrorMessages = [];
 
     // eslint-disable-next-line no-useless-escape
-    const passwordRegex = RegExp('^(?=.{8,})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])');
+    const passwordRegex = RegExp('^(?=.{8,})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*\.\+\<\>])');
     if (!passwordRegex.test(evt.currentTarget.password.value)) {
       inputErrorMessages.push('Le mot de passe doit contenir au moins 8 caractères, dont au moins une minuscule, une majuscule, un chiffre et un caractère spécial.');
     }
