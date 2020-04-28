@@ -1,58 +1,19 @@
 @import 'src/styles/vars';
 
-.combat__container {
+.combat__presentation {
+  text-align: center;
+  margin: 1rem 0;
+}
 
-  .combat__presentation {
-    text-align: center;
-    margin: 1rem 0;
+.combat__choices {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  
+  .choice {
+    width: 100px;
+    margin: 0 1rem;
   }
-
-  .combat__choices {
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    
-    .choice {
-      width: 100px;
-      margin: 0 1rem;
-    }
-  }
-
-  .opponent-combat-info {
-    display: flex;
-    align-content: center;
-    flex-direction: column;
-    align-items: center;
-    color: $white-100;  
-    height: 120px;
-    &__avatar {
-      width: 90px;
-    }
-
-    .opponent__progress {
-      margin-top: 10px;
-    }
-  }
-
-  .player-combat-info {
-    display: flex;
-    align-content: center;
-    flex-direction: column;
-    align-items: center;
-    color: $white-100;  
-    height: 120px;
-
-    &__avatar {
-      width: 90px;  
-    }
-  }
-/*
-  .progress {
-    height: 20px;
-    width: 110px;  
-    background-color: $HP-progress-color;
-  }
-*/
 }
 
 @media screen AND (min-width: 530px) {
@@ -86,77 +47,13 @@
         width: 200px;
       }
     }
-/*
-    .progress {
-      height: 30px;
-      width: 200px;
-    }
-*/
-    .opponent-combat-info {
-      height: 175px;    
-      &__avatar {
-        width: 120px;
-      }
-      &__value {
-        visibility: visible;
-        width: 60px; 
-        text-transform: uppercase;
-      }
-    }
-
-    .player-combat-info {
-      height: 150px;      
-      &__avatar {
-        width: 120px;
-      }
-      &__value {
-        visibility: visible;
-        width: 60px; 
-        text-transform: uppercase;
-      }
-    }
   }
 }
 
 /* === Large screens === */
 @media screen AND (min-width: 1024px) {
 
-  .combat__container {
-/*
-    .progress {
-      height: 40px;
-      width: 300px;
-    }
-*/
-    .combat__presentation {
-      margin: 35px 0;
-    }
-
-    .opponent-combat-info {
-      height: 250px;
-      &__avatar {
-        width: 140px;
-      }
-      &__counter {
-        color: $white-100;      
-        font-size: larger;
-        font-weight: 600;
-        padding-top: 15px;
-        padding-right: 25px;    
-      }
-    }
-    .player-combat-info {
-      height: 200px;
-      &__avatar {
-        width: 140px;
-      }
-      &__counter {
-        color: $white-100;      
-        font-size: larger;
-        font-weight: 600;
-        padding-top: 15px;
-        padding-right: 25px;    
-      }
-    }
+  .combat__presentation {
+    margin: 35px 0;
   }
 }

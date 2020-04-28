@@ -26,21 +26,21 @@ const OpponentCombatInfo = ({ currentOpponent }) => {
   const findImage = currentOpponent.image;
 
   return (
-    <div className="opponent-combat-info">
-      {findImage === 'drone' ? <Image className="opponent-combat-info__avatar" src={drone} rounded alt="drone" /> : ''}
-      {findImage === 'bat' ? <Image className="opponent-combat-info__avatar" src={bat} rounded alt="bat" /> : ''}
-      {findImage === 'goblin' ? <Image className="opponent-combat-info__avatar" src={goblin} rounded alt="goblin" /> : ''}
-      {findImage === 'wolf' ? <Image className="opponent-combat-info__avatar" src={wolf} rounded alt="wolf" /> : ''}
-      {findImage === 'souris' ? <Image className="opponent-combat-info__avatar" src={mouse} rounded alt="mouse" /> : ''}
-      {findImage === 'megabot' ? <Image className="opponent-combat-info__avatar" src={megabot} rounded alt="megabot" /> : ''}
-      {findImage === 'rat' ? <Image className="opponent-combat-info__avatar" src={rat} rounded alt="rat" /> : ''}
-      {findImage === 'robotMonowheel' ? <Image className="opponent-combat-info__avatar" src={robotMonowheel} rounded alt="robot1" /> : ''}
-      {findImage === 'robotVintage' ? <Image className="opponent-combat-info__avatar" src={robotVintage} rounded alt="robot2" /> : ''}
-      {findImage === 'sabine' ? <Image className="opponent-combat-info__avatar" src={sabine} rounded alt="sabine" /> : ''}
-      {findImage === 'slime' ? <Image className="opponent-combat-info__avatar" src={slime} rounded alt="slime" /> : ''}
-      {findImage === 'spider' ? <Image className="opponent-combat-info__avatar" src={spider} rounded alt="spider" /> : ''}
+    <div className="combat-info">
+      {findImage === 'drone' ? <Image className="combat-info__avatar" src={drone} rounded alt="drone" /> : ''}
+      {findImage === 'bat' ? <Image className="combat-info__avatar" src={bat} rounded alt="bat" /> : ''}
+      {findImage === 'goblin' ? <Image className="combat-info__avatar" src={goblin} rounded alt="goblin" /> : ''}
+      {findImage === 'wolf' ? <Image className="combat-info__avatar" src={wolf} rounded alt="wolf" /> : ''}
+      {findImage === 'souris' ? <Image className="combat-info__avatar" src={mouse} rounded alt="mouse" /> : ''}
+      {findImage === 'megabot' ? <Image className="combat-info__avatar" src={megabot} rounded alt="megabot" /> : ''}
+      {findImage === 'rat' ? <Image className="combat-info__avatar" src={rat} rounded alt="rat" /> : ''}
+      {findImage === 'robotMonowheel' ? <Image className="combat-info__avatar" src={robotMonowheel} rounded alt="robot1" /> : ''}
+      {findImage === 'robotVintage' ? <Image className="combat-info__avatar" src={robotVintage} rounded alt="robot2" /> : ''}
+      {findImage === 'sabine' ? <Image className="combat-info__avatar" src={sabine} rounded alt="sabine" /> : ''}
+      {findImage === 'slime' ? <Image className="combat-info__avatar" src={slime} rounded alt="slime" /> : ''}
+      {findImage === 'spider' ? <Image className="combat-info__avatar" src={spider} rounded alt="spider" /> : ''}
 
-      <ProgressBar className="opponent__progress" variant="success" min={0} max={currentOpponent.health} now={now} label={`HP: ${now}/${currentOpponent.health}`} />
+      <ProgressBar variant="success" min={0} max={currentOpponent.health} now={now} label={`HP: ${now}/${currentOpponent.health}`} />
     </div>
   );
 };
