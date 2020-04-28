@@ -95,6 +95,12 @@
         &__content {
           font-size: 0.7rem;
           font-weight: bold;
+          display: flex;
+          flex-direction: row;           
+        }
+
+        &__content-p {
+          margin-left: 5px;
         }
     
         &__link {

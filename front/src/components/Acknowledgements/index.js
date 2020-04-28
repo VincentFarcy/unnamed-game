@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArtstation } from '@fortawesome/free-brands-svg-icons';
+import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 
 // == Import local
 import './style.scss';
@@ -43,7 +44,7 @@ const Acknowledgements = ({ artists, changeBg }) => {
                 <div className="contentBx">
                   <h3 className="contentBx__title1">{artist.name} </h3>
                   <h3 className="contentBx__title2">{artist.title} </h3>
-                  <p className="contentBx__content">{artist.location}</p>
+                  <div className="contentBx__content"><FontAwesomeIcon icon={faMapMarkerAlt} size="lg" /><p className="contentBx__content-p">{artist.location}</p></div>
                   <FontAwesomeIcon icon={faArtstation} size="lg" /><a target="_blank" rel="noopener noreferrer" className="contentBx__link" href={artist.artStation} alt={`ArtStation ${artist.name}`}>ArtStation</a>
                 </div>
               </div>
