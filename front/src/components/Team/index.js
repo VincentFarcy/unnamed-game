@@ -17,20 +17,20 @@ const Team = ({ team, changeBg }) => {
     changeBg('bg--team');
   }, []);
   return (
-    <div className="team-container">
+    <div className="site-container">
       <section>
-        <Card className="team-intro">
-          <Card.Img className="team-intro__img" variant="top" src={logo} />
-          <Card.Body className="team-intro__body">
-            <Card.Title className="team-intro__title">L'équipe derrière Unnamed.Game</Card.Title>
-            <Card.Text className="team-intro__content">
+        <Card className="site-intro">
+          <Card.Img className="site-intro__img" variant="top" src={logo} />
+          <Card.Body className="site-intro__body">
+            <Card.Title className="site-intro__title">L'équipe derrière Unnamed.Game</Card.Title>
+            <Card.Text className="site-intro__content">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pharetra, lectus tempor imperdiet maximus, arcu tortor tincidunt purus, ut consequat tellus risus sed lectus.
             </Card.Text>
           </Card.Body>
         </Card>
       </section>
 
-      <section className="team-players">
+      <section className="site-players">
 
         {
           team.map((member) => (
