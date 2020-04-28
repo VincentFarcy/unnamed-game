@@ -24,15 +24,6 @@
   padding: .8rem;
 }
 
-.MainAbilities__container,
-.AdvancedAbilities__container{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 50%;
-  padding: .5rem;
-  color: $white-100;
-}
 
 .player-bar {
   max-width: 900px;
@@ -102,7 +93,7 @@
   }
   .player-info__avatar-container {
     position: absolute;
-    top: 18px;
+    top: 10px;
   }
 }
 
@@ -115,7 +106,8 @@
   .player-info__avatar-container {
     position: unset;
     top: unset;
-    width: 150px;
+    width: unset;
+    height: 160px;
   }
   .player-info__info-container,
   .player-info__bar-container {
@@ -126,7 +118,7 @@
     position: unset;
     flex-direction: row;
     flex-wrap: nowrap;
-    height: 150px;
+    height: 160px;
     &__counter {
       color: $white-100;      
       font-size: larger;

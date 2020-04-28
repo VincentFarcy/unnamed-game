@@ -1,3 +1,16 @@
+// == Import : assets
+import Force from 'src/assets/images/strength.png';
+import Agilité from 'src/assets/images/agility.png';
+import Constitution from 'src/assets/images/endurance.png';
+import Volonté from 'src/assets/images/will.png';
+import Intelligence from 'src/assets/images/intelligence.png';
+import Damage from 'src/assets/images/damage.png';
+import Dodge from 'src/assets/images/dodge.png';
+import Hacking from 'src/assets/images/hacking.png';
+import Healing from 'src/assets/images/healing.png';
+import Initiative from 'src/assets/images/initiative.png';
+import Touch from 'src/assets/images/touch.png';
+
 // == Import npm
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -24,9 +37,11 @@ const AdvancedInfo = ({
     { /* == Map handling the display of the basic characteristics like Strength, Agility, etc.*/ }
       {
         abilities.map((ability) => (
-          <span key={uuidv4()}>
-            {ability.name} : {ability.value}
-          </span>
+          <div key={uuidv4()}>
+            <img className="MainAbilities__image" src={ability.image} alt={ability.name} />
+            <span className="MainAbilities__name">{ability.name}</span>
+            <span className="MainAbilities__value">{ability.value}</span>
+          </div>
         ))
       }
     </div>
@@ -34,6 +49,7 @@ const AdvancedInfo = ({
       <OverlayTrigger
         placement="top"
         delay={{ show: 300, hide: 300 }}
+        trigger={['hover', 'focus']}
         overlay={
           (
             <Tooltip id="tooltip">
@@ -42,7 +58,11 @@ const AdvancedInfo = ({
         )
           }
       >
-        <span>Esquive : {baseAvoid}</span>
+        <div>
+          <img className="AdvancedAbilities__image" src={Dodge} alt="Esquive" /> 
+          <span className="AdvancedAbilities__name">Esquive</span>
+          <span className="AdvancedAbilities__value">{baseAvoid}</span>
+        </div>
       </OverlayTrigger>
       <OverlayTrigger
         placement="top"
@@ -53,7 +73,11 @@ const AdvancedInfo = ({
           </Tooltip>
         }
       >
-        <span>Initiative : {baseInitiative + 1} - {baseInitiative + 10}</span>
+        <div>
+          <img className="AdvancedAbilities__image" src={Initiative} alt="Initiative" /> 
+          <span className="AdvancedAbilities__name">Initiative</span>
+          <span className="AdvancedAbilities__value">{baseInitiative + 1} - {baseInitiative + 10}</span>
+        </div>
       </OverlayTrigger>
       <OverlayTrigger
         placement="top"
@@ -66,7 +90,11 @@ const AdvancedInfo = ({
           )
         }
       >
-        <span>Toucher : {baseToHit + 1} - {baseToHit + 6}</span>
+        <div>
+          <img className="AdvancedAbilities__image" src={Touch} alt="Toucher" /> 
+          <span className="AdvancedAbilities__name">Toucher</span>
+          <span className="AdvancedAbilities__value">{baseToHit + 1} - {baseToHit + 6}</span>
+        </div>
       </OverlayTrigger>
       <OverlayTrigger
         placement="top"
@@ -79,7 +107,11 @@ const AdvancedInfo = ({
           )
         }
       >
-        <span>Dégâts : {baseDamage + 1} - {baseDamage + 4}</span>
+        <div>
+          <img className="AdvancedAbilities__image" src={Damage} alt="Dégâts" /> 
+          <span className="AdvancedAbilities__name">Dégâts</span>
+          <span className="AdvancedAbilities__value">{baseDamage + 1} - {baseDamage + 4}</span>
+        </div>
       </OverlayTrigger>
       <OverlayTrigger
         placement="top"
@@ -92,11 +124,16 @@ const AdvancedInfo = ({
           )
         }
       >
-        <span>Guérison : {healing}</span>
+        <div>
+          <img className="AdvancedAbilities__image" src={Healing} alt="Guérison" /> 
+          <span className="AdvancedAbilities__name">Guérison</span>
+          <span className="AdvancedAbilities__value">{healing}</span>
+        </div>
       </OverlayTrigger>
       <OverlayTrigger
         placement="top"
         delay={{ show: 300, hide: 300 }}
+        trigger={['hover', 'focus']}
         overlay={
           (
             <Tooltip id="tooltip">
@@ -105,7 +142,11 @@ const AdvancedInfo = ({
           )
         }
       >
-        <span>Hacking : {hacking}</span>
+        <div>
+          <img className="AdvancedAbilities__image" src={Hacking} alt="Piratage" /> 
+          <span className="AdvancedAbilities__name">Piratage</span>
+          <span className="AdvancedAbilities__value">{hacking}</span>
+        </div>
       </OverlayTrigger>
     </div>
   </div>
