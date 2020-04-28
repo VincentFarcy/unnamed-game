@@ -39,7 +39,7 @@ const Combat = ({
     if (roll === gameParameters.maxTouchRoll) {
       return true;
     }
-    return (touch + roll) > (dodge * 2);
+    return (touch + roll) > (dodge);
   };
 
   // damage randomisation
