@@ -10,29 +10,27 @@ import './style.scss';
 // == Component
 const Story = ({ story, php, restartNewGame }) => (
   <div className="story-container">
-    <div className="main__play">
-      <p className="story__title">{story.title}</p>
+    <div className="dialog">
+      <h2 className="dialog__title">{story.title}</h2>
       {php === 1
         ? (
           <>
-            <Typical className="story__p" steps={[story.mainText, 1000]} wrapper="p" />
-            <div className="button__container">
-              <Button cssClassName="generic-button next__button" buttonName="Suivant" url="/play/sequence" />
+            <Typical className="dialog__p" steps={[story.mainText, 1000]} wrapper="p" />
+            <div className="next-button-container">
+              <Button cssClassName="generic-button next-button" buttonName="Suivant" url="/play/sequence" />
             </div>
           </>
         )
         : (
           <>
-            <Typical className="story__p" steps={[story.endText, 1000]} wrapper="p" />
-            <div className="button__container">
-              <div className="button__container">
-                <Button
-                  cssClassName="next__button"
-                  buttonName="Fin"
-                  url="/"
-                  onClick={restartNewGame}
-                />
-              </div>
+            <Typical className="dialog__p" steps={[story.endText, 1000]} wrapper="p" />
+            <div className="next-button-container">
+              <Button
+                cssClassName="generic-button next-button"
+                buttonName="Fin"
+                url="/"
+                onClick={restartNewGame}
+              />
             </div>
           </>
         )}

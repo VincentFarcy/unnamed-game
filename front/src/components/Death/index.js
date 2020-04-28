@@ -13,17 +13,17 @@ import './style.scss';
 // == Component
 const Death = ({ restartNewGame }) => {
   return (
-    <div className="main__play">
-      <p className="death__title">The end...</p>
+    <div className="dialog">
+      <h2 className="dialog__title">The end...</h2>
       <Typical
-        className="death__p"
+        className="dialog__p"
         steps={['avec un peu de chance votre mort fut rapide...', 1000]}
         wrapper="p"
       />
       <Image className="death__image" src={loose} rounded />
-      <div className="button__container">
+      <div className="next-button-container">
         <Button
-          cssClassName="generic-button replay__button"
+          cssClassName="generic-button next-button"
           buttonName="Recommencer"
           url="/play"
           onClick={restartNewGame}

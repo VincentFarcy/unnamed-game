@@ -149,8 +149,8 @@ const Combat = ({
   };
 
   return (
-    <div className="main__play">
-      <h2 className="combat__title">Combat</h2>
+    <div className="dialog">
+      <h2 className="dialog__title">Combat </h2>
       <div className="combat__container">
         <AdvancedInfo />
         <div className="player__container">

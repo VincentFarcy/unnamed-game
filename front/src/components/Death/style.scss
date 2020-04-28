@@ -1,53 +1,24 @@
 @import 'src/styles/vars';
 
-/* === Death === */
-.death__p {
-  padding: 1em;
-  justify-content: flex-start;
+.death__image {
+  display: block;
+  margin: 1rem auto;
+  width: 100%;
+  max-width: 200px;
 }
-
-/* === Replay button === */
-.replay__button {
-  font-weight: 500;
-  align-content: center;
-  margin: 0 auto;
-  width: 25%;
-  max-width: 220px;
-  min-width: 140px;
-  padding: 0.25em 0;
-  box-shadow:  -4px 4px 16px $generic-button-lower-shadow, 
-  4px -4px 16px $generic-button-upper-shadow;
-  align-content: center;
-  margin: 0 auto;
-}
-
 
 /* === medium screen === */
 @media screen AND (min-width: 768px) {
-  .death__p {
-    padding-top: 2em;
-    font-size: 1.6em;
+  .death__image {
+    width: 100%;
+    max-width: 300px;
   }
 }
 
-/* === large screen === */
+/* === medium screen === */
 @media screen AND (min-width: 992px) {
-
-  .death__p {
-    padding: 2em;
-    font-size: 1.8em;
+  .death__image {
+    width: 100%;
+    max-width: 400px;
   }
-
-  .replay__button {
-    transition-duration: 0.35s;
-    transition-property: border-color, background-color, box-shadow, color;
-  }
-
-  .replay__button:hover { 
-    background: $generic-button-background;
-    color: $generic-button-background; 
-    box-shadow:  -4px 4px 16px $generic-button-lower-shadow, 
-                 4px -4px 16px $generic-button-upper-shadow-hover;
-  }
-
 }

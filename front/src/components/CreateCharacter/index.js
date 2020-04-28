@@ -33,11 +33,11 @@ const CreateCharacter = ({
   || !isLoading &&
     (
     <div className="create-character-container">
-      <div className="main__play">
+      <div className="dialog">
         {!backupIsLoading ? (
           <div>
             <div className="title__container">
-              <h1>Création de personnage</h1>
+              <h2 className="dialog__title">Création de personnage</h2>
             </div>
             <div className="ability_main__container">
               <div className="ability_pool__container">
@@ -56,7 +56,7 @@ const CreateCharacter = ({
         ) : (
           <div>
             <div className="title__container">
-              <h1>Sauvegarde chargée</h1>
+              <h2 className="dialog">Sauvegarde chargée</h2>
             </div>
             <div className="continue_main__container">
               <Typical className="continue_text" steps={['Prêt à reprendre l\'aventure ?', 1000]} wrapper="p" /> 

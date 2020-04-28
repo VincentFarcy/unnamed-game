@@ -6,6 +6,8 @@ import { Switch, Route, Redirect, useParams } from 'react-router-dom';
 // == Import local
 // == Import Website Components
 import './styles.scss';
+import './dialog.scss';
+import './player-action.scss';
 import Header from '../../containers/Header/Header';
 import MainSite from '../../containers/MainSite';
 import Team from '../../containers/Team';

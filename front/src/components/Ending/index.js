@@ -9,11 +9,11 @@ import './style.scss';
 // == Component
 const Ending = () => (
   <div className="story-container">
-    <div className="main__play">
-      <p className="story__title">Bravo !</p>
-      <Typical className="story__p" steps={['tu as finis le jeu!', 1000]} wrapper="p" />
-      <div className="button__container">
-        <Button cssClassName="next__button" buttonName="Rejouer" url="/play" />
+    <div className="dialog">
+      <h2 className="dialog__title">Bravo !</h2>
+      <Typical className="dialog__p" steps={['tu as finis le jeu!', 1000]} wrapper="p" />
+      <div className="next-button-container">
+        <Button cssClassName="next-button" buttonName="Rejouer" url="/play" />
       </div>
     </div>
   </div>

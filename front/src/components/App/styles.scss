@@ -110,6 +110,7 @@
 
 main > div {
   width:100%;
+  min-width: 300px;
   max-width: 1400px;
   margin: auto;
 }
@@ -129,7 +130,7 @@ main > div {
   width: 100%;
   overflow-y: auto;
   display: flex;
-  padding: 1em;
+  padding: 1rem;
   justify-content: center;
   align-items: flex-start;
   z-index: 5;
@@ -145,6 +146,8 @@ main > div {
 
 /* === generic components === */
 .generic-button {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
   background: $generic-button-background;
   border-radius: 10px;
   border-color: $generic-button-background;
@@ -152,6 +155,21 @@ main > div {
   box-shadow:  -4px 4px 16px $generic-button-lower-shadow, 
   4px -4px 16px $generic-button-upper-shadow;
   font-weight: 900;
+}
+
+.generic-button:hover {
+  background-color: $generic-button-background;
+  color: $generic-button-background; 
+  box-shadow:  -4px 4px 16px $generic-button-lower-shadow, 
+              4px -4px 16px $generic-button-upper-shadow-hover;
+}
+
+@media screen AND (min-width: 768px) {
+
+  .generic-button {
+    font-size: 1.6rem;
+    padding: 0.5rem 2rem;
+  }  
 }
 
 /* === large screen === */
@@ -167,5 +185,10 @@ main > div {
   
   main>div {
     width:80%;
+  }
+
+  .generic-button {
+    transition-duration: 0.3s;
+    transition-property: border-color, background-color, box-shadow, color;
   }
 }
