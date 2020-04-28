@@ -3,7 +3,6 @@
 .player-action {
 
   &__container {
-
     .player-bar {
       margin-bottom: 30px;
     }
@@ -31,6 +30,12 @@
 @media screen AND (min-width: 768px) {
   .player-action {
 
+    &__container {
+      .player-bar {
+        margin-bottom: 50px;
+      }
+    }
+      
     &__p {
       padding-top: 2em;
       font-size: 1.6em;

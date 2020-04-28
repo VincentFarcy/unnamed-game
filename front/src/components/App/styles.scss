@@ -110,6 +110,7 @@
 
 main > div {
   width:100%;
+  min-width: 300px;
   max-width: 1400px;
   margin: auto;
 }
@@ -129,7 +130,7 @@ main > div {
   width: 100%;
   overflow-y: auto;
   display: flex;
-  padding: 1em;
+  padding: 1rem;
   justify-content: center;
   align-items: flex-start;
   z-index: 5;
