@@ -26,7 +26,7 @@ const RessourceInfo = ({ mainCounter, experience, money }) => (
           )
         }
       >
-        <p> {`PHP : ${mainCounter}`} </p>
+        <p> {`PHP ${mainCounter}`} </p>
       </OverlayTrigger>
     </div>
     <div className="ressource-info__counter">
@@ -42,7 +42,7 @@ const RessourceInfo = ({ mainCounter, experience, money }) => (
           )
         }
       >
-        <p className="ressource-info__experience"> {`XP : ${experience}`} </p>
+        <p className="ressource-info__experience"> {`XP ${experience}`} </p>
       </OverlayTrigger>
     </div>
     <div className="ressource-info__counter">
@@ -58,7 +58,7 @@ const RessourceInfo = ({ mainCounter, experience, money }) => (
           )
         }
       >
-        <p className="ressource-info__money"> {`JSX : ${money}`} </p>
+        <p className="ressource-info__money"> {`JSX ${money}`} </p>
       </OverlayTrigger>
     </div>
   </div>

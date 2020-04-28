@@ -6,10 +6,6 @@
     .player-bar {
       margin-bottom: 30px;
     }
-  
-    .progress {
-        margin-top: 40px;
-    }
   }
 
   &__title {
@@ -34,6 +30,9 @@
       .player-bar {
         margin-bottom: 50px;
       }
+      .progress {
+        margin-top: 40px;
+    }
     }
       
     &__p {
