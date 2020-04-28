@@ -30,7 +30,7 @@ const Sequence = ({
         {sequence.id === 99 ? <Redirect to="/play/mainhub" />
           : (
             <div>
-              <p className="dialog__title">{sequence.title}</p>
+              <h2 className="dialog__title">{sequence.title}</h2>
               <Typical
                 className="dialog__p"
                 steps={[sequence.mainText, 1000]}

@@ -9,7 +9,7 @@ import './style.scss';
 // == Component
 const Nothing = ({ eventNothing }) => (
   <div className="dialog">
-    <p className="dialog__title">Le temps passe...</p>
+    <h2 className="dialog__title">Le temps passe...</h2>
     <p className="dialog__p">Ce vaisseau est immense, son immensité en devient ridicule... Vous avez l'impression d'être déjà passé ici... et pourtant vous êtes bien loin de votre point de départ... Des couloirs et des embranchements à perte de vue... il vous semble préférable de rebrousser chemin avant de vous perdre définitivement.</p>
     <div className="next-button-container">
       <Button cssClassName="generic-button next-button" buttonName="PHP suivant" url="/play/sequence" onClick={eventNothing} />

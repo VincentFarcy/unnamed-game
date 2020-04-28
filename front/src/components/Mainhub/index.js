@@ -29,7 +29,7 @@ const Mainhub = ({
         <PlayerInfo />
       </div>
       <div className="dialog">
-        <p className="dialog__title">Que voulez-vous faire ?</p>
+        <h2 className="dialog__title">Que voulez-vous faire ?</h2>
         <div className="hub__button-container">
           {php < 30 && (
             <Button

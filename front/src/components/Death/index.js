@@ -14,7 +14,7 @@ import './style.scss';
 const Death = ({ restartNewGame }) => {
   return (
     <div className="dialog">
-      <p className="dialog__title">The end...</p>
+      <h2 className="dialog__title">The end...</h2>
       <Typical
         className="dialog__p"
         steps={['avec un peu de chance votre mort fut rapide...', 1000]}

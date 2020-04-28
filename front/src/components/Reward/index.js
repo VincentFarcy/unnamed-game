@@ -31,7 +31,7 @@ const Reward = ({
         <PlayerInfo />
       </div>
       <div className="dialog">
-        <p className="dialog__title"> Voici vos récompenses</p>
+        <h2 className="dialog__title"> Voici vos récompenses</h2>
         <p className="dialog__p"> {`Vous avez gagné ${(eventRewardJsx !== null ? eventRewardJsx : jsxReward) + jsxCombatReward} JSX et ${(eventRewardXp !== null ? eventRewardXp : xpReward) + xpCombatReward} point(s) d'éxpérience`} </p>
         <div className="next-button-container">
           <Button
