@@ -8,7 +8,7 @@ import './style.scss';
 // == Component
 const Rules = () => (
   <div className="site-container">
-    <section className="section-container">
+    <section className="introduction">
       <Card className="site-intro">
         <Card.Body className="site-intro__body">
           <Card.Title className="site-intro__title">Introduction</Card.Title>
@@ -25,6 +25,8 @@ const Rules = () => (
           </Card.Text>
         </Card.Body>
       </Card>
+    </section>
+    <section className="introduction">
       <Card className="site-intro">
         <Card.Body className="site-intro__body">
           <Card.Title className="site-intro__title">Les statistiques principales</Card.Title>
@@ -48,6 +50,8 @@ const Rules = () => (
           </Card.Text>
         </Card.Body>
       </Card>
+    </section>
+    <section className="introduction">
       <Card className="site-intro">
         <Card.Body className="site-intro__body">
           <Card.Title className="site-intro__title">Les statistiques secondaires</Card.Title>
@@ -78,6 +82,8 @@ const Rules = () => (
           </Card.Text>
         </Card.Body>
       </Card>
+    </section>
+    <section className="introduction">
       <Card className="site-intro">
         <Card.Body className="site-intro__body">
           <Card.Title className="site-intro__title">Les ressources</Card.Title>
@@ -95,6 +101,8 @@ const Rules = () => (
           </Card.Text>
         </Card.Body>
       </Card>
+    </section>
+    <section className="introduction">
       <Card className="site-intro">
         <Card.Body className="site-intro__body">
           <Card.Title className="site-intro__title">Jet & Seuil</Card.Title>
@@ -106,6 +114,8 @@ const Rules = () => (
           </Card.Text>
         </Card.Body>
       </Card>
+    </section>
+    <section className="introduction">
       <Card className="site-intro">
         <Card.Body className="site-intro__body">
           <Card.Title className="site-intro__title">Déroulement d'un combat</Card.Title>
