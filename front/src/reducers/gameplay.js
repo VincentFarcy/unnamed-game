@@ -565,6 +565,7 @@ const gameplay = (state = initialState, action = {}) => {
         phpTimer: phpTimer,
         player: {
           ...state.player,
+          pool: 0,
           playerCurrentHP: action.backups[0].health,
           playerTotalHP: ((action.backups[0].will / 2) + (action.backups[0].constitution)) * 10,
           baseTouch:((action.backups[0].agility) + Math.floor((action.backups[0].intelligence / 3))),
