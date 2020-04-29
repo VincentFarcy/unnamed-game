@@ -8,8 +8,7 @@ import Intelligence from 'src/assets/images/intelligence.png';
 
 // == Import : local
 import {
-  RESET_GAME,
-  CHANGE_GAME_STATUS,
+  START_GAME,
   GAME_DATA_SUCCESS,
   GAME_DATA_ERROR,
   INCREMENT_CREATE_CHARACTER,
@@ -20,7 +19,6 @@ import {
   NEXT_SEQUENCE,
   END_FIGHT,
   FIND_SEQUENCE,
-  RESTART_NEW_GAME,
   FIND_RANDOM_REWARD,
   FIND_EXPLORATION,
   EVENT_NOTHING,
@@ -149,13 +147,7 @@ const initialState = {
 // == Reducer
 const gameplay = (state = initialState, action = {}) => {
   switch (action.type) {
-    case RESET_GAME:
-      return {
-        ...state,
-        loadingErrMessage: '',
-        hasError: false,
-      };
-    case RESTART_NEW_GAME:
+    case START_GAME:
       return {
         gameOn: true,
         isLoading: false,
@@ -242,100 +234,6 @@ const gameplay = (state = initialState, action = {}) => {
         },
         bgImageCssClass: '',
         hero: {},
-        backupIsLoading: false,
-        gameParameters: {
-          ...state.gameParameters,
-        },
-        chapters: [
-          {}
-        ],
-      };
-    case CHANGE_GAME_STATUS:
-      return {
-        gameOn: true,
-        isLoading: false,
-        loadingErrMessage: '',
-        hasError: false,
-        phpTimer: 1,
-        rewards: {
-          xpRoll: 0,
-          jsxRoll: 0,
-        },
-        eventRewards: {
-          xp: null,
-          jsx: null,
-        },
-        opponentRewards: {
-          xpCombatReward: 0,
-          jsxCombatReward: 0,
-        },
-        sequenceToTell: {
-          title: '',
-          id: 0,
-          mainText: '',
-        },
-        currentEvent: '',
-        difficulty: 1,
-        playerRoll: 1,
-        exploration: {
-          rollFrom: 0,
-          rollTo: 0,
-          type: '',
-        },
-        player: {
-          pool: 0,
-          abilities: [
-            {
-              name: 'Force',
-              value: 1,
-              image: Force,
-              description: 'Affecte les dégâts',
-            },
-            {
-              name: 'Agilité',
-              value: 1,
-              image: Agilité,
-              description: 'Affecte le toucher, l\'initiative, l\'esquive',
-            },
-            {
-              name: 'Constitution',
-              value: 1,
-              image: Constitution,
-              description: 'Affecte les PV',
-            },
-            {
-              name: 'Volonté',
-              value: 1,
-              image: Volonté,
-              description: 'Affecte les PV, la guérison, permet de réaliser certaines actions',
-            },
-            {
-              name: 'Intelligence',
-              value: 1,
-              image: Intelligence,
-              description: 'Affecte le toucher, l\'esquive, la guérison, permet de réaliser certaines actions',
-            },
-          ],
-          // Total player's health point
-          playerTotalHP: 0,
-          playerCurrentHP: 0,
-          xp: 0,
-          jsx: 0,
-        },
-        combat: {
-          isCombatOn: true,
-          combatInProgress: false,
-          // currentOponent is empty until OpponentCombatInfo is rendered
-          currentOpponent: {
-            opponentCurrentHP: 0,
-            speed: 0,
-            touch: 0,
-            dodge: 0,
-            xpGain: 0,
-            moneyGain: 0,
-          },
-        },
-        bgImageCssClass: '',
         backupIsLoading: false,
         gameParameters: {
           ...state.gameParameters,

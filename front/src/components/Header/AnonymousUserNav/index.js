@@ -1,7 +1,6 @@
 // == Import npm
 import React from 'react';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
-import PropTypes from 'prop-types';
 
 // == Import local
 import LinkButton from '../../LinkButton';

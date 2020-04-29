@@ -1,6 +1,5 @@
 // == Action types
-export const RESET_GAME = 'RESET_GAME';
-export const CHANGE_GAME_STATUS = 'CHANGE_GAME_STATUS';
+export const START_GAME = 'START_GAME';
 export const FETCH_INITIALE_GAME_DATA = 'FETCH_INITIALE_GAME_DATA';
 export const GAME_DATA_SUCCESS = 'GAME_DATA_SUCCESS';
 export const GAME_DATA_ERROR = 'GAME_DATA_ERROR';
@@ -12,7 +11,6 @@ export const APPLY_DAMAGE = 'APPLY_DAMAGE';
 export const END_FIGHT = 'END_FIGHT';
 export const NEXT_SEQUENCE = 'NEXT_SEQUENCE';
 export const FIND_SEQUENCE = 'FIND_SEQUENCE';
-export const RESTART_NEW_GAME = 'RESTART_NEW_GAME';
 export const FIND_RANDOM_REWARD = 'FIND_RANDOM_REWARD';
 export const EVENT_WIN = 'EVENT_WIN';
 export const FIND_EVENT = 'FIND_EVENT';
@@ -32,12 +30,8 @@ export const START_MISSION = 'START_MISSION';
 
 
 // == Action creators
-export const resetGame = () => ({
-  type: RESET_GAME,
-});
-
-export const changeGameStatus = () => ({
-  type: CHANGE_GAME_STATUS,
+export const startGame = () => ({
+  type: START_GAME,
 });
 
 export const fetchInitialeGameData = () => ({
@@ -88,10 +82,6 @@ export const nextSequence = () => ({
   type: NEXT_SEQUENCE,
 });
 
-export const restartNewGame = () => ({
-  type: RESTART_NEW_GAME,
-});
-
 export const findRandomReward = () => ({
   type: FIND_RANDOM_REWARD,
 });
@@ -121,7 +111,7 @@ export const updateTimer = () => ({
   type: UPDATE_TIMER,
 });
 
-export const addOpponnentReward = ()=> ({
+export const addOpponnentReward = () => ({
   type: ADD_OPPONNENT_REWARD,
 });
 

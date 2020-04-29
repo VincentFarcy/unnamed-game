@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Image from 'react-bootstrap/Image';
-import { NavLink, Redirect } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 // == Import local
 import './style.scss';
@@ -18,50 +18,41 @@ const MainPlay = ({
   hasBackup,
   startBackupLoading,
 }) => {
-  // https://fr.reactjs.org/docs/hooks-effect.html#example-using-hooks-1
-  // voir les useEffect avec nettoyage
   !hasError && useEffect(startGame, []);
-  // console.log(hasError);
 
-  const handleContinueClick = (evt) => {
+  const handleContinueClick = () => {
     fetchInitialeGameData();
     startBackupLoading();
-    // console.log("test");
   };
 
   return (
-    hasError && <ErrorMessage />
-    // if we have to put this solution in action it will require the creation of the route in App
-    // hasError && <Redirect to="/error" />
-    ||
-    !hasError &&
-    (
-    <div>
-      <section className="game-launcher">
-        <NavLink
-          exact
-          to="/play/create-player"
-          className="nav-link generic-button game-launcher__btn"
-          onClick={fetchInitialeGameData}
-        >
-          <Image className="play-images" src={newGameIcon} />
-          <p className="play-text"> Nouvelle Partie</p>
-        </NavLink>
-        {
-          hasBackup && (
-            <NavLink
-              exact
-              to="/play/create-player"
-              className="nav-link generic-button game-launcher__btn"
-              onClick={handleContinueClick}
-            >
-              <Image className="play-images" src={savedGameIcon} />
-              <p className="play-text">Continuer la partie</p>
-            </NavLink>
-          )
-        }
-      </section>
-    </div>
+    hasError ? <ErrorMessage /> : (
+      <div>
+        <section className="game-launcher">
+          <NavLink
+            exact
+            to="/play/create-player"
+            className="nav-link generic-button game-launcher__btn"
+            onClick={fetchInitialeGameData}
+          >
+            <Image className="play-images" src={newGameIcon} />
+            <p className="play-text"> Nouvelle Partie</p>
+          </NavLink>
+          {
+            hasBackup && (
+              <NavLink
+                exact
+                to="/play/create-player"
+                className="nav-link generic-button game-launcher__btn"
+                onClick={handleContinueClick}
+              >
+                <Image className="play-images" src={savedGameIcon} />
+                <p className="play-text">Continuer la partie</p>
+              </NavLink>
+            )
+          }
+        </section>
+      </div>
     )
   );
 };

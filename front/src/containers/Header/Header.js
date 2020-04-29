@@ -7,7 +7,7 @@ import Header from 'src/components/Header';
 // Action Creators
 import { initUserState } from '../../actions/user';
 import { toggleMenu } from '../../actions/menu';
-import { changeGameStatus, resetGame, changeBg, restartNewGame } from '../../actions/gamePlay';
+import { changeBg } from '../../actions/gamePlay';
 
 /* === State (données) === */
 const mapStateToProps = (state) => ({
@@ -17,15 +17,6 @@ const mapStateToProps = (state) => ({
 
 /* === Actions === */
 const mapDispatchToProps = (dispatch) => ({
-  resetGame: () => {
-    dispatch(resetGame());
-  },
-  restartNewGame: () => {
-    dispatch(restartNewGame());
-  },
-  startGame: () => {
-    dispatch(changeGameStatus());
-  },
   initUserState: () => {
     dispatch(initUserState());
   },

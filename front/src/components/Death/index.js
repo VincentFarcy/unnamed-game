@@ -1,6 +1,5 @@
 // == Import npm
 import React from 'react';
-import PropTypes from 'prop-types';
 import loose from 'src/assets/images/death.svg';
 import Typical from 'react-typical';
 import Image from 'react-bootstrap/Image';
@@ -11,7 +10,7 @@ import './style.scss';
 
 
 // == Component
-const Death = ({ restartNewGame }) => (
+const Death = () => (
   <div className="dialog">
     <h2 className="dialog__title">The end...</h2>
     <Typical
@@ -25,17 +24,12 @@ const Death = ({ restartNewGame }) => (
         cssClassName="generic-button next-button"
         buttonName="Recommencer"
         url="/play"
-        onClick={restartNewGame}
       />
     </div>
   </div>
 );
 
 // == Props validation
-Death.propTypes = {
-  restartNewGame: PropTypes.func.isRequired,
-};
-
 
 // == Export
 export default Death;
