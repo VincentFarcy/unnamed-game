@@ -38,20 +38,20 @@ const Mainhub = ({
               url="/play/sequence"
               onClick={actionRest}
             />
-        )}
-        {php < 30 && (
+          )}
+          {php < 30 && (
             <Button cssClassName="generic-button hub__button" buttonName="Exploration" url="/play/exploration" />
-        )}
-        {(medicAccess >= RollForMedicAccess) && (jsx >= 10) && (php > 4) && (php < 30)
-          && (
+          )}
+          {(medicAccess >= RollForMedicAccess) && (jsx >= 10) && (php > 4) && (php < 30)
+            && (
               <Button cssClassName="generic-button hub__button" buttonName="Hôpital" url="/play/medic" />
-          )}
-        {(trainAccess >= RollForTrainAccess) && (xp >= xpCost) && (php > 5) && (php < 30) && (jsx >= jsxCost)
-          && (
+            )}
+          {(trainAccess >= RollForTrainAccess) && (xp >= xpCost) && (php > 5) && (php < 30) && (jsx >= jsxCost)
+            && (
               <Button cssClassName="generic-button hub__button" buttonName="Entrainement" url="/play/train" />
-          )}
-        {(php > 12)
-          && (
+            )}
+          {(php > 12)
+            && (
               <Button cssClassName="generic-button hub__button" buttonName="Mission" url="/play/event" onClick={startMission} />
             )}
         </div>

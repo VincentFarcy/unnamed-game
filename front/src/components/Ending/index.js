@@ -10,8 +10,8 @@ import './style.scss';
 const Ending = () => (
   <div className="story-container">
     <div className="dialog">
-      <h2 className="dialog__title">Bravo !</h2>
-      <Typical className="dialog__p" steps={['tu as finis le jeu!', 1000]} wrapper="p" />
+      <h2 className="dialog__title">Félicitation !</h2>
+      <Typical className="dialog__p" steps={['Tu as réussi à réparer le générateur !', 1000, 'GG, tu as fini le jeu.', 500, 'David Goodenough', 1000]} wrapper="p" />
       <div className="next-button-container">
         <Button cssClassName="next-button" buttonName="Rejouer" url="/play" />
       </div>
