@@ -1,7 +1,7 @@
 easy_admin:
     site_name: UnnamedGame 
     design:
-        brand_color: 'hsl(0, 100%%, 50%%);'
+        brand_color: '#008000;'
         assets:
             css: 
                 - 'bundles/easyadmin/customcss/admin.css'
