@@ -10,7 +10,7 @@ import './style.scss';
 const Footer = () => (
   <footer className="footer">
     <div className="footer-container">
-      <p className="footer__copyright">&copy; 2020 - Tous droits résérvés</p>
+      <p className="footer__copyright">&copy; 2020 - Tous droits réservés</p>
       <NavLink exact to="/legal-notices" className="nav-link footer__link">
       Mentions légales
       </NavLink>
