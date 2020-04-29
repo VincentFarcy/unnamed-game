@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
-import { NavLink } from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid';
 
 
 // == Import local
@@ -27,7 +27,7 @@ const Legal = ({ legalTitle, introLegal, articles }) => (
     </section>
     {
       articles.map((section) => (
-        <section className="legal">
+        <section key={uuidv4()} className="legal">
           <Card className="intro-cards">
             <Card.Img className="intro-cards__img" variant="top" src={paragraph} />
             <Card.Body>
