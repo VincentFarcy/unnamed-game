@@ -141,6 +141,9 @@ const initialState = {
   bgImageCssClass: '',
   hero: {},
   backupIsLoading: false,
+  chapters: [
+    {}
+  ],
 };
 
 // == Reducer
@@ -243,6 +246,9 @@ const gameplay = (state = initialState, action = {}) => {
         gameParameters: {
           ...state.gameParameters,
         },
+        chapters: [
+          {}
+        ],
       };
     case CHANGE_GAME_STATUS:
       return {
@@ -334,6 +340,9 @@ const gameplay = (state = initialState, action = {}) => {
         gameParameters: {
           ...state.gameParameters,
         },
+        chapters: [
+          {}
+        ],
       };
     case GAME_DATA_SUCCESS:
       return {
