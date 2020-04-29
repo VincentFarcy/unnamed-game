@@ -33,60 +33,62 @@ const CreateCharacter = ({
   || !isLoading &&
     (
     <div className="create-character-container">
-      <div className="dialog">
         {!backupIsLoading ? (
-          <div>
-            <div className="title__container">
-              <h2 className="dialog__title">Création de personnage</h2>
-            </div>
-            <div className="ability_main__container">
-              <div className="ability_pool__container">
-                <p className="ability_pool__text">A répartir<span className="ability_pool__value">{pool}</span></p>
+          <div className="dialog dialog--create">
+            <div>
+              <div className="title__container">
+                <h2 className="dialog__title">Création de personnage</h2>
               </div>
-              {
-                abilities.map((ability) => (
-                  <Ability key={uuidv4()} {...ability} />
-                ))
-              }
-              <div className="button__container">
-                { (pool === 0) && (
-                  <div className="next-button-container">
-                    <div className="neon-button-container">
-                      <LinkButton cssClassName="neon-button neon-button--next" buttonName="Valider" url="/play/story" onClick={handleClick} />
-                      <div className="neon-border-container">
-                        <span />
-                        <span />
-                        <span />
-                        <span />
+              <div className="ability_main__container">
+                <div className="ability_pool__container">
+                  <p className="ability_pool__text">A répartir<span className="ability_pool__value">{pool}</span></p>
+                </div>
+                {
+                  abilities.map((ability) => (
+                    <Ability key={uuidv4()} {...ability} />
+                  ))
+                }
+                <div className="button__container">
+                  { (pool === 0) && (
+                    <div className="next-button-container">
+                      <div className="neon-button-container">
+                        <LinkButton cssClassName="neon-button neon-button--next" buttonName="Valider" url="/play/story" onClick={handleClick} />
+                        <div className="neon-border-container">
+                          <span />
+                          <span />
+                          <span />
+                          <span />
+                        </div>
                       </div>
                     </div>
-                  </div>
-                )}
+                  )}
+                </div>
               </div>
             </div>
           </div>
         ) : (
-          <div>
-            <div className="title__container">
-              <h2 className="dialog__title">Sauvegarde chargée</h2>
-            </div>
-            <div className="continue_main__container">
-              <Typical className="dialog__p" steps={['Prêt à reprendre l\'aventure ?', 1000]} wrapper="p" />
-              <div className="next-button-container">
-                <div className="neon-button-container">
-                  <LinkButton cssClassName="neon-button neon-button--next" buttonName="OK" url="/play/sequence" onClick={handleClick} />
-                  <div className="neon-border-container">
-                    <span />
-                    <span />
-                    <span />
-                    <span />
+          <div className="dialog dialog--continue">
+            <div>
+              <div className="title__container">
+                <h2 className="dialog__title">Sauvegarde chargée</h2>
+              </div>
+              <div className="continue_main__container">
+                <Typical className="dialog__p" steps={['Prêt à reprendre l\'aventure ?', 1000]} wrapper="p" />
+                <div className="next-button-container">
+                  <div className="neon-button-container">
+                    <LinkButton cssClassName="neon-button neon-button--next" buttonName="OK" url="/play/sequence" onClick={handleClick} />
+                    <div className="neon-border-container">
+                      <span />
+                      <span />
+                      <span />
+                      <span />
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         )}
-      </div>
     </div>
     )
   );

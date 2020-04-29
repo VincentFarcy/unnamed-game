@@ -1,16 +1,12 @@
 @import 'src/styles/vars';
 .train {
   &__button-container {
+    margin-top: -1rem;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
-    padding: 1rem;
-  }
-  &__button {
-    width: 70%;
-    margin: 1em auto;
   }
 }
 
@@ -23,12 +19,3 @@
   }
 }
 
-/* === large screen === */
-@media screen AND (min-width: 992px) {
-  .train {
-    &__button {
-      padding: 0.25em;
-      width: 40%;
-    }
-  }
-}

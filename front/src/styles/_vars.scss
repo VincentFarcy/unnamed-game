@@ -32,6 +32,18 @@ $green-lighten: rgba(40, 167, 69, 0.2);
 $blue: rgba(36, 147, 238, 0.7);
 $blue-lighten: rgba(36, 147, 238, 0.2);
 
+$yellow: rgba(255, 253, 50, 0.7);
+$yellow-lighten: rgba(255, 253, 50, 0.2);
+
+$red : rgba(232, 46, 49, 0.7);
+$red-lighten : rgba(232, 46, 49, 0.2);
+
+$neon-button-color : $blue;
+$neon-button-color-lighten : $blue-lighten;
+
+$neon-button-color--train : $green;
+$neon-button-color-lighten--train : $green-lighten;
+
 $play-halo: rgba(49, 151, 235, 0.7);
 $play-lower-halo: rgba(22, 134, 226, 0.7);
 $play-inset: $blue;

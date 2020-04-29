@@ -2,11 +2,10 @@
 
 .create-character-container {
 
-  .validate__button {
-    width: 100%;
-    margin: 1rem auto;
+  .dialog--create {
+    min-height: 450px;
   }
- 
+
   /* === Ability pool === */
   .ability_pool__container {
     width: 100%;
@@ -83,6 +82,10 @@
 
   .create-character-container {
 
+    .dialog--create {
+      min-height: 620px;
+    }
+
     .title__container { 
       margin-bottom: 1.6rem;
     }
@@ -110,10 +113,6 @@
       width: 2em;
       height: 2em;
     }
-
-    .button__container {
-      margin-bottom: 1rem;
-    }
   }
 }
 
@@ -121,6 +120,10 @@
 @media screen AND (min-width: 992px) {
 
   .create-character-container {
+
+    .dialog--create {
+      min-height: 670px;
+    }
 
     .ability_pool__container {
       font-size: 2.2em;
@@ -144,10 +147,6 @@
       background-color: grey;
       color: $white-100;
       transform: scale(1.4);
-    }
-
-    .button__container {
-      margin: 1.5rem;
     }
   }
 }

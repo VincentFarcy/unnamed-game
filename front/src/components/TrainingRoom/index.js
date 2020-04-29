@@ -34,7 +34,7 @@ const Train = ({
           {(rollFullAccess <= fullAccess || strengthTrainAccess <= roomAccess)
             && (
               <div className="neon-button-container">
-                <Button cssClassName="neon-button" buttonName="Force" url="/play/sequence" onClick={() => (incrementAbility('Force'))} />
+                <Button cssClassName="neon-button neon-button--train" buttonName="Force" url="/play/sequence" onClick={() => (incrementAbility('Force'))} />
                 <div className="neon-border-container">
                   <span />
                   <span />
@@ -46,7 +46,7 @@ const Train = ({
           {(rollFullAccess <= fullAccess || agilityTrainAccess <= roomAccess)
             && (
               <div className="neon-button-container">
-                <Button cssClassName="neon-button" buttonName="Agilité" url="/play/sequence" onClick={() => (incrementAbility('Agilité'))} />
+                <Button cssClassName="neon-button neon-button--train" buttonName="Agilité" url="/play/sequence" onClick={() => (incrementAbility('Agilité'))} />
                 <div className="neon-border-container">
                   <span />
                   <span />
@@ -58,7 +58,7 @@ const Train = ({
           {(rollFullAccess <= fullAccess || enduranceTrainAccess <= roomAccess)
             && (
               <div className="neon-button-container">
-                <Button cssClassName="neon-button" buttonName="Constitution" url="/play/sequence" onClick={() => (incrementAbility('Constitution'))} />
+                <Button cssClassName="neon-button neon-button--train" buttonName="Constitution" url="/play/sequence" onClick={() => (incrementAbility('Constitution'))} />
                 <div className="neon-border-container">
                   <span />
                   <span />
@@ -70,7 +70,7 @@ const Train = ({
           {(rollFullAccess <= fullAccess || willTrainAccess <= roomAccess)
             && (
               <div className="neon-button-container">
-                <Button cssClassName="neon-button" buttonName="Volonté" url="/play/sequence" onClick={() => (incrementAbility('Volonté'))} />
+                <Button cssClassName="neon-button neon-button--train" buttonName="Volonté" url="/play/sequence" onClick={() => (incrementAbility('Volonté'))} />
                 <div className="neon-border-container">
                   <span />
                   <span />
@@ -82,7 +82,7 @@ const Train = ({
           {(rollFullAccess <= fullAccess || intelligenceTrainAccess <= roomAccess)
             && (
               <div className="neon-button-container">
-                <Button cssClassName="neon-button" buttonName="Intelligence" url="/play/sequence" onClick={() => (incrementAbility('Intelligence'))} />
+                <Button cssClassName="neon-button neon-button--train" buttonName="Intelligence" url="/play/sequence" onClick={() => (incrementAbility('Intelligence'))} />
                 <div className="neon-border-container">
                   <span />
                   <span />
