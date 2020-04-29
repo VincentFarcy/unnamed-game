@@ -19,7 +19,11 @@ const handleSendErrorMessages = (store, data) => {
   let errorMessages = [];
   // Automatic technical message (ex: invalid credential)
   if (data.message) {
-    errorMessages.push(data.message);
+    let message = data.message;
+    if (data.code === 401) {
+      message = 'Identification incorrecte.';
+    }
+    errorMessages.push(message);
   }
   // Messages sent because of functionnal rule non respected (ex: unique email)
   if (data.errorMessages) {
