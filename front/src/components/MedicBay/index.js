@@ -12,7 +12,15 @@ const Medic = ({ actionMedic }) => (
     <h2 className="dialog__title">Medic Bay</h2>
     <p className="dialog__p">Te faire soigner t'as coûté 10 JSX. Cependant l'efficacité du système es surprenante</p>
     <div className="next-button-container">
-      <Button cssClassName="generic-button next-button" buttonName="PHP suivant" url="/play/sequence" onClick={actionMedic} />
+      <div className="neon-button-container">
+        <Button cssClassName="neon-button neon-button--next" buttonName="PHP suivant" url="/play/sequence" onClick={actionMedic} />
+        <div className="neon-border-container">
+          <span />
+          <span />
+          <span />
+          <span />
+        </div>
+      </div>
     </div>
   </div>
 );

@@ -63,7 +63,7 @@
     &:hover,
     &:focus {
       background: $blue;
-      color: #050801;
+      color: $white-70;
       box-shadow: 0 0 5px $blue,
                   0 0 25px $blue,
                   0 0 50px $blue,
@@ -117,29 +117,29 @@
     }
   }
   .neon-button--next {
-    background: $green-lighten;
+    background: $blue-lighten;
     &:hover,
     &:focus {
-      background: $green;
-      box-shadow: 0 0 5px $green,
-                  0 0 25px $green,
-                  0 0 50px $green,
-                  0 0 200px $green;
+      background: $blue;
+      box-shadow: 0 0 5px $blue,
+                  0 0 25px $blue,
+                  0 0 50px $blue,
+                  0 0 200px $blue;
     }
   }
   .neon-button--next~.neon-border-container {
     span {
       &:nth-child(1) {
-        background: linear-gradient(90deg,transparent,$green);
+        background: linear-gradient(90deg,transparent,$blue);
       }
       &:nth-child(2) {
-        background: linear-gradient(180deg,transparent,$green);
+        background: linear-gradient(180deg,transparent,$blue);
       }
       &:nth-child(3) {
-        background: linear-gradient(270deg,transparent,$green);
+        background: linear-gradient(270deg,transparent,$blue);
       }
       &:nth-child(4) {
-        background: linear-gradient(360deg,transparent,$green);
+        background: linear-gradient(360deg,transparent,$blue);
       }
     }
   }

@@ -22,12 +22,20 @@ const Death = ({ restartNewGame }) => {
       />
       <Image className="death__image" src={loose} rounded />
       <div className="next-button-container">
-        <Button
-          cssClassName="generic-button next-button"
-          buttonName="Recommencer"
-          url="/play"
-          onClick={restartNewGame}
-        />
+        <div className="neon-button-container">
+          <Button
+            cssClassName="neon-button neon-button--next"
+            buttonName="Recommencer"
+            url="/play"
+            onClick={restartNewGame}
+          />
+          <div className="neon-border-container">
+            <span />
+            <span />
+            <span />
+            <span />
+          </div>
+        </div>
       </div>
     </div>
   );

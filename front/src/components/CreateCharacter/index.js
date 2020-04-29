@@ -49,7 +49,19 @@ const CreateCharacter = ({
                 ))
               }
               <div className="button__container">
-                { (pool == 0) && <LinkButton cssClassName="generic-button validate__button" buttonName="Valider" url="/play/story" onClick={handleClick} /> }
+                { (pool === 0) && (
+                  <div className="next-button-container">
+                    <div className="neon-button-container">
+                      <LinkButton cssClassName="neon-button neon-button--next" buttonName="Valider" url="/play/story" onClick={handleClick} />
+                      <div className="neon-border-container">
+                        <span />
+                        <span />
+                        <span />
+                        <span />
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -61,7 +73,15 @@ const CreateCharacter = ({
             <div className="continue_main__container">
               <Typical className="dialog__p" steps={['Prêt à reprendre l\'aventure ?', 1000]} wrapper="p" />
               <div className="next-button-container">
-                <LinkButton cssClassName="generic-button next-button" buttonName="OK" url="/play/sequence" onClick={handleClick} />
+                <div className="neon-button-container">
+                  <LinkButton cssClassName="neon-button neon-button--next" buttonName="OK" url="/play/sequence" onClick={handleClick} />
+                  <div className="neon-border-container">
+                    <span />
+                    <span />
+                    <span />
+                    <span />
+                  </div>
+                </div>
               </div>
             </div>
           </div>

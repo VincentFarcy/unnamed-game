@@ -11,9 +11,17 @@ const Ending = () => (
   <div className="story-container">
     <div className="dialog">
       <h2 className="dialog__title">Bravo !</h2>
-      <Typical className="dialog__p" steps={['tu as finis le jeu!', 1000]} wrapper="p" />
+      <Typical className="dialog__p" steps={['Tu as finis le jeu!', 1000]} wrapper="p" />
       <div className="next-button-container">
-        <Button cssClassName="next-button" buttonName="Rejouer" url="/play" />
+        <div className="neon-button-container">
+          <Button cssClassName="neon-button neon-button--next" buttonName="Rejouer" url="/play" />
+          <div className="neon-border-container">
+            <span />
+            <span />
+            <span />
+            <span />
+          </div>
+        </div>
       </div>
     </div>
   </div>

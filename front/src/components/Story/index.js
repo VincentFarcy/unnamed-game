@@ -17,7 +17,15 @@ const Story = ({ story, php, restartNewGame }) => (
           <>
             <Typical className="dialog__p" steps={[story.mainText, 1000]} wrapper="p" />
             <div className="next-button-container">
-              <Button cssClassName="generic-button next-button" buttonName="Suivant" url="/play/sequence" />
+              <div className="neon-button-container">
+                <Button cssClassName="neon-button neon-button--next" buttonName="Suivant" url="/play/sequence" />
+                <div className="neon-border-container">
+                  <span />
+                  <span />
+                  <span />
+                  <span />
+                </div>
+              </div>
             </div>
           </>
         )
@@ -25,12 +33,15 @@ const Story = ({ story, php, restartNewGame }) => (
           <>
             <Typical className="dialog__p" steps={[story.endText, 1000]} wrapper="p" />
             <div className="next-button-container">
-              <Button
-                cssClassName="generic-button next-button"
-                buttonName="Fin"
-                url="/"
-                onClick={restartNewGame}
-              />
+              <div className="neon-button-container">
+                <Button cssClassName="neon-button neon-button--next" buttonName="Fin" url="/" onClick={restartNewGame} />
+                <div className="neon-border-container">
+                  <span />
+                  <span />
+                  <span />
+                  <span />
+                </div>
+              </div>
             </div>
           </>
         )}
