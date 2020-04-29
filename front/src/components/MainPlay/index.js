@@ -4,11 +4,13 @@ import PropTypes from 'prop-types';
 import Image from 'react-bootstrap/Image';
 import { NavLink } from 'react-router-dom';
 
+
 // == Import local
 import './style.scss';
 import newGameIcon from '../../assets/images/b_02.png';
 import savedGameIcon from '../../assets/images/b_31.png';
 import ErrorMessage from '../../containers/ErrorMessage';
+
 
 // == Component
 const MainPlay = ({
@@ -27,7 +29,9 @@ const MainPlay = ({
 
   return (
     hasError ? <ErrorMessage /> : (
+
       <div>
+        
         <section className="game-launcher">
           <NavLink
             exact

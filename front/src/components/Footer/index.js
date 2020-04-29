@@ -1,10 +1,11 @@
 // == Import npm
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import ReactAudioPlayer from 'react-audio-player';
 
 // == Import local
 import './style.scss';
+import backgroundMusic from '../../assets/audio/Whitesand-Drops.mp3';
 
 // == Component
 const Footer = () => (
@@ -14,6 +15,14 @@ const Footer = () => (
       <NavLink exact to="/legal-notices" className="nav-link footer__link">
       Mentions légales
       </NavLink>
+      <ReactAudioPlayer
+        src={backgroundMusic}
+        autoPlay
+        controls
+        className="audioplayer"
+        loop
+        title="Drops from Whitesand"
+      />
     </div>
   </footer>
 );
@@ -22,3 +31,6 @@ const Footer = () => (
 
 // == Export
 export default Footer;
+
+
+
