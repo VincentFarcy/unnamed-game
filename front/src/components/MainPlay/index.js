@@ -48,17 +48,12 @@ const MainPlay = ({
           <Image className="play-images" src={newGameIcon} />
           <p className="play-text"> Nouvelle Partie</p>
         </NavLink>
-        {/* NOT DISPLAYED - MVP without backup */}
-        {/* <NavLink exact to="/play/story" className="nav-link generic-button game-launcher__btn">
-          <Image className="play-images" src={savedGameIcon} />
-          <p className="play-text"> Continuer la partie</p>
-        </NavLink> */}
         {
           hasBackup && (
             <NavLink
               exact
               to="/play/create-player"
-              className="nav-link play-button game-launcher__btn"
+              className="nav-link generic-button game-launcher__btn"
               onClick={handleContinueClick}
             >
               <Image className="play-images" src={savedGameIcon} />

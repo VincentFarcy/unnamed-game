@@ -1,69 +1,41 @@
 @import 'src/styles/vars';
 
-.combat__container {
+.combat__presentation {
+  text-align: center;
+  margin: 1rem 0;
+}
 
-  .AdvancedInfo__container {
-    margin: 0.5rem auto;
-    max-width: 300px;
-  }
+.combat__choices {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  
+  .choice {
+    width: 100px;
+    margin: 0 1rem;
+    border: 1px solid #FFF;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
 
-  .combat__presentation {
-    text-align: center;
-    margin: 1rem 0;
-  }
-
-  .combat__choices {
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    
-    .choice {
-      width: 100px;
-      margin: 0 1rem;
+    &:hover {
+      color: #FFF;
+      background-color: #F0F;
     }
   }
+}
 
-  /* CSS for Opponent*/
-  // .opponent-combat-bar .player-combat-bar {
-  //   border-radius: 10px;
-  //   box-shadow:  -4px 4px 22px $info-lower-shadow, 
-  //             4px -4px 22px $info-upper-shadow;
-  //   border: solid 1px $white-100;  
-  // }
-
-  .opponent-combat-info {
-    display: flex;
-    align-content: center;
-    flex-direction: column;
-    align-items: center;
-    color: $white-100;  
-    height: 120px;
-    &__avatar {
-      width: 90px;
+@media screen AND (min-width: 530px) {
+  .combat__container {
+    .MainAbilities__container,
+    .AdvancedAbilities__container{
+      width: 140px;
     }
-
-    .opponent__progress {
-      margin-top: 10px;
+    .MainAbilities__container {
+      margin-right: 0;
     }
-  }
-
-  .player-combat-info {
-    display: flex;
-    align-content: center;
-    flex-direction: column;
-    align-items: center;
-    color: $white-100;  
-    height: 120px;
-
-    &__avatar {
-      width: 90px;  
+    .AdvancedAbilities__container{
+      margin-left: 0;
     }
-  }
-
-  .progress {
-    height: 20px;
-    width: 110px;  
-    background-color: $HP-progress-color;
   }
 }
 
@@ -71,7 +43,7 @@
 @media screen AND (min-width: 768px) {
 
   .combat__container {
-    padding: 1rem;
+    padding: 1rem 1rem 0;
 
     .combat__presentation {
       margin: 25px 0;
@@ -83,77 +55,13 @@
         width: 200px;
       }
     }
-
-    .progress {
-      height: 30px;
-      width: 200px;
-    }
-
-    .opponent-combat-info {
-      height: 175px;    
-      &__avatar {
-        width: 120px;
-      }
-      &__value {
-        visibility: visible;
-        width: 60px; 
-        text-transform: uppercase;
-      }
-    }
-
-    .player-combat-info {
-      height: 150px;      
-      &__avatar {
-        width: 120px;
-      }
-      &__value {
-        visibility: visible;
-        width: 60px; 
-        text-transform: uppercase;
-      }
-    }
   }
 }
 
 /* === Large screens === */
 @media screen AND (min-width: 1024px) {
 
-  .combat__container {
-
-    .progress {
-      height: 40px;
-      width: 300px;
-    }
-
-    .combat__presentation {
-      margin: 35px 0;
-    }
-
-    .opponent-combat-info {
-      height: 250px;
-      &__avatar {
-        width: 140px;
-      }
-      &__counter {
-        color: $white-100;      
-        font-size: larger;
-        font-weight: 600;
-        padding-top: 15px;
-        padding-right: 25px;    
-      }
-    }
-    .player-combat-info {
-      height: 200px;
-      &__avatar {
-        width: 140px;
-      }
-      &__counter {
-        color: $white-100;      
-        font-size: larger;
-        font-weight: 600;
-        padding-top: 15px;
-        padding-right: 25px;    
-      }
-    }
+  .combat__presentation {
+    margin: 35px 0;
   }
 }

@@ -79,7 +79,7 @@ const initialState = {
   currentEvent: '',
   exploration: {
     rollFrom: 0,
-    follTo: 0,
+    rollTo: 0,
     type: '',
   },
   difficulty: 1,
@@ -181,7 +181,7 @@ const gameplay = (state = initialState, action = {}) => {
         playerRoll: 1,
         exploration: {
           rollFrom: 0,
-          follTo: 0,
+          rollTo: 0,
           type: '',
         },
         player: {
@@ -273,7 +273,7 @@ const gameplay = (state = initialState, action = {}) => {
         playerRoll: 1,
         exploration: {
           rollFrom: 0,
-          follTo: 0,
+          rollTo: 0,
           type: '',
         },
         player: {
@@ -457,7 +457,7 @@ const gameplay = (state = initialState, action = {}) => {
         },
         exploration: {
           rollFrom: 0,
-          follTo: 0,
+          rollTo: 0,
           type: '',
         },
         combat: {
@@ -507,6 +507,11 @@ const gameplay = (state = initialState, action = {}) => {
     case EVENT_NOTHING:
       return {
         ...state,
+        exploration: {
+          rollFrom: 0,
+          rollTo: 0,
+          type: '',
+        },
         sequenceToTell: {
           title: '',
           id: 0,
@@ -556,6 +561,11 @@ const gameplay = (state = initialState, action = {}) => {
           id: 0,
           mainText: '',
         },
+        exploration: {
+          rollFrom: 0,
+          rollTo: 0,
+          type: '',
+        },
         player: {
           ...state.player,
           jsx: state.player.jsx - 10,
@@ -577,6 +587,11 @@ const gameplay = (state = initialState, action = {}) => {
         opponentRewards: {
           xpCombatReward: 0,
           jsxCombatReward: 0,
+        },
+        exploration: {
+          rollFrom: 0,
+          rollTo: 0,
+          type: '',
         },
         sequenceToTell: {
           title: '',

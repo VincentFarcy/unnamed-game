@@ -18,13 +18,13 @@ const Acknowledgements = ({ artists, changeBg }) => {
     changeBg('bg--thanks');
   }, []);
   return (
-    <div className="thanks-container">
+    <div className="site-container">
       <section>
-        <Card className="thanks-intro">
-          <Card.Img className="thanks-intro__img" variant="top" src={logo} />
-          <Card.Body className="thanks-intro__body">
-            <Card.Title className="thanks-intro__title">Remerciements</Card.Title>
-            <Card.Text className="thanks-intro__content">
+        <Card className="site-intro">
+          <Card.Img className="site-intro__img" variant="top" src={logo} />
+          <Card.Body className="site-intro__body">
+            <Card.Title className="site-intro__title">Remerciements particuliers</Card.Title>
+            <Card.Text className="site-intro__content">
             Merci aux trois artistes qui nous ont permis d'utiliser leurs visuels fantastiques pour ce projet de fin d'études !
             Vous trouverez plus d'informations sur leur travail formidable en suivant les liens sur leurs photos.
             </Card.Text>
@@ -32,7 +32,7 @@ const Acknowledgements = ({ artists, changeBg }) => {
         </Card>
       </section>
 
-      <section className="thanks-players">
+      <section className="site-players">
 
         {
           artists.map((artist) => (

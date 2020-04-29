@@ -8,6 +8,8 @@ import { Switch, Route, Redirect, useParams } from 'react-router-dom';
 import './styles.scss';
 import './dialog.scss';
 import './player-action.scss';
+import './character-info.scss';
+import './site.scss';
 import Header from '../../containers/Header/Header';
 import MainSite from '../../containers/MainSite';
 import Team from '../../containers/Team';
@@ -16,7 +18,7 @@ import Rules from '../Rules';
 import SignUp from '../../containers/SignUp';
 import SignIn from '../../containers/SignIn';
 import UserPage from '../../containers/UserPage';
-import Legal from '../Legal';
+import Legal from '../../containers/Legal';
 import NotFound from '../../containers/NotFound';
 
 // == Import Gameplay Components

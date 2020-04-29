@@ -153,9 +153,7 @@ const Combat = ({
       <h2 className="dialog__title">Combat </h2>
       <div className="combat__container">
         <AdvancedInfo />
-        <div className="player__container">
-          <PlayerCombatInfo />
-        </div>
+        <PlayerCombatInfo />
         <div className="combat__choices">
           {
             isCombatOn && !isCombatInProgress && (
@@ -210,9 +208,7 @@ const Combat = ({
           }
         </div>
         <p className="combat__presentation">VS {opponent.name}</p>
-        <div className="opponent__container">
-          <OpponentCombatInfo />
-        </div>
+        <OpponentCombatInfo />
       </div>
     </div>
   );
