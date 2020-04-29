@@ -5,11 +5,15 @@ import Card from 'react-bootstrap/Card';
 // == Import local
 import './style.scss';
 
+// == Image Import
+import logo from '../../assets/images/Unnamed_Game_3_white.svg';
+
 // == Component
 const Rules = () => (
   <div className="site-container">
     <section className="introduction">
       <Card className="site-intro">
+        <Card.Img className="site-intro__img" variant="top" src={logo} />
         <Card.Body className="site-intro__body">
           <Card.Title className="site-intro__title">Introduction</Card.Title>
           <Card.Text className="site-intro__content">
