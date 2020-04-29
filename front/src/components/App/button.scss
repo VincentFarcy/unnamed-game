@@ -39,35 +39,35 @@
 /* === neon button === */
 .neon-button-container {
   position: relative;
-  height: 80px;
+  height: 70px;
+  width: 220px;
   margin: 1rem;
   .neon-button {
     position: relative;
     z-index: 1;
-    width: 250px;
+    width: 220px;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0 1.5rem;
     box-sizing: border-box;
     border: none;
     font-family: courier;
-    color: $play-inset;
+    color: $blue;
     font-size: 24px;
     text-decoration: none;
     text-transform: uppercase;
     transition: 0.5s;
     letter-spacing: 2px;
-    background: $play-inset-lighten;
+    background: $blue-lighten;
     &:hover,
     &:focus {
-      background: $play-inset;
+      background: $blue;
       color: #050801;
-      box-shadow: 0 0 5px $play-inset,
-                  0 0 25px $play-inset,
-                  0 0 50px $play-inset,
-                  0 0 200px $play-inset;
+      box-shadow: 0 0 5px $blue,
+                  0 0 25px $blue,
+                  0 0 50px $blue,
+                  0 0 200px $blue;
     }
   }
   .neon-border-container {
@@ -84,7 +84,7 @@
         left: 0;
         width: 100%;
         height: 2px;
-        background: linear-gradient(90deg,transparent,$play-inset);
+        background: linear-gradient(90deg,transparent,$blue);
         animation: neon-button-animate1 1s linear infinite;
       }
       &:nth-child(2) {
@@ -92,7 +92,7 @@
         right: 0;
         width: 2px;
         height: 100%;
-        background: linear-gradient(180deg,transparent,$play-inset);
+        background: linear-gradient(180deg,transparent,$blue);
         animation: neon-button-animate2 1s linear infinite;
         animation-delay: 0.25s;
       }
@@ -101,7 +101,7 @@
         right: -100%;
         width: 100%;
         height: 2px;
-        background: linear-gradient(270deg,transparent,$play-inset);
+        background: linear-gradient(270deg,transparent,$blue);
         animation: neon-button-animate3 1s linear infinite;
         animation-delay: 0.5s;
       }
@@ -110,18 +110,52 @@
         left: 0;
         width: 2px;
         height: 100%;
-        background: linear-gradient(360deg,transparent,$play-inset);
+        background: linear-gradient(360deg,transparent,$blue);
         animation: neon-button-animate4 1s linear infinite;
         animation-delay: 0.75s;
       }
+    }
+  }
+  .neon-button--next {
+    background: $green-lighten;
+    &:hover,
+    &:focus {
+      background: $green;
+      box-shadow: 0 0 5px $green,
+                  0 0 25px $green,
+                  0 0 50px $green,
+                  0 0 200px $green;
+    }
+  }
+  .neon-button--next~.neon-border-container {
+    span {
+      &:nth-child(1) {
+        background: linear-gradient(90deg,transparent,$green);
+      }
+      &:nth-child(2) {
+        background: linear-gradient(180deg,transparent,$green);
+      }
+      &:nth-child(3) {
+        background: linear-gradient(270deg,transparent,$green);
+      }
+      &:nth-child(4) {
+        background: linear-gradient(360deg,transparent,$green);
+      }
+    }
+  }
+}
 
+@media screen AND (min-width: 530px) {
+  .neon-button-container {
+    .neon-button--next {
+      margin-right: 1rem;
     }
   }
 }
 
 @media screen AND (min-width: 768px) {
   .neon-button-container {
-    margin: 2rem 1rem;
+    margin: 1.5rem .8rem;
     .neon-button {
       -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
     }

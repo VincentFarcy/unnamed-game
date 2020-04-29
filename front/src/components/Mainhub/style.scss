@@ -1,12 +1,4 @@
 @import 'src/styles/vars';
-// #03e9f4
-// #050801
-
-/*
-$play-halo: rgba(49, 151, 235, 0.7);
-$play-lower-halo: rgba(22, 134, 226, 0.7);
-$play-inset: rgba(36, 147, 238, 0.7);
-*/
 
 .hub {
   &__button-container {
@@ -17,128 +9,9 @@ $play-inset: rgba(36, 147, 238, 0.7);
     justify-content: center;
     align-content: center;
   }
-  &__one-button-container {
-    position: relative;
-    height: 80px;
-    margin: 2rem 1rem;
-    .hub__button {
-      position: relative;
-      z-index: 1;
-      width: 250px;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 0 1.5rem;
-      box-sizing: border-box;
-      border: none;
-      font-family: courier;
-      color: $play-inset;
-      font-size: 24px;
-      text-decoration: none;
-      text-transform: uppercase;
-      transition: 0.5s;
-      letter-spacing: 2px;
-      -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
-      background: $play-inset-lighten;
-      &:hover,
-      &:focus {
-        background: $play-inset;
-        color: #050801;
-        box-shadow: 0 0 5px $play-inset,
-                    0 0 25px $play-inset,
-                    0 0 50px $play-inset,
-                    0 0 200px $play-inset;
-      }
-    }
-    .neon-container {
-      z-index: 0;
-      position: relative;
-      top: -100%;
-      height: 100%;
-      overflow:hidden;
-      span {
-        position: absolute;
-        display: block;
-        &:nth-child(1) {
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 2px;
-          background: linear-gradient(90deg,transparent,$play-inset);
-          animation: animate1 1s linear infinite;
-        }
-        &:nth-child(2) {
-          top: -100%;
-          right: 0;
-          width: 2px;
-          height: 100%;
-          background: linear-gradient(180deg,transparent,$play-inset);
-          animation: animate2 1s linear infinite;
-          animation-delay: 0.25s;
-        }
-        &:nth-child(3) {
-          bottom: 0;
-          right: -100%;
-          width: 100%;
-          height: 2px;
-          background: linear-gradient(270deg,transparent,$play-inset);
-          animation: animate3 1s linear infinite;
-          animation-delay: 0.5s;
-        }
-        &:nth-child(4) {
-          bottom: -100%;
-          left: 0;
-          width: 2px;
-          height: 100%;
-          background: linear-gradient(360deg,transparent,$play-inset);
-          animation: animate4 1s linear infinite;
-          animation-delay: 0.75s;
-        }
-
-      }
-    }
-  }
-}
-
-@keyframes animate1 {
-  0% {
-    left: -100%;
-  }
-  50%, 100% {
-    left: 100%;
-  }
-}
-
-@keyframes animate2 {
-  0% {
-    top: -100%;
-  }
-  50%, 100% {
-    top: 100%;
-  }
-}
-
-@keyframes animate3 {
-  0% {
-    right: -100%;
-  }
-  50%, 100% {
-    right: 100%;
-  }
-}
-
-@keyframes animate4 {
-  0% {
-    bottom: -100%;
-  }
-  50%, 100% {
-    bottom: 100%;
-  }
 }
 
 @media screen AND (min-width: 768) {
-
   .hub {
     &__button-container {
       padding: 1em;
@@ -146,9 +19,7 @@ $play-inset: rgba(36, 147, 238, 0.7);
   }
 }
 
-/* === large screen === */
 @media screen AND (min-width: 992px) {
-
   .hub {
     &__button-container {
       flex-direction: row;

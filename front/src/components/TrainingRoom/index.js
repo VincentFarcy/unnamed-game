@@ -31,12 +31,77 @@ const Train = ({
       <div className="dialog">
         <h2 className="dialog__title">Salle d'augmentation cybernétique</h2>
         <div className="train__button-container">
-          {(rollFullAccess <= fullAccess || strengthTrainAccess <= roomAccess) && <Button cssClassName="generic-button train__button" buttonName="Force" url="/play/sequence" onClick={() => (incrementAbility('Force'))} />}
-          {(rollFullAccess <= fullAccess || agilityTrainAccess <= roomAccess) && <Button cssClassName="generic-button train__button" buttonName="Agilité" url="/play/sequence" onClick={() => (incrementAbility('Agilité'))} />}
-          {(rollFullAccess <= fullAccess || enduranceTrainAccess <= roomAccess) && <Button cssClassName="generic-button train__button" buttonName="Constitution" url="/play/sequence" onClick={() => (incrementAbility('Constitution'))} />}
-          {(rollFullAccess <= fullAccess || willTrainAccess <= roomAccess) && <Button cssClassName="generic-button train__button" buttonName="Volonté" url="/play/sequence" onClick={() => (incrementAbility('Volonté'))} />}
-          {(rollFullAccess <= fullAccess || intelligenceTrainAccess <= roomAccess) && <Button cssClassName="generic-button train__button" buttonName="Intelligence" url="/play/sequence" onClick={() => (incrementAbility('Intelligence'))} />}
-          <Button cssClassName="generic-button train__button" buttonName="PHP Suivant" url="/play/sequence" />
+          {(rollFullAccess <= fullAccess || strengthTrainAccess <= roomAccess)
+            && (
+              <div className="neon-button-container">
+                <Button cssClassName="neon-button" buttonName="Force" url="/play/sequence" onClick={() => (incrementAbility('Force'))} />
+                <div className="neon-border-container">
+                  <span />
+                  <span />
+                  <span />
+                  <span />
+                </div>
+              </div>
+            )}
+          {(rollFullAccess <= fullAccess || agilityTrainAccess <= roomAccess)
+            && (
+              <div className="neon-button-container">
+                <Button cssClassName="neon-button" buttonName="Agilité" url="/play/sequence" onClick={() => (incrementAbility('Agilité'))} />
+                <div className="neon-border-container">
+                  <span />
+                  <span />
+                  <span />
+                  <span />
+                </div>
+              </div>
+            )}
+          {(rollFullAccess <= fullAccess || enduranceTrainAccess <= roomAccess)
+            && (
+              <div className="neon-button-container">
+                <Button cssClassName="neon-button" buttonName="Constitution" url="/play/sequence" onClick={() => (incrementAbility('Constitution'))} />
+                <div className="neon-border-container">
+                  <span />
+                  <span />
+                  <span />
+                  <span />
+                </div>
+              </div>
+            )}
+          {(rollFullAccess <= fullAccess || willTrainAccess <= roomAccess)
+            && (
+              <div className="neon-button-container">
+                <Button cssClassName="neon-button" buttonName="Volonté" url="/play/sequence" onClick={() => (incrementAbility('Volonté'))} />
+                <div className="neon-border-container">
+                  <span />
+                  <span />
+                  <span />
+                  <span />
+                </div>
+              </div>
+            )}
+          {(rollFullAccess <= fullAccess || intelligenceTrainAccess <= roomAccess)
+            && (
+              <div className="neon-button-container">
+                <Button cssClassName="neon-button" buttonName="Intelligence" url="/play/sequence" onClick={() => (incrementAbility('Intelligence'))} />
+                <div className="neon-border-container">
+                  <span />
+                  <span />
+                  <span />
+                  <span />
+                </div>
+              </div>
+            )}
+        </div>
+        <div className="next-button-container">
+          <div className="neon-button-container">
+            <Button cssClassName="neon-button neon-button--next" buttonName="PHP Suivant" url="/play/sequence" />
+            <div className="neon-border-container">
+              <span />
+              <span />
+              <span />
+              <span />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -50,7 +115,6 @@ Train.propTypes = {
   incrementAbility: PropTypes.func.isRequired,
   nextSequence: PropTypes.func.isRequired,
 };
-
 
 // == Export
 export default Train;

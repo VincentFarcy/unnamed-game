@@ -27,10 +27,19 @@
   /* === Next button === */
   & .next-button-container {
     display: flex;
-    justify-content: flex-end;
-    & .next-button {
-      margin-top: 1rem;
-      display: inline-block;
+    flex-direction: row;
+    justify-content: center;    
+    width: 100%;
+    margin: 1rem 0;
+  }
+}
+
+/* === small screen === */
+@media screen AND (min-width: 530px) {
+  .dialog {
+    /* === Next button === */
+    & .next-button-container {
+      justify-content: flex-end;
     }
   }
 }
