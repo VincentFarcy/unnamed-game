@@ -110,6 +110,15 @@
   line-height: 1.4em;
 }
 
+@media (min-width: 768px) {
+  .intro-cards {
+    
+    .dialog__p {
+      font-size: 1.3rem;
+    }
+  }
+}
+
 @media (min-width: 992px) {
   .play-button-main {
     width: 400px;
