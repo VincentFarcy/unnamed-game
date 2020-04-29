@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 
 // local imports
 import Legal from '../components/Legal';
-import { changeGameStatus } from '../actions/gamePlay';
 
 // state
 const mapStateToProps = () => ({
@@ -50,11 +49,7 @@ const mapStateToProps = () => ({
 });
 
 // actions
-const mapDispatchToProps = (dispatch) => ({
-  startGame: () => {
-    dispatch(changeGameStatus());
-  },
-});
+const mapDispatchToProps = {};
 
 // export
 export default connect(mapStateToProps, mapDispatchToProps)(Legal);

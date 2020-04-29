@@ -16,8 +16,6 @@ import ConnectedUserNav from '../../containers/Header/ConnectedUserNav';
 const Header = ({
   isLogged,
   initUserState,
-  restartNewGame,
-  startGame,
   isExpanded,
   toggleMenu,
   changeBg,
@@ -28,7 +26,6 @@ const Header = ({
       initUserState();
       toggleMenu(false);
       changeBg('');
-      restartNewGame();
     }
   };
 
@@ -59,7 +56,6 @@ const Header = ({
               cssClassName="play-button mobile"
               buttonName="Jouer"
               url="/play"
-              onClick={startGame}
             />
             {/* Burger menu */}
             <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={handleToggleMenu} />
@@ -93,7 +89,6 @@ const Header = ({
                 cssClassName="play-button desktop"
                 buttonName="Jouer"
                 url="/play"
-                onClick={startGame}
               />
             </div>
           </Navbar.Collapse>
@@ -107,8 +102,6 @@ const Header = ({
 Header.propTypes = {
   isLogged: PropTypes.bool.isRequired,
   initUserState: PropTypes.func.isRequired,
-  restartNewGame: PropTypes.func.isRequired,
-  startGame: PropTypes.func.isRequired,
   isExpanded: PropTypes.bool.isRequired,
   toggleMenu: PropTypes.func.isRequired,
   changeBg: PropTypes.func.isRequired,

@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 
 // local imports
 import MainSite from '../components/MainSite';
-import { changeGameStatus } from '../actions/gamePlay';
 
 // state
 const mapStateToProps = () => ({
@@ -15,11 +14,7 @@ const mapStateToProps = () => ({
 });
 
 // actions
-const mapDispatchToProps = (dispatch) => ({
-  startGame: () => {
-    dispatch(changeGameStatus());
-  },
-});
+const mapDispatchToProps = {};
 
 // export
 export default connect(mapStateToProps, mapDispatchToProps)(MainSite);

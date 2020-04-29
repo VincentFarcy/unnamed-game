@@ -16,7 +16,6 @@ const MainSite = ({
   introContent,
   warningContent,
   warningTitle,
-  startGame,
 }) => (
   <div>
     <section className="start-game">
@@ -24,7 +23,6 @@ const MainSite = ({
         cssClassName="generic-button play-button-main"
         buttonName="Jouer"
         url="/play"
-        onClick={startGame}
       />
     </section>
     <section className="introduction">
@@ -58,7 +56,6 @@ MainSite.propTypes = {
   introContent: PropTypes.string.isRequired,
   warningTitle: PropTypes.string.isRequired,
   warningContent: PropTypes.string.isRequired,
-  startGame: PropTypes.func.isRequired,
 };
 
 

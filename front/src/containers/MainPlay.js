@@ -1,7 +1,7 @@
 // npm imports
 import { connect } from 'react-redux';
 import {
-  changeGameStatus,
+  startGame,
   fetchInitialeGameData,
   startBackupLoading,
 } from '../actions/gamePlay';
@@ -19,7 +19,7 @@ const mapStateToProps = (state) => ({
 // actions
 const mapDispatchToProps = (dispatch) => ({
   startGame: () => {
-    dispatch(changeGameStatus());
+    dispatch(startGame());
   },
   fetchInitialeGameData: () => {
     dispatch(fetchInitialeGameData());
