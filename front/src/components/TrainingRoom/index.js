@@ -23,7 +23,6 @@ const Train = ({
   const willTrainAccess = rollDice(1, 100);
   const intelligenceTrainAccess = rollDice(1, 100);
 
-  useEffect(nextSequence, []);
   return (
     <div className="player-action__container">
       <div className="player-bar">
@@ -37,7 +36,7 @@ const Train = ({
           {(rollFullAccess <= fullAccess || enduranceTrainAccess <= roomAccess || php < 30) && <Button cssClassName="generic-button train__button" buttonName="Constitution" url="/play/sequence" onClick={() => (incrementAbility('Constitution'))} />}
           {(rollFullAccess <= fullAccess || willTrainAccess <= roomAccess || php < 30) && <Button cssClassName="generic-button train__button" buttonName="Volonté" url="/play/sequence" onClick={() => (incrementAbility('Volonté'))} />}
           {(rollFullAccess <= fullAccess || intelligenceTrainAccess <= roomAccess || php < 30) && <Button cssClassName="generic-button train__button" buttonName="Intelligence" url="/play/sequence" onClick={() => (incrementAbility('Intelligence'))} />}
-          <Button cssClassName="generic-button train__button" buttonName="PHP Suivant" url="/play/sequence" />
+          <Button cssClassName="generic-button train__button" buttonName="PHP Suivant" url="/play/sequence" onClick={nextSequence} />
         </div>
       </div>
     </div>
