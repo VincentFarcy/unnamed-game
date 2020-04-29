@@ -82,7 +82,7 @@ const Rules = () => (
             Piratage = (Intelligence +(Volonté / 2)) --> En exploration, sert de base de calcul pour définir si vous arrivez à pirater le système de sécurité d'une porte.
           </Card.Text>
           <Card.Text className="site-intro__content">
-            Guérison = (Intelligence + Volonté) --> A la base, sert de base de calcul pour définir les PV que vous allez gagner lors d'un repos.
+            Guérison = (Intelligence + Volonté) --> Sert de base de calcul pour définir les PV que vous allez gagner lors d'un repos.
           </Card.Text>
         </Card.Body>
       </Card>
