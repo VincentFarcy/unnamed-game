@@ -18,7 +18,7 @@ import Rules from '../Rules';
 import SignUp from '../../containers/SignUp';
 import SignIn from '../../containers/SignIn';
 import UserPage from '../../containers/UserPage';
-import Legal from '../Legal';
+import Legal from '../../containers/Legal';
 import NotFound from '../../containers/NotFound';
 
 // == Import Gameplay Components
