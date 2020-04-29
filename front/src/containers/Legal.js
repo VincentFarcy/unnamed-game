@@ -41,8 +41,7 @@ const mapStateToProps = () => ({
       title: '6. PROTECTION DES BIENS ET DES PERSONNES – GESTION DES DONNÉES PERSONNELLES',
       content: "En France, les données personnelles sont notamment protégées par la loi n° 78-87 du 6 janvier 1978, la loi n° 2004-801 du 6 août 2004, l’article L. 226-13 du Code pénal et la Directive Européenne du 24 octobre 1995.  Sur le Unnamed.game, l'équipe ne collecte des informations personnelles ( suivant l’article 4 loi n°78-17 du 06 janvier 1978) relatives à l’utilisateur que pour le besoin du système de sauvegarde de la partie. L’utilisateur fournit ces informations en toute connaissance de cause, notamment lorsqu’il procède par lui-même à leur saisie. Il est alors précisé à l’utilisateur du site Unnamed.game l’obligation ou non de fournir ces informations.  Conformément aux dispositions des articles 38 et suivants de la loi 78-17 du 6 janvier 1978 relative à l’informatique, aux fichiers et aux libertés, tout utilisateur dispose d’un droit d’accès, de rectification, de suppression et d’opposition aux données personnelles le concernant. Pour l’exercer, il a la possibilité, une fois connecté, de modifier ou de supprimer son compte. En cas de suppression, le compte sera ensuite complètement effacé des bases de données du site.  Aucune information personnelle de l’utilisateur du site Unnamed.game n’est publiée à l’insu de l’utilisateur, échangée, transférée, cédée ou vendue sur un support quelconque à des tiers.",
     },
-],
-
+  ],
 });
 
 // actions
