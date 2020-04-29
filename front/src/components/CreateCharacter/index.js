@@ -56,12 +56,12 @@ const CreateCharacter = ({
         ) : (
           <div>
             <div className="title__container">
-              <h2 className="dialog">Sauvegarde chargée</h2>
+              <h2 className="dialog__title">Sauvegarde chargée</h2>
             </div>
             <div className="continue_main__container">
-              <Typical className="continue_text" steps={['Prêt à reprendre l\'aventure ?', 1000]} wrapper="p" /> 
-              <div className="button__container">
-                <LinkButton cssClassName="validate__button" buttonName="OK" url="/play/sequence" onClick={handleClick} />
+              <Typical className="dialog__p" steps={['Prêt à reprendre l\'aventure ?', 1000]} wrapper="p" />
+              <div className="next-button-container">
+                <LinkButton cssClassName="generic-button next-button" buttonName="OK" url="/play/sequence" onClick={handleClick} />
               </div>
             </div>
           </div>

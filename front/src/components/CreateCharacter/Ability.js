@@ -70,6 +70,7 @@ Ability.propTypes = {
   description: PropTypes.string.isRequired,
   increment: PropTypes.func.isRequired,
   decrement: PropTypes.func.isRequired,
+  image: PropTypes.string.isRequired,
 };
 
 

@@ -8,6 +8,8 @@ import { Switch, Route, Redirect, useParams } from 'react-router-dom';
 import './styles.scss';
 import './dialog.scss';
 import './player-action.scss';
+import './character-info.scss';
+import './site.scss';
 import Header from '../../containers/Header/Header';
 import MainSite from '../../containers/MainSite';
 import Team from '../../containers/Team';

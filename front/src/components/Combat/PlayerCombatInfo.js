@@ -11,9 +11,9 @@ import avatar from 'src/assets/images/PlayerAvatar.svg';
 
 // == Component
 const PlayerCombatInfo = ({ playerTotalHP, playerCurrentHP }) => (
-  <div className="player-combat-info">
-    <ProgressBar className="player__progress" variant="success" min={0} max={playerTotalHP} now={playerCurrentHP} label={`HP: ${playerCurrentHP} / ${playerTotalHP}`} />
-    <Image className="player-combat-info__avatar" src={avatar} rounded />
+  <div className="combat-info">
+    <ProgressBar variant="success" min={0} max={playerTotalHP} now={playerCurrentHP} label={`HP: ${playerCurrentHP} / ${playerTotalHP}`} />
+    <Image className="combat-info__avatar" src={avatar} rounded />
   </div>
 );
 
