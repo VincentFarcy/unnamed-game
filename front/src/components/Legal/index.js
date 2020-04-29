@@ -7,14 +7,14 @@ import { NavLink } from 'react-router-dom';
 
 // == Import local
 import './style.scss';
-import warning from '../../assets/images/r_36.png';
-import intro from '../../assets/images/b_04.png';
+import warning from '../../assets/images/b_20.png';
+import intro from '../../assets/images/b_19.png';
 
 // == Component
 const Legal = ({ legalTitle, introLegal, articles }) => (
   <div>
 
-    <section className="introduction">
+    <section className="legal">
       <Card className= "intro-cards">
         <Card.Img className= "intro-cards__img" variant="top" src={intro} />
         <Card.Body>
@@ -27,7 +27,7 @@ const Legal = ({ legalTitle, introLegal, articles }) => (
     </section>
     {
       articles.map((section) => (
-        <section className="warning">
+        <section className="legal">
           <Card className="intro-cards">
             <Card.Img className="intro-cards__img" variant="top" src={warning} />
             <Card.Body>
