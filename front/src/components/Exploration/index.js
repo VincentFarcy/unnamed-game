@@ -1,13 +1,11 @@
 // == Import npm
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
+
 
 // == Import local
 import './style.scss';
-import Nothing from '../../containers/Nothing';
-import Combat from '../../containers/Combat/Combat';
-import Reward from '../../containers/Reward';
-import Event from '../../containers/Event';
 
 // == Component
 const Exploration = ({ findExploration, randomExploration }) => {
@@ -16,10 +14,10 @@ const Exploration = ({ findExploration, randomExploration }) => {
 
   return (
     <>
-      {exploration === 'nothing' ? <Nothing /> : ''}
-      {exploration === 'fight' ? <Combat /> : ''}
-      {exploration === 'reward' ? <Reward /> : ''}
-      {exploration === 'attribute' ? <Event /> : ''}
+      {exploration === 'nothing' ? <Redirect to='/play/nothing' /> : ''}
+      {exploration === 'fight' ? <Redirect to='/play/combat' /> : ''}
+      {exploration === 'reward' ? <Redirect to='/play/reward' /> : ''}
+      {exploration === 'attribute' ? <Redirect to='/play/event' /> : ''}
     </>
   );
 };

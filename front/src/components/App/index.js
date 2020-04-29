@@ -31,6 +31,7 @@ import Exploration from '../../containers/Exploration';
 import Reward from '../../containers/Reward';
 import Train from '../../containers/TrainingRoom';
 import Medic from '../../containers/MedicBay';
+import Nothing from '../../containers/Nothing';
 import Mainhub from '../../containers/MainHub';
 import CreateCharacter from '../../containers/CreateCharacter/CreateCharacter';
 import Event from '../../containers/Event';
@@ -88,6 +89,9 @@ const App = ({ isGameOn, bgImageCssClass }) => (
         </Route>
         <Route exact path="/play/train">
           { !isGameOn ? <Redirect to="/play" /> : <Train />}
+        </Route>
+        <Route exact path="/play/nothing">
+          { !isGameOn ? <Redirect to="/play" /> : <Nothing />}
         </Route>
         <Route exact path="/play/ending">
           { !isGameOn ? <Redirect to="/play" /> : <Ending />}
