@@ -7,7 +7,7 @@ import { NavLink } from 'react-router-dom';
 
 // == Import local
 import './style.scss';
-import warning from '../../assets/images/b_20.png';
+import paragraph from '../../assets/images/b_20.png';
 import intro from '../../assets/images/b_19.png';
 
 // == Component
@@ -15,8 +15,8 @@ const Legal = ({ legalTitle, introLegal, articles }) => (
   <div>
 
     <section className="legal">
-      <Card className= "intro-cards">
-        <Card.Img className= "intro-cards__img" variant="top" src={intro} />
+      <Card className="intro-cards">
+        <Card.Img className="intro-cards__img" variant="top" src={intro} />
         <Card.Body>
           <Card.Title className="introduction__title">{legalTitle}</Card.Title>
           <Card.Text className="introduction__content">
@@ -29,7 +29,7 @@ const Legal = ({ legalTitle, introLegal, articles }) => (
       articles.map((section) => (
         <section className="legal">
           <Card className="intro-cards">
-            <Card.Img className="intro-cards__img" variant="top" src={warning} />
+            <Card.Img className="intro-cards__img" variant="top" src={paragraph} />
             <Card.Body>
               <Card.Title className="intro-cards__title">{section.title}</Card.Title>
               <Card.Text>
