@@ -79,7 +79,7 @@ const Rules = () => (
             Dégâts = (Force) --> En combat, si vous avez touché votre adversaire, sert de base de calcul pour définir les PV qu'il va perdre.
           </Card.Text>
           <Card.Text className="site-intro__content">
-            Piratage = (Intelligence +(Volonté /2)) --> En exploration, sert de base de calcul pour définir si vous arrivez à pirater le système de sécurité d'une porte.
+            Piratage = (Intelligence +(Volonté / 2)) --> En exploration, sert de base de calcul pour définir si vous arrivez à pirater le système de sécurité d'une porte.
           </Card.Text>
           <Card.Text className="site-intro__content">
             Guérison = (Intelligence + Volonté) --> A la base, sert de base de calcul pour définir les PV que vous allez gagner lors d'un repos.
