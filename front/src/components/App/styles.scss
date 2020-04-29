@@ -8,7 +8,6 @@
   opacity: 1;
   z-index: 0;
 }
-
 .app::before,
 .app::after {
   content: "";
@@ -33,7 +32,6 @@
   z-index: 2;
   animation : 1s bg-gradual-onset-app forwards;
 }
-
 .bg--404 {
   &::before {
     background-image: url('../../assets/images/mihai-muscan-42.jpg');
@@ -43,7 +41,6 @@
     animation : 1s bg-gradual-onset-404 forwards;
   }
 }
-
 .bg--create {
   &::before {
     background-image: url('../../assets/images/mihai-muscan-4.jpg');  
@@ -53,7 +50,6 @@
     animation : 1s bg-gradual-onset-create forwards;
   }
 }
-
 .bg--combat {
   &::before {
     background-image: url('../../assets/images/mihai-muscan-27-9.jpg'); 
@@ -63,7 +59,6 @@
     animation : 1s bg-gradual-onset-combat forwards;
   }
 }
-
 .bg--sequence {
   &::before {
     background-image: url('../../assets/images/samuel-guerrouche-screenshot004.jpg');
@@ -73,7 +68,6 @@
     animation : 1s bg-gradual-onset-sequence forwards;
   }
 }
-
 .bg--team {
   &::before {
     background-image: url('../../assets/images/taha-mousavi-modular-scifi-corridor-06.jpg');
@@ -83,7 +77,6 @@
     animation : 1s bg-gradual-onset-sequence forwards;
   }
 }
-
 .bg--thanks {
   &::before {
     background-image: url('../../assets/images/taha-mousavi-modular-scifi-corridor-05.jpg');
@@ -93,7 +86,6 @@
     animation : 1s bg-gradual-onset-sequence forwards;
   }
 }
-
 .bg--hidden {
   background-image: url('../../assets/images/mihai-muscan-42.jpg');
   background-image: url('../../assets/images/mihai-muscan-4.jpg');
@@ -155,49 +147,15 @@ main > div {
   z-index:10;
 }
 
-/* === generic components === */
-.generic-button {
-  font-size: 1rem;
-  padding: 0.5rem 1rem;
-  background: $generic-button-background;
-  border-radius: 10px;
-  border-color: $generic-button-background;
-  color: $generic-button-color; 
-  box-shadow:  -4px 4px 16px $generic-button-lower-shadow, 
-  4px -4px 16px $generic-button-upper-shadow;
-  font-weight: 900;
-}
-
-.generic-button:hover {
-  background-color: $generic-button-background;
-  color: $generic-button-background; 
-  box-shadow:  -4px 4px 16px $generic-button-lower-shadow, 
-              4px -4px 16px $generic-button-upper-shadow-hover;
-}
-
 @media screen AND (min-width: 350px) {
   .main {
     padding: 1rem;
   }
 }
 
-/* === medium screen === */
-@media screen AND (min-width: 768px) {
-  .generic-button {
-    font-size: 1.6rem;
-    padding: 0.3rem 1.8rem;
-  }  
-}
-
 /* === large screen === */
 @media screen AND (min-width: 992px) {
 
-  .generic-button {
-    font-size: 1.8rem;
-    padding: 0.5rem 2rem;
-    transition-duration: 0.3s;
-    transition-property: border-color, background-color, box-shadow, color;
-  }  
   .header {
     height: var(--header-height-desktop);
   }

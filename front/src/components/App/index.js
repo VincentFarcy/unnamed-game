@@ -6,6 +6,7 @@ import { Switch, Route, Redirect, useParams } from 'react-router-dom';
 // == Import local
 // == Import Website Components
 import './styles.scss';
+import './button.scss';
 import './dialog.scss';
 import './player-action.scss';
 import './character-info.scss';
