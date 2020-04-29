@@ -19,6 +19,7 @@ const Header = ({
   isExpanded,
   toggleMenu,
   changeBg,
+  restartMusic,
 }) => {
   //
   const handleClick = (evt) => {
@@ -26,6 +27,7 @@ const Header = ({
       initUserState();
       toggleMenu(false);
       changeBg('');
+      restartMusic();
     }
   };
 

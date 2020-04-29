@@ -36,7 +36,7 @@ import Mainhub from '../../containers/MainHub';
 import CreateCharacter from '../../containers/CreateCharacter/CreateCharacter';
 import Event from '../../containers/Event';
 import Ending from '../Ending';
-import Footer from '../Footer';
+import Footer from '../../containers/Footer';
 
 // == Component
 const App = ({ isGameOn, bgImageCssClass }) => (

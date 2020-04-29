@@ -31,7 +31,6 @@ const MainPlay = ({
     hasError ? <ErrorMessage /> : (
 
       <div>
-        
         <section className="game-launcher">
           <NavLink
             exact
