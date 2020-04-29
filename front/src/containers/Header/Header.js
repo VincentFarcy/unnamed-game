@@ -18,7 +18,6 @@ const mapStateToProps = (state) => ({
 /* === Actions === */
 const mapDispatchToProps = (dispatch) => ({
   resetGame: () => {
-    console.log('resetGame');
     dispatch(resetGame());
   },
   restartNewGame: () => {

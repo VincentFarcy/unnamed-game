@@ -13,7 +13,6 @@ import ErrorMessage from '../../containers/ErrorMessage';
 // == Component
 const MainPlay = ({
   hasError,
-  gameOn,
   startGame,
   fetchInitialeGameData,
   hasBackup,
@@ -27,7 +26,7 @@ const MainPlay = ({
   const handleContinueClick = (evt) => {
     fetchInitialeGameData();
     startBackupLoading();
-    console.log("test");
+    // console.log("test");
   };
 
   return (
