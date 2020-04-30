@@ -13,7 +13,7 @@ const mapStateToProps = () => ({
     {
       name: 'info',
       title: '1. INFORMATIONS LÉGALES',
-      content: "L'ensemble de ce site a été réalisé par les élèves O'clock de la Promotion Asgard dans un but pédagogique et à des fins de validation de leur cursus de formation. L'ensemble des membres de l'équipe ainsi que leurs contacts peuvent être trouvés en vous rendant dans la séction Présentation de l'équipe du site ou par email: unnamed.game.oclock.io@gmail.com",
+      content: "L'ensemble de ce site a été réalisé par les élèves O'clock de la Promotion Asgard dans un but pédagogique et à des fins de validation de leur cursus de formation. L'ensemble des membres de l'équipe ainsi que leurs contacts peuvent être trouvés en vous rendant dans la section Présentation de l'équipe du site ou par email: unnamed.game.oclock.io@gmail.com",
     },
     {
       name: 'pres',
@@ -22,7 +22,7 @@ const mapStateToProps = () => ({
     },
     {
       name: 'access',
-      title: '3. ACCÉSSIBILITÉ',
+      title: '3. ACCESSIBILITÉ',
       content: "Le site Unnamed.game est par principe accessible aux utilisateurs 24/24h, 7/7j, sauf interruption, programmée ou non, pour les besoins de sa maintenance ou en cas de force majeure. En cas d’impossibilité d’accès au service, Unnamed.game s’engage à faire son maximum afin de rétablir l’accès au service et s’efforcera alors de communiquer préalablement aux utilisateurs les dates et heures de l’intervention.  N’étant soumis qu’à une obligation de moyen, Unnamed.game ne saurait être tenu pour responsable de tout dommage, quelle qu’en soit la nature, résultant d’une indisponibilité du service.",
     },
     {
@@ -33,7 +33,7 @@ const mapStateToProps = () => ({
     {
       name: 'cookies',
       title: '5. LIENS HYPERTEXTES ET COOKIES',
-      content: "Le site Unnamed.game contient un certain nombre de liens hypertextes vers d’autres sites (linkedIn, GitHub, ArtStation) mis en place avec l’autorisation des auteurs du site. Cependant, l'équipe n’a pas la possibilité de vérifier l’ensemble du contenu des sites ainsi visités et décline donc toute responsabilité de ce fait quand aux risques éventuels de contenus illicites. L'utilisation des cookies effectuée sur le site n'enregistre aucune information personnelle liée à l'utilisateur et ne servent qu'au bon fonctionnement du site. Le paramétrage du logiciel de navigation permet d’informer de la présence de cookie et éventuellement, de la refuser de la manière décrite à l’adresse suivante : www.cnil.fr. L’utilisateur peut toutefois configurer le navigateur de son ordinateur pour refuser l’installation des cookies, sachant que le refus d’installation d’un cookie peut entraîner l’impossibilité d’accéder à certains services. Pour tout bloquage des cookies, tapez dans votre moteur de recherche : bloquage des cookies sous Chrome, IE ou Firefox et suivez les instructions en fonction de votre version.",
+      content: "Le site Unnamed.game contient un certain nombre de liens hypertextes vers d’autres sites (linkedIn, GitHub, ArtStation) mis en place avec l’autorisation des auteurs du site. Cependant, l'équipe n’a pas la possibilité de vérifier l’ensemble du contenu des sites ainsi visités et décline donc toute responsabilité de ce fait quand aux risques éventuels de contenus illicites. L'utilisation des cookies effectuée sur le site n'enregistre aucune information personnelle liée à l'utilisateur et ne servent qu'au bon fonctionnement du site. Le paramétrage du logiciel de navigation permet d’informer de la présence de cookies et éventuellement, de la refuser de la manière décrite à l’adresse suivante : www.cnil.fr. L’utilisateur peut toutefois configurer le navigateur de son ordinateur pour refuser l’installation des cookies, sachant que le refus d’installation d’un cookie peut entraîner l’impossibilité d’accéder à certains services. Pour tout bloquage des cookies, tapez dans votre moteur de recherche : bloquage des cookies sous Chrome, IE ou Firefox et suivez les instructions en fonction de votre version.",
     },
     {
       name: 'rgpd',

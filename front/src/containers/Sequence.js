@@ -11,6 +11,7 @@ import { findSequence, changeBg, gameBackup } from '../actions/gamePlay';
 const mapStateToProps = (state) => ({
   sequence: state.gameplay.sequenceToTell,
   php: state.gameplay.phpTimer,
+  hp: state.gameplay.player.playerCurrentHP,
 });
 
 // actions

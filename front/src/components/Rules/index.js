@@ -71,7 +71,7 @@ const Rules = () => (
             Ce sont ces statistiques secondaires qui sont utilisées par le jeu.
           </Card.Text>
           <Card.Text className="site-intro__content">
-            Point de Vie (PV) = (Constitution + (Volonté / 2)) --> Une fois à 0, vous avez perdu.
+            Point de Vie (PV) = (Constitution + (Volonté / 2)) X 10 --> Une fois à 0, vous avez perdu.
           </Card.Text>
           <Card.Text className="site-intro__content">
             Initiative = (Agilité) --> En combat, sert de base de calcul pour définir qui agira le premier.
