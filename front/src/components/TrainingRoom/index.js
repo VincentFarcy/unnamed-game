@@ -42,7 +42,7 @@ const Train = ({
       <div className="dialog">
         <h2 className="dialog__title">Salle d'augmentation cybernétique</h2>
         <div className="train__button-container">
-          {((rollFullAccess <= fullAccess || strengthTrainAccess <= roomAccess) && php < 30 && strength < 9)
+          {((rollFullAccess <= fullAccess || strengthTrainAccess <= roomAccess) && php < 31 && strength < 9)
             && (
               <div className="neon-button-container">
                 <Button cssClassName="neon-button neon-button--train" buttonName="Force" url="/play/sequence" onClick={() => (incrementAbility('Force'))} />
@@ -54,7 +54,7 @@ const Train = ({
                 </div>
               </div>
             )}
-          {((rollFullAccess <= fullAccess || agilityTrainAccess <= roomAccess) && php < 30 && agility < 9)
+          {((rollFullAccess <= fullAccess || agilityTrainAccess <= roomAccess) && php < 31 && agility < 9)
             && (
               <div className="neon-button-container">
                 <Button cssClassName="neon-button neon-button--train" buttonName="Agilité" url="/play/sequence" onClick={() => (incrementAbility('Agilité'))} />
@@ -66,7 +66,7 @@ const Train = ({
                 </div>
               </div>
             )}
-          {((rollFullAccess <= fullAccess || enduranceTrainAccess <= roomAccess) && php < 30 && constitution < 9)
+          {((rollFullAccess <= fullAccess || enduranceTrainAccess <= roomAccess) && php < 31 && constitution < 9)
             && (
               <div className="neon-button-container">
                 <Button cssClassName="neon-button neon-button--train" buttonName="Constitution" url="/play/sequence" onClick={() => (incrementAbility('Constitution'))} />
@@ -78,7 +78,7 @@ const Train = ({
                 </div>
               </div>
             )}
-          {((rollFullAccess <= fullAccess || willTrainAccess <= roomAccess) && php < 30 && will < 9)
+          {((rollFullAccess <= fullAccess || willTrainAccess <= roomAccess) && php < 31 && will < 9)
             && (
               <div className="neon-button-container">
                 <Button cssClassName="neon-button neon-button--train" buttonName="Volonté" url="/play/sequence" onClick={() => (incrementAbility('Volonté'))} />
@@ -90,7 +90,7 @@ const Train = ({
                 </div>
               </div>
             )}
-          {((rollFullAccess <= fullAccess || intelligenceTrainAccess <= roomAccess) && php < 30 && intelligence < 9)
+          {((rollFullAccess <= fullAccess || intelligenceTrainAccess <= roomAccess) && php < 31 && intelligence < 9)
             && (
               <div className="neon-button-container">
                 <Button cssClassName="neon-button neon-button--train" buttonName="Intelligence" url="/play/sequence" onClick={() => (incrementAbility('Intelligence'))} />
