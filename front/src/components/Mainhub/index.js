@@ -1,6 +1,7 @@
 // == Import npm
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
 
 // == Import local
 import './style.scss';
@@ -19,12 +20,15 @@ const Mainhub = ({
   actionRest,
   php,
   startMission,
+  hp,
+  nextSequence,
 }) => {
   const RollForMedicAccess = rollDice(1, 100);
   const RollForTrainAccess = rollDice(1, 100);
 
   return (
     <div className="player-action__container">
+      {(php > 32 || hp <= 0) && <Redirect to="/play/death" />}
       <div className="player-bar">
         <PlayerInfo />
       </div>
@@ -68,7 +72,7 @@ const Mainhub = ({
           {(trainAccess >= RollForTrainAccess) && (xp >= xpCost) && (php > 5) && (php < 30) && (jsx >= jsxCost)
             && (
               <div className="neon-button-container">
-                <Button cssClassName="neon-button" buttonName="Entrainement" url="/play/train" />
+                <Button cssClassName="neon-button" buttonName="Entrainement" url="/play/train" onClick={nextSequence} />
                 <div className="neon-border-container">
                   <span />
                   <span />
@@ -106,6 +110,8 @@ Mainhub.propTypes = {
   actionRest: PropTypes.func.isRequired,
   php: PropTypes.number.isRequired,
   startMission: PropTypes.func.isRequired,
+  hp: PropTypes.number.isRequired,
+  nextSequence: PropTypes.func.isRequired,
 };
 
 // == Export

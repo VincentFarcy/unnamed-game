@@ -7,8 +7,9 @@ import Button from '../LinkButton';
 import './style.scss';
 
 // == Component
-const Medic = ({ actionMedic }) => (
+const Medic = ({ actionMedic, php, hp }) => (
   <div className="dialog">
+    {(php > 32 || hp <= 0) && <Redirect to="/play/death" />}
     <h2 className="dialog__title">Medic Bay</h2>
     <p className="dialog__p">Te faire soigner t'a coûté 10 JSX. Cependant l'efficacité du système est surprenante</p>
     <div className="next-button-container">
@@ -28,6 +29,8 @@ const Medic = ({ actionMedic }) => (
 // == Props validation
 Medic.propTypes = {
   actionMedic: PropTypes.func.isRequired,
+  php: PropTypes.number.isRequired,
+  hp: PropTypes.number.isRequired,
 };
 
 

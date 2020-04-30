@@ -140,7 +140,7 @@ const initialState = {
   hero: {},
   backupIsLoading: false,
   chapters: [
-    {}
+    {},
   ],
 };
 
@@ -239,7 +239,7 @@ const gameplay = (state = initialState, action = {}) => {
           ...state.gameParameters,
         },
         chapters: [
-          {}
+          {},
         ],
       };
     case GAME_DATA_SUCCESS:
@@ -403,7 +403,7 @@ const gameplay = (state = initialState, action = {}) => {
     case FIND_EVENT:
       return {
         ...state,
-        difficulty: rollDice(3, 10),
+        difficulty: rollDice(4, 9),
         playerRoll: rollDice(1, 6),
       };
     case FIND_EXPLORATION:
@@ -488,8 +488,8 @@ const gameplay = (state = initialState, action = {}) => {
           mainText: '',
         },
         eventRewards: {
-          xp: rollDice(2, 4),
-          jsx: rollDice(1, 3),
+          xp: rollDice(4, 8),
+          jsx: rollDice(4, 8),
         },
       };
 
@@ -497,7 +497,6 @@ const gameplay = (state = initialState, action = {}) => {
       findTrainAbility(state, action.payload);
       return {
         ...state,
-        phpTimer: state.phpTimer + 1,
         sequenceToTell: {
           title: '',
           id: 0,

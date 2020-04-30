@@ -15,6 +15,7 @@ const Sequence = ({
   findSequence,
   php,
   gameBackup,
+  hp,
 }) => {
   useEffect(findSequence, []);
   useEffect(gameBackup, []);
@@ -27,6 +28,7 @@ const Sequence = ({
   return (
     <div className="sequence__container">
       <div className="dialog">
+        {(php > 32 || hp <= 0) && <Redirect to="/play/death" />}
         {sequence.id === 99 ? <Redirect to="/play/mainhub" />
           : (
             <div>
@@ -92,6 +94,7 @@ Sequence.propTypes = {
   findSequence: PropTypes.func.isRequired,
   gameBackup: PropTypes.func.isRequired,
   php: PropTypes.number.isRequired,
+  hp: PropTypes.number.isRequired,
 };
 
 
