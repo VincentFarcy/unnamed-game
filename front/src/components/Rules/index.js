@@ -106,7 +106,7 @@ const Rules = () => (
             PHP : Personal Hour Protocol. Dans l'espace, il n'y a pas d'étoile servant de métronome... C'est l'équivalent d'une journée terrestre.
           </Card.Text>
           <Card.Text className="site-intro__content">
-            JSX : Jaon System Xenium. Le système monnétaire des Jaons. C'est l'équivalent de l'euro terrestre. Ils peuvent être dépensés durant le jeu.
+            JSX : Jaon System Xenium. Le système monétaire des Jaons. C'est l'équivalent de l'euro terrestre. Ils peuvent être dépensés durant le jeu.
           </Card.Text>
           <Card.Text className="site-intro__content">
             XP: Points d'expérience. Ils peuvent être dépensés durant le jeu pour améliorer Unnamed.
