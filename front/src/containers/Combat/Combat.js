@@ -3,16 +3,16 @@ import { connect } from 'react-redux';
 
 // local imports
 import Combat from '../../components/Combat';
+
+// Action Creators
 import {
   findOpponent,
   combatInProgress,
   applyDamage,
   nextSequence,
   endFight,
+  changeBg,
 } from '../../actions/gamePlay';
-
-// Action Creators
-import { changeBg } from '../../actions/gamePlay';
 
 // state
 const mapStateToProps = (state) => ({
@@ -36,7 +36,7 @@ const mapDispatchToProps = (dispatch) => ({
   applyDamage: (damage) => {
     dispatch(applyDamage(damage));
   },
-  runAway: () => {
+  nextSequence: () => {
     dispatch(nextSequence());
   },
   endFight: () => {

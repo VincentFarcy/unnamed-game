@@ -22,7 +22,7 @@ const Combat = ({
   findOpponent,
   combatInProgress,
   applyDamage,
-  runAway,
+  nextSequence,
   endFight,
   changeBg,
   php,
@@ -171,7 +171,7 @@ const Combat = ({
                     cssClassName="choice btn-warning"
                     buttonName="Fuir"
                     url="/play/sequence"
-                    onClick={runAway}
+                    onClick={nextSequence}
                   />
                 )}
               </>
@@ -243,7 +243,7 @@ Combat.propTypes = {
   strength: PropTypes.number.isRequired,
   combatInProgress: PropTypes.func.isRequired,
   applyDamage: PropTypes.func.isRequired,
-  runAway: PropTypes.func.isRequired,
+  nextSequence: PropTypes.func.isRequired,
   endFight: PropTypes.func.isRequired,
   changeBg: PropTypes.func.isRequired,
   php: PropTypes.number.isRequired,

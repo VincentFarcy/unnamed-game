@@ -30,7 +30,6 @@ import {
   LOAD_BACKUP_DATA,
   START_BACKUP_LOADING,
   END_BACKUP_LOADING,
-  UPDATE_TIMER,
   EVENT_WIN,
   FIND_EVENT,
   INCREMENT_ABILITY,
@@ -478,45 +477,6 @@ const gameplay = (state = initialState, action = {}) => {
           ...state.player,
           jsx: state.player.jsx - 10,
           playerCurrentHP: state.player.playerTotalHP,
-        },
-      };
-    case UPDATE_TIMER:
-      return {
-        ...state,
-        phpTimer: state.phpTimer + 1,
-        rewards: {
-          xpRoll: 0,
-          jsxRoll: 0,
-        },
-        eventRewards: {
-          xp: null,
-          jsx: null,
-        },
-        opponentRewards: {
-          xpCombatReward: 0,
-          jsxCombatReward: 0,
-        },
-        exploration: {
-          rollFrom: 0,
-          rollTo: 0,
-          type: '',
-        },
-        sequenceToTell: {
-          title: '',
-          id: 0,
-          mainText: '',
-        },
-        combat: {
-          ...state.combat,
-          // currentOponent is empty until OpponentCombatInfo is rendered
-          currentOpponent: {
-            opponentCurrentHP: 0,
-            speed: 0,
-            touch: 0,
-            dodge: 0,
-            xpGain: 0,
-            moneyGain: 0,
-          },
         },
       };
     case EVENT_WIN:
