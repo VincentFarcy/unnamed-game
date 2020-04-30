@@ -21,9 +21,14 @@ const ConnectedUserNav = ({
         className="greeting-user"
         to="/user"
       >
-      Bienvenue {pseudo}
+        Bienvenue {pseudo}
       </Link>
-      <LinkButton cssClassName="" buttonName="Se deconnecter" url="/" onClick={handleClick} />
+      <LinkButton
+        cssClassName=""
+        buttonName="Se deconnecter"
+        url="/"
+        onClick={handleClick}
+      />
     </div>
   );
 };

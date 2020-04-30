@@ -3,13 +3,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Image from 'react-bootstrap/Image';
 import ProgressBar from 'react-bootstrap/ProgressBar';
-import avatar from 'src/assets/images/PlayerAvatar.svg';
-import AdvancedInfo from '../../containers/AdvancedInfo';
-import RessourceInfo from '../../containers/RessourceInfo';
 
 
 // == Import local
 import './style.scss';
+import avatar from 'src/assets/images/PlayerAvatar.svg';
+import AdvancedInfo from '../../containers/AdvancedInfo';
+import RessourceInfo from '../../containers/RessourceInfo';
 
 
 // == Component
@@ -22,7 +22,13 @@ const PlayerInfo = ({ playerTotalHP, playerCurrentHP }) => (
       <Image className="player-info__avatar" src={avatar} />
     </div>
     <div className="player-info__bar-container">
-      <ProgressBar variant="success" min={0} max={playerTotalHP} now={playerCurrentHP} label={`HP: ${playerCurrentHP} / ${playerTotalHP}`} />
+      <ProgressBar
+        variant="success"
+        min={0}
+        max={playerTotalHP}
+        now={playerCurrentHP}
+        label={`HP: ${playerCurrentHP} / ${playerTotalHP}`}
+      />
       <RessourceInfo />
     </div>
   </div>

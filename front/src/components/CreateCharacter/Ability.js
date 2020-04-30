@@ -8,7 +8,6 @@ import Tooltip from 'react-bootstrap/Tooltip';
 // == Import local
 import './style.scss';
 
-
 // == Component
 const Ability = ({
   name,

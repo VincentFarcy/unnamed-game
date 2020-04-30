@@ -14,7 +14,7 @@ const Footer = ({ gameOn }) => (
     <div className="footer-container">
       <p className="footer__copyright">&copy; 2020 - Tous droits réservés</p>
       <NavLink exact to="/legal-notices" className="nav-link footer__link">
-      Mentions légales
+        Mentions légales
       </NavLink>
       {
         gameOn && (
@@ -40,4 +40,3 @@ Footer.propTypes = {
 
 // == Export
 export default Footer;
-

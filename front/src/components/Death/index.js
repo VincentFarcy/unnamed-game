@@ -3,11 +3,10 @@ import React from 'react';
 import loose from 'src/assets/images/death.svg';
 import Typical from 'react-typical';
 import Image from 'react-bootstrap/Image';
-import Button from '../LinkButton';
 
 // == Import local
 import './style.scss';
-
+import Button from '../LinkButton';
 
 // == Component
 const Death = () => (

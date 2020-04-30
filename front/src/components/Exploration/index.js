@@ -14,10 +14,10 @@ const Exploration = ({ findExploration, randomExploration }) => {
 
   return (
     <>
-      {exploration === 'nothing' ? <Redirect to='/play/nothing' /> : ''}
-      {exploration === 'fight' ? <Redirect to='/play/combat' /> : ''}
-      {exploration === 'reward' ? <Redirect to='/play/reward' /> : ''}
-      {exploration === 'attribute' ? <Redirect to='/play/event' /> : ''}
+      {exploration === 'nothing' ? <Redirect to="/play/nothing" /> : ''}
+      {exploration === 'fight' ? <Redirect to="/play/combat" /> : ''}
+      {exploration === 'reward' ? <Redirect to="/play/reward" /> : ''}
+      {exploration === 'attribute' ? <Redirect to="/play/event" /> : ''}
     </>
   );
 };

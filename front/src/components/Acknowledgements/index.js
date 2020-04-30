@@ -17,6 +17,7 @@ const Acknowledgements = ({ artists, changeBg }) => {
   useEffect(() => {
     changeBg('bg--thanks');
   }, []);
+  
   return (
     <div className="site-container">
       <section>
@@ -37,15 +38,16 @@ const Acknowledgements = ({ artists, changeBg }) => {
           <Card.Body className="site-intro__body">
             <Card.Title className="site-intro__title">Remerciements particuliers</Card.Title>
             <Card.Text className="site-intro__content">
-            Merci aux quatres artistes qui nous ont permis d'utiliser leurs visuels et musiques fantastiques pour ce projet de fin d'études !
-            Vous trouverez plus d'informations sur leur travail formidable en suivant les liens sur leurs photos.
+            Merci aux quatre artistes qui nous ont permis d'utiliser leurs visuels et musiques fantastiques
+            pour ce projet de fin d'études !
+            Vous trouverez plus d'informations sur leur travail formidable
+            en suivant les liens sur leurs photos.
             </Card.Text>
           </Card.Body>
         </Card>
       </section>
 
       <section className="site-players">
-
         {
           artists.map((artist) => (
             <div className="container" key={artist.id}>
@@ -56,8 +58,23 @@ const Acknowledgements = ({ artists, changeBg }) => {
                 <div className="contentBx">
                   <h3 className="contentBx__title1">{artist.name} </h3>
                   <h3 className="contentBx__title2">{artist.title} </h3>
-                  <div className="contentBx__content"><FontAwesomeIcon icon={faMapMarkerAlt} size="lg" /><p className="contentBx__content-p">{artist.location}</p></div>
-                  <FontAwesomeIcon icon={faLink} size="lg" /><a target="_blank" rel="noopener noreferrer" className="contentBx__link" href={artist.artStation} alt={`Page de l'artiste ${artist.name}`}>Page de l'artiste</a>
+                  <div className="contentBx__content">
+                    <FontAwesomeIcon icon={faMapMarkerAlt} size="lg" />
+                    <p className="contentBx__content-p">{artist.location}</p>
+                  </div>
+                  <FontAwesomeIcon
+                    icon={faLink}
+                    size="lg"
+                  />
+                    <a
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="contentBx__link"
+                      href={artist.artStation}
+                      alt={`Page de l'artiste ${artist.name}`}
+                    >
+                      Page de l'artiste
+                    </a>
                 </div>
               </div>
             </div>

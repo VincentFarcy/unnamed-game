@@ -1,12 +1,12 @@
 // == Import npm
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import Button from '../LinkButton';
-import PlayerInfo from '../../containers/PlayerInfo';
 
 
 // == Import local
 import './style.scss';
+import Button from '../LinkButton';
+import PlayerInfo from '../../containers/PlayerInfo';
 
 
 // == Component
@@ -32,7 +32,7 @@ const Reward = ({
       </div>
       <div className="dialog">
         <h2 className="dialog__title">Voici vos récompenses</h2>
-        <p className="dialog__p"> {`Vous avez gagné ${(eventRewardXp !== null ? eventRewardXp : xpReward) + xpCombatReward} point(s) d'expérience et ${(eventRewardJsx !== null ? eventRewardJsx :  jsxReward) + jsxCombatReward} JSX.`} </p>
+        <p className="dialog__p"> {`Vous avez gagné ${(eventRewardXp !== null ? eventRewardXp : xpReward) + xpCombatReward} point(s) d'expérience et ${(eventRewardJsx !== null ? eventRewardJsx : jsxReward) + jsxCombatReward} JSX.`} </p>
         <div className="next-button-container">
           <div className="neon-button-container">
             <Button
@@ -67,6 +67,11 @@ Reward.propTypes = {
   addOpponnentReward: PropTypes.func.isRequired,
 };
 
+// == Default props
+Reward.defaultProps = {
+  eventRewardJsx: null,
+  eventRewardXp: null,
+};
 
 // == Export
 export default Reward;

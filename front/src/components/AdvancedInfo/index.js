@@ -1,16 +1,3 @@
-// == Import : assets
-import Force from 'src/assets/images/strength.png';
-import Agilité from 'src/assets/images/agility.png';
-import Constitution from 'src/assets/images/endurance.png';
-import Volonté from 'src/assets/images/will.png';
-import Intelligence from 'src/assets/images/intelligence.png';
-import Damage from 'src/assets/images/damage.png';
-import Dodge from 'src/assets/images/dodge.png';
-import Hacking from 'src/assets/images/hacking.png';
-import Healing from 'src/assets/images/healing.png';
-import Initiative from 'src/assets/images/initiative.png';
-import Touch from 'src/assets/images/touch.png';
-
 // == Import npm
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -20,7 +7,13 @@ import Tooltip from 'react-bootstrap/Tooltip';
 
 // == Import local
 import './style.scss';
-
+// == Import : assets
+import Damage from 'src/assets/images/damage.png';
+import Dodge from 'src/assets/images/dodge.png';
+import Hacking from 'src/assets/images/hacking.png';
+import Healing from 'src/assets/images/healing.png';
+import Initiative from 'src/assets/images/initiative.png';
+import Touch from 'src/assets/images/touch.png';
 
 // == Component
 const AdvancedInfo = ({
@@ -55,8 +48,8 @@ const AdvancedInfo = ({
             <Tooltip id="tooltip">
               Opposé au touché de votre ennemi !
             </Tooltip>
-        )
-          }
+          )
+        }
       >
         <div>
           <img className="AdvancedAbilities__image" src={Dodge} alt="Esquive" />
@@ -110,7 +103,7 @@ const AdvancedInfo = ({
         }
       >
         <div>
-          <img className="AdvancedAbilities__image" src={Damage} alt="Dégâts" /> 
+          <img className="AdvancedAbilities__image" src={Damage} alt="Dégâts" />
           <span className="AdvancedAbilities__name">Dégâts</span>
           <span className="AdvancedAbilities__value">{baseDamage + 1}-{baseDamage + 4}</span>
         </div>
@@ -160,14 +153,15 @@ AdvancedInfo.propTypes = {
     PropTypes.shape({
       name: PropTypes.string.isRequired,
       value: PropTypes.number.isRequired,
+      image: PropTypes.string.isRequired,
     }),
   ).isRequired,
-  hacking: PropTypes.number.isRequired,
   baseToHit: PropTypes.number.isRequired,
   baseAvoid: PropTypes.number.isRequired,
   baseDamage: PropTypes.number.isRequired,
   baseInitiative: PropTypes.number.isRequired,
   healing: PropTypes.number.isRequired,
+  hacking: PropTypes.number.isRequired,
 };
 
 

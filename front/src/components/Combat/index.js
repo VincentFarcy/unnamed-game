@@ -43,8 +43,9 @@ const Combat = ({
   };
 
   // damage randomisation
-  const randomDamage = (strength) => {
-    const damage = strength + rollDice(gameParameters.minDamageRoll, gameParameters.maxDamageRoll);
+  const randomDamage = (characterStrength) => {
+    const damage = characterStrength
+      + rollDice(gameParameters.minDamageRoll, gameParameters.maxDamageRoll);
     return damage;
   };
 
@@ -63,8 +64,10 @@ const Combat = ({
     const OPPONENT = 'OPPONENT';
 
     // initiative
-    const speedPlayer = player.baseSpeed + rollDice(gameParameters.minSpeedRoll, gameParameters.maxSpeedRoll);
-    const speedOpponent = opponent.speed + rollDice(gameParameters.minSpeedRoll, gameParameters.maxSpeedRoll);
+    const speedPlayer = player.baseSpeed
+      + rollDice(gameParameters.minSpeedRoll, gameParameters.maxSpeedRoll);
+    const speedOpponent = opponent.speed
+      + rollDice(gameParameters.minSpeedRoll, gameParameters.maxSpeedRoll);
 
     // who starts the fight
     let currentFighter = PLAYER;
@@ -84,21 +87,23 @@ const Combat = ({
       // initialize damage
       let damage = 0;
 
+      let characterTouch = 0;
+
       switch (currentFighter) {
-        case PLAYER:
+        case OPPONENT:
           // incremente round coutner
-          roundCounter++;
+          roundCounter += 1;
           // random touch
-          const playerTouch = fightRound(player.baseTouch, opponent.dodge);
+          characterTouch = fightRound(opponent.touch, player.dodge);
           // if fighter touches
-          if (playerTouch) {
+          if (characterTouch) {
             // damage calculation
-            damage = randomDamage(strength);
+            damage = randomDamage(0);
             // HP after damage
-            opponentHP = opponentHP - damage;
+            playerHP -= damage;
           }
           // change fighter
-          currentFighter = OPPONENT;
+          currentFighter = PLAYER;
 
           // save the curent round
           roundHistory.push({
@@ -106,20 +111,21 @@ const Combat = ({
             opponentCurrentHP: (opponentHP > 0) ? opponentHP : 0,
           });
           break;
-        case OPPONENT:
+        // PLAYER case
+        default:
           // incremente round coutner
-          roundCounter++;
+          roundCounter += 1;
           // random touch
-          const opponentTouch = fightRound(opponent.touch, player.dodge);
+          characterTouch = fightRound(player.baseTouch, opponent.dodge);
           // if fighter touches
-          if (opponentTouch) {
+          if (characterTouch) {
             // damage calculation
-            damage = randomDamage(0);
+            damage = randomDamage(strength);
             // HP after damage
-            playerHP = playerHP - damage;
+            opponentHP -= damage;
           }
           // change fighter
-          currentFighter = PLAYER;
+          currentFighter = OPPONENT;
 
           // save the curent round
           roundHistory.push({
@@ -224,7 +230,6 @@ const Combat = ({
 
 // == Props validation
 Combat.propTypes = {
-  findOpponent: PropTypes.func.isRequired,
   opponent: PropTypes.shape({
     name: PropTypes.string,
     opponentCurrentHP: PropTypes.number.isRequired,
@@ -238,6 +243,7 @@ Combat.propTypes = {
     baseTouch: PropTypes.number.isRequired,
     dodge: PropTypes.number.isRequired,
   }).isRequired,
+  strength: PropTypes.number.isRequired,
   isCombatOn: PropTypes.bool.isRequired,
   isCombatInProgress: PropTypes.bool.isRequired,
   gameParameters: PropTypes.shape({
@@ -248,7 +254,7 @@ Combat.propTypes = {
     minSpeedRoll: PropTypes.number.isRequired,
     maxSpeedRoll: PropTypes.number.isRequired,
   }).isRequired,
-  strength: PropTypes.number.isRequired,
+  findOpponent: PropTypes.func.isRequired,
   combatInProgress: PropTypes.func.isRequired,
   applyDamage: PropTypes.func.isRequired,
   nextSequence: PropTypes.func.isRequired,
