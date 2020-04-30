@@ -29,6 +29,7 @@
   background: $main-card-background;
   color: $generic-button-color;
   border-radius: 10px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
   box-shadow:  -4px 4px 16px $game-launcher-lower-shadow, 
   4px -4px 16px $generic-button-upper-shadow;
 
@@ -108,6 +109,11 @@
 .introduction__content,
 .public-warning__content {
   line-height: 1.4em;
+}
+
+.warning {
+  margin-bottom: 2em;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 @media (min-width: 768px) {

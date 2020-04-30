@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 
 // local imports
+import Whitesand from 'src/assets/images/whitesand.jpg';
 import Acknowledgements from '../components/Acknowledgements';
 import { changeBg } from '../actions/gamePlay';
 
@@ -33,6 +34,14 @@ const mapStateToProps = () => ({
       title: '3D Artist - Game art - Freelance',
       location: 'Bourgoin-Jallieu, France',
       artStation: 'https://www.artstation.com/samuel-guerrouche',
+    },
+    {
+      id: 4,
+      name: 'Martynas (aka Whitesand) ',
+      img: Whitesand,
+      title: 'Composer artist - Cinematic Orchestral Soundtrack Music',
+      location: 'Lituanie',
+      artStation: 'https://www.youtube.com/channel/UCe96JG5gdgSRtmqStx0isXA/featured',
     },
   ],
 

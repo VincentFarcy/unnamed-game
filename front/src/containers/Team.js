@@ -30,7 +30,7 @@ const mapStateToProps = () => ({
       img: VincentF,
       title: 'Lead Dev Back',
       description: 'Même les deux paires de bras et les trois yeux d\'un Froghemoth ne rivalisent pas avec les jets de rapidité et d\'initiative de ce cyborg.',
-      linkedIn: 'https://gph.is/2yCodpl',
+      linkedIn: 'https://www.linkedin.com/in/%F0%9F%94%A5-vincent-farcy-%F0%9F%94%A5-730015174/',
       gitHub: 'https://github.com/VincentFarcy',
     },
     {
@@ -47,7 +47,7 @@ const mapStateToProps = () => ({
       name: 'Vincent Moulin',
       img: Kharma,
       title: 'Dev Front | Scrum Master',
-      description: 'Empyréen du pulsar sombre dont le marteau est toujours en soutien de l\'équipe.',
+      description: 'Mi-Murgle mi-Empyréen et re mi-Murgle du pulsar sombre dont le marteau est toujours en soutien de l\'équipe.',
       linkedIn: 'https://www.linkedin.com/in/vincent-moulin-10020/',
       gitHub: 'https://github.com/Kharmaska',
     },
