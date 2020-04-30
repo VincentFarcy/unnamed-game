@@ -1,6 +1,6 @@
 @import 'src/styles/vars';
 
-.combat__presentation {
+.combat__vs {
   text-align: center;
   margin: 1rem 0;
 }
@@ -21,6 +21,10 @@
       color: #FFF;
       background-color: #F0F;
     }
+  }
+
+  .choice--combat-in-progress {
+    width: unset;
   }
 }
 
@@ -44,15 +48,37 @@
 
   .combat__container {
     padding: 1rem 1rem 0;
-
-    .combat__presentation {
-      margin: 25px 0;
-    }
-
-    .combat__choices {
-      width: 60%;
-      .choice {
-        width: 200px;
+    .combat__versus-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      .combat__player-container {
+        width: 33%;
+        .combat-info {
+          flex-direction: column-reverse;        
+        }
+      }
+      .combat__presentation-container {
+        width: 33%;
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .combat__vs {
+          margin: 25px 0;
+        }
+        .combat__choices {
+          .choice {
+            display: block;
+            min-width: 100px;
+          }
+        }
+      }
+      .combat__opponent-container {
+        width: 33%;
       }
     }
   }
@@ -61,7 +87,7 @@
 /* === Large screens === */
 @media screen AND (min-width: 1024px) {
 
-  .combat__presentation {
+  .combat__vs {
     margin: 35px 0;
   }
 }

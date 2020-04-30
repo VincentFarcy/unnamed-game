@@ -153,62 +153,70 @@ const Combat = ({
       <h2 className="dialog__title">Combat </h2>
       <div className="combat__container">
         <AdvancedInfo />
-        <PlayerCombatInfo />
-        <div className="combat__choices">
-          {
-            isCombatOn && !isCombatInProgress && (
-              <>
-                <Button
-                  className="choice"
-                  variant="danger"
-                  onClick={launchFight}
-                >
-                  Combattre
-                </Button>
-                {/* when you choose to runAway, you have to be redirected and add 1 to PHP */}
-                {php > 2 && php < 30 && (
+        <div className="combat__versus-container">
+          <div className="combat__player-container">
+            <PlayerCombatInfo />
+          </div>
+          <div className="combat__presentation-container">
+            <div className="combat__choices">
+              {
+                isCombatOn && !isCombatInProgress && (
+                  <>
+                    <Button
+                      className="choice"
+                      variant="danger"
+                      onClick={launchFight}
+                    >
+                      Combattre
+                    </Button>
+                    {/* when you choose to runAway, you have to be redirected and add 1 to PHP */}
+                    {php > 2 && php < 30 && (
+                      <LinkButton
+                        cssClassName="choice btn-warning"
+                        buttonName="Fuir"
+                        url="/play/sequence"
+                        onClick={nextSequence}
+                      />
+                    )}
+                  </>
+                )
+              }
+              {
+                isCombatOn && isCombatInProgress && (
+                  <Button
+                    className="choice btn-warning choice--combat-in-progress"
+                    variant="danger"
+                    disabled
+                  >
+                    Combat en cours
+                  </Button>
+                )
+              }
+              {
+                !isCombatOn && !isCombatInProgress && php < 30 && (
                   <LinkButton
                     cssClassName="choice btn-warning"
-                    buttonName="Fuir"
-                    url="/play/sequence"
-                    onClick={nextSequence}
+                    buttonName="Suivant"
+                    url={playerHP > 0 ? '/play/reward' : '/play/death'}
                   />
-                )}
-              </>
-            )
-          }
-          {
-            isCombatOn && isCombatInProgress && (
-              <Button
-                className="choice btn-warning"
-                variant="danger"
-                disabled
-              >
-                Combat en cours
-              </Button>
-            )
-          }
-          {
-            !isCombatOn && !isCombatInProgress && php < 30 && (
-              <LinkButton
-                cssClassName="choice btn-warning"
-                buttonName="Suivant"
-                url={playerHP > 0 ? '/play/reward' : '/play/death'}
-              />
-            )
-          }
-          {
-            !isCombatOn && !isCombatInProgress && php >= 30 && (
-              <LinkButton
-                cssClassName="choice btn-warning"
-                buttonName="Fin"
-                url={playerHP > 0 ? '/play/ending' : '/play/death'}
-              />
-            )
-          }
+                )
+              }
+              {
+                !isCombatOn && !isCombatInProgress && php >= 30 && (
+                  <LinkButton
+                    cssClassName="choice btn-warning"
+                    buttonName="Fin"
+                    url={playerHP > 0 ? '/play/ending' : '/play/death'}
+                  />
+                )
+              }
+            </div>
+            <p className="combat__vs">VS {opponent.name}</p>
+          </div>
+          <div className="combat__opponent-container">
+            <OpponentCombatInfo />
+          </div>
         </div>
-        <p className="combat__presentation">VS {opponent.name}</p>
-        <OpponentCombatInfo />
       </div>
     </div>
   );
