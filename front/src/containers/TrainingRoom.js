@@ -18,6 +18,10 @@ const mapStateToProps = (state) => ({
   constitution: state.gameplay.player.abilities[2].value,
   will: state.gameplay.player.abilities[3].value,
   intelligence: state.gameplay.player.abilities[4].value,
+  jsx: state.gameplay.player.jsx,
+  xp: state.gameplay.player.xp,
+  xpCost: state.gameplay.gameParameters.train_xp_cost,
+  jsxCost: state.gameplay.gameParameters.train_money_cost,
 });
 
 // actions

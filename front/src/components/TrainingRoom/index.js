@@ -21,6 +21,10 @@ const Train = ({
   constitution,
   will,
   intelligence,
+  jsx,
+  xp,
+  jsxCost,
+  xpCost,
 }) => {
   const rollFullAccess = rollDice(1, 100);
   const strengthTrainAccess = rollDice(1, 100);
@@ -28,17 +32,10 @@ const Train = ({
   const enduranceTrainAccess = rollDice(1, 100);
   const willTrainAccess = rollDice(1, 100);
   const intelligenceTrainAccess = rollDice(1, 100);
-  console.log('fullaccess:', rollFullAccess);
-  console.log('force:', strengthTrainAccess);
-  console.log('agi:', agilityTrainAccess);
-  console.log('endu:', enduranceTrainAccess);
-  console.log('will:', willTrainAccess);
-  console.log('int:', intelligenceTrainAccess);
-  console.log('roomaccess:', roomAccess);
 
   return (
     <div className="player-action__container">
-      {(php > 32 || hp <= 0) && <Redirect to="/play/death" />}
+      {(php > 32 || hp <= 0 || jsx < jsxCost || xp < xpCost) && <Redirect to="/play/death" />}
       <div className="player-bar">
         <PlayerInfo />
       </div>
@@ -134,6 +131,11 @@ Train.propTypes = {
   constitution: PropTypes.number.isRequired,
   will: PropTypes.number.isRequired,
   intelligence: PropTypes.number.isRequired,
+  jsx: PropTypes.number.isRequired,
+  xp: PropTypes.number.isRequired,
+  jsxCost: PropTypes.number.isRequired,
+  xpCost: PropTypes.number.isRequired,
+
 };
 
 // == Export
