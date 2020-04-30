@@ -6,14 +6,19 @@ import Card from 'react-bootstrap/Card';
 import './style.scss';
 
 // == Image Import
-import logo from '../../assets/images/Unnamed_Game_3_white.svg';
+import intro from '../../assets/images/rules/p_05.png';
+import mainStats from '../../assets/images/rules/p_06.png';
+import secondaryStats from '../../assets/images/rules/p_16.png';
+import ressources from '../../assets/images/rules/p_18.png';
+import roll from '../../assets/images/rules/p_23.png';
+import combat from '../../assets/images/rules/p_31.png';
 
 // == Component
 const Rules = () => (
   <div className="site-container">
     <section className="introduction">
       <Card className="site-intro">
-        <Card.Img className="site-intro__img" variant="top" src={logo} />
+        <Card.Img className="site-intro__img" variant="top" src={intro} />
         <Card.Body className="site-intro__body">
           <Card.Title className="site-intro__title">Introduction</Card.Title>
           <Card.Text className="site-intro__content">
@@ -32,6 +37,7 @@ const Rules = () => (
     </section>
     <section className="introduction">
       <Card className="site-intro">
+        <Card.Img className="site-intro__img" variant="top" src={mainStats} />
         <Card.Body className="site-intro__body">
           <Card.Title className="site-intro__title">Les statistiques principales</Card.Title>
           <Card.Text className="site-intro__content">
@@ -57,6 +63,7 @@ const Rules = () => (
     </section>
     <section className="introduction">
       <Card className="site-intro">
+        <Card.Img className="site-intro__img" variant="top" src={secondaryStats} />
         <Card.Body className="site-intro__body">
           <Card.Title className="site-intro__title">Les statistiques secondaires</Card.Title>
           <Card.Text className="site-intro__content">
@@ -89,6 +96,7 @@ const Rules = () => (
     </section>
     <section className="introduction">
       <Card className="site-intro">
+        <Card.Img className="site-intro__img" variant="top" src={ressources} />
         <Card.Body className="site-intro__body">
           <Card.Title className="site-intro__title">Les ressources</Card.Title>
           <Card.Text className="site-intro__content">
@@ -108,6 +116,7 @@ const Rules = () => (
     </section>
     <section className="introduction">
       <Card className="site-intro">
+        <Card.Img className="site-intro__img" variant="top" src={roll} />
         <Card.Body className="site-intro__body">
           <Card.Title className="site-intro__title">Jet & Seuil</Card.Title>
           <Card.Text className="site-intro__content">
@@ -121,6 +130,7 @@ const Rules = () => (
     </section>
     <section className="introduction">
       <Card className="site-intro">
+        <Card.Img className="site-intro__img" variant="top" src={combat} />
         <Card.Body className="site-intro__body">
           <Card.Title className="site-intro__title">Déroulement d'un combat</Card.Title>
           <Card.Text className="site-intro__content">
@@ -141,8 +151,6 @@ const Rules = () => (
   </div>
 
 );
-
-// == Props validation
 
 // == Export
 export default Rules;
