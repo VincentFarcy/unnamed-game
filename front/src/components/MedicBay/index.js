@@ -1,7 +1,9 @@
 // == Import npm
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
 import Button from '../LinkButton';
+
 
 // == Import local
 import './style.scss';

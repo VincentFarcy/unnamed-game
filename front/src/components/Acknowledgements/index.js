@@ -26,7 +26,7 @@ const Acknowledgements = ({ artists, changeBg }) => {
             <Card.Title className="site-intro__title">Remerciements</Card.Title>
             <Card.Text className="site-intro__content">
             L'équipe tient à remercier l'ensemble des membres de leur famille qui les ont soutenu pendant ces 5 derniers mois de formation intensive.
-            Nous tenons également à remercier tous les membres de l'équipe O'clock et plus particulièrement nos professeurs et référents de formation et d'admission des promotions Asgard et Y !
+            Nous tenons également à remercier tous les membres de l'équipe <a className="teamLink" target="_blank" rel="noopener noreferrer" href="https://oclock.io" alt="Ecole O'clock">O'clock</a> et plus particulièrement nos professeurs et référents de formation et d'admission des promotions Asgard et Y !
             </Card.Text>
           </Card.Body>
         </Card>

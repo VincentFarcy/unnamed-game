@@ -24,7 +24,7 @@ const Team = ({ team, changeBg }) => {
           <Card.Body className="site-intro__body">
             <Card.Title className="site-intro__title">L'équipe derrière Unnamed.Game</Card.Title>
             <Card.Text className="site-intro__content">
-            Nous sommes une équipe de 5 jeunes développeurs sortant d'une formation intensive de 5 mois au sein de l'école <a className="teamLink" href="https://oclock.io" alt="Ecole O'clock">O'clock </a>. Nous avons pris beaucoup de plaisir dans l'élaboration de ce projet de fin de formation, et espérons que vous vous amuserez autant que nous avons pu le faire pendant la création du site.
+            Nous sommes une équipe de 5 jeunes développeurs sortant d'une formation intensive de 5 mois au sein de l'école <a className="teamLink" target="_blank" rel="noopener noreferrer" href="https://oclock.io" alt="Ecole O'clock">O'clock</a>. Nous avons pris beaucoup de plaisir dans l'élaboration de ce projet de fin de formation, et espérons que vous vous amuserez autant que nous avons pu le faire pendant la création du site et du jeu.
             </Card.Text>
           </Card.Body>
         </Card>

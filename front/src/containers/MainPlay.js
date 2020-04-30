@@ -4,6 +4,7 @@ import {
   startGame,
   fetchInitialeGameData,
   startBackupLoading,
+  restartMusic,
 } from '../actions/gamePlay';
 
 // local imports
@@ -26,6 +27,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   startBackupLoading: () => {
     dispatch(startBackupLoading());
+  },
+  restartMusic: () => {
+    dispatch(restartMusic());
   },
 });
 

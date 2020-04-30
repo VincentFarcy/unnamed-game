@@ -107,6 +107,7 @@ Header.propTypes = {
   isExpanded: PropTypes.bool.isRequired,
   toggleMenu: PropTypes.func.isRequired,
   changeBg: PropTypes.func.isRequired,
+  restartMusic: PropTypes.func.isRequired,
 };
 
 // == Export
