@@ -17,7 +17,7 @@ import combat from '../../assets/images/rules/p_31.png';
 const Rules = () => (
   <div className="site-container">
     <section className="introduction">
-      <Card className="site-intro">
+      <Card className="rules-intro">
         <Card.Img className="site-intro__img" variant="top" src={intro} />
         <Card.Body className="site-intro__body">
           <Card.Title className="site-intro__title">Introduction</Card.Title>
@@ -36,7 +36,7 @@ const Rules = () => (
       </Card>
     </section>
     <section className="introduction">
-      <Card className="site-intro">
+      <Card className="rules-intro">
         <Card.Img className="site-intro__img" variant="top" src={mainStats} />
         <Card.Body className="site-intro__body">
           <Card.Title className="site-intro__title">Les statistiques principales</Card.Title>
@@ -62,7 +62,7 @@ const Rules = () => (
       </Card>
     </section>
     <section className="introduction">
-      <Card className="site-intro">
+      <Card className="rules-intro">
         <Card.Img className="site-intro__img" variant="top" src={secondaryStats} />
         <Card.Body className="site-intro__body">
           <Card.Title className="site-intro__title">Les statistiques secondaires</Card.Title>
@@ -95,7 +95,7 @@ const Rules = () => (
       </Card>
     </section>
     <section className="introduction">
-      <Card className="site-intro">
+      <Card className="rules-intro">
         <Card.Img className="site-intro__img" variant="top" src={ressources} />
         <Card.Body className="site-intro__body">
           <Card.Title className="site-intro__title">Les ressources</Card.Title>
@@ -115,7 +115,7 @@ const Rules = () => (
       </Card>
     </section>
     <section className="introduction">
-      <Card className="site-intro">
+      <Card className="rules-intro">
         <Card.Img className="site-intro__img" variant="top" src={roll} />
         <Card.Body className="site-intro__body">
           <Card.Title className="site-intro__title">Jet & Seuil</Card.Title>
@@ -129,7 +129,7 @@ const Rules = () => (
       </Card>
     </section>
     <section className="introduction">
-      <Card className="site-intro">
+      <Card className="rules-intro">
         <Card.Img className="site-intro__img" variant="top" src={combat} />
         <Card.Body className="site-intro__body">
           <Card.Title className="site-intro__title">Déroulement d'un combat</Card.Title>
