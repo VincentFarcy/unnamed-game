@@ -18,20 +18,19 @@ const Death = () => (
       steps={['Avec un peu de chance votre mort fut rapide...', 1000]}
       wrapper="p"
     />
-      <Image className="death__image" src={loose} rounded />
-      <div className="next-button-container">
-        <div className="neon-button-container">
-          <Button
-            cssClassName="neon-button neon-button--next"
-            buttonName="Recommencer"
-            url="/play"
-          />
-          <div className="neon-border-container">
-            <span />
-            <span />
-            <span />
-            <span />
-          </div>
+    <Image className="death__image" src={loose} rounded />
+    <div className="next-button-container">
+      <div className="neon-button-container">
+        <Button
+          cssClassName="neon-button neon-button--next"
+          buttonName="Recommencer"
+          url="/play"
+        />
+        <div className="neon-border-container">
+          <span />
+          <span />
+          <span />
+          <span />
         </div>
       </div>
     </div>
