@@ -43,7 +43,15 @@ const Event = ({
           <>
             <p className="dialog__p">Malheureusement vous restez dans l'incapacité d'outre-passer le firewall. Vous vous sentez comme un dev junior qui découvre React-Redux pour la 1ère fois.</p>
             <div className="next-button-container">
-              <Button cssClassName="generic-button next-button" buttonName="PHP Suivant" url={php !== 30 ? '/play/sequence' : '/play/story'} onClick={updateTimer} />
+              <div className="neon-button-container">
+                <Button cssClassName="neon-button neon-button--next" buttonName="PHP Suivant" url={php !== 30 ? '/play/sequence' : '/play/story'} onClick={updateTimer} />
+                <div className="neon-border-container">
+                  <span />
+                  <span />
+                  <span />
+                  <span />
+                </div>
+              </div>
             </div>
           </>
         )

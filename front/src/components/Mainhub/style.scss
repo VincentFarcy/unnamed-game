@@ -1,44 +1,30 @@
 @import 'src/styles/vars';
 
 .hub {
-
   &__button-container {
+    margin-top: -1rem;
+    width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     align-content: center;
   }
-
-  &__button {
-    width: 70%;
-    margin: 1em auto;
-  }
 }
 
-@media screen AND (min-width: 768) {
-
+@media screen AND (min-width: 768px) {
   .hub {
-
     &__button-container {
-      padding: 1em;
+      margin-top: 0;
     }
   }
 }
 
-/* === large screen === */
 @media screen AND (min-width: 992px) {
-
   .hub {
-
     &__button-container {
       flex-direction: row;
       flex-wrap: wrap;
-      padding: 1em;
-    }
-  
-    &__button {
-      padding: 0.25em;
-      width: 40%;
     }
   }
 }

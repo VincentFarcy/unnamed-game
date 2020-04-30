@@ -37,9 +37,42 @@ const Sequence = ({
                 wrapper="p"
               />
               <div className="next-button-container">
-                {php === 1 && <Button cssClassName="generic-button next-button" buttonName="Suivant" url="/play/event" onClick={handleClick} />}
-                {php === 2 && <Button cssClassName="generic-button next-button" buttonName="Suivant" url="/play/combat" onClick={handleClick} />}
-                {php > 2 && <Button cssClassName="generic-button next-button" buttonName="Suivant" url="/play/mainhub" onClick={handleClick} />}
+                {php === 1
+                  && (
+                  <div className="neon-button-container">
+                    <Button cssClassName="neon-button neon-button--next" buttonName="Suivant" url="/play/event" onClick={handleClick} />
+                    <div className="neon-border-container">
+                      <span />
+                      <span />
+                      <span />
+                      <span />
+                    </div>
+                  </div>
+                  )}
+                {php === 2
+                  && (
+                    <div className="neon-button-container">
+                      <Button cssClassName="neon-button neon-button--next" buttonName="Suivant" url="/play/combat" onClick={handleClick} />
+                      <div className="neon-border-container">
+                        <span />
+                        <span />
+                        <span />
+                        <span />
+                      </div>
+                    </div>
+                  )}
+                {php > 2
+                  && (
+                    <div className="neon-button-container">
+                      <Button cssClassName="neon-button neon-button--next" buttonName="Suivant" url="/play/mainhub" onClick={handleClick} />
+                      <div className="neon-border-container">
+                        <span />
+                        <span />
+                        <span />
+                        <span />
+                      </div>
+                    </div>
+                  )}
               </div>
             </div>
           )}
