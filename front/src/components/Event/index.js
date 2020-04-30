@@ -12,7 +12,7 @@ const Event = ({
   eventDifficulty,
   playerRoll,
   hacking,
-  updateTimer,
+  nextSequence,
   findEvent,
   php,
 }) => {
@@ -44,7 +44,7 @@ const Event = ({
             <p className="dialog__p">Malheureusement vous restez dans l'incapacité d'outre-passer le firewall. Vous vous sentez comme un dev junior qui découvre React-Redux pour la 1ère fois.</p>
             <div className="next-button-container">
               <div className="neon-button-container">
-                <Button cssClassName="neon-button neon-button--next" buttonName="PHP Suivant" url={php !== 30 ? '/play/sequence' : '/play/story'} onClick={updateTimer} />
+                <Button cssClassName="neon-button neon-button--next" buttonName="PHP Suivant" url={php !== 30 ? '/play/sequence' : '/play/story'} onClick={nextSequence} />
                 <div className="neon-border-container">
                   <span />
                   <span />
@@ -63,7 +63,7 @@ const Event = ({
 // == Props validation
 Event.propTypes = {
   findEvent: PropTypes.func.isRequired,
-  updateTimer: PropTypes.func.isRequired,
+  nextSequence: PropTypes.func.isRequired,
   eventDifficulty: PropTypes.number.isRequired,
   playerRoll: PropTypes.number.isRequired,
   hacking: PropTypes.number.isRequired,

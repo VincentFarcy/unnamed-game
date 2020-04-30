@@ -15,11 +15,11 @@ export const FIND_RANDOM_REWARD = 'FIND_RANDOM_REWARD';
 export const EVENT_WIN = 'EVENT_WIN';
 export const FIND_EVENT = 'FIND_EVENT';
 export const CHANGE_BG = 'CHANGE_BG';
+export const RESTART_MUSIC = 'RESTART_MUSIC';
 export const FIND_EXPLORATION = 'FIND_EXPLORATION';
 export const EVENT_NOTHING = 'EVENT_NOTHING';
 export const REST_ACTION = 'REST_ACTION';
 export const MEDIC_ACTION = 'MEDIC_ACTION';
-export const UPDATE_TIMER = 'UPDATE_TIMER';
 export const ADD_OPPONNENT_REWARD = 'ADD_OPPONNENT_REWARD';
 export const INCREMENT_ABILITY = 'INCREMENT_ABILITY';
 export const GAME_BACKUP = 'GAME_BACKUP';
@@ -107,10 +107,6 @@ export const actionMedic = () => ({
   type: MEDIC_ACTION,
 });
 
-export const updateTimer = () => ({
-  type: UPDATE_TIMER,
-});
-
 export const addOpponnentReward = () => ({
   type: ADD_OPPONNENT_REWARD,
 });
@@ -119,6 +115,11 @@ export const changeBg = (bgImageCssClass) => ({
   type: CHANGE_BG,
   bgImageCssClass,
 });
+
+export const restartMusic = () => ({
+  type: RESTART_MUSIC,
+});
+
 
 export const gameBackup = () => ({
   type: GAME_BACKUP,
