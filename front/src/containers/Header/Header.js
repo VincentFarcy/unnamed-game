@@ -7,7 +7,8 @@ import Header from 'src/components/Header';
 // Action Creators
 import { initUserState } from '../../actions/user';
 import { toggleMenu } from '../../actions/menu';
-import { changeBg } from '../../actions/gamePlay';
+import { changeBg, restartMusic } from '../../actions/gamePlay';
+
 
 /* === State (données) === */
 const mapStateToProps = (state) => ({
@@ -25,6 +26,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   changeBg: (bgImageCssClass) => {
     dispatch(changeBg(bgImageCssClass));
+  },
+  restartMusic: () => {
+    dispatch(restartMusic());
   },
 });
 

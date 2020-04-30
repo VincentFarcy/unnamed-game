@@ -26,6 +26,7 @@ import {
   MEDIC_ACTION,
   ADD_OPPONNENT_REWARD,
   CHANGE_BG,
+  RESTART_MUSIC,
   LOAD_BACKUP_DATA,
   START_BACKUP_LOADING,
   END_BACKUP_LOADING,
@@ -616,6 +617,12 @@ const gameplay = (state = initialState, action = {}) => {
       return {
         ...state,
         phpTimer: 30,
+      };
+    case RESTART_MUSIC:
+      return {
+        ...state,
+        gameOn: false,
+
       };
     default:
       return state;
