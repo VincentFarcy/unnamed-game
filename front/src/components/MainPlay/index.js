@@ -7,6 +7,7 @@ import { NavLink } from 'react-router-dom';
 
 // == Import local
 import './style.scss';
+import rulesIcon from '../../assets/images/b_18.png';
 import newGameIcon from '../../assets/images/b_02.png';
 import savedGameIcon from '../../assets/images/b_31.png';
 import ErrorMessage from '../../containers/ErrorMessage';
@@ -19,8 +20,13 @@ const MainPlay = ({
   fetchInitialeGameData,
   hasBackup,
   startBackupLoading,
+  restartMusic,
 }) => {
   !hasError && useEffect(startGame, []);
+
+  const handleStopMusic = () => {
+    restartMusic();
+  };
 
   const handleContinueClick = () => {
     fetchInitialeGameData();
@@ -32,6 +38,15 @@ const MainPlay = ({
 
       <div>
         <section className="game-launcher">
+          <NavLink
+            exact
+            to="/rules"
+            className="nav-link generic-button game-launcher__btn"
+            onClick={handleStopMusic}
+          >
+            <Image className="play-images" src={rulesIcon} />
+            <p className="play-text"> Les règles de jeu</p>
+          </NavLink>
           <NavLink
             exact
             to="/play/create-player"
@@ -67,6 +82,7 @@ MainPlay.propTypes = {
   fetchInitialeGameData: PropTypes.func.isRequired,
   hasBackup: PropTypes.bool.isRequired,
   startBackupLoading: PropTypes.func.isRequired,
+  restartMusic: PropTypes.func.isRequired,
 };
 
 // == Export
