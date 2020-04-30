@@ -34,7 +34,7 @@ const AdvancedInfo = ({
 }) => (
   <div className="AdvancedInfo__container">
     <div className="MainAbilities__container">
-    { /* == Map handling the display of the basic characteristics like Strength, Agility, etc.*/ }
+      {/* == Map handling the display of the basic characteristics like Strength, Agility, etc. */ }
       {
         abilities.map((ability) => (
           <div key={uuidv4()}>
@@ -53,13 +53,13 @@ const AdvancedInfo = ({
         overlay={
           (
             <Tooltip id="tooltip">
-              Si le toucher de votre ennemi est plus grand que votre esquive, ca va piquer...
+              Opposé au touché de votre ennemi !
             </Tooltip>
         )
           }
       >
         <div>
-          <img className="AdvancedAbilities__image" src={Dodge} alt="Esquive" /> 
+          <img className="AdvancedAbilities__image" src={Dodge} alt="Esquive" />
           <span className="AdvancedAbilities__name">Esquive</span>
           <span className="AdvancedAbilities__value">{baseAvoid}</span>
         </div>
@@ -68,15 +68,17 @@ const AdvancedInfo = ({
         placement="top"
         delay={{ show: 300, hide: 300 }}
         overlay={
-          <Tooltip id={`tooltip`}>
-            Celui qui a la plus grosse, tape avant !
-          </Tooltip>
+          (
+            <Tooltip id="tooltip">
+              Celui qui a la plus grosse, tape avant !
+            </Tooltip>
+          )
         }
       >
         <div>
-          <img className="AdvancedAbilities__image" src={Initiative} alt="Initiative" /> 
+          <img className="AdvancedAbilities__image" src={Initiative} alt="Initiative" />
           <span className="AdvancedAbilities__name">Initiative</span>
-          <span className="AdvancedAbilities__value">{baseInitiative + 1} - {baseInitiative + 10}</span>
+          <span className="AdvancedAbilities__value">{baseInitiative + 1}-{baseInitiative + 10}</span>
         </div>
       </OverlayTrigger>
       <OverlayTrigger
@@ -91,9 +93,9 @@ const AdvancedInfo = ({
         }
       >
         <div>
-          <img className="AdvancedAbilities__image" src={Touch} alt="Toucher" /> 
+          <img className="AdvancedAbilities__image" src={Touch} alt="Toucher" />
           <span className="AdvancedAbilities__name">Toucher</span>
-          <span className="AdvancedAbilities__value">{baseToHit + 1} - {baseToHit + 6}</span>
+          <span className="AdvancedAbilities__value">{baseToHit + 1}-{baseToHit + 6}</span>
         </div>
       </OverlayTrigger>
       <OverlayTrigger
@@ -110,7 +112,7 @@ const AdvancedInfo = ({
         <div>
           <img className="AdvancedAbilities__image" src={Damage} alt="Dégâts" /> 
           <span className="AdvancedAbilities__name">Dégâts</span>
-          <span className="AdvancedAbilities__value">{baseDamage + 1} - {baseDamage + 4}</span>
+          <span className="AdvancedAbilities__value">{baseDamage + 1}-{baseDamage + 4}</span>
         </div>
       </OverlayTrigger>
       <OverlayTrigger
@@ -125,7 +127,7 @@ const AdvancedInfo = ({
         }
       >
         <div>
-          <img className="AdvancedAbilities__image" src={Healing} alt="Guérison" /> 
+          <img className="AdvancedAbilities__image" src={Healing} alt="Guérison" />
           <span className="AdvancedAbilities__name">Guérison</span>
           <span className="AdvancedAbilities__value">{healing}</span>
         </div>
@@ -137,13 +139,13 @@ const AdvancedInfo = ({
         overlay={
           (
             <Tooltip id="tooltip">
-              Capacité à enfoncer les portes
+              Capacité à pirater les portes
             </Tooltip>
           )
         }
       >
         <div>
-          <img className="AdvancedAbilities__image" src={Hacking} alt="Piratage" /> 
+          <img className="AdvancedAbilities__image" src={Hacking} alt="Piratage" />
           <span className="AdvancedAbilities__name">Piratage</span>
           <span className="AdvancedAbilities__value">{hacking}</span>
         </div>

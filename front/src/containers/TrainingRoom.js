@@ -11,6 +11,7 @@ const mapStateToProps = (state) => ({
   fullAccess: state.gameplay.gameParameters.train_full_access_probability,
   trainGain: state.gameplay.gameParameters.train_gain,
   roomAccess: state.gameplay.gameParameters.train_room_access_probability,
+  php: state.gameplay.phpTimer,
 });
 
 // actions

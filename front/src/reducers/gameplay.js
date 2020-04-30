@@ -8,8 +8,7 @@ import Intelligence from 'src/assets/images/intelligence.png';
 
 // == Import : local
 import {
-  RESET_GAME,
-  CHANGE_GAME_STATUS,
+  START_GAME,
   GAME_DATA_SUCCESS,
   GAME_DATA_ERROR,
   INCREMENT_CREATE_CHARACTER,
@@ -20,7 +19,6 @@ import {
   NEXT_SEQUENCE,
   END_FIGHT,
   FIND_SEQUENCE,
-  RESTART_NEW_GAME,
   FIND_RANDOM_REWARD,
   FIND_EXPLORATION,
   EVENT_NOTHING,
@@ -79,7 +77,7 @@ const initialState = {
   currentEvent: '',
   exploration: {
     rollFrom: 0,
-    follTo: 0,
+    rollTo: 0,
     type: '',
   },
   difficulty: 1,
@@ -141,18 +139,15 @@ const initialState = {
   bgImageCssClass: '',
   hero: {},
   backupIsLoading: false,
+  chapters: [
+    {}
+  ],
 };
 
 // == Reducer
 const gameplay = (state = initialState, action = {}) => {
   switch (action.type) {
-    case RESET_GAME:
-      return {
-        ...state,
-        loadingErrMessage: '',
-        hasError: false,
-      };
-    case RESTART_NEW_GAME:
+    case START_GAME:
       return {
         gameOn: true,
         isLoading: false,
@@ -181,7 +176,7 @@ const gameplay = (state = initialState, action = {}) => {
         playerRoll: 1,
         exploration: {
           rollFrom: 0,
-          follTo: 0,
+          rollTo: 0,
           type: '',
         },
         player: {
@@ -243,97 +238,9 @@ const gameplay = (state = initialState, action = {}) => {
         gameParameters: {
           ...state.gameParameters,
         },
-      };
-    case CHANGE_GAME_STATUS:
-      return {
-        gameOn: true,
-        isLoading: false,
-        loadingErrMessage: '',
-        hasError: false,
-        phpTimer: 1,
-        rewards: {
-          xpRoll: 0,
-          jsxRoll: 0,
-        },
-        eventRewards: {
-          xp: null,
-          jsx: null,
-        },
-        opponentRewards: {
-          xpCombatReward: 0,
-          jsxCombatReward: 0,
-        },
-        sequenceToTell: {
-          title: '',
-          id: 0,
-          mainText: '',
-        },
-        currentEvent: '',
-        difficulty: 1,
-        playerRoll: 1,
-        exploration: {
-          rollFrom: 0,
-          follTo: 0,
-          type: '',
-        },
-        player: {
-          pool: 0,
-          abilities: [
-            {
-              name: 'Force',
-              value: 1,
-              image: Force,
-              description: 'Affecte les dégâts',
-            },
-            {
-              name: 'Agilité',
-              value: 1,
-              image: Agilité,
-              description: 'Affecte le toucher, l\'initiative, l\'esquive',
-            },
-            {
-              name: 'Constitution',
-              value: 1,
-              image: Constitution,
-              description: 'Affecte les PV',
-            },
-            {
-              name: 'Volonté',
-              value: 1,
-              image: Volonté,
-              description: 'Affecte les PV, la guérison, permet de réaliser certaines actions',
-            },
-            {
-              name: 'Intelligence',
-              value: 1,
-              image: Intelligence,
-              description: 'Affecte le toucher, l\'esquive, la guérison, permet de réaliser certaines actions',
-            },
-          ],
-          // Total player's health point
-          playerTotalHP: 0,
-          playerCurrentHP: 0,
-          xp: 0,
-          jsx: 0,
-        },
-        combat: {
-          isCombatOn: true,
-          combatInProgress: false,
-          // currentOponent is empty until OpponentCombatInfo is rendered
-          currentOpponent: {
-            opponentCurrentHP: 0,
-            speed: 0,
-            touch: 0,
-            dodge: 0,
-            xpGain: 0,
-            moneyGain: 0,
-          },
-        },
-        bgImageCssClass: '',
-        backupIsLoading: false,
-        gameParameters: {
-          ...state.gameParameters,
-        },
+        chapters: [
+          {}
+        ],
       };
     case GAME_DATA_SUCCESS:
       return {
@@ -359,13 +266,13 @@ const gameplay = (state = initialState, action = {}) => {
           ...state.player,
           playerTotalHP: ((state.player.abilities[3].value / 2) + (state.player.abilities[2].value)) * 10,
           playerCurrentHP: ((state.player.abilities[3].value / 2) + (state.player.abilities[2].value)) * 10,
-          hacking: ((state.player.abilities[4].value) + Math.floor((state.player.abilities[3].value / 3))),
+          hacking: ((state.player.abilities[4].value) + Math.floor((state.player.abilities[3].value / 2))),
           baseTouch: ((state.player.abilities[1].value) + Math.floor((state.player.abilities[4].value / 3))),
           dodge: ((state.player.abilities[1].value) + Math.floor((state.player.abilities[4].value / 2))),
           baseDamage: state.player.abilities[0].value,
           baseSpeed: state.player.abilities[1].value,
           baseHealing: Math.floor(
-            ((state.player.abilities[3].value / 2) + (state.player.abilities[4].value / 2)),
+            ((state.player.abilities[3].value) + (state.player.abilities[4].value)),
           ),
         },
       };
@@ -377,12 +284,14 @@ const gameplay = (state = initialState, action = {}) => {
           ...state.player,
           playerTotalHP: ((state.player.abilities[3].value / 2) + (state.player.abilities[2].value)) * 10,
           playerCurrentHP: ((state.player.abilities[3].value / 2) + (state.player.abilities[2].value)) * 10,
-          hacking: ((state.player.abilities[4].value) + Math.floor((state.player.abilities[3].value / 3))),
+          hacking: ((state.player.abilities[4].value) + Math.floor((state.player.abilities[3].value / 2))),
           baseTouch: ((state.player.abilities[1].value) + Math.floor((state.player.abilities[4].value / 3))),
           dodge: ((state.player.abilities[1].value) + Math.floor((state.player.abilities[4].value / 2))),
           baseDamage: state.player.abilities[0].value,
           baseSpeed: state.player.abilities[1].value,
-          baseHealing: Math.floor(((state.player.abilities[3].value / 2) + (state.player.abilities[4].value / 2))),
+          baseHealing: Math.floor(
+            ((state.player.abilities[3].value) + (state.player.abilities[4].value)),
+          ),
         },
       };
     case FIND_OPPONENT:
@@ -455,7 +364,7 @@ const gameplay = (state = initialState, action = {}) => {
         },
         exploration: {
           rollFrom: 0,
-          follTo: 0,
+          rollTo: 0,
           type: '',
         },
         combat: {
@@ -505,6 +414,11 @@ const gameplay = (state = initialState, action = {}) => {
     case EVENT_NOTHING:
       return {
         ...state,
+        exploration: {
+          rollFrom: 0,
+          rollTo: 0,
+          type: '',
+        },
         sequenceToTell: {
           title: '',
           id: 0,
@@ -541,8 +455,8 @@ const gameplay = (state = initialState, action = {}) => {
         player: {
           ...state.player,
           playerCurrentHP:
-            (state.player.playerCurrentHP + state.player.baseHealing + rollDice(1, 2)) < state.player.playerTotalHP ?
-              state.player.playerCurrentHP + state.player.baseHealing + rollDice(1, 2) : state.player.playerTotalHP,
+            (state.player.playerCurrentHP + state.player.baseHealing + rollDice(1, 2)) < state.player.playerTotalHP
+              ? state.player.playerCurrentHP + state.player.baseHealing + rollDice(1, 2) : state.player.playerTotalHP,
         },
       };
     case MEDIC_ACTION:
@@ -553,6 +467,11 @@ const gameplay = (state = initialState, action = {}) => {
           title: '',
           id: 0,
           mainText: '',
+        },
+        exploration: {
+          rollFrom: 0,
+          rollTo: 0,
+          type: '',
         },
         player: {
           ...state.player,
@@ -575,6 +494,11 @@ const gameplay = (state = initialState, action = {}) => {
         opponentRewards: {
           xpCombatReward: 0,
           jsxCombatReward: 0,
+        },
+        exploration: {
+          rollFrom: 0,
+          rollTo: 0,
+          type: '',
         },
         sequenceToTell: {
           title: '',
@@ -623,13 +547,13 @@ const gameplay = (state = initialState, action = {}) => {
           xp: state.player.xp - state.gameParameters.train_xp_cost,
           jsx: state.player.jsx - state.gameParameters.train_money_cost,
           playerTotalHP: ((state.player.abilities[3].value / 2) + (state.player.abilities[2].value)) * 10,
-          playerCurrentHP: ((state.player.abilities[3].value / 2) + (state.player.abilities[2].value)) * 10,
-          hacking: ((state.player.abilities[4].value) + Math.floor((state.player.abilities[3].value / 3))),
+          playerCurrentHP: state.player.playerCurrentHP,
+          hacking: ((state.player.abilities[4].value) + Math.floor((state.player.abilities[3].value / 2))),
           baseTouch: ((state.player.abilities[1].value) + Math.floor((state.player.abilities[4].value / 3))),
           dodge: ((state.player.abilities[1].value) + Math.floor((state.player.abilities[4].value / 2))),
           baseDamage: state.player.abilities[0].value,
           baseSpeed: state.player.abilities[1].value,
-          baseHealing: Math.floor(((state.player.abilities[3].value / 2) + (state.player.abilities[4].value / 2))),
+          baseHealing: Math.floor(((state.player.abilities[3].value) + (state.player.abilities[4].value))),
         },
       };
 
@@ -641,6 +565,7 @@ const gameplay = (state = initialState, action = {}) => {
         phpTimer: phpTimer,
         player: {
           ...state.player,
+          pool: 0,
           playerCurrentHP: action.backups[0].health,
           playerTotalHP: ((action.backups[0].will / 2) + (action.backups[0].constitution)) * 10,
           baseTouch:((action.backups[0].agility) + Math.floor((action.backups[0].intelligence / 3))),
@@ -648,9 +573,9 @@ const gameplay = (state = initialState, action = {}) => {
           baseDamage: action.backups[0].strength,
           baseSpeed: action.backups[0].agility,
           baseHealing: Math.floor(
-            ((action.backups[0].will / 2) + (action.backups[0].intelligence / 2)),
+            ((action.backups[0].will) + (action.backups[0].intelligence)),
           ),
-          hacking: ((action.backups[0].intelligence) + Math.floor((action.backups[0].will / 3))),
+          hacking: ((action.backups[0].intelligence) + Math.floor((action.backups[0].will / 2))),
           abilities: [
             {
               ...state.player.abilities[0],

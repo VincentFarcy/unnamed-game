@@ -19,7 +19,11 @@ const handleSendErrorMessages = (store, data) => {
   let errorMessages = [];
   // Automatic technical message (ex: invalid credential)
   if (data.message) {
-    errorMessages.push(data.message);
+    let message = data.message;
+    if (data.code === 401) {
+      message = 'Identification incorrecte.';
+    }
+    errorMessages.push(message);
   }
   // Messages sent because of functionnal rule non respected (ex: unique email)
   if (data.errorMessages) {
@@ -38,7 +42,7 @@ const apiMiddleware = (store) => (next) => (action) => {
       const state = store.getState();
 
       // ========== API : api/user/add
-      console.log('action pour enregistrer un nouvel utilisateur', state);
+      // console.log('action pour enregistrer un nouvel utilisateur', state);
       axios({
         url: `${BASE_API_URI}/api/user/add`,
         method: 'post',
@@ -50,11 +54,11 @@ const apiMiddleware = (store) => (next) => (action) => {
         },
       })
         .then((res) => {
-          console.log('add user : response', res, res.data);
+          // console.log('add user : response', res, res.data);
           store.dispatch(getNewUser(res.data));
         })
         .catch((err) => {
-          console.log('add user : error', err, err.response.data);
+          // console.log('add user : error', err, err.response.data);
           handleSendErrorMessages(store, err.response.data);
         });
       break;
@@ -64,7 +68,7 @@ const apiMiddleware = (store) => (next) => (action) => {
       const state = store.getState();
 
       // ========== API : api/login_check
-      console.log('action pour connecter un utilisateur', state);
+      // console.log('action pour connecter un utilisateur', state);
       axios({
         method: 'post',
         url: `${BASE_API_URI}/api/login_check`,
@@ -78,7 +82,7 @@ const apiMiddleware = (store) => (next) => (action) => {
           const tokenJWT = res.data.token;
 
           // ========== API : api/user/read
-          console.log('login check : response', res, res.data.token);
+          // console.log('login check : response', res, res.data.token);
           axios({
             method: 'get',
             url: `${BASE_API_URI}/api/user/read`,
@@ -88,16 +92,16 @@ const apiMiddleware = (store) => (next) => (action) => {
             },
           })
             .then((res) => {
-              console.log('user read : response', res, res.data);
+              // console.log('user read : response', res, res.data);
               store.dispatch(getUser(tokenJWT, res.data));
             })
             .catch((err) => {
-              console.log('user read : error', err, err.response.data);
+              // console.log('user read : error', err, err.response.data);
               handleSendErrorMessages(store, err.response.data);
             });
         })
         .catch((err) => {
-          console.log('login check : error', err, err.response.data);
+          // console.log('login check : error', err, err.response.data);
           handleSendErrorMessages(store, err.response.data);
         });
       break;
@@ -107,7 +111,7 @@ const apiMiddleware = (store) => (next) => (action) => {
       const state = store.getState();
 
       // ========== API : api/user/edit
-      console.log('action pour modifier un utilisateur', state);
+      // console.log('action pour modifier un utilisateur', state);
       axios({
         method: 'put',
         url: `${BASE_API_URI}/api/user/edit`,
@@ -121,11 +125,11 @@ const apiMiddleware = (store) => (next) => (action) => {
         },
       })
         .then((res) => {
-          console.log('user edit : response', res, res.data);
+          // console.log('user edit : response', res, res.data);
           store.dispatch(getUser(res.data.token, res.data));
         })
         .catch((err) => {
-          console.log('user edit : error', err, err.response.data);
+          // console.log('user edit : error', err, err.response.data);
           handleSendErrorMessages(store, err.response.data);
         });
       break;
@@ -135,7 +139,7 @@ const apiMiddleware = (store) => (next) => (action) => {
       const state = store.getState();
 
       // ========== API : api/user/delete
-      console.log('action pour supprimer un utilisateur', state);
+      // console.log('action pour supprimer un utilisateur', state);
       axios({
         method: 'delete',
         url: `${BASE_API_URI}/api/user/delete`,
@@ -145,11 +149,11 @@ const apiMiddleware = (store) => (next) => (action) => {
         },
       })
         .then((res) => {
-          console.log('user delete : response', res, res.data);
+          // console.log('user delete : response', res, res.data);
           store.dispatch(logout());
         })
         .catch((err) => {
-          console.log('user delete : error', err, err.response.data);
+          // console.log('user delete : error', err, err.response.data);
           handleSendErrorMessages(store, err.response.data);
         });
       break;

@@ -8,7 +8,7 @@ import Button from '../LinkButton';
 import './style.scss';
 
 // == Component
-const Story = ({ story, php, restartNewGame }) => (
+const Story = ({ story, php }) => (
   <div className="story-container">
     <div className="dialog">
       <h2 className="dialog__title">{story.title}</h2>
@@ -34,7 +34,7 @@ const Story = ({ story, php, restartNewGame }) => (
             <Typical className="dialog__p" steps={[story.endText, 1000]} wrapper="p" />
             <div className="next-button-container">
               <div className="neon-button-container">
-                <Button cssClassName="neon-button neon-button--next" buttonName="Fin" url="/" onClick={restartNewGame} />
+                <Button cssClassName="neon-button neon-button--next" buttonName="Fin" url="/" />
                 <div className="neon-border-container">
                   <span />
                   <span />
@@ -57,7 +57,6 @@ Story.propTypes = {
     endText: PropTypes.string.isRequired,
   }).isRequired,
   php: PropTypes.number.isRequired,
-  restartNewGame: PropTypes.func.isRequired,
 };
 
 

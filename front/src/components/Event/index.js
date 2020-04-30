@@ -22,7 +22,7 @@ const Event = ({
     realDifficulty = eventDifficulty;
   }
   if (php === 30) {
-    realDifficulty = 2;
+    realDifficulty = 8;
   }
 
   const win = (hacking + playerRoll) > realDifficulty;

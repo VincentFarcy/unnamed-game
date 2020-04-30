@@ -10,7 +10,7 @@ import './style.scss';
 const Medic = ({ actionMedic }) => (
   <div className="dialog">
     <h2 className="dialog__title">Medic Bay</h2>
-    <p className="dialog__p">Te faire soigner t'as coûté 10 JSX. Cependant l'efficacité du système es surprenante</p>
+    <p className="dialog__p">Te faire soigner t'a coûté 10 JSX. Cependant l'efficacité du système est surprenante</p>
     <div className="next-button-container">
       <div className="neon-button-container">
         <Button cssClassName="neon-button neon-button--next" buttonName="PHP suivant" url="/play/sequence" onClick={actionMedic} />
