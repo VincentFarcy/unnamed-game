@@ -1,44 +1,21 @@
 @import 'src/styles/vars';
-
 .train {
-
   &__button-container {
+    margin-top: -1rem;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     align-content: center;
   }
-
-  &__button {
-    width: 70%;
-    margin: 1em auto;
-  }
 }
 
-@media screen AND (min-width: 768) {
-
+@media screen AND (min-width: 768px) {
   .train {
-
     &__button-container {
-      padding: 1em;
+      margin: 0 -1.5rem;
+      padding: 1rem .1rem;
     }
   }
 }
 
-/* === large screen === */
-@media screen AND (min-width: 992px) {
-
-  .train {
-
-    &__button-container {
-      flex-direction: row;
-      flex-wrap: wrap;
-      padding: 1em;
-    }
-  
-    &__button {
-      padding: 0.25em;
-      width: 40%;
-    }
-  }
-}

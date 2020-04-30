@@ -64,6 +64,7 @@
     "bootstrap": "^4.4.1",
     "prop-types": "^15.7.2",
     "react": "*",
+    "react-audio-player": "^0.13.0",
     "react-bootstrap": "^1.0.0",
     "react-dom": "*",
     "react-redux": "*",

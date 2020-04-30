@@ -6,6 +6,7 @@ import { Switch, Route, Redirect, useParams } from 'react-router-dom';
 // == Import local
 // == Import Website Components
 import './styles.scss';
+import './button.scss';
 import './dialog.scss';
 import './player-action.scss';
 import './character-info.scss';
@@ -36,7 +37,7 @@ import Mainhub from '../../containers/MainHub';
 import CreateCharacter from '../../containers/CreateCharacter/CreateCharacter';
 import Event from '../../containers/Event';
 import Ending from '../Ending';
-import Footer from '../Footer';
+import Footer from '../../containers/Footer';
 
 // == Component
 const App = ({ isGameOn, bgImageCssClass }) => (

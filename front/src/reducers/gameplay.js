@@ -26,6 +26,7 @@ import {
   MEDIC_ACTION,
   ADD_OPPONNENT_REWARD,
   CHANGE_BG,
+  RESTART_MUSIC,
   LOAD_BACKUP_DATA,
   START_BACKUP_LOADING,
   END_BACKUP_LOADING,
@@ -525,6 +526,7 @@ const gameplay = (state = initialState, action = {}) => {
         phpTimer: phpTimer,
         player: {
           ...state.player,
+          pool: 0,
           playerCurrentHP: action.backups[0].health,
           playerTotalHP: ((action.backups[0].will / 2) + (action.backups[0].constitution)) * 10,
           baseTouch:((action.backups[0].agility) + Math.floor((action.backups[0].intelligence / 3))),
@@ -575,6 +577,12 @@ const gameplay = (state = initialState, action = {}) => {
       return {
         ...state,
         phpTimer: 30,
+      };
+    case RESTART_MUSIC:
+      return {
+        ...state,
+        gameOn: false,
+
       };
     default:
       return state;

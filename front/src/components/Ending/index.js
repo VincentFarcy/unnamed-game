@@ -13,7 +13,15 @@ const Ending = () => (
       <h2 className="dialog__title">Félicitation !</h2>
       <Typical className="dialog__p" steps={['Tu as réussi à réparer le générateur !', 1000, 'GG, tu as fini le jeu.', 500, 'David Goodenough', 1000]} wrapper="p" />
       <div className="next-button-container">
-        <Button cssClassName="next-button" buttonName="Rejouer" url="/play" />
+        <div className="neon-button-container">
+          <Button cssClassName="neon-button neon-button--next" buttonName="Rejouer" url="/play" />
+          <div className="neon-border-container">
+            <span />
+            <span />
+            <span />
+            <span />
+          </div>
+        </div>
       </div>
     </div>
   </div>

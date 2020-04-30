@@ -34,12 +34,20 @@ const Reward = ({
         <h2 className="dialog__title">Voici vos récompenses</h2>
         <p className="dialog__p"> {`Vous avez gagné ${(eventRewardJsx !== null ? eventRewardJsx :  jsxReward) + jsxCombatReward} JSX et ${(eventRewardXp !== null ? eventRewardXp : xpReward) + xpCombatReward} point(s) d'éxpérience`} </p>
         <div className="next-button-container">
-          <Button
-            cssClassName="generic-button next-button"
-            url="/play/sequence"
-            buttonName="PHP Suivant"
-            onClick={nextSequence}
-          />
+          <div className="neon-button-container">
+            <Button
+              cssClassName="neon-button neon-button--next"
+              url="/play/sequence"
+              buttonName="PHP Suivant"
+              onClick={nextSequence}
+            />
+            <div className="neon-border-container">
+              <span />
+              <span />
+              <span />
+              <span />
+            </div>
+          </div>
         </div>
       </div>
     </div>
