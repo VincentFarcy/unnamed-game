@@ -72,7 +72,7 @@ const Mainhub = ({
           {(trainAccess >= RollForTrainAccess) && (xp >= xpCost) && (php > 5) && (php < 30) && (jsx >= jsxCost)
             && (
               <div className="neon-button-container">
-                <Button cssClassName="neon-button" buttonName="Entrainement" url="/play/train" onClick={nextSequence} />
+                <Button cssClassName="neon-button" buttonName="Augmentation" url="/play/train" onClick={nextSequence} />
                 <div className="neon-border-container">
                   <span />
                   <span />
