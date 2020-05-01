@@ -30,7 +30,7 @@ const Ability = ({
         )
       }
     >
-      <button className="ability__button" type="button" onClick={(event) => decrement(event.target.parentNode.id)}>－</button>
+      <button className="ability__button" type="button" onClick={(event) => decrement(event.target.parentNode.id)}>−</button>
     </OverlayTrigger>
     <img className="ability__image" src={image} alt={name} />
     <OverlayTrigger
