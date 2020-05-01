@@ -21,7 +21,7 @@ const RessourceInfo = ({ mainCounter, experience, money }) => (
         overlay={
           (
             <Tooltip id={`tooltip`}>
-              Personnal Hours Protocol - Le temps galactique
+              Protocole d'Heures Personnelles - Le temps galactique
             </Tooltip>
           )
         }

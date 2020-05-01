@@ -1,7 +1,7 @@
 // == Import npm
 import React from 'react';
 import loose from 'src/assets/images/death.svg';
-import Typical from 'react-typical';
+import TypeWriter from 'react-typewriter';
 import Image from 'react-bootstrap/Image';
 import Button from '../LinkButton';
 
@@ -13,11 +13,14 @@ import './style.scss';
 const Death = () => (
   <div className="dialog">
     <h2 className="dialog__title">The end...</h2>
-    <Typical
+    <TypeWriter
       className="dialog__p"
-      steps={['Avec un peu de chance votre mort fut rapide...', 1000]}
-      wrapper="p"
-    />
+      typing={1}
+      maxDelay={27}
+      minDelay={27}
+      initDelay={1}
+    >Avec un peu de chance votre mort fut rapide...
+    </TypeWriter>
     <Image className="death__image" src={loose} rounded />
     <div className="next-button-container">
       <div className="neon-button-container">

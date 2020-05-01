@@ -1,7 +1,7 @@
 // == Import npm
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import Typical from 'react-typical';
+import TypeWriter from 'react-typewriter';
 import { Redirect } from 'react-router-dom';
 
 // == Import local
@@ -33,11 +33,14 @@ const Sequence = ({
           : (
             <div>
               <h2 className="dialog__title">{sequence.title}</h2>
-              <Typical
+              <TypeWriter
                 className="dialog__p"
-                steps={[sequence.mainText, 1000]}
-                wrapper="p"
-              />
+                typing={1}
+                maxDelay={36}
+                minDelay={30}
+                initDelay={30}
+              >{sequence.mainText}
+              </TypeWriter>
               <div className="next-button-container">
                 {php === 1
                   && (

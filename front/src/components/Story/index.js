@@ -2,6 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Typical from 'react-typical';
+import TypeWriter from 'react-typewriter';
 import Button from '../LinkButton';
 
 // == Import local
@@ -15,7 +16,14 @@ const Story = ({ story, php }) => (
       {php === 1
         ? (
           <>
-            <Typical className="dialog__p" steps={[story.mainText, 1000]} wrapper="p" />
+            <TypeWriter
+              className="dialog__p"
+              typing={1}
+              maxDelay={27}
+              minDelay={27}
+              initDelay={1}
+            >{story.mainText}
+            </TypeWriter>
             <div className="next-button-container">
               <div className="neon-button-container">
                 <Button cssClassName="neon-button neon-button--next" buttonName="Suivant" url="/play/sequence" />
