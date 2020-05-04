@@ -8,7 +8,7 @@ import { Redirect } from 'react-router-dom';
 import './style.scss';
 
 // == Component
-const Exploration = ({ findExploration, randomExploration }) => {
+const Exploration = ({ randomExploration, findExploration }) => {
   useEffect(findExploration, []);
   const exploration = randomExploration.type;
 
@@ -24,10 +24,10 @@ const Exploration = ({ findExploration, randomExploration }) => {
 
 // == Props validation
 Exploration.propTypes = {
-  findExploration: PropTypes.func.isRequired,
   randomExploration: PropTypes.shape({
     type: PropTypes.string,
   }).isRequired,
+  findExploration: PropTypes.func.isRequired,
 };
 
 // == Export

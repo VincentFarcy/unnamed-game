@@ -35,7 +35,7 @@ const apiMiddleware = (store) => (next) => (action) => {
             store.dispatch(loadBackupData(store.getState().user.backups));
           }
         })
-        .catch((err) => {
+        .catch(() => {
           store.getState().gameplay.hasError = true;
           store.dispatch(gameDataError());
         });

@@ -1,7 +1,6 @@
 // npm imports
 import { connect } from 'react-redux';
 
-
 // local imports
 import avatarAnnSo from 'src/assets/images/team/AvatarAnnSo.svg';
 import VincentF from 'src/assets/images/team/vf-400.png';

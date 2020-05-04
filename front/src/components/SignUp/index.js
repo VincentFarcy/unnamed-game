@@ -13,11 +13,11 @@ const SignUp = ({
   password,
   confirmPassword,
   ageChecked,
+  errorMessages,
+  isLogged,
   changeField,
   handleSignUp,
-  errorMessages,
   sendErrorMessages,
-  isLogged,
 }) => {
   //
   const handleSubmit = (evt) => {
@@ -130,11 +130,11 @@ SignUp.propTypes = {
   password: PropTypes.string.isRequired,
   confirmPassword: PropTypes.string.isRequired,
   ageChecked: PropTypes.bool.isRequired,
+  errorMessages: PropTypes.array.isRequired,
+  isLogged: PropTypes.bool.isRequired,
   changeField: PropTypes.func.isRequired,
   handleSignUp: PropTypes.func.isRequired,
-  errorMessages: PropTypes.array.isRequired,
   sendErrorMessages: PropTypes.func.isRequired,
-  isLogged: PropTypes.bool.isRequired,
 };
 
 // Valeurs par défaut pour les props

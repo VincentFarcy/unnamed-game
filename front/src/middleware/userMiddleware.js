@@ -91,9 +91,9 @@ const apiMiddleware = (store) => (next) => (action) => {
               Authorization: `Bearer ${tokenJWT}`,
             },
           })
-            .then((res) => {
+            .then((response) => {
               // console.log('user read : response', res, res.data);
-              store.dispatch(getUser(tokenJWT, res.data));
+              store.dispatch(getUser(tokenJWT, response.data));
             })
             .catch((err) => {
               // console.log('user read : error', err, err.response.data);
@@ -148,7 +148,7 @@ const apiMiddleware = (store) => (next) => (action) => {
           Authorization: `Bearer ${state.user.tokenJWT}`,
         },
       })
-        .then((res) => {
+        .then(() => {
           // console.log('user delete : response', res, res.data);
           store.dispatch(logout());
         })

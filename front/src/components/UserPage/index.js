@@ -12,15 +12,15 @@ const UserPage = ({
   currentEmail,
   pseudo,
   email,
-  changeField,
-  editUser,
-  deleteUser,
   errorMessages,
   editMode,
-  setEditMode,
   deleteMode,
-  setDeleteMode,
   isLogged,
+  changeField,
+  setEditMode,
+  setDeleteMode,
+  editUser,
+  deleteUser,
 }) => {
   //
   const handleSubmit = (evt) => {
@@ -130,15 +130,15 @@ UserPage.propTypes = {
   currentEmail: PropTypes.string.isRequired,
   pseudo: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
-  changeField: PropTypes.func.isRequired,
-  editUser: PropTypes.func.isRequired,
-  deleteUser: PropTypes.func.isRequired,
   errorMessages: PropTypes.array.isRequired,
   editMode: PropTypes.bool.isRequired,
-  setEditMode: PropTypes.func.isRequired,
   deleteMode: PropTypes.bool.isRequired,
-  setDeleteMode: PropTypes.func.isRequired,
   isLogged: PropTypes.bool.isRequired,
+  changeField: PropTypes.func.isRequired,
+  setEditMode: PropTypes.func.isRequired,
+  setDeleteMode: PropTypes.func.isRequired,
+  editUser: PropTypes.func.isRequired,
+  deleteUser: PropTypes.func.isRequired,
 };
 
 // Valeurs par défaut pour les props

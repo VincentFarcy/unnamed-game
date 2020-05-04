@@ -13,7 +13,6 @@ import MainPlay from '../components/MainPlay';
 // state
 const mapStateToProps = (state) => ({
   hasError: state.gameplay.hasError,
-  gameOn: state.gameplay.gameOn,
   hasBackup: (state.user.backups) ? state.user.backups.length > 0 : false,
 });
 

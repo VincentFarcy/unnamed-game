@@ -13,7 +13,6 @@ import PlayerInfo from '../../containers/PlayerInfo';
 const Train = ({
   fullAccess,
   roomAccess,
-  incrementAbility,
   php,
   hp,
   strength,
@@ -23,8 +22,9 @@ const Train = ({
   intelligence,
   jsx,
   xp,
-  jsxCost,
   xpCost,
+  jsxCost,
+  incrementAbility,
 }) => {
   const rollFullAccess = rollDice(1, 100);
   const strengthTrainAccess = rollDice(1, 100);
@@ -158,7 +158,6 @@ Train.propTypes = {
   fullAccess: PropTypes.number.isRequired,
   roomAccess: PropTypes.number.isRequired,
   php: PropTypes.number.isRequired,
-  incrementAbility: PropTypes.func.isRequired,
   hp: PropTypes.number.isRequired,
   strength: PropTypes.number.isRequired,
   agility: PropTypes.number.isRequired,
@@ -167,8 +166,9 @@ Train.propTypes = {
   intelligence: PropTypes.number.isRequired,
   jsx: PropTypes.number.isRequired,
   xp: PropTypes.number.isRequired,
-  jsxCost: PropTypes.number.isRequired,
   xpCost: PropTypes.number.isRequired,
+  jsxCost: PropTypes.number.isRequired,
+  incrementAbility: PropTypes.func.isRequired,
 
 };
 

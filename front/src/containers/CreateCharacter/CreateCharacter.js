@@ -12,7 +12,6 @@ const mapStateToProps = (state) => ({
   isLoading: state.gameplay.isLoading,
   abilities: state.gameplay.player.abilities,
   pool: state.gameplay.player.pool,
-  backupLoaded: (state.gameplay.player.playerCurrentHP !== 0),
   backupIsLoading: state.gameplay.backupIsLoading,
 });
 

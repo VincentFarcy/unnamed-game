@@ -12,9 +12,9 @@ const Event = ({
   eventDifficulty,
   playerRoll,
   hacking,
+  php,
   nextSequence,
   findEvent,
-  php,
 }) => {
   useEffect(findEvent, []);
   let realDifficulty = 1;
@@ -84,12 +84,12 @@ const Event = ({
 
 // == Props validation
 Event.propTypes = {
-  findEvent: PropTypes.func.isRequired,
-  nextSequence: PropTypes.func.isRequired,
   eventDifficulty: PropTypes.number.isRequired,
   playerRoll: PropTypes.number.isRequired,
   hacking: PropTypes.number.isRequired,
   php: PropTypes.number.isRequired,
+  nextSequence: PropTypes.func.isRequired,
+  findEvent: PropTypes.func.isRequired,
 };
 
 // == Export

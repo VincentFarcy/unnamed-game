@@ -27,7 +27,7 @@ import NotFound from '../../containers/NotFound';
 import MainPlay from '../../containers/MainPlay';
 import Story from '../../containers/Story';
 import Sequence from '../../containers/Sequence';
-import Death from '../../containers/Death';
+import Death from '../Death';
 import Combat from '../../containers/Combat/Combat';
 import Exploration from '../../containers/Exploration';
 import Reward from '../../containers/Reward';

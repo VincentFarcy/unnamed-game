@@ -14,13 +14,13 @@ const Mainhub = ({
   medicAccess,
   trainAccess,
   jsx,
-  jsxCost,
   xp,
   xpCost,
-  actionRest,
+  jsxCost,
   php,
-  startMission,
   hp,
+  actionRest,
+  startMission,
   nextSequence,
 }) => {
   const RollForMedicAccess = rollDice(1, 100);
@@ -120,13 +120,13 @@ Mainhub.propTypes = {
   medicAccess: PropTypes.number.isRequired,
   trainAccess: PropTypes.number.isRequired,
   jsx: PropTypes.number.isRequired,
-  jsxCost: PropTypes.number.isRequired,
   xp: PropTypes.number.isRequired,
   xpCost: PropTypes.number.isRequired,
-  actionRest: PropTypes.func.isRequired,
+  jsxCost: PropTypes.number.isRequired,
   php: PropTypes.number.isRequired,
-  startMission: PropTypes.func.isRequired,
   hp: PropTypes.number.isRequired,
+  actionRest: PropTypes.func.isRequired,
+  startMission: PropTypes.func.isRequired,
   nextSequence: PropTypes.func.isRequired,
 };
 

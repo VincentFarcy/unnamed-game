@@ -15,8 +15,8 @@ import ConnectedUserNav from '../../containers/Header/ConnectedUserNav';
 // == Component
 const Header = ({
   isLogged,
-  initUserState,
   isExpanded,
+  initUserState,
   toggleMenu,
   changeBg,
   restartMusic,
@@ -103,8 +103,8 @@ const Header = ({
 // == Props validation
 Header.propTypes = {
   isLogged: PropTypes.bool.isRequired,
-  initUserState: PropTypes.func.isRequired,
   isExpanded: PropTypes.bool.isRequired,
+  initUserState: PropTypes.func.isRequired,
   toggleMenu: PropTypes.func.isRequired,
   changeBg: PropTypes.func.isRequired,
   restartMusic: PropTypes.func.isRequired,

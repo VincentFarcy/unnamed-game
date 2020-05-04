@@ -8,8 +8,8 @@ import Button from '../LinkButton';
 
 // == Component
 const WonEvent = ({
-  eventWin,
   php,
+  eventWin,
 }) => {
   useEffect(eventWin, []);
 
@@ -46,8 +46,8 @@ const WonEvent = ({
 
 // == Props validation
 WonEvent.propTypes = {
-  eventWin: PropTypes.func.isRequired,
   php: PropTypes.number.isRequired,
+  eventWin: PropTypes.func.isRequired,
 };
 
 // == Export

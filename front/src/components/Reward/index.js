@@ -15,11 +15,11 @@ const Reward = ({
   jsxReward,
   eventRewardXp,
   eventRewardJsx,
-  findRandomReward,
-  addOpponnentReward,
-  nextSequence,
   xpCombatReward,
   jsxCombatReward,
+  addOpponnentReward,
+  findRandomReward,
+  nextSequence,
 }) => {
   // == Updates the state to get the xpReward and the jsxReward
   useEffect(addOpponnentReward, []);
@@ -62,9 +62,9 @@ Reward.propTypes = {
   eventRewardJsx: PropTypes.number,
   xpCombatReward: PropTypes.number.isRequired,
   jsxCombatReward: PropTypes.number.isRequired,
-  nextSequence: PropTypes.func.isRequired,
-  findRandomReward: PropTypes.func.isRequired,
   addOpponnentReward: PropTypes.func.isRequired,
+  findRandomReward: PropTypes.func.isRequired,
+  nextSequence: PropTypes.func.isRequired,
 };
 
 // == Default props

@@ -12,11 +12,11 @@ import Ability from '../../containers/CreateCharacter/Ability';
 
 // == Component
 const CreateCharacter = ({
-  changeBg,
   isLoading,
   abilities,
   pool,
   backupIsLoading,
+  changeBg,
   endBackupLoading,
 }) => {
   useEffect(() => {
@@ -113,8 +113,8 @@ CreateCharacter.propTypes = {
     }),
   ).isRequired,
   pool: PropTypes.number.isRequired,
-  changeBg: PropTypes.func.isRequired,
   backupIsLoading: PropTypes.bool.isRequired,
+  changeBg: PropTypes.func.isRequired,
   endBackupLoading: PropTypes.func.isRequired,
 };
 

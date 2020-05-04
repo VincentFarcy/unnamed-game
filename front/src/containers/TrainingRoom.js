@@ -9,7 +9,7 @@ import { incrementAbility, nextSequence } from '../actions/gamePlay';
 // state
 const mapStateToProps = (state) => ({
   fullAccess: state.gameplay.gameParameters.train_full_access_probability,
-  trainGain: state.gameplay.gameParameters.train_gain,
+  // trainGain: state.gameplay.gameParameters.train_gain,
   roomAccess: state.gameplay.gameParameters.train_room_access_probability,
   php: state.gameplay.phpTimer,
   hp: state.gameplay.player.playerCurrentHP,
@@ -29,9 +29,9 @@ const mapDispatchToProps = (dispatch) => ({
   incrementAbility: (ability) => {
     dispatch(incrementAbility(ability));
   },
-  nextSequence: () => {
-    dispatch(nextSequence());
-  },
+  // nextSequence: () => {
+  //   dispatch(nextSequence());
+  // },
 });
 
 

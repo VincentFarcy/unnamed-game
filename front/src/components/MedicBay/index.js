@@ -9,7 +9,7 @@ import './style.scss';
 import Button from '../LinkButton';
 
 // == Component
-const Medic = ({ actionMedic, php, hp }) => (
+const Medic = ({ php, hp, actionMedic }) => (
   <div className="dialog">
     {(php > 32 || hp <= 0) && <Redirect to="/play/death" />}
     <h2 className="dialog__title">Medic Bay</h2>
@@ -35,9 +35,9 @@ const Medic = ({ actionMedic, php, hp }) => (
 
 // == Props validation
 Medic.propTypes = {
-  actionMedic: PropTypes.func.isRequired,
   php: PropTypes.number.isRequired,
   hp: PropTypes.number.isRequired,
+  actionMedic: PropTypes.func.isRequired,
 };
 
 

@@ -19,13 +19,13 @@ const Combat = ({
   isCombatOn,
   isCombatInProgress,
   gameParameters,
+  php,
   findOpponent,
   combatInProgress,
   applyDamage,
   nextSequence,
   endFight,
   changeBg,
-  php,
 }) => {
   useEffect(findOpponent, []);
   useEffect(() => {
@@ -254,13 +254,13 @@ Combat.propTypes = {
     minSpeedRoll: PropTypes.number.isRequired,
     maxSpeedRoll: PropTypes.number.isRequired,
   }).isRequired,
+  php: PropTypes.number.isRequired,
   findOpponent: PropTypes.func.isRequired,
   combatInProgress: PropTypes.func.isRequired,
   applyDamage: PropTypes.func.isRequired,
   nextSequence: PropTypes.func.isRequired,
   endFight: PropTypes.func.isRequired,
   changeBg: PropTypes.func.isRequired,
-  php: PropTypes.number.isRequired,
 };
 
 // == Export
