@@ -264,11 +264,16 @@ const gameplay = (state = initialState, action = {}) => {
         ...state,
         player: {
           ...state.player,
-          playerTotalHP: ((state.player.abilities[3].value / 2) + (state.player.abilities[2].value)) * 10,
-          playerCurrentHP: ((state.player.abilities[3].value / 2) + (state.player.abilities[2].value)) * 10,
-          hacking: ((state.player.abilities[4].value) + Math.floor((state.player.abilities[3].value / 2))),
-          baseTouch: ((state.player.abilities[1].value) + Math.floor((state.player.abilities[4].value / 3))),
-          dodge: ((state.player.abilities[1].value) + Math.floor((state.player.abilities[4].value / 2))),
+          playerTotalHP: ((state.player.abilities[3].value / 2)
+            + (state.player.abilities[2].value)) * 10,
+          playerCurrentHP: ((state.player.abilities[3].value / 2)
+            + (state.player.abilities[2].value)) * 10,
+          hacking: ((state.player.abilities[4].value)
+            + Math.floor((state.player.abilities[3].value / 2))),
+          baseTouch: ((state.player.abilities[1].value)
+            + Math.floor((state.player.abilities[4].value / 3))),
+          dodge: ((state.player.abilities[1].value)
+            + Math.floor((state.player.abilities[4].value / 2))),
           baseDamage: state.player.abilities[0].value,
           baseSpeed: state.player.abilities[1].value,
           baseHealing: Math.floor(
@@ -282,11 +287,16 @@ const gameplay = (state = initialState, action = {}) => {
         ...state,
         player: {
           ...state.player,
-          playerTotalHP: ((state.player.abilities[3].value / 2) + (state.player.abilities[2].value)) * 10,
-          playerCurrentHP: ((state.player.abilities[3].value / 2) + (state.player.abilities[2].value)) * 10,
-          hacking: ((state.player.abilities[4].value) + Math.floor((state.player.abilities[3].value / 2))),
-          baseTouch: ((state.player.abilities[1].value) + Math.floor((state.player.abilities[4].value / 3))),
-          dodge: ((state.player.abilities[1].value) + Math.floor((state.player.abilities[4].value / 2))),
+          playerTotalHP: ((state.player.abilities[3].value / 2)
+            + (state.player.abilities[2].value)) * 10,
+          playerCurrentHP: ((state.player.abilities[3].value / 2)
+            + (state.player.abilities[2].value)) * 10,
+          hacking: ((state.player.abilities[4].value)
+            + Math.floor((state.player.abilities[3].value / 2))),
+          baseTouch: ((state.player.abilities[1].value)
+            + Math.floor((state.player.abilities[4].value / 3))),
+          dodge: ((state.player.abilities[1].value)
+            + Math.floor((state.player.abilities[4].value / 2))),
           baseDamage: state.player.abilities[0].value,
           baseSpeed: state.player.abilities[1].value,
           baseHealing: Math.floor(
@@ -396,8 +406,10 @@ const gameplay = (state = initialState, action = {}) => {
         rewards: randomReward,
         player: {
           ...state.player,
-          jsx: state.player.jsx + (state.eventRewards.jsx !== null ? state.eventRewards.jsx : randomReward.jsxRoll),
-          xp: state.player.xp + (state.eventRewards.xp !== null ? state.eventRewards.xp : randomReward.xpRoll),
+          jsx: state.player.jsx
+            + (state.eventRewards.jsx !== null ? state.eventRewards.jsx : randomReward.jsxRoll),
+          xp: state.player.xp
+            + (state.eventRewards.xp !== null ? state.eventRewards.xp : randomReward.xpRoll),
         },
       };
     case FIND_EVENT:
@@ -455,8 +467,10 @@ const gameplay = (state = initialState, action = {}) => {
         player: {
           ...state.player,
           playerCurrentHP:
-            (state.player.playerCurrentHP + state.player.baseHealing + rollDice(1, 2)) < state.player.playerTotalHP
-              ? state.player.playerCurrentHP + state.player.baseHealing + rollDice(1, 2) : state.player.playerTotalHP,
+            (state.player.playerCurrentHP
+              + state.player.baseHealing + rollDice(1, 2)) < state.player.playerTotalHP
+              ? state.player.playerCurrentHP
+                + state.player.baseHealing + rollDice(1, 2) : state.player.playerTotalHP,
         },
       };
     case MEDIC_ACTION:
@@ -506,20 +520,27 @@ const gameplay = (state = initialState, action = {}) => {
           ...state.player,
           xp: state.player.xp - state.gameParameters.train_xp_cost,
           jsx: state.player.jsx - state.gameParameters.train_money_cost,
-          playerTotalHP: ((state.player.abilities[3].value / 2) + (state.player.abilities[2].value)) * 10,
+          playerTotalHP: ((state.player.abilities[3].value / 2)
+            + (state.player.abilities[2].value)) * 10,
           playerCurrentHP: state.player.playerCurrentHP,
-          hacking: ((state.player.abilities[4].value) + Math.floor((state.player.abilities[3].value / 2))),
-          baseTouch: ((state.player.abilities[1].value) + Math.floor((state.player.abilities[4].value / 3))),
-          dodge: ((state.player.abilities[1].value) + Math.floor((state.player.abilities[4].value / 2))),
+          hacking: ((state.player.abilities[4].value)
+            + Math.floor((state.player.abilities[3].value / 2))),
+          baseTouch: ((state.player.abilities[1].value)
+            + Math.floor((state.player.abilities[4].value / 3))),
+          dodge: ((state.player.abilities[1].value)
+            + Math.floor((state.player.abilities[4].value / 2))),
           baseDamage: state.player.abilities[0].value,
           baseSpeed: state.player.abilities[1].value,
-          baseHealing: Math.floor(((state.player.abilities[3].value) + (state.player.abilities[4].value))),
+          baseHealing: Math.floor(((state.player.abilities[3].value)
+            + (state.player.abilities[4].value))),
         },
       };
 
     case LOAD_BACKUP_DATA:
       const sequenceId = action.backups[0].sequence.id;
-      const phpTimer = state.chapters[0].sequences.find((sequence) => sequence.id === sequenceId).orderBy;
+      const phpTimer = state.chapters[0].sequences.find(
+        (sequence) => sequence.id === sequenceId,
+      ).orderBy;
       return {
         ...state,
         phpTimer: phpTimer,
@@ -528,7 +549,8 @@ const gameplay = (state = initialState, action = {}) => {
           pool: 0,
           playerCurrentHP: action.backups[0].health,
           playerTotalHP: ((action.backups[0].will / 2) + (action.backups[0].constitution)) * 10,
-          baseTouch:((action.backups[0].agility) + Math.floor((action.backups[0].intelligence / 3))),
+          baseTouch: ((action.backups[0].agility)
+            + Math.floor((action.backups[0].intelligence / 3))),
           dodge: ((action.backups[0].agility) + Math.floor((action.backups[0].intelligence / 2))),
           baseDamage: action.backups[0].strength,
           baseSpeed: action.backups[0].agility,
@@ -586,9 +608,7 @@ const gameplay = (state = initialState, action = {}) => {
     default:
       return state;
   }
-
 };
-
 
 // == Export
 export default gameplay;
