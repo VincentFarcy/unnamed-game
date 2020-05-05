@@ -1,0 +1,51 @@
+@import 'src/styles/vars';
+
+.player-action {
+
+  &__container {
+    .player-bar {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    font-size: 1.6rem;
+    padding-top: 0.5rem;
+    margin: 0;
+  }
+
+  &__p {
+    padding: 1em;
+    justify-content: flex-start;
+  }
+}
+
+/* === medium screen === */
+@media screen AND (min-width: 768px) {
+  .player-action {
+
+    &__container {
+      .player-bar {
+        margin-bottom: 50px;
+      }
+    }
+      
+    &__p {
+      padding-top: 2em;
+      font-size: 1.6em;
+    }
+  }
+}
+
+/* === large screen === */
+@media screen AND (min-width: 992px) {
+
+  .player-action {
+
+      &__p {
+      padding: 2em;
+      font-size: 1.8em;
+    }
+  }
+}

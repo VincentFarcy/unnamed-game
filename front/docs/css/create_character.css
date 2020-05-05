@@ -1,0 +1,204 @@
+/* === Logo === */
+.logo_min {
+  width: 150px;
+  height: 150px;
+  
+}
+
+.logo {
+  width: 70px;
+  height: 70px;
+}
+
+/* === Main === */
+.main {
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0,0,0,0.6);
+  border-radius: 15px;
+  width: 100%;
+  max-width: 900px;
+  min-width: 300px;
+  box-shadow: inset 0em 2em rgba(100,255,200,0.7);
+  color: white;
+  margin: 0 auto;
+}
+
+h1 {
+  padding-top: 0.1em;
+  font-size: 1.8em;
+}
+
+/* === Ability pool === */
+.ability_pool_container {
+  width: 100%;
+  font-size: 1.3em;
+  font-weight: 700;
+  padding-left: 1em;
+  border-radius: 5px;
+}
+
+/* === Ability container === */
+.ability_container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 100%;
+  min-width: 300px;
+  max-width: 450px;
+  margin: 1.5em 0;
+  font-size: 1.2em;
+  align-items: center;
+}
+
+.ability_button{
+  display: flex;
+  margin: 0 1em;
+  align-self: flex-start;
+  width: 1.2em;
+  height: 1.2em;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  border: none;
+}
+
+.ability_value, .ability_pool_value {
+  padding-left: 1em;
+  width: 5%;
+}
+
+.ability {
+  width: 40%;
+  padding-left: 1em;
+}
+
+.ability_image {
+  width: 1.2em;
+  height: 1.2em;
+}
+
+/* === Validate button === */
+.button_container {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 2em;
+}
+
+.validate_button {
+  width: 25%;
+  max-width: 220px;
+  min-width: 140px;
+  align-self: center;
+  text-align: center;
+  border-radius: 25px;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  border: 2px solid  rgba(110,230,255,0.8);
+}
+
+/* === medium screen === */
+@media screen AND (min-width: 768px) {
+  .main {
+    margin: 1em auto;
+    min-height: calc(100vh - 178px);
+    max-height: calc(100vh - 178px);
+    box-shadow: inset 0em 3em rgba(100,255,200,0.7),
+                0 0 1em rgba(100,255,200),
+                0 0 2em rgba(100,255,200),
+                0 0 4em rgba(100,255,200),
+                0 0 8em rgba(100,255,200);
+    width: 80%;
+  }
+
+  h1 {
+    padding-top: 0.2em;
+    font-size: 2em;
+  }
+
+  .ability_pool_container {
+    max-width: none;
+    font-size: 2em;
+    border-radius: 5px;
+  }
+
+  .ability_container {
+    min-width: 620px;
+    font-size: 2em;
+    margin: 1em auto 0 auto;
+  }
+
+  .ability_button {
+    width: 1.4em;
+    height: 1.4em;
+    border-radius: 50%;
+    align-self: center;
+  }
+  .ability_image {
+    width: 2em;
+    height: 2em;
+  }
+
+  .validate_button {
+    max-width: 500px;
+    font-size: 2em;
+    margin: 1em 0;
+  }
+}
+
+
+/* === large screen / desktop === */
+@media screen AND (min-width: 992px) {
+  .main {
+    margin: 2em auto;
+    min-height: calc(100vh - 222px);
+    max-height: calc(100vh - 222px);
+    box-shadow: inset 0em 3.5em rgba(100,255,200,0.7),
+                0 0 1em rgba(100,255,200),
+                0 0 2em rgba(100,255,200),
+                0 0 4em rgba(100,255,200),
+                0 0 8em rgba(100,255,200);
+  }
+
+  h1 {
+    padding-top: 0.2em;
+    font-size: 2.6em;
+  }
+
+  .ability_pool_container {
+    font-size: 2.6em;
+  }
+
+  .ability_container {
+    min-width: 800px;
+    font-size: 2.6em;
+   }
+
+  .ability_button {
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    transition-duration: 0.35s;
+    transition-property: background-color, color, transform ;
+  }
+
+  .ability_button:hover{
+    background-color: grey;
+    color: white;
+    transform: scale(1.4) rotate(360deg);
+  }
+  
+  .validate_button {
+    font-size: 2.6em;
+    margin-bottom: 1em;
+    padding: 0.2em 0;
+    transition-duration: 0.35s;
+    transition-property: color, transform, color;
+  }
+
+  .validate_button:hover {
+    transform: scale(1.2);
+    border: 2px solid  #f0f;
+    color: lightgrey;
+  }
+}

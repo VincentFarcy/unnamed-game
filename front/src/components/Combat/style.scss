@@ -1,0 +1,109 @@
+@import 'src/styles/vars';
+
+.combat__container {
+  .combat__vs {
+    text-align: center;
+    margin: 1rem 0;
+  }
+
+  .combat__choices {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    
+    .choice {
+      width: 100px;
+      margin: 0 1rem;
+      border: 1px solid #FFF;
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+
+      &:hover {
+        color: #FFF;
+        background-color: #F0F;
+      }
+    }
+
+    .choice--combat-in-progress {
+      width: unset;
+    }
+  }
+
+  .combat-info__opponent-image-container {
+    .combat-info__avatar--souris {
+      width: unset;
+      height: 90px;
+    }
+  }
+}
+
+@media screen AND (min-width: 530px) {
+  .combat__container {
+    .MainAbilities__container,
+    .AdvancedAbilities__container{
+      width: 140px;
+    }
+    .MainAbilities__container {
+      margin-right: 0;
+    }
+    .AdvancedAbilities__container{
+      margin-left: 0;
+    }
+  }
+}
+
+/* === Tablets === */
+@media screen AND (min-width: 768px) {
+
+  .combat__container {
+    padding: 1rem 1rem 0;
+    .combat__versus-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      .combat__player-container {
+        width: 33%;
+        .combat-info {
+          flex-direction: column-reverse;        
+        }
+      }
+      .combat__presentation-container {
+        width: 34%;
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .combat__vs {
+          margin: 25px 0;
+        }
+        .combat__choices {
+          .choice {
+            display: block;
+            min-width: 100px;
+          }
+        }
+      }
+      .combat__opponent-container {
+        width: 33%;
+      }
+    }
+    .combat-info__opponent-image-container {
+      .combat-info__avatar--souris {
+        max-width: 100%;
+        height: 120px;
+      }
+    }
+    
+  }
+}
+
+/* === Large screens === */
+@media screen AND (min-width: 1024px) {
+
+  .combat__vs {
+    margin: 35px 0;
+  }
+}

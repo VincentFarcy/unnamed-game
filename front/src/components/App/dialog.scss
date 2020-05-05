@@ -1,0 +1,70 @@
+@import 'src/styles/vars';
+
+.dialog {
+  margin: auto;
+  justify-content: space-between;
+  background: $black-60;
+  border-radius: 15px;
+  min-width: 300px;
+  max-width: 900px;
+  width: 100%;
+  color: $white-100;
+  padding: 1rem;
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  &__p {
+    margin: 0;
+    text-align: justify;
+  }
+}
+
+/* === medium screen === */
+@media screen AND (min-width: 768px) {
+  .dialog {
+    width: 100%;
+    box-shadow: inset 0em 3em $play-inset,
+                0 0 1em $play-halo,
+                0 0 2em $play-halo,
+                0 0 4em $play-halo,
+                0 0 8em $play-halo;
+    padding: 0.4rem 1.4rem 1.4rem;
+
+    &__title {
+      font-size: 1.8rem;
+    }
+
+    &__p {
+      font-size: 1.6rem;
+      justify-content: flex-start;
+    }
+  }
+}
+
+/* === large screen === */
+@media screen AND (min-width: 992px) {
+  .dialog {
+    max-width: 900px;
+    box-shadow: inset 0em 3.5em $play-inset,
+                0 0 1em $play-lower-halo,
+                0 0 2em $play-halo,
+                0 0 4em $play-halo,
+                0 0 8em $play-halo;
+    padding: 0.5rem 2rem 2rem;
+
+    &__title {
+      font-size: 2rem;
+    }
+
+    &__p {
+      font-size: 1.8rem;
+      justify-content: flex-start;
+    }
+  }
+}

@@ -1,0 +1,105 @@
+/* === Logo === */
+.logo_min {
+  width: 30px;
+  height: 30px;
+}
+
+.logo {
+  width: 70px;
+  height: 70px;
+}
+
+/* === Main === */
+.main {
+  justify-content: space-between;
+  background: rgba(0,0,0,0.6);
+  border-radius: 15px;
+  width: 100%;
+  max-width: 900px;
+  min-width: 300px;
+  color: white;
+  margin: 0 auto;
+}
+
+/* === Story === */
+.story_container {
+  padding: 1em;
+  justify-content: flex-start;
+  line-height: 1.5em;
+}
+
+/* === Next button === */
+.button_container {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 2em;
+}
+
+.next_button {
+  width: 25%;
+  max-width: 220px;
+  min-width: 140px;
+  text-align: center;
+  border-radius: 25px;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  border: 2px solid  rgba(110,230,255,0.8);
+}
+
+/* === medium screen === */
+@media screen AND (min-width: 768px) {
+  .main {
+    min-height: calc(100vh - 178px);
+    max-height: calc(100vh - 178px);
+    box-shadow: 0 0 1em rgba(100,255,200),
+                0 0 2em rgba(100,255,200),
+                0 0 4em rgba(100,255,200),
+                0 0 8em rgba(100,255,200);
+    width: 80%;
+    margin: 1em auto;
+  }
+
+  .story_container {
+    margin-top: 1em;
+    font-size: 1.6em;
+  }
+
+  .next_button {
+    max-width: 500px;
+    font-size: 2em;
+    margin: 1em 0;
+  }
+}
+
+
+/* === large screen / desktop === */
+@media screen AND (min-width: 992px) {
+  .main {
+    margin: 2em auto;
+    min-height: calc(100vh - 222px);
+    max-height: calc(100vh - 222px);
+    box-shadow: 0 0 1em rgba(100,255,200),
+                0 0 2em rgba(100,255,200),
+                0 0 4em rgba(100,255,200),
+                0 0 8em rgba(100,255,200);
+  }
+
+  .story_container {
+    padding: 2em;
+    font-size: 1.8em;
+  }
+
+  .next_button {
+    font-size: 2.6em;
+    margin-bottom: 1em;
+    padding: 0.2em 0;
+    transition-duration: 0.35s;
+    transition-property: color, transform, color;
+  }
+
+  .next_button:hover {
+    transform: scale(1.2);
+    border: 2px solid  #f0f;
+    color: lightgrey;
+  }
+}

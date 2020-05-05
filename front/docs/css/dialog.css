@@ -1,0 +1,157 @@
+/* === Logo === */
+.logo_min {
+  width: 30px;
+  height: 30px;
+}
+
+.logo {
+  width: 70px;
+  height: 70px;
+}
+
+/* === Main === */
+.main {
+  justify-content: space-between;
+  background: rgba(0,0,0,0.6);
+  border-radius: 15px;
+  width: 100%;
+  max-width: 900px;
+  min-width: 300px;
+  color: white;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.top_container {
+  display: flex;
+  background-color: red;
+  height: 20%;
+  min-height: 50px;
+  width: 100%;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+.player_avatar {
+  background-color: hotpink;
+  width: 25%;
+}
+
+.player_info {
+  background-color: grey;
+  width: 75%;
+}
+
+.dialog_container {
+  background-color: green;
+  display: flex;
+  flex-direction: column;
+  min-height: 250px;
+  max-height: 25vh;
+  overflow-y: scroll;
+}
+
+.player_text {
+  background-color: lightgray;
+  width: 80%;
+  margin: 0.5em 1em;
+  min-height: 16px;
+  padding: 0.5em;
+}
+
+.npc_text {
+  background-color: lightgray;
+  width: 80%;
+  margin: 0.5em 1em;
+  min-height: 16px;
+  align-self: flex-end;
+  padding: 0.5em;
+}
+
+.bottom_container {
+  display: flex;
+  height: 20%;
+  min-height: 50px;
+}
+
+.npc_avatar {
+  width: 30%;
+}
+
+.npc_info {
+  background-color: grey;
+  width: 75%;
+}
+
+/* === Next button === */
+.button_container {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 2em;
+}
+
+.next_button {
+  width: 25%;
+  max-width: 220px;
+  min-width: 140px;
+  text-align: center;
+  border-radius: 25px;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  border: 2px solid  rgba(110,230,255,0.8);
+}
+
+/* === medium screen === */
+@media screen AND (min-width: 768px) {
+  .main {
+    box-shadow: 0 0 1em rgba(100,255,200),
+                0 0 2em rgba(100,255,200),
+                0 0 4em rgba(100,255,200),
+                0 0 8em rgba(100,255,200);
+    width: 80%;
+  }
+
+  .story_p {
+    margin-top: 2em;
+    font-size: 1.6em;
+  }
+
+  .next_button {
+    max-width: 500px;
+    font-size: 2em;
+    margin: 1em 0;
+  }
+}
+
+
+/* === large screen / desktop === */
+@media screen AND (min-width: 992px) {
+  .main {
+    box-shadow: 0 0 1em rgba(100,255,200),
+                0 0 2em rgba(100,255,200),
+                0 0 4em rgba(100,255,200),
+                0 0 8em rgba(100,255,200);
+  }
+
+  .story_p {
+    padding: 2em;
+    font-size: 1.8em;
+  }
+
+  .next_button {
+    font-size: 2.6em;
+    margin-bottom: 1em;
+    padding: 0.2em 0;
+    transition-duration: 0.35s;
+    transition-property: color, transform, color;
+  }
+
+  .next_button:hover {
+    transform: scale(1.2);
+    border: 2px solid  #f0f;
+    color: lightgrey;
+  }
+}

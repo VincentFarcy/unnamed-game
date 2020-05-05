@@ -1,0 +1,87 @@
+@import 'src/styles/vars';
+
+.AdvancedInfo__container {
+  color: $white-100;
+  width: 100%;
+  min-width: 260px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+.MainAbilities__container,
+.AdvancedAbilities__container{
+  min-width: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.AdvancedAbilities__container{
+  text-align: right;
+}
+.MainAbilities__image,
+.AdvancedAbilities__image {
+  margin-right: 6px;
+  width: 22px;
+}
+.MainAbilities__name,
+.AdvancedAbilities__name {
+  display: inline-block;
+  width: 82px;
+  font-size: 0.9rem;
+  text-align: left;
+}
+.AdvancedAbilities__name {
+  width: 60px;
+}
+.MainAbilities__value,
+.AdvancedAbilities__value {
+  display: inline-block;
+  width: 8px;
+  font-size: 0.9rem;
+}
+.AdvancedAbilities__value {
+  width: 38px;
+}
+
+@media screen AND (min-width: 530px) {
+  .AdvancedInfo__container {
+    margin: 0;
+  }
+  .MainAbilities__container,
+  .AdvancedAbilities__container{
+    width: 160px;
+  }
+  .MainAbilities__container {
+    margin-right: 75px;
+  }
+  .AdvancedAbilities__container{
+    margin-left: 75px;
+  }
+}
+
+@media screen AND (min-width: 768px) {
+  .AdvancedInfo__container {
+    margin: 0 auto;
+    max-width: 400px;
+    justify-content: center;
+  }
+  .MainAbilities__container,
+  .AdvancedAbilities__container{
+    width: unset;
+    margin: 0;
+  }
+}
+
+@media screen AND (min-width: 992px) {
+  .MainAbilities__name,
+  .AdvancedAbilities__name {
+    width: 84px;
+    font-size: 0.95rem;
+  }
+  .AdvancedAbilities__name {
+    width: 62px;
+  }
+  .AdvancedAbilities__value {
+    text-align: right;
+  }
+}

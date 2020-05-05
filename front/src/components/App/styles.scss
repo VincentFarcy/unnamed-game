@@ -1,0 +1,171 @@
+@import 'src/styles/vars';
+
+/* === global structure === */
+.app {
+  height: 100%;
+  font-family: sans-serif;
+  background-color: $black-100;
+  opacity: 1;
+  z-index: 0;
+}
+.app::before,
+.app::after {
+  content: "";
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: fixed;
+}
+.app::before {
+  background-image: url('../../assets/images/samuel-guerrouche-screenshot001.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  z-index: 1;
+  animation : 10s bg-scale-app forwards;
+}
+.app::after {
+  background-color: black;
+  opacity: 1;
+  z-index: 2;
+  animation : 1s bg-gradual-onset-app forwards;
+}
+.bg--404 {
+  &::before {
+    background-image: url('../../assets/images/mihai-muscan-42.jpg');
+    animation : 10s bg-scale-404 forwards;
+  }
+  &::after {
+    animation : 1s bg-gradual-onset-404 forwards;
+  }
+}
+.bg--create {
+  &::before {
+    background-image: url('../../assets/images/mihai-muscan-4.jpg');  
+    animation : 10s bg-scale-create forwards;
+  }
+  &::after {
+    animation : 1s bg-gradual-onset-create forwards;
+  }
+}
+.bg--combat {
+  &::before {
+    background-image: url('../../assets/images/mihai-muscan-27-9.jpg'); 
+    animation : 10s bg-scale-combat forwards;
+  }
+  &::after {
+    animation : 1s bg-gradual-onset-combat forwards;
+  }
+}
+.bg--sequence {
+  &::before {
+    background-image: url('../../assets/images/samuel-guerrouche-screenshot004.jpg');
+    animation : 10s bg-scale-sequence forwards;
+  }
+  &::after {
+    animation : 1s bg-gradual-onset-sequence forwards;
+  }
+}
+.bg--team {
+  &::before {
+    background-image: url('../../assets/images/taha-mousavi-modular-scifi-corridor-06.jpg');
+    animation : 10s bg-scale-sequence forwards;
+  }
+  &::after {
+    animation : 1s bg-gradual-onset-sequence forwards;
+  }
+}
+.bg--thanks {
+  &::before {
+    background-image: url('../../assets/images/taha-mousavi-modular-scifi-corridor-05.jpg');
+    animation : 10s bg-scale-sequence forwards;
+  }
+  &::after {
+    animation : 1s bg-gradual-onset-sequence forwards;
+  }
+}
+.bg--hidden {
+  background-image: url('../../assets/images/mihai-muscan-42.jpg');
+  background-image: url('../../assets/images/mihai-muscan-4.jpg');
+  background-image: url('../../assets/images/mihai-muscan-27-9.jpg');
+  background-image: url('../../assets/images/samuel-guerrouche-screenshot004.jpg');
+  background-image: url('../../assets/images/taha-mousavi-modular-scifi-corridor-06.jpg');
+  background-image: url('../../assets/images/taha-mousavi-modular-scifi-corridor-05.jpg');
+}
+
+@keyframes bg-gradual-onset-app      { from { opacity: 1; } to { opacity: 0; } }
+@keyframes bg-gradual-onset-404      { from { opacity: 1; } to { opacity: 0; } }
+@keyframes bg-gradual-onset-create   { from { opacity: 1; } to { opacity: 0; } }
+@keyframes bg-gradual-onset-combat   { from { opacity: 1; } to { opacity: 0; } }
+@keyframes bg-gradual-onset-sequence { from { opacity: 1; } to { opacity: 0; } }
+
+@keyframes bg-scale-app      { from { transform:scale(1.1); } to {transform:scale(1); } }
+@keyframes bg-scale-404      { from { transform:scale(1.1); } to {transform:scale(1); } }
+@keyframes bg-scale-create   { from { transform:scale(1.1); } to {transform:scale(1); } }
+@keyframes bg-scale-combat   { from { transform:scale(1.1); } to {transform:scale(1); } }
+@keyframes bg-scale-sequence { from { transform:scale(1.1); } to {transform:scale(1); } }
+
+.app > * { 
+  min-width: 300px;
+}
+
+main > div {
+  width:100%;
+  min-width: 300px;
+  max-width: 1400px;
+  margin: auto;
+}
+
+.header {
+  height: var(--header-height-mobile);
+  position: fixed;
+  top:0;
+  width: 100%;
+  z-index:10;
+}
+
+.main {
+  position: absolute;
+  top: var(--header-height-mobile);
+  height: calc(100% - var(--header-height-mobile) - var(--footer-height));
+  width: 100%;
+  overflow-y: auto;
+  display: flex;
+  padding: 1rem 0;
+  justify-content: center;
+  align-items: flex-start;
+  z-index: 5;
+}
+
+.footer {
+  height: var(--footer-height);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index:10;
+}
+
+@media screen AND (min-width: 350px) {
+  .main {
+    padding: 1rem;
+  }
+}
+
+/* === large screen === */
+@media screen AND (min-width: 992px) {
+
+  .header {
+    height: var(--header-height-desktop);
+  }
+
+  .main {
+    top: var(--header-height-desktop);
+    height: calc(100% - var(--header-height-desktop) - var(--footer-height));
+  }
+  
+  main>div {
+    width:80%;
+  }
+}

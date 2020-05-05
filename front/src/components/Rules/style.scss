@@ -1,0 +1,56 @@
+@import 'src/styles/vars';
+
+
+
+.rules-intro {
+  margin: auto;
+  padding: 1em;
+  background: $main-card-background;
+  color: $generic-button-color;
+  border-radius: 10px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  box-shadow:  -4px 4px 16px $game-launcher-lower-shadow, 
+  4px -4px 16px $generic-button-upper-shadow;
+
+  &__title {
+    margin-bottom: 0.5em;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  &__img {
+    width: 105px;
+    height: 105px;
+    align-self: center;
+    margin-top: 5px;
+    padding: 5px;
+    border-radius: 59px;  
+    box-shadow:  -4px 4px 16px #1b1b1b, 
+    4px -4px 16px #b4b7b9;
+  }
+}
+
+.rules-intro:hover {
+  margin: auto;
+  background: $main-card-background;
+  color: $generic-button-color;
+  border-radius: 10px;
+  box-shadow:  -4px 4px 16px $game-launcher-lower-shadow, 
+               4px -4px 16px $rules-button-upper-shadow;
+}
+
+.rules-intro:focus {
+  margin: auto;
+  background: $main-card-background;
+  color: $generic-button-color;
+  border-radius: 10px;
+  box-shadow:  -4px 4px 16px $game-launcher-lower-shadow, 
+               4px -4px 16px $rules-button-upper-shadow;
+}
+
+.stats-title {
+  font-weight: bold;
+  font-size: 1.1em;
+  color: rgb(192, 106, 250);
+}

@@ -1,0 +1,65 @@
+@import 'src/styles/vars';
+
+.field {
+  position: relative;
+  height: 4rem;
+  margin: 1em 0.5em;
+}
+
+.field-label {
+  color: $user-color;
+  display: block;
+  position: absolute;
+  left: 1rem;
+  top: 1.3rem;
+  transition: transform .3s;
+  margin-bottom: 0rem;
+}
+.field-input {
+  height: 4rem;
+  font-size: 1.2em;
+  padding: .8rem 1rem;
+  border-radius: .5rem;
+  border: 2px solid $white-100;
+  width: 100%;
+  color: $black-100;
+}
+.field-input[disabled] {
+  background-color: transparent;
+  border: 2px solid transparent;
+  color: $white-100;
+}
+.field-input[type=text],
+.field-input[type=password],
+.field-input[type=email] {
+  &:focus, &:not([value=""]) {
+    padding-top: 2rem;
+    // border-color: red;
+    & + .field-label {
+      transform: translateY(-1rem);
+    }
+  }
+  
+  &:not([value=""]) + .label {
+    color: $user-color;
+  }
+}
+
+.field--checkbox {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0.5em;
+}
+
+.field--checkbox>* {
+  position: static;
+  height: unset;
+  width: unset;
+}
+
+.field--checkbox>input {
+  margin-right: 0.4em;
+}

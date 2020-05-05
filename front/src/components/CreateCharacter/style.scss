@@ -1,0 +1,153 @@
+@import 'src/styles/vars';
+
+.create-character-container {
+
+  .dialog--create {
+    min-height: 450px;
+  }
+
+  /* === Ability pool === */
+  .ability_pool__container {
+    width: 100%;
+    font-size: 1.3em;
+    font-weight: 700;
+    padding-left: 1em;
+    border-radius: 5px;
+    max-width: 450px;
+    margin-bottom: 1rem;
+  }
+
+  .ability_main__container p {
+    margin-bottom: 0;
+  }
+
+  .ability_pool__text {
+    text-align: center;
+    color: orange;
+  }
+
+  .ability_main__container { 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* === Ability container === */
+  .ability__container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    min-width: 300px;
+    max-width: 450px;
+    margin: 0.5em 0;
+    font-size: 1.2em;
+    align-items: center;
+  }
+
+  .ability__button{
+    display: flex;
+    margin: 0 1em;
+    width: 1.2em;
+    height: 1.2em;
+    border-radius: 50%;
+    justify-content: center;
+    border: 1px solid transparent;
+    line-height: 100%;
+  }
+
+  .ability__button:focus{
+    outline: none !important;
+    outline-offset: none !important;
+  }
+
+  .ability__value, .ability_pool__value {
+    padding-left: 1em;
+    width: 5%;
+  }
+
+  .ability {
+    width: 40%;
+    padding-left: 1em;
+  }
+
+  .ability__image {
+    width: 1.2em;
+    height: 1.2em;
+  }
+}
+
+/* === medium screen === */
+@media screen AND (min-width: 768px) {
+
+  .create-character-container {
+
+    .dialog--create {
+      min-height: 620px;
+    }
+
+    .title__container { 
+      margin-bottom: 1.6rem;
+    }
+
+    .ability_pool__container {
+      max-width: none;
+      font-size: 1.8em;
+      border-radius: 5px;
+      margin-bottom: 0;
+    }
+
+    .ability__container {
+      min-width: 560px;
+      font-size: 1.8em;
+      margin: 1rem auto 0 auto;
+    }
+
+    .ability__button {
+      width: 1.4em;
+      height: 1.4em;
+      border-radius: 50%;
+    }
+
+    .ability__image {
+      width: 2em;
+      height: 2em;
+    }
+  }
+}
+
+/* === large screen / desktop === */
+@media screen AND (min-width: 992px) {
+
+  .create-character-container {
+
+    .dialog--create {
+      min-height: 670px;
+    }
+
+    .ability_pool__container {
+      font-size: 2.2em;
+    }
+
+    .ability__container {
+      min-width: 620px;
+      font-size: 2.2em;
+      margin: .5rem auto 0 auto;
+    }
+
+    .ability__button {
+      width: 1.2em;
+      height: 1.2em;
+      border-radius: 50%;
+      transition-duration: 0.3s;
+      transition-property: background-color, color, transform ;
+    }
+
+    .ability__button:hover{
+      background-color: grey;
+      color: $white-100;
+      transform: scale(1.4);
+    }
+  }
+}
+

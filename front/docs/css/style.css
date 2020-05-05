@@ -1,0 +1,253 @@
+/* === global structure === */
+.wrapper {
+  font-family: sans-serif;
+  background-image: url('https://cdn.pixabay.com/photo/2016/09/16/17/10/science-fiction-1674554_960_720.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.header {
+  height: 96px;
+}
+
+.footer {
+  height: 50px;
+  font-size: 0.8em;
+  text-align: center;
+  border-top: 1px solid #FFF;
+  color: #FFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.main {
+  margin: 1em auto;
+  min-height: calc(100vh - 146px);
+  /* 146 = 50(footer) + 96 (header) */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+/* items not to be displayed depending on user's login status or screen size */
+.not-displayed {
+  display: none;
+}
+
+/* === Header === */
+.play-button {
+  font-size: 1.3em;
+  text-transform: uppercase;
+  padding: 0.1em;
+  width: 50%;
+}
+
+.nav__connected-user {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__greeting-user {
+  font-size: 1.5em;
+  color: #FFF;
+}
+
+/* items not to be displayed depending on user's login status or screen size */
+.not-displayed {
+  display: none;
+}
+
+/* === Main === */
+/* == Home == */
+.start-game {
+  /* background: url('https://cdn.pixabay.com/photo/2016/09/16/17/10/science-fiction-1674554_960_720.jpg') top; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.start-game__btn {
+  color: #FFF;
+  font-size: 4em;
+}
+
+.introduction,
+.public-warning {
+  padding: 1em;
+  border: 1px solid #000;
+  text-align: justify;
+  background: #EAEAEA;
+  margin: 2em;
+}
+
+.introduction__title {
+  margin-bottom: 0.5em;
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.public-warning__title {
+  margin-bottom: 0.5em;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.introduction__content,
+.public-warning__content {
+  line-height: 1.4em;
+}
+
+/* == SIGN IN == */
+.main__form {
+  padding: 2em;
+  border: 2px solid #FFF;
+  margin: auto 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%
+}
+
+.form__title {
+  text-align: center;
+  font-size: 1.5em;
+  color: #FFF;
+}
+
+.form__button, 
+.field__input {
+  border: 1px solid #FFF;
+  border-radius: 0.3em;
+}
+
+.form__button {
+  background: none;
+  padding: .6em 1em;
+  color: #FFF;
+  width: 60%;
+}
+
+.field {
+  margin: 1.5em;
+  position: relative;
+  width: 100%;
+}
+
+.field__input {
+  width: 100%;
+  height: 3em;
+  font-size: 1.2em;
+  padding: .8em;
+}
+
+.field--has-content .field__input {
+  padding: 1.7em .8em .4em;
+}
+
+.field--has-content .field__label {
+  display: block;
+}
+
+.field__label {
+  display: none;
+  position: absolute;
+  top: .3rem;
+  left: .8em;
+  font-size: 1.1em;
+  color: #01087C;
+  font-weight: bold;
+  animation: displayLabelAndSlideUp .5s;
+}
+
+@keyframes displayLabelAndSlideUp {
+  0% {
+    transform: translateY(1em);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0em);
+    opacity: 1;
+  }
+}
+
+.forgotten-password {
+  margin-top: 2em;
+  margin-right: 2em;
+  font-size: 0.8em;
+  align-self: flex-end;
+}
+
+.forgotten-password__link {
+  color: #FFF;
+}
+
+/* === Play === */
+.game-launcher {
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-launcher__btn {
+  margin: 2em;
+  padding: 1.2em;
+}
+
+/* === large screen === */
+@media screen AND (min-width: 992px) {
+  .header {
+    height: 108px;
+  }
+
+  .main {
+    min-height: calc(100vh - 190px);
+    max-height: calc(100vh - 190px);
+    /*190 = 50(footer) & 108(header) & 16*2 (main margin) */
+  }
+  
+  /* == Header == */
+  .nav-item {
+    font-size: 1.3em;
+    text-align: center;
+  }
+
+  .nav__greeting-user {
+    margin-right: 1em;
+    text-align: center;
+  }
+
+  .play-button {
+    width: 100%;
+  }
+
+  /* == Main == */
+  .introduction,
+  .public-warning {
+    width: 70%;
+    margin: 2em auto;
+  }
+
+  /* == SIGN IN == */
+  .main__form {
+    width: 900px;
+    margin: auto;
+  }
+
+  /* == Play == */
+  .game-launcher__btn {
+    width: 50%;
+  }
+}

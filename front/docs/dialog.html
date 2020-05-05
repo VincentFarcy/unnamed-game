@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- CSS including Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/dialog.css">
+  <title>Unnamed game</title>
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <header class="header">
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">
+          <img class="logo_min" src="./images/logo_test.png" alt="logo">
+          <img class="logo not-displayed" src="https://via.placeholder.com/70" alt="logo">
+        </a>
+        <a class="btn btn-outline-light play-button d-lg-none" href="./play.html">Jouer</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse d-lg-flex justify-content-lg-between" id="navbarNavAltMarkup">
+          <div class="navbar-nav flex-lg-grow-1 d-lg-flex justify-content-lg-around">
+            <a class="nav-item nav-link mx-lg-3 active" href="#">Accueil <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link mx-lg-3" href="#">Règles générales</a>
+            <a class="nav-item nav-link mx-lg-3" href="#">Présentation de l'équipe</a>
+            <a class="nav-item nav-link mx-lg-3" href="#">Remerciements</a>
+          </div>
+          <div class="auth">
+            <div class="nav__anonymous-user">
+              <div class="btn-group d-flex" role="group" aria-label="Basic example">
+                <a class="btn btn-outline-light" href="#" role="button">S'inscrire</a>
+                <a class="btn btn-outline-light flex-grow-1" href="./sign-in.html" role="button">Se connecter</a>
+              </div>
+            </div>
+            <div class="nav__connected-user not-displayed">
+              <p class="nav__greeting-user">Bienvenue Player</p>
+              <a class="btn btn-outline-light" href="#" role="button">Se déconnecter</a>
+            </div>
+            <a class="btn btn-outline-light d-none d-lg-block my-2 play-button" href="/play.html">Jouer</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="main">
+      <div class="top_container">
+        <div class="player_avatar"> player_avatar</div>
+        <div class="player_info">player_info</div>
+      </div>
+      <div class="dialog_container">
+        <div class="player_text">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex suscipit, similique quibusdam, numquam repellat
+            saepe hic enim quaerat harum quidem deleniti eius corporis pariatur aperiam natus mollitia modi, provident
+            quod.</p>
+        </div>
+        <div class="npc_text">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex suscipit, similique quibusdam, numquam repellat
+            saepe hic enim quaerat harum quidem deleniti eius corporis pariatur aperiam natus mollitia modi, provident
+            quod.</p>
+        </div>
+      </div>
+      <div class="button_container">
+        <button class="next_button" href="#">Suivant</button>
+      </div>
+      <div class="bottom_container">
+        <div class="npc_info">
+          <p>npc_info </p>
+        </div>
+        <div class="npc_avatar">
+          <img src="./images/hal8000.png" alt="hal">
+        </div>
+      </div>
+
+    </main>
+
+    <footer class="footer">
+      <p class="footer__copyright">&copy; 2020 - Tous droits résérvés</p>
+      <a class="footer__link" href="/mentions-legales">Mentions légales</a>
+    </footer>
+  </div>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

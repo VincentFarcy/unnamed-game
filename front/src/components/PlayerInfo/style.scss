@@ -1,0 +1,154 @@
+@import 'src/styles/vars';
+
+.player-info__info-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: .8rem;
+  color: $white-100;
+}
+.player-info__avatar-container {
+  width: 100%;
+  height: 150px;
+  margin: 1rem 0;
+  img {
+    display: block;
+    margin: 0 auto;
+  }
+}
+.player-info__bar-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+  padding: .8rem;
+}
+.player-bar {
+  max-width: 900px;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow:  -4px 4px 22px $info-lower-shadow, 
+             4px -4px 22px $info-upper-shadow;
+  border: solid 1px $white-100;
+}
+.player-info {
+  border-radius: 10px;
+  background-color: $info-background;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content : center;
+  &__avatar {
+    height: 100%;
+    border: solid 1px $white-100;
+    border-radius: 2px;
+    box-shadow:  -3px 3px 10px $info-lower-shadow, 
+             3px -3px 10px $info-upper-shadow;
+  }
+  &__hp{
+    color: $white-100;
+    margin-right: 15px;
+    align-self: center;
+  }
+  &__counter {
+    color: $white-100;
+    align-self: center;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding-top: 15px;
+    padding-right: 7px;    
+  }
+}
+.ressource-info__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0.5rem 0;
+  color: $white-100;
+  &>div {
+    display: flex;
+    flex-direction: row;
+    padding: 0 1.5vw;
+    svg {
+      margin: 0 1vw;
+    }
+    p { 
+      margin: 0;
+    }
+  }
+}
+
+@media screen AND (min-width: 530px) {
+  .player-info {
+    position: relative;
+  }
+  .player-info__avatar-container {
+    margin: 0;
+    position: absolute;
+    top: 10px;
+  }
+}
+
+/* === Tablets === */
+@media screen AND (min-width: 768px) {
+
+  .player-info__avatar-container {
+    position: unset;
+    top: unset;
+    width: unset;
+    height: 160px;
+  }
+  .player-info__info-container,
+  .player-info__bar-container {
+    width: 50%;
+  }
+
+  .player-info {
+    position: unset;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    height: 160px;
+    &__counter {
+      color: $white-100;      
+      font-size: 1rem;
+      font-weight: 600;
+      padding-top: 15px;
+      padding-right: 15px;    
+    }
+  }
+
+  .ressource-info__container {
+    padding: .5rem 0 0;
+    &>div {
+      padding: 0 0.25rem;
+      svg {
+        margin: 0 0.2rem;
+      }
+    }
+  }
+}
+
+/* === Large screens === */
+@media screen AND (min-width: 1024px) {
+
+  .player-info {
+    &__counter {
+      color: $white-100;      
+      font-weight: 600;
+      padding-top: 15px;
+      padding-right: 25px;    
+    }
+  }
+
+  .ressource-info__container {
+    &>div {
+      padding: 0 0.5rem;
+      svg {
+        margin: 0 0.3rem;
+      }
+    }
+  }
+}

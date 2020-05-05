@@ -1,0 +1,55 @@
+// === global ===
+$white-100: #FFF;
+$white-90: rgba(255,255,255,0.9);
+$white-70: rgba(255,255,255,0.7);
+$black-100: #000;
+$black-90: rgba(0,0,0,0.9);
+$black-80: rgba(0,0,0,0.8);
+$black-60: rgba(0,0,0,0.6);
+
+// === generic components ===
+$HP-progress-color: rgba(184, 176, 176, 0.623);
+
+$generic-button-background: rgba(238, 236, 236, 0.4);
+$generic-button-color: rgb(248, 250, 250);
+$generic-button-lower-shadow: #2f3030;
+$generic-button-upper-shadow: #b4b7b9;
+$generic-button-upper-shadow-hover: #9abbcb;
+$rules-button-upper-shadow: #c8bbd6;
+$rules-button-upper-shadow-hover: #a77dce;
+
+
+$user-color: grey;
+
+// === specific components ===
+$color-404: rgb(241, 235, 235);
+
+$main-card-background: rgba(238, 236, 236, 0.23);
+
+$game-launcher-lower-shadow: #1b1b1b;
+
+$green: rgba(40, 167, 69, 0.7);
+$green-lighten: rgba(40, 167, 69, 0.2);
+
+$blue: rgba(36, 147, 238, 0.7);
+$blue-lighten: rgba(36, 147, 238, 0.2);
+
+$yellow: rgba(255, 253, 50, 0.7);
+$yellow-lighten: rgba(255, 253, 50, 0.2);
+
+$red : rgba(232, 46, 49, 0.7);
+$red-lighten : rgba(232, 46, 49, 0.2);
+
+$neon-button-color : $blue;
+$neon-button-color-lighten : $blue-lighten;
+
+$neon-button-color--train : $green;
+$neon-button-color-lighten--train : $green-lighten;
+
+$play-halo: rgba(49, 151, 235, 0.7);
+$play-lower-halo: rgba(22, 134, 226, 0.7);
+$play-inset: $blue;
+
+$info-background: rgba(0, 0, 0, 0.897);
+$info-lower-shadow: #1b1b1bee;
+$info-upper-shadow: #cbced0c2;

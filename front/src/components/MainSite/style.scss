@@ -1,0 +1,132 @@
+@import 'src/styles/vars';
+
+/* === Main Site === */
+.play-button-main {
+  background: $generic-button-background;
+  border-radius: 10px;
+  border-color: $generic-button-background;
+  color: $generic-button-color; 
+  box-shadow:  -4px 4px 16px $game-launcher-lower-shadow, 
+  4px -4px 16px $generic-button-upper-shadow;
+  width: 100%;
+  font-size: larger;
+  margin: 2em 0 1em;
+}
+
+.play-button-main:hover { 
+  background: $generic-button-background;
+  border-radius: 10px;
+  border-color: $generic-button-background;
+  color: $generic-button-color;
+  font-weight: 600;
+  box-shadow:  -4px 4px 16px $game-launcher-lower-shadow, 
+               4px -4px 16px $generic-button-upper-shadow-hover;
+}
+
+.intro-cards {
+  margin: auto;
+  padding: 1em;
+  background: $main-card-background;
+  color: $generic-button-color;
+  border-radius: 10px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  box-shadow:  -4px 4px 16px $game-launcher-lower-shadow, 
+  4px -4px 16px $generic-button-upper-shadow;
+
+  &__title {
+    margin-bottom: 0.5em;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  &__img {
+    width: 105px;
+    height: 105px;
+    align-self: center;
+    margin-top: 5px;
+    padding: 5px;
+    border-radius: 59px;  
+    box-shadow:  -4px 4px 16px #1b1b1b, 
+    4px -4px 16px #b4b7b9;
+  }
+}
+
+.intro-cards:hover {
+  margin: auto;
+  background: $main-card-background;
+  color: $generic-button-color;
+  border-radius: 10px;
+  box-shadow:  -4px 4px 16px $game-launcher-lower-shadow, 
+               4px -4px 16px $generic-button-upper-shadow-hover;
+}
+
+.card-img-top {
+  width: 105px;
+  height: 105px;
+  align-self: center;
+  margin-top: 5px;
+  padding: 5px;
+  border-radius: 59px;  
+  box-shadow:  -4px 4px 16px $game-launcher-lower-shadow, 
+  4px -4px 16px $generic-button-upper-shadow;
+}
+
+
+
+/* === Main === */
+/* == Home == */
+.start-game {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.start-game__btn {
+  color: $white-100;
+  font-size: 4em;
+}
+
+.introduction,
+.public-warning {
+  margin: 2em 0;
+}
+
+.introduction__title {
+  margin-bottom: 0.5em;
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.public-warning__title {
+  margin-bottom: 0.5em;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.introduction__content,
+.public-warning__content {
+  line-height: 1.4em;
+}
+
+.warning {
+  margin-bottom: 2em;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+@media (min-width: 768px) {
+  .intro-cards {
+    
+    .dialog__p {
+      font-size: 1.3rem;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .play-button-main {
+    width: 400px;
+  }
+}
