@@ -1,0 +1,23 @@
+easy_admin:
+    site_name: UnnamedGame 
+    design:
+        brand_color: '#008000;'
+        assets:
+            css: 
+                - 'bundles/easyadmin/customcss/admin.css'
+         
+    entities:
+    # List the entity class name you want to manage
+    - App\Entity\Chapter
+    - App\Entity\Sequence
+    - App\Entity\Attribute
+    - App\Entity\ContentParameter
+    - App\Entity\GameParameter
+    - App\Entity\Hero
+    - App\Entity\Opponent
+    - App\Entity\RandomAttributeContest
+    - App\Entity\RandomEvent
+    - App\Entity\RandomFightContest
+    - App\Entity\RandomReward
+    - App\Entity\User
+    - App\Entity\Backup
