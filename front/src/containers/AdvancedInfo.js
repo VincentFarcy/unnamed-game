@@ -9,13 +9,12 @@ import AdvancedInfo from 'src/components/AdvancedInfo';
 /* === State (données) === */
 const mapStateToProps = (state) => ({
   abilities: state.gameplay.player.abilities,
-  playerHp: state.gameplay.playerTotalHP,
-  hacking: state.gameplay.player.hacking,
   baseToHit: state.gameplay.player.baseTouch,
   baseAvoid: state.gameplay.player.dodge,
   baseDamage: state.gameplay.player.baseDamage,
   baseInitiative: state.gameplay.player.baseSpeed,
   healing: state.gameplay.player.baseHealing,
+  hacking: state.gameplay.player.hacking,
 });
 
 /* === Actions === */

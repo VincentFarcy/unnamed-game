@@ -1,17 +1,18 @@
 // == Import npm
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Switch, Route, Redirect, useParams } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
 // == Import local
-// == Import Website Components
 import './styles.scss';
 import './button.scss';
 import './dialog.scss';
 import './player-action.scss';
 import './character-info.scss';
 import './site.scss';
+// == Import Website Components
 import Header from '../../containers/Header/Header';
+import Footer from '../../containers/Footer';
 import MainSite from '../../containers/MainSite';
 import Team from '../../containers/Team';
 import Acknowledgements from '../../containers/Acknowledgements';
@@ -26,7 +27,7 @@ import NotFound from '../../containers/NotFound';
 import MainPlay from '../../containers/MainPlay';
 import Story from '../../containers/Story';
 import Sequence from '../../containers/Sequence';
-import Death from '../../containers/Death';
+import Death from '../Death';
 import Combat from '../../containers/Combat/Combat';
 import Exploration from '../../containers/Exploration';
 import Reward from '../../containers/Reward';
@@ -37,7 +38,6 @@ import Mainhub from '../../containers/MainHub';
 import CreateCharacter from '../../containers/CreateCharacter/CreateCharacter';
 import Event from '../../containers/Event';
 import Ending from '../Ending';
-import Footer from '../../containers/Footer';
 
 // == Component
 const App = ({ isGameOn, bgImageCssClass }) => (
@@ -59,43 +59,43 @@ const App = ({ isGameOn, bgImageCssClass }) => (
         {/* Gameplay routes */}
         <Route exact path="/play" component={MainPlay} />
         <Route exact path="/play/create-player">
-          { !isGameOn ? <Redirect to="/play" /> : <CreateCharacter />}
+          { !isGameOn ? <Redirect to="/play" /> : <CreateCharacter /> }
         </Route>
         <Route exact path="/play/story">
-          { !isGameOn ? <Redirect to="/play" /> : <Story />}
+          { !isGameOn ? <Redirect to="/play" /> : <Story /> }
         </Route>
         <Route exact path="/play/sequence">
-          { !isGameOn ? <Redirect to="/play" /> : <Sequence />}
+          { !isGameOn ? <Redirect to="/play" /> : <Sequence /> }
         </Route>
         <Route exact path="/play/combat">
-          { !isGameOn ? <Redirect to="/play" /> : <Combat />}
+          { !isGameOn ? <Redirect to="/play" /> : <Combat /> }
         </Route>
         <Route exact path="/play/reward">
-          { !isGameOn ? <Redirect to="/play" /> : <Reward />}
+          { !isGameOn ? <Redirect to="/play" /> : <Reward /> }
         </Route>
         <Route exact path="/play/death">
-          { !isGameOn ? <Redirect to="/play" /> : <Death />}
+          { !isGameOn ? <Redirect to="/play" /> : <Death /> }
         </Route>
         <Route exact path="/play/event">
-          { !isGameOn ? <Redirect to="/play" /> : <Event />}
+          { !isGameOn ? <Redirect to="/play" /> : <Event /> }
         </Route>
         <Route exact path="/play/exploration">
-          { !isGameOn ? <Redirect to="/play" /> : <Exploration />}
+          { !isGameOn ? <Redirect to="/play" /> : <Exploration /> }
         </Route>
         <Route exact path="/play/medic">
-          { !isGameOn ? <Redirect to="/play" /> : <Medic />}
+          { !isGameOn ? <Redirect to="/play" /> : <Medic /> }
         </Route>
         <Route exact path="/play/mainhub">
-          { !isGameOn ? <Redirect to="/play" /> : <Mainhub />}
+          { !isGameOn ? <Redirect to="/play" /> : <Mainhub /> }
         </Route>
         <Route exact path="/play/train">
-          { !isGameOn ? <Redirect to="/play" /> : <Train />}
+          { !isGameOn ? <Redirect to="/play" /> : <Train /> }
         </Route>
         <Route exact path="/play/nothing">
-          { !isGameOn ? <Redirect to="/play" /> : <Nothing />}
+          { !isGameOn ? <Redirect to="/play" /> : <Nothing /> }
         </Route>
         <Route exact path="/play/ending">
-          { !isGameOn ? <Redirect to="/play" /> : <Ending />}
+          { !isGameOn ? <Redirect to="/play" /> : <Ending /> }
         </Route>
         <Route component={NotFound} />
       </Switch>

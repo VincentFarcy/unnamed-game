@@ -27,12 +27,19 @@ const Rules = () => (
             Dans cette aventure, vous jouez <span className="stats-title">Unnamed</span>. Unnamed est un humain de classe 4.
             La classe indique le niveau de modification cybernétique subi.
             En tant que classe 4, il peut recevoir des augmentations cybernétiques.
-            Ce genre d'humain ayant fait le choix de sacrifier une partie de leur humanité au profit de la technologie, perdant ainsi le droit d'avoir une identité.
-            Ainsi toutes les classes 4 s'appellent Unnamed. Paradoxalement les vrais androids les considèrent comme des humains.
+            Ce genre d'humain ayant fait le choix de sacrifier une partie de leur
+            humanité au profit de la technologie, perdant ainsi le droit d'avoir une identité.
+            Ainsi toutes les classes 4 s'appellent Unnamed. Paradoxalement les vrais
+            androids les considèrent comme des humains.
           </Card.Text>
           <Card.Text className="site-intro__content">
-            En 2154, l'humanité est entrée en contact pour la première fois avec une race extraterrestre : les Jaons. Cette rencontre a changé de façon drastique le monde.
-            200 ans plus tard, la civilisation terrestre n'a cependant toujours pas résolu les soucis liés à son modèle économique défaillant. La Terre ayant atteint un point de "non-retour", le gouvernement mondial (une évolution apportée par les Jaons...) décida, afin de trouver une nouvelle planète d'accueil, d'engager toutes les ressources possibles dans des missions d'exploration. Unnamed fait partie de l'une d'elles.
+            En 2154, l'humanité est entrée en contact pour la première fois avec une race
+            extraterrestre : les Jaons. Cette rencontre a changé de façon drastique le monde.
+            200 ans plus tard, la civilisation terrestre n'a cependant toujours pas résolu
+            les soucis liés à son modèle économique défaillant. La Terre ayant atteint un point
+            de "non-retour", le gouvernement mondial (une évolution apportée par les Jaons...)
+            décida, afin de trouver une nouvelle planète d'accueil, d'engager toutes les ressources
+            possibles dans des missions d'exploration. Unnamed fait partie de l'une d'elles.
           </Card.Text>
         </Card.Body>
       </Card>
@@ -43,7 +50,8 @@ const Rules = () => (
         <Card.Body className="site-intro__body">
           <Card.Title className="site-intro__title">Les statistiques principales</Card.Title>
           <Card.Text className="site-intro__content">
-            Elles représentent les statistiques d'Unnamed. Vous pouvez les personnaliser au début du jeu.
+            Elles représentent les statistiques d'Unnamed. Vous pouvez les personnaliser
+            au début du jeu.
           </Card.Text>
           <Card.Text className="site-intro__content">
             <span className="stats-title">Force</span> : Utilisée en combat pour le calcul des dégâts.
@@ -136,16 +144,22 @@ const Rules = () => (
         <Card.Body className="site-intro__body">
           <Card.Title className="site-intro__title">Déroulement d'un combat</Card.Title>
           <Card.Text className="site-intro__content">
-            On commence par lancer l'initiative pour savoir qui agira le premier durant le combat. Cette valeur d'initiative est conservée jusqu'à la fin du combat.
+            On commence par lancer l'initiative pour savoir qui agira le premier durant le
+            combat. Cette valeur d'initiative est conservée jusqu'à la fin du combat.
           </Card.Text>
           <Card.Text className="site-intro__content">
-            Le combat est décomposé en rounds. Lors d'un round, la personne ayant eu l'initiative agit en premier. Les rounds se répétent tant qu'il reste des HP aux 2 antagonistes.
+            Le combat est décomposé en rounds. Lors d'un round, la personne ayant
+            eu l'initiative agit en premier. Les rounds se répétent tant qu'il
+            reste des HP aux 2 antagonistes.
           </Card.Text>
           <Card.Text className="site-intro__content">
-            Lors d'un round, on commence par regarder si l'attaque touche. Si c'est le cas, alors on regarde combien de dégâts sont infligés, et on vient retirer ce montant des HP.
+            Lors d'un round, on commence par regarder si l'attaque touche. Si c'est
+            le cas, alors on regarde combien de dégâts sont infligés, et on vient
+            retirer ce montant des HP.
           </Card.Text>
           <Card.Text className="site-intro__content">
-            Vous gagnez si votre adversaire tombe à 0 HP avant vous. Sinon c'est la fin de l'aventure.
+            Vous gagnez si votre adversaire tombe à 0 HP avant vous. Sinon c'est la fin de
+            l'aventure.
           </Card.Text>
         </Card.Body>
       </Card>

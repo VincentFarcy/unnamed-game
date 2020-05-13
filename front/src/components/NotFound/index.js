@@ -1,10 +1,10 @@
 // == Import npm
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import LinkButton from '../LinkButton';
 
 // == Import local
 import './style.scss';
+import LinkButton from '../LinkButton';
 
 // == Component
 const NotFound = ({ changeBg }) => {

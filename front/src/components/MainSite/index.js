@@ -2,11 +2,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
-import LinkButton from '../LinkButton';
 
 
 // == Import local
 import './style.scss';
+import LinkButton from '../LinkButton';
 import warning from '../../assets/images/r_36.png';
 import intro from '../../assets/images/b_04.png';
 

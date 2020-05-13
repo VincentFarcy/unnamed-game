@@ -14,13 +14,13 @@ const Mainhub = ({
   medicAccess,
   trainAccess,
   jsx,
-  jsxCost,
   xp,
   xpCost,
-  actionRest,
+  jsxCost,
   php,
-  startMission,
   hp,
+  actionRest,
+  startMission,
   nextSequence,
 }) => {
   const RollForMedicAccess = rollDice(1, 100);
@@ -37,7 +37,12 @@ const Mainhub = ({
         <div className="hub__button-container">
           {php < 30 && (
             <div className="neon-button-container">
-              <Button cssClassName="neon-button" buttonName="Se reposer" url="/play/sequence" onClick={actionRest} />
+              <Button
+                cssClassName="neon-button"
+                buttonName="Se reposer"
+                url="/play/sequence"
+                onClick={actionRest}
+              />
               <div className="neon-border-container">
                 <span />
                 <span />
@@ -69,10 +74,16 @@ const Mainhub = ({
                 </div>
               </div>
             )}
-          {(trainAccess >= RollForTrainAccess) && (xp >= xpCost) && (php > 5) && (php < 30) && (jsx >= jsxCost)
+          {(trainAccess >= RollForTrainAccess)
+            && (xp >= xpCost) && (php > 5) && (php < 30) && (jsx >= jsxCost)
             && (
               <div className="neon-button-container">
-                <Button cssClassName="neon-button" buttonName="Augmentation" url="/play/train" onClick={nextSequence} />
+                <Button
+                  cssClassName="neon-button"
+                  buttonName="Augmentation"
+                  url="/play/train"
+                  onClick={nextSequence}
+                />
                 <div className="neon-border-container">
                   <span />
                   <span />
@@ -84,7 +95,12 @@ const Mainhub = ({
           {(php > 12)
             && (
               <div className="neon-button-container">
-                <Button cssClassName="neon-button" buttonName="Mission" url="/play/event" onClick={startMission} />
+                <Button
+                  cssClassName="neon-button"
+                  buttonName="Mission"
+                  url="/play/event"
+                  onClick={startMission}
+                />
                 <div className="neon-border-container">
                   <span />
                   <span />
@@ -104,13 +120,13 @@ Mainhub.propTypes = {
   medicAccess: PropTypes.number.isRequired,
   trainAccess: PropTypes.number.isRequired,
   jsx: PropTypes.number.isRequired,
-  jsxCost: PropTypes.number.isRequired,
   xp: PropTypes.number.isRequired,
   xpCost: PropTypes.number.isRequired,
-  actionRest: PropTypes.func.isRequired,
+  jsxCost: PropTypes.number.isRequired,
   php: PropTypes.number.isRequired,
-  startMission: PropTypes.func.isRequired,
   hp: PropTypes.number.isRequired,
+  actionRest: PropTypes.func.isRequired,
+  startMission: PropTypes.func.isRequired,
   nextSequence: PropTypes.func.isRequired,
 };
 

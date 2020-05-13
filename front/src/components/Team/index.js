@@ -24,7 +24,11 @@ const Team = ({ team, changeBg }) => {
           <Card.Body className="site-intro__body">
             <Card.Title className="site-intro__title">L'équipe derrière Unnamed.Game</Card.Title>
             <Card.Text className="site-intro__content">
-            Nous sommes une équipe de 5 jeunes développeurs sortant d'une formation intensive de 5 mois au sein de l'école <a className="teamLink" target="_blank" rel="noopener noreferrer" href="https://oclock.io" alt="Ecole O'clock">O'clock</a>. Nous avons pris beaucoup de plaisir dans l'élaboration de ce projet de fin de formation, et espérons que vous vous amuserez autant que nous avons pu le faire pendant la création du site et du jeu.
+              Nous sommes une équipe de 5 jeunes développeurs sortant d'une formation intensive de 5
+              mois au sein de l'école <a className="teamLink" target="_blank" rel="noopener noreferrer" href="https://oclock.io" alt="Ecole O'clock">O'clock</a>.
+              Nous avons pris beaucoup de plaisir dans l'élaboration de ce projet de fin de
+              formation, et espérons que vous vous amuserez autant que nous avons pu le faire
+              pendant la création du site et du jeu.
             </Card.Text>
           </Card.Body>
         </Card>
@@ -43,7 +47,32 @@ const Team = ({ team, changeBg }) => {
                   <h3 className="contentBx__title1">{member.name} </h3>
                   <h3 className="contentBx__title2">{member.title} </h3>
                   <p className="contentBx__content">{member.description}</p>
-                  <FontAwesomeIcon icon={faLinkedin} size="lg" /><a target="_blank" rel="noopener noreferrer" className="contentBx__link" href={member.linkedIn} alt={`LinkedIn ${member.name}`}>LinkedIn</a><FontAwesomeIcon icon={faGithub} size="lg" /><a className="contentBx__link" target="_blank" rel="noopener noreferrer" href={member.gitHub} alt={`GitHub ${member.name}`}>GitHub</a>
+                  <FontAwesomeIcon
+                    icon={faLinkedin}
+                    size="lg"
+                  />
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="contentBx__link"
+                    href={member.linkedIn}
+                    alt={`LinkedIn ${member.name}`}
+                  >
+                    LinkedIn
+                  </a>
+                  <FontAwesomeIcon
+                    icon={faGithub}
+                    size="lg"
+                  />
+                  <a
+                    className="contentBx__link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href={member.gitHub}
+                    alt={`GitHub ${member.name}`}
+                  >
+                    GitHub
+                  </a>
                 </div>
               </div>
             </div>

@@ -6,7 +6,12 @@ import PropTypes from 'prop-types';
 // == Import local
 
 // == Component
-const LinkButton = ({ cssClassName, buttonName, url = '', onClick }) => (
+const LinkButton = ({
+  cssClassName,
+  buttonName,
+  url = '',
+  onClick,
+}) => (
   <NavLink
     exact
     to={url}

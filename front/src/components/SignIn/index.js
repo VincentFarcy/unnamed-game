@@ -10,10 +10,10 @@ import Field from '../UserFormField';
 const SignIn = ({
   userId,
   password,
-  changeField,
-  handleSignIn,
   errorMessages,
   isLogged,
+  changeField,
+  handleSignIn,
 }) => {
   //
   const handleSubmit = (evt) => {
@@ -75,10 +75,10 @@ const SignIn = ({
 SignIn.propTypes = {
   userId: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
-  changeField: PropTypes.func.isRequired,
-  handleSignIn: PropTypes.func.isRequired,
   errorMessages: PropTypes.array.isRequired,
   isLogged: PropTypes.bool.isRequired,
+  changeField: PropTypes.func.isRequired,
+  handleSignIn: PropTypes.func.isRequired,
 };
 
 // Valeurs par défaut pour les props

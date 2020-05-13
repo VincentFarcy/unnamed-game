@@ -10,12 +10,12 @@ import Button from '../LinkButton';
 
 // == Component
 const Sequence = ({
-  changeBg,
   sequence,
-  findSequence,
   php,
-  gameBackup,
   hp,
+  findSequence,
+  changeBg,
+  gameBackup,
 }) => {
   useEffect(findSequence, []);
   useEffect(gameBackup, []);
@@ -85,16 +85,16 @@ const Sequence = ({
 
 // == Props validation
 Sequence.propTypes = {
-  changeBg: PropTypes.func.isRequired,
   sequence: PropTypes.shape({
     title: PropTypes.string.isRequired,
     id: PropTypes.number.isRequired,
     mainText: PropTypes.string.isRequired,
   }).isRequired,
-  findSequence: PropTypes.func.isRequired,
-  gameBackup: PropTypes.func.isRequired,
   php: PropTypes.number.isRequired,
   hp: PropTypes.number.isRequired,
+  findSequence: PropTypes.func.isRequired,
+  changeBg: PropTypes.func.isRequired,
+  gameBackup: PropTypes.func.isRequired,
 };
 
 

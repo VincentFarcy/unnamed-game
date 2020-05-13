@@ -8,7 +8,6 @@ import Tooltip from 'react-bootstrap/Tooltip';
 // == Import local
 import './style.scss';
 
-
 // == Component
 const Ability = ({
   name,
@@ -67,10 +66,10 @@ const Ability = ({
 Ability.propTypes = {
   name: PropTypes.string.isRequired,
   value: PropTypes.number.isRequired,
+  image: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   increment: PropTypes.func.isRequired,
   decrement: PropTypes.func.isRequired,
-  image: PropTypes.string.isRequired,
 };
 
 

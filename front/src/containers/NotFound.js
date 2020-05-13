@@ -9,7 +9,6 @@ import { changeBg } from '../actions/gamePlay';
 
 /* === State (données) === */
 const mapStateToProps = (state) => ({
-  isGameOn: state.gameplay.gameOn,
   bgImageCssClass: state.gameplay.bgImageCssClass,
 });
 

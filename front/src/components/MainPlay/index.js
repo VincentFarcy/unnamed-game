@@ -16,9 +16,9 @@ import ErrorMessage from '../../containers/ErrorMessage';
 // == Component
 const MainPlay = ({
   hasError,
+  hasBackup,
   startGame,
   fetchInitialeGameData,
-  hasBackup,
   startBackupLoading,
   restartMusic,
 }) => {
@@ -78,9 +78,9 @@ const MainPlay = ({
 // == Props validation
 MainPlay.propTypes = {
   hasError: PropTypes.bool.isRequired,
+  hasBackup: PropTypes.bool.isRequired,
   startGame: PropTypes.func.isRequired,
   fetchInitialeGameData: PropTypes.func.isRequired,
-  hasBackup: PropTypes.bool.isRequired,
   startBackupLoading: PropTypes.func.isRequired,
   restartMusic: PropTypes.func.isRequired,
 };
