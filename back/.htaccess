@@ -6,18 +6,10 @@ Deny from all
 <FilesMatch "\.lock$">
 Deny from all
 </FilesMatch>
-<FilesMatch "\.babelrc$">
+<FilesMatch "\.env$">
 Deny from all
 </FilesMatch>
-<FilesMatch "\.eslintignore$">
+<FilesMatch "\.dist">
 Deny from all
 </FilesMatch>
-<FilesMatch "\.eslintrc$">
-Deny from all
-</FilesMatch>
-<FilesMatch "\.gitignore$">
-Deny from all
-</FilesMatch>
-<FilesMatch "\.lock$">
-Deny from all
-</FilesMatch>
+
