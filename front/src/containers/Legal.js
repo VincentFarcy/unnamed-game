@@ -28,7 +28,7 @@ const mapStateToProps = () => ({
     {
       name: 'hosting',
       title: '4. HÉBERGEMENT',
-      content: "L'ensemble du site est hebergé via Amazon Web Services Educate (https://aws.amazon.com/fr/education/awseducate/)",
+      content: "L'ensemble du site est hebergé sur Planet Hoster (https://www.planethoster.com)",
     },
     {
       name: 'cookies',

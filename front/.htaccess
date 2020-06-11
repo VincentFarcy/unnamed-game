@@ -1,0 +1,9 @@
+#https://www.developpez.net/forums/d1925221/webmasters-developpement-web/serveurs-apache-iis/apache/htaccess-restreindre-l-acces-fichiers-aux-visiteurs-uniquement/#post10671230
+
+<FilesMatch "\.json$">
+Deny from all
+</FilesMatch>
+<FilesMatch "\.lock$">
+Deny from all
+</FilesMatch>
+
