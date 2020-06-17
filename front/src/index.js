@@ -16,7 +16,7 @@ import store from 'src/store';
 // == Render
 const rootComponent = (
   <Provider store={store}>
-    <Router>
+    <Router basename="/projet-game/front/dist/">
       <App />
     </Router>
   </Provider>
